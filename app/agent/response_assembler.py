@@ -176,7 +176,7 @@ def build_profile_block(
             breeds.append(profile.secondary_breed)
     sex = profile.sex or profile.gender
     return {
-        "pet_name": profile.name.title(),
+        "pet_name": profile.name,
         "breeds": breeds,
         "birthday": profile.birthday,
         "gender": sex,
@@ -503,11 +503,11 @@ def build_product_recommendations(
                 ],
                 "why_selected": (
                     f"This product supplies approximately {int(round(fulfillment.coverage_pct))}% "
-                    f"of {profile.name.title()}'s recommended daily nutritional targets for "
+                    f"of {profile.name}'s recommended daily nutritional targets for "
                     f"{report.targeted_intervention.active_ingredient}."
                 ),
                 "combined_coverage_note": (
-                    f"Combined with {profile.name.title()}'s daily diet this achieves "
+                    f"Combined with {profile.name}'s daily diet this achieves "
                     f"{int(round(fulfillment.coverage_pct))}% of our recommended target."
                 ),
                 "advantages": ["Wagtopia curated formula"] if cat_row.get("brand") == "Wagtopia" else [],
@@ -597,7 +597,7 @@ def build_wellness_packages(
     catalog_df = repo.product_catalog()
     pricing_df = repo.product_pricing()
     rules_df = repo.product_feeding_rules()
-    pet_name = profile.name.title()
+    pet_name = profile.name
     top_goals = ", ".join(priority_label(h["goal_id"], h["title"]) for h in health_insights[:3])
 
     staples = _catalog_staples(catalog_df, pricing_df)
@@ -791,7 +791,8 @@ def build_wellness_packages(
             ),
             "activities_included": [a for a in activities_included if a],
             "why_fits": (
-                f"Designed for {js_round(profile.weight_kg)}kg biology with focus on "
+                # JS: `Designed for ${weightKg}kg` — keep raw number (2.5 not Math.round)
+                f"Designed for {profile.weight_kg if float(profile.weight_kg) != int(profile.weight_kg) else int(profile.weight_kg)}kg biology with focus on "
                 f"{top_goals or 'core preventative wellness'}."
             ),
             "subscribe_cta": f"Subscribe to {meta['title'].replace(' Care', '')} Care",
@@ -1012,7 +1013,7 @@ def build_preventative_nutrition_system(
 ) -> dict[str, Any]:
     """Port of src/engine/index.js buildPreventativeSystemOutput."""
     del health_insights
-    name = profile.name.title()
+    name = profile.name
     resolved_breeds = biology.get("resolved_breeds") or []
     current_climate = profile.current_environment
     age_years = float(profile.age_years)
@@ -1354,7 +1355,7 @@ def assemble_frontend_response(
     health_risk: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Top-level envelope matching FRONTEND_LAYOUT_SPEC.md / JS analyze()."""
-    pet_name = profile.name.title()
+    pet_name = profile.name
     meta = (health_risk or {}).get("meta") or {}
     profile_block = build_profile_block(profile, meta)
     biology_block = build_biology_block(biology, profile)

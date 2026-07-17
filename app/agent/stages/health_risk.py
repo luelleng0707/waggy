@@ -169,7 +169,11 @@ def compute_evidence_scores(trait_risks: list[dict[str, Any]], breeds: list[dict
     results = []
     for key, payload in by_condition.items():
         evidence = list(payload["by_category"].values())
-        base_risk = clamp_risk(sum(float(e["prevalence"]) for e in evidence))
+        # JS overlapEngine: reduce from 0 (classic float fold), not Python sum()
+        base_sum = 0.0
+        for e in evidence:
+            base_sum += float(e["prevalence"] or 0)
+        base_risk = clamp_risk(base_sum)
         confidence_percent = js_round((len(evidence) / TOTAL_TRAIT_CATEGORIES) * 1000) / 10
 
         factor = 1.0

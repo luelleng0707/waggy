@@ -72,11 +72,14 @@ def build_calculation_trace(
     weight_kg = profile.get("weight_kg")
     if isinstance(weight_kg, float) and weight_kg == int(weight_kg):
         weight_kg = int(weight_kg)
+    age_years = profile.get("age_years")
+    if isinstance(age_years, float) and age_years == int(age_years):
+        age_years = int(age_years)
 
     trace = []
     for insight in health_insights[:6]:
         observed_inputs = {
-            "age": f"{profile.get('age_years')} years",
+            "age": f"{age_years} years",
             "weight": f"{weight_kg}kg",
             "body_size": desc0.get("size"),
             "body_type": desc0.get("body_type"),
