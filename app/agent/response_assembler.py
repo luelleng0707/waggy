@@ -16,6 +16,14 @@ from app.agent.condition_lookup import (
     condition_matches,
     ingredient_key,
 )
+from app.agent.ingredient_engine import map_ingredients
+from app.agent.bundle_engine import build_monthly_plan, build_yearly_plan
+from app.agent.package_detail import (
+    activities_for_condition,
+    build_product_analysis,
+    enrich_package_for_detail,
+)
+from app.agent.pipeline_trace import build_pipeline_trace
 from app.agent.state import DogProfileInput, WellnessReportPayload
 from app.agent.utils import (
     DataRepository,
@@ -173,15 +181,70 @@ def build_profile_block(profile: DogProfileInput) -> dict[str, Any]:
     }
 
 
+def collect_evidence(
+    risks: list[dict[str, Any]],
+    ingredients: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Port of evidenceEngine.collectEvidence."""
+    evidence: list[dict[str, Any]] = []
+    seen: set[str] = set()
+
+    for risk in risks:
+        source = risk.get("source")
+        if source:
+            key = f"{source.get('source_url')}{source.get('source_quote')}"
+            if key not in seen:
+                seen.add(key)
+                evidence.append({
+                    "type": "breed",
+                    "condition": risk.get("condition_name"),
+                    "breed": source.get("breed"),
+                    "source_name": source.get("source_name"),
+                    "quote": source.get("source_quote"),
+                    "url": source.get("source_url"),
+                })
+
+    for ing in ingredients:
+        key = f"{ing.get('source_url')}{ing.get('evidence_quote')}"
+        if key not in seen:
+            seen.add(key)
+            evidence.append({
+                "type": "ingredient",
+                "condition": ing.get("ingredient_name"),
+                "breed": None,
+                "source_name": ing.get("source_name"),
+                "quote": ing.get("evidence_quote"),
+                "url": ing.get("source_url"),
+            })
+
+    return evidence
+
+
 def build_biology_block(biology: dict[str, Any], profile: DogProfileInput) -> dict[str, Any]:
-    traits: set[str] = set()
+    """Port of wellnessEngine.buildBiologySummary — Set insertion order, filtered descriptors."""
+    traits: list[str] = []
+    seen: set[str] = set()
     descriptors = []
     for breed in biology.get("resolved_breeds", []):
-        descriptors.append(breed)
-        for key in ("size", "body_type", "coat_type", "energy", "weakness_group", "function_group"):
-            val = breed.get(key)
-            if val:
-                traits.add(str(val))
+        size = breed.get("size") or breed.get("size_class")
+        body = breed.get("body_type")
+        coat = breed.get("coat_type")
+        energy = breed.get("energy") or breed.get("energy_level")
+        weakness = breed.get("weakness_group")
+        function = breed.get("function_group")
+        for val in (size, body, coat, energy, weakness, function):
+            if val and str(val) not in seen:
+                seen.add(str(val))
+                traits.append(str(val))
+        descriptors.append({
+            "breed": breed.get("breed") or breed.get("breed_name"),
+            "size": size,
+            "body_type": body,
+            "coat_type": coat,
+            "energy": energy,
+            "weakness_group": weakness,
+            "function_group": function,
+        })
     breeds = [profile.primary_breed]
     if profile.secondary_breed:
         breeds.append(profile.secondary_breed)
@@ -190,7 +253,7 @@ def build_biology_block(biology: dict[str, Any], profile: DogProfileInput) -> di
         "breed_count": len(biology.get("resolved_breeds", [])),
         "age_years": round(float(profile.age_years), 1),
         "age_stage": _age_stage(profile.age_years),
-        "trait_summary": sorted(traits),
+        "trait_summary": traits,
         "descriptors": descriptors,
     }
 
@@ -245,13 +308,11 @@ def build_health_insights(
             if label not in g["supporting_traits"]:
                 g["supporting_traits"].append(label)
 
-        source = r.get("source") or {}
-        source_name = r.get("source_name") or source.get("source_name")
-        if source_name:
+        if r.get("source_name"):
             g["evidence_sources"].append({
-                "source_name": source_name,
-                "source_quote": r.get("source_quote") or source.get("source_quote"),
-                "source_url": r.get("source_url") or source.get("source_url"),
+                "source_name": r.get("source_name"),
+                "source_quote": r.get("source_quote"),
+                "source_url": r.get("source_url"),
             })
 
     insights = []
@@ -289,26 +350,67 @@ def build_health_insights(
     return insights[:8]
 
 
-def build_wellness_coverage(health_insights: list[dict[str, Any]]) -> dict[str, Any]:
-    dimensions = []
-    for insight in health_insights[:6]:
-        base = min(98, 60 + insight["priority_score"] * 0.8)
-        dimensions.append({
-            "goal_id": insight["goal_id"],
-            "title": priority_label(insight["goal_id"], insight["title"]),
-            "coverage_percent": int(round(base)),
-        })
-    overall = (
-        int(round(sum(d["coverage_percent"] for d in dimensions) / len(dimensions)))
-        if dimensions
-        else 75
-    )
+def build_wellness_coverage(
+    health_insights: list[dict[str, Any]],
+    product_recs: list[dict[str, Any]] | None = None,
+    ingredients: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """Mirror src/engine/wellnessEngine.js buildWellnessCoverage."""
+    product_recs = product_recs or []
+    ingredients = ingredients or []
+    default_goals = [
+        "joint_health",
+        "skin_health",
+        "dental_health",
+        "digestive_health",
+        "weight_management",
+        "immune_support",
+        "activity_support",
+    ]
+    dimensions: dict[str, dict[str, Any]] = {
+        gid: {
+            "title": (WELLNESS_GOALS.get(gid) or {}).get("title", gid),
+            "coverage_percent": 72,
+        }
+        for gid in default_goals
+    }
+
+    for insight in health_insights:
+        products_for_goal = [p for p in product_recs if (p.get("coverage_percent") or 0) > 0]
+        base = min(
+            98,
+            60 + insight["priority_score"] * 0.8 + (insight.get("confidence_percent") or 0) * 0.2,
+        )
+        product_boost = (
+            min(15, products_for_goal[0]["coverage_percent"] * 0.1) if products_for_goal else 0
+        )
+        dimensions[insight["goal_id"]] = {
+            "title": insight["title"],
+            "coverage_percent": js_round(min(98, base + product_boost)),
+        }
+
+    if ingredients:
+        avg_ing = min(95, 70 + len(ingredients) * 4)
+        dimensions.setdefault(
+            "digestive_health",
+            {"title": "Digestive Health", "coverage_percent": avg_ing},
+        )
+        dimensions["digestive_health"]["coverage_percent"] = max(
+            dimensions["digestive_health"]["coverage_percent"],
+            avg_ing,
+        )
+
+    values = [d["coverage_percent"] for d in dimensions.values()]
+    overall = js_round(sum(values) / len(values)) if values else 75
     return {
         "overall_score": overall,
         "max_score": 100,
         "label": "Overall Wellness Coverage",
         "subtitle": "Nutritional coverage across preventative health priorities",
-        "dimensions": dimensions,
+        "dimensions": [
+            {"goal_id": gid, "title": d["title"], "coverage_percent": d["coverage_percent"]}
+            for gid, d in dimensions.items()
+        ],
     }
 
 
@@ -593,24 +695,34 @@ def build_wellness_packages(
 
         products_included = []
         for item in items:
-            pid = str(item.get("product_id") or "")
-            feeding = feeding_rule_for_product(rules_df, pid, profile.weight_kg) if pid else None
-            daily = (
-                f"{feeding['daily_amount']}{feeding['daily_unit']}/day"
-                if feeding
-                else "1 serving/day"
-            )
-            rec = next((p for p in product_recs if p.get("product_id") == pid), None)
+            # enrichPackageProduct (wellnessEngine.js) — serving from rec, not feeding rule.
+            name = item.get("name")
+            rec = next((p for p in product_recs if p.get("product_name") == name), None)
+            cat_row = _catalog_row(catalog_df, str(item.get("product_id") or ""))
+            pid = (rec or {}).get("product_id") or item.get("product_id") or cat_row.get("product_id")
+            unit_type = "units"
+            if pid:
+                prow = pricing_df[pricing_df["product_id"] == pid] if not pricing_df.empty else None
+                if prow is not None and not prow.empty and "unit_label" in prow.columns:
+                    unit_type = str(prow.iloc[0].get("unit_label") or "units")
+            daily = (rec or {}).get("serving_size") or "1 serving/day"
+            units_daily = float((rec or {}).get("units_needed_daily") or 1)
+            monthly_qty = js_round(units_daily * 30)
             products_included.append({
                 **item,
-                "serving_size": (rec or {}).get("serving_size") or daily,
+                "product_id": pid,
+                "brand": (rec or {}).get("brand") or item.get("brand") or cat_row.get("brand") or "Wagtopia",
+                "category": item.get("type"),
+                "serving_size": daily,
                 "daily_amount": daily,
-                "monthly_quantity": "30 units/month",
+                "monthly_quantity": f"{monthly_qty} {unit_type}/month",
+                "price": (rec or {}).get("price") if rec and rec.get("price") is not None else item.get("price"),
                 "coverage_percent": (rec or {}).get("coverage_percent") or 0,
                 "why_selected": (rec or {}).get("why_selected") or "",
                 "combined_coverage_note": (rec or {}).get("combined_coverage_note") or "",
                 "advantages": (rec or {}).get("advantages") or [],
                 "active_ingredients": (rec or {}).get("active_ingredients") or [],
+                "nutrition_contribution": (rec or {}).get("goal_coverage") or [],
             })
 
         monthly_raw = sum(float(i.get("monthly_cost") or 0) for i in products_included)
@@ -637,6 +749,16 @@ def build_wellness_packages(
 
         includes = _includes_summary_from_items(items, tier) + list(meta["includes_extra"])
 
+        activities_included: list[str] = []
+        for h in health_insights[:2]:
+            conds = h.get("supporting_conditions") or []
+            cond0 = conds[0] if conds else ""
+            acts = activities_for_condition(repo, str(cond0 or ""))
+            if acts:
+                activities_included.append(
+                    acts[0].get("activity_name") or acts[0].get("activity") or ""
+                )
+
         packages.append({
             "tier": tier,
             "title": meta["title"],
@@ -657,7 +779,7 @@ def build_wellness_packages(
                 f"{' while remaining budget-friendly' if tier == 'essential' else ''}"
                 f"{' while remaining cost efficient' if tier == 'balanced' else ''}."
             ),
-            "activities_included": [],
+            "activities_included": [a for a in activities_included if a],
             "why_fits": (
                 f"Designed for {js_round(profile.weight_kg)}kg biology with focus on "
                 f"{top_goals or 'core preventative wellness'}."
@@ -670,62 +792,39 @@ def build_wellness_packages(
 
 def build_package_details(
     packages: list[dict[str, Any]],
-    pet_name: str,
 ) -> dict[str, dict[str, Any]]:
-    details: dict[str, dict[str, Any]] = {}
-    for pkg in packages:
-        tier = pkg["tier"]
-        product_cards = [
-            {
-                "product_id": p.get("product_id"),
-                "product_name": p.get("name"),
-                "brand": p.get("brand"),
-                "category": p.get("category") or p.get("type"),
-                "daily_serving": p.get("daily_amount") or p.get("serving_size"),
-                "monthly_amount": p.get("monthly_quantity"),
-                "monthly_cost": p.get("monthly_cost"),
-            }
-            for p in pkg.get("products_included", [])
-        ]
-        summary = (
-            f"This package balances {pet_name}'s highest-priority nutritional targets using "
-            f"staple nutrition, targeted supplementation, and functional treats."
-            if pkg.get("recommended")
-            else (
-                f"This package prioritizes daily nutritional adequacy at the lowest long-term cost."
-                if tier == "essential"
-                else f"This package maximizes nutrient coverage across {pet_name}'s biological profile."
-            )
-        )
-        details[tier] = {
-            "tier": tier,
-            "title": pkg["title"],
-            "package_summary": summary,
-            "monthly_cost": pkg["monthly_cost"],
-            "yearly_cost": pkg["yearly_cost"],
-            "product_cards": product_cards,
-            "products_included": pkg.get("products_included", []),
-            "nutrition_coverage": pkg.get("nutrition_coverage", []),
-        }
-    return details
+    """JS: Object.fromEntries(wellnessPackages.map(p => [p.tier, p]))."""
+    return {pkg["tier"]: pkg for pkg in packages}
+
+def _js_dose_str(value: Any) -> str:
+    """Match JS template `${number}` — integers without trailing .0."""
+    try:
+        num = float(value)
+    except (TypeError, ValueError):
+        return str(value if value is not None else "")
+    if num == int(num):
+        return str(int(num))
+    return str(num)
 
 
-def build_nutritional_targets(nutrition: dict[str, Any]) -> list[dict[str, Any]]:
+def build_nutritional_targets(ingredients: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Port of wellnessEngine.buildNutritionalTargets(ingredients, healthInsights)."""
     targets = []
-    for t in nutrition.get("nutrient_targets", []):
-        dose = t.get("target_daily_dose", 0)
-        unit = t.get("dose_unit", "")
-        monthly = round(float(dose) * 30, 1) if dose else 0
+    for ing in ingredients:
+        supports_goals = []
+        for c in ing.get("for_conditions") or []:
+            goal_id = goal_for_condition(str(c))
+            supports_goals.append((WELLNESS_GOALS.get(goal_id) or {}).get("title") or "General Wellness")
+        unit = ing.get("unit") or ""
         targets.append({
-            "ingredient": t.get("ingredient_name"),
-            "ingredient_key": t.get("ingredient_key"),
-            "daily_target": f"{dose}{unit}",
-            "monthly_target": f"{monthly}{unit}",
-            "supports_goals": [t.get("condition")],
-            "for_conditions": [t.get("condition")],
-            "evidence_quote": None,
-            "source_name": t.get("source_name"),
-            "source_url": t.get("source_url"),
+            "ingredient": ing.get("ingredient_name"),
+            "ingredient_key": ing.get("ingredient_key"),
+            "daily_target": f"{_js_dose_str(ing.get('daily_dose'))}{unit}",
+            "monthly_target": f"{_js_dose_str(ing.get('monthly_dose'))}{unit}",
+            "supports_goals": supports_goals,
+            "evidence_quote": ing.get("evidence_quote"),
+            "source_name": ing.get("source_name"),
+            "source_url": ing.get("source_url"),
         })
     return targets
 
@@ -755,8 +854,10 @@ def build_activity_recommendations(biology: dict[str, Any], profile: DogProfileI
 def build_research_section(
     biology: dict[str, Any],
     health_insights: list[dict[str, Any]],
-    nutrition: dict[str, Any],
+    scientific_evidence: list[Any] | None,
+    nutritional_targets: list[dict[str, Any]],
 ) -> dict[str, Any]:
+    """Port of wellnessEngine.buildResearchSection."""
     return {
         "title": "Why did we recommend these products?",
         "biological_traits": biology.get("trait_summary", []),
@@ -771,238 +872,21 @@ def build_research_section(
         ],
         "ingredient_evidence": [
             {
-                "ingredient": t.get("ingredient_name"),
-                "supports": [t.get("condition")],
-                "quote": None,
+                "ingredient": t.get("ingredient"),
+                "supports": t.get("supports_goals"),
+                "quote": t.get("evidence_quote"),
                 "source_name": t.get("source_name"),
                 "source_url": t.get("source_url"),
             }
-            for t in nutrition.get("nutrient_targets", [])[:6]
+            for t in (nutritional_targets or [])[:6]
         ],
-        "literature": [],
+        "literature": (scientific_evidence or [])[:8],
     }
-
-
-def _ingredient_key(name: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "_", str(name or "").lower()).strip("_")
-
-
-_NUTRIENT_CATALOG = [
-    {"key": "glucosamine", "label": "Glucosamine", "unit": "mg", "aliases": []},
-    {"key": "omega_3", "label": "EPA+DHA", "unit": "mg", "aliases": ["omega-3", "epa", "dha"]},
-    {"key": "msm", "label": "MSM", "unit": "mg", "aliases": []},
-    {"key": "chondroitin_sulfate", "label": "Chondroitin", "unit": "mg", "aliases": ["chondroitin"]},
-    {"key": "l_carnitine", "label": "L-Carnitine", "unit": "mg", "aliases": []},
-    {"key": "taurine", "label": "Taurine", "unit": "mg", "aliases": []},
-    {"key": "lutein", "label": "Lutein", "unit": "mg", "aliases": []},
-    {"key": "probiotics", "label": "Probiotics", "unit": "billion CFU", "aliases": []},
-    {"key": "seaweed_blend", "label": "Seaweed Bioactives", "unit": "mg", "aliases": ["seaweed"]},
-    {"key": "zinc", "label": "Zinc", "unit": "mg", "aliases": []},
-]
-
-
-def _match_nutrient_key(name: str) -> dict[str, Any]:
-    n = _ingredient_key(name)
-    for cat in _NUTRIENT_CATALOG:
-        if cat["key"] == n:
-            return cat
-        if any(a in n for a in cat.get("aliases") or []):
-            return cat
-    return {"key": n, "label": name, "unit": "mg", "aliases": []}
 
 
 def _parse_num(value: Any) -> float:
     m = re.search(r"[-+]?\d*\.?\d+", str(value if value is not None else ""))
     return float(m.group(0)) if m else 0.0
-
-
-def _product_actives(repo: DataRepository, product_id: str) -> list[dict[str, Any]]:
-    comps = repo.product_components()
-    if comps.empty or not product_id:
-        return []
-    rows = comps[
-        (comps["product_id"] == product_id)
-        & (comps["component_type"].astype(str).str.lower() == "active_ingredient")
-    ]
-    out = []
-    for _, r in rows.iterrows():
-        name = str(r.get("component_name") or "")
-        out.append({
-            "ingredient_name": name,
-            "ingredient_key": _ingredient_key(name),
-            "amount_per_unit": float(pd.to_numeric(r.get("value"), errors="coerce") or 0),
-            "unit": r.get("unit") or "%",
-        })
-    return out
-
-
-def _ingredient_evidence_row(repo: DataRepository, key_or_name: str) -> dict[str, Any] | None:
-    df = repo.ingredient_evidence()
-    if df.empty:
-        return None
-    key = _ingredient_key(key_or_name)
-    for col in ("ingredient_key", "ingredient_name", "ingredient"):
-        if col not in df.columns:
-            continue
-        hit = df[df[col].astype(str).map(_ingredient_key) == key]
-        if not hit.empty:
-            return hit.iloc[0].to_dict()
-    return None
-
-
-def build_product_analysis(
-    product_name: str,
-    pkg: dict[str, Any],
-    nutritional_targets: list[dict[str, Any]],
-    product_recs: list[dict[str, Any]],
-    pet_name: str,
-    profile: DogProfileInput,
-    repo: DataRepository,
-) -> dict[str, Any]:
-    """Port of src/engine/packageDetailEngine.js buildProductAnalysis."""
-    rec = next((p for p in product_recs if p.get("product_name") == product_name), None)
-    catalog = repo.product_catalog()
-    db_prod = None
-    if not catalog.empty:
-        hit = catalog[catalog["product_name"] == product_name]
-        if hit.empty:
-            hit = catalog[catalog["product_id"] == (rec or {}).get("product_id")]
-        if not hit.empty:
-            db_prod = hit.iloc[0].to_dict()
-
-    pid = (rec or {}).get("product_id") or (db_prod or {}).get("product_id")
-    pricing = repo.product_pricing()
-    list_price = _list_price_rmb(pricing, str(pid)) if pid else 0.0
-    package_units = 30
-    if pid and not pricing.empty:
-        prow = pricing[pricing["product_id"] == pid]
-        if not prow.empty:
-            package_units = int(prow.iloc[0].get("package_units") or 30)
-
-    targets: dict[str, Any] = {}
-    for t in nutritional_targets:
-        cat = _match_nutrient_key(t.get("ingredient") or t.get("ingredient_key") or "")
-        dose = _parse_num(t.get("daily_target") or t.get("daily_dose") or 0)
-        unit = str(t.get("daily_target") or "").replace(str(dose), "").strip() if t.get("daily_target") else ""
-        targets[cat["key"]] = {
-            "target_daily": dose,
-            "unit": unit or cat.get("unit") or "mg",
-        }
-
-    pis = _product_actives(repo, str(pid or ""))
-    active_ingredients = []
-    for pi in pis:
-        cat = _match_nutrient_key(pi["ingredient_name"])
-        target = targets.get(cat["key"])
-        amount = float(pi["amount_per_unit"] or 0)
-        coverage = 0
-        if target and target.get("target_daily"):
-            coverage = min(150, js_round((amount / float(target["target_daily"])) * 100))
-        ev = _ingredient_evidence_row(repo, pi.get("ingredient_key") or pi["ingredient_name"]) or {}
-        active_ingredients.append({
-            "name": pi["ingredient_name"],
-            "amount": amount,
-            "unit": pi["unit"],
-            "target": (target or {}).get("target_daily") or 0,
-            "target_unit": (target or {}).get("unit") or pi["unit"],
-            "coverage_percent": coverage,
-            "evidence": {
-                "mechanism": "Supports nutrient target from CONDITION_INGREDIENTS mapping.",
-                "summary": ev.get("source_quote"),
-                "journal": ev.get("source_name"),
-                "year": ev.get("year"),
-                "source_url": ev.get("source_url"),
-            },
-        })
-
-    rule = feeding_rule_for_product(repo.product_feeding_rules(), str(pid), profile.weight_kg) if pid else None
-    if rule:
-        amt = rule["daily_amount"]
-        if isinstance(amt, float) and amt.is_integer():
-            amt = int(amt)
-        daily_str = f"{amt} {rule['daily_unit']}"
-    else:
-        daily_str = (rec or {}).get("serving_size") or "1 serving/day"
-
-    alternatives = [
-        {
-            "product_name": p.get("product_name"),
-            "reason": "Higher servings or calories required to match the same nutrient targets.",
-        }
-        for p in product_recs
-        if p.get("product_name") != product_name and pis
-    ][:2]
-
-    why_lines = [
-        f"Provides {a['coverage_percent']}% of {pet_name}'s {a['name']} target ({a['amount']}{a['unit']}/serving)."
-        for a in active_ingredients
-        if a["coverage_percent"] >= 50
-    ]
-    if not why_lines and pis:
-        why_lines.append(
-            f"Contributes functional compounds toward {pet_name}'s package nutrient targets."
-        )
-
-    rec_price = float((rec or {}).get("price") or 0)
-    name_l = product_name.lower()
-    if rec and rec.get("price") is not None:
-        unit_price = rec.get("price")
-    elif db_prod and db_prod.get("price") is not None:
-        unit_price = db_prod.get("price")
-    else:
-        unit_price = list_price if list_price else None
-    if isinstance(unit_price, float) and float(unit_price) == int(unit_price):
-        unit_price = int(unit_price)
-
-    cost: dict[str, Any] = {
-        "unit_price": unit_price,
-        "yearly_cost": js_round(rec_price * 12 * 0.92),
-    }
-    monthly_cost = (rec or {}).get("monthly_cost_estimate") or (rec or {}).get("price")
-    if monthly_cost is not None:
-        cost["monthly_cost"] = monthly_cost
-
-    return {
-        "product_id": pid,
-        "product_name": product_name,
-        "brand": (rec or {}).get("brand") or (db_prod or {}).get("brand"),
-        "category": (db_prod or {}).get("category") or (rec or {}).get("product_type"),
-        "package_tier": pkg.get("tier"),
-        "overview": (
-            f"{product_name} is included in {pet_name}'s {pkg.get('title') or 'care'} plan "
-            f"because it closes measurable nutrient gaps with deterministic serving math."
-        ),
-        "serving": {
-            "daily": daily_str,
-            "monthly_requirement": "30 servings" if (rec or {}).get("serving_size") else "—",
-            "calories_kcal": 420 if "fresh" in name_l else 14,
-            "weight_g": 5 if "chew" in name_l else 10,
-            "container_lasts_days": package_units,
-        },
-        "active_ingredients": active_ingredients,
-        "scientific_evidence": [
-            {
-                "ingredient": a["name"],
-                "mechanism": a["evidence"].get("mechanism"),
-                "summary": a["evidence"].get("summary"),
-                "journal": a["evidence"].get("journal"),
-                "year": a["evidence"].get("year"),
-                "source_url": a["evidence"].get("source_url"),
-                "recommended_daily": f"{a['target']}{a['target_unit']}",
-            }
-            for a in active_ingredients
-        ],
-        "why_included": why_lines,
-        "alternatives": alternatives,
-        "cost": cost,
-        "specifications": {
-            "brand": (rec or {}).get("brand") or (db_prod or {}).get("brand"),
-            "package_units": package_units,
-            "shelf_life_days": (db_prod or {}).get("shelf_life_days"),
-            "storage": (db_prod or {}).get("storage_method") or "Cool, dry place",
-            "category": (db_prod or {}).get("category"),
-        },
-    }
 
 
 def _infer_climate_compatibility(
@@ -1431,27 +1315,47 @@ def assemble_frontend_response(
 
     risks = (health_risk or {}).get("risks") or []
     health_insights = build_health_insights(risks, pet_name)
-    wellness_coverage = build_wellness_coverage(health_insights)
-    wellness_summary = build_wellness_summary(pet_name, biology_block, health_insights, wellness_coverage)
     product_recommendations = build_product_recommendations(reports, repo, profile)
+
+    # rawIngredients from mapIngredients (ingredientEngine.js)
+    raw_ingredients = map_ingredients(risks, profile.weight_kg, repo)
+
+    wellness_coverage = build_wellness_coverage(
+        health_insights, product_recommendations, raw_ingredients
+    )
+    wellness_summary = build_wellness_summary(pet_name, biology_block, health_insights, wellness_coverage)
     wellness_packages = build_wellness_packages(
         product_recommendations, health_insights, profile, wellness_coverage, repo
     )
-    package_details = build_package_details(wellness_packages, pet_name)
-    nutritional_targets = build_nutritional_targets(nutrition)
+    wellness_packages = [
+        enrich_package_for_detail(
+            pkg,
+            raw_ingredients,
+            product_recommendations,
+            pet_name,
+            profile.weight_kg,
+            repo,
+        )
+        for pkg in wellness_packages
+    ]
+    package_details = build_package_details(wellness_packages)
+    nutritional_targets = build_nutritional_targets(raw_ingredients)
     activity_recommendations = build_activity_recommendations(biology, profile)
-    research_section = build_research_section(biology_block, health_insights, nutrition)
+    scientific_evidence = collect_evidence(risks, raw_ingredients)
+    research_section = build_research_section(
+        biology_block, health_insights, scientific_evidence, nutritional_targets
+    )
 
     product_analyses: dict[str, Any] = {}
     for pkg in wellness_packages:
-        for card in pkg.get("products_included") or []:
-            name = card.get("name")
+        for card in pkg.get("product_cards") or []:
+            name = card.get("product_name") or card.get("name")
             pid = card.get("product_id") or name
             if not name:
                 continue
             # Later packages overwrite (JS overwrites FF002_BEEF with optimal tier last).
             product_analyses[pid] = build_product_analysis(
-                name, pkg, nutritional_targets, product_recommendations, pet_name, profile, repo
+                name, pkg, raw_ingredients, product_recommendations, pet_name, profile.weight_kg, repo
             )
 
     preventative = build_preventative_nutrition_system(
@@ -1484,8 +1388,9 @@ def assemble_frontend_response(
         for f in groomer_fields
     ]
 
-    legacy_risks = [
-        {
+    legacy_risks = []
+    for h in health_insights:
+        row: dict[str, Any] = {
             "condition": h["title"],
             "condition_key": h["goal_id"],
             "risk_percent": h["priority_score"],
@@ -1498,12 +1403,33 @@ def assemble_frontend_response(
             "logic": "wellness_insight",
             "groomer_boosted": h.get("groomer_priority"),
             "why": h.get("explanation"),
-            "source_name": (h.get("evidence_sources") or [{}])[0].get("source_name") if h.get("evidence_sources") else None,
-            "source_quote": (h.get("evidence_sources") or [{}])[0].get("source_quote") if h.get("evidence_sources") else None,
-            "source_url": (h.get("evidence_sources") or [{}])[0].get("source_url") if h.get("evidence_sources") else None,
         }
-        for h in health_insights
-    ]
+        # JS: h.evidence_sources[0]?.source_name — undefined omitted from JSON
+        src0 = (h.get("evidence_sources") or [None])[0] or {}
+        if src0.get("source_name") is not None:
+            row["source_name"] = src0.get("source_name")
+        if src0.get("source_quote") is not None:
+            row["source_quote"] = src0.get("source_quote")
+        if src0.get("source_url") is not None:
+            row["source_url"] = src0.get("source_url")
+        legacy_risks.append(row)
+
+    # JS pipelineEngine.buildPipelineTrace — not internal stage trace entries
+    pipeline_trace = build_pipeline_trace(
+        biology=biology,
+        risks=risks,
+        ingredients=raw_ingredients,
+        raw_products=[],
+        repo=repo,
+    )
+
+    monthly_plan = build_monthly_plan(
+        [],
+        profile.weight_kg,
+        _age_stage(profile.age_years),
+        repo,
+    )
+    yearly_plan = build_yearly_plan(monthly_plan, repo)
 
     return {
         "engine": "PPIE",
@@ -1533,17 +1459,8 @@ def assemble_frontend_response(
         "calculationTrace": [],
         "groomer": groomer,
         "preventativeNutritionSystem": preventative,
-        "monthly_plan": {
-            "title": "Monthly Wellness Plan",
-            "duration_days": 30,
-            "items": feeding_plan.get("items", []),
-            "total_cost": js_round(feeding_plan.get("monthly_cost_rmb", 0)),
-            "product_count": feeding_plan.get("product_count", 0),
-        },
-        "yearly_plan": {
-            "title": "Annual Optimized Plan",
-            "total_cost": js_round(feeding_plan.get("monthly_cost_rmb", 0) * 12 * 0.92),
-        },
+        "monthly_plan": monthly_plan,
+        "yearly_plan": yearly_plan,
         "wellness_score": wellness_coverage["overall_score"],
         "wellness_reports": [r.model_dump() for r in reports],
         "pipeline_trace": pipeline_trace,
@@ -1569,6 +1486,6 @@ def assemble_frontend_response(
         ],
         "products": product_recommendations,
         "activities": activity_recommendations.get("condition_specific", []),
-        "evidence": [],
-        "scientificEvidence": [],
+        "evidence": scientific_evidence,
+        "scientificEvidence": scientific_evidence,
     }
