@@ -2,7 +2,7 @@
 
 **Status:** Python is the sole production PPIE runtime.  
 **Archive tag:** `legacy-node-final` (`8575606`)  
-**Migration commits:** `282ddb7` (Python routes + docs), `8575606` (archive Node tree), retirement commit follows.
+**Migration commits:** `282ddb7` (Python routes + docs), `8575606` (archive Node tree), `0976b82` (Node retirement).
 
 ---
 
