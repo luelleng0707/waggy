@@ -1,0 +1,6 @@
+product_id,treat_type,bakery_type,protein_source,texture,weight_g,feeding_recommendation,storage_method,shelf_life_days
+TR003,biscuit,homestyle_bakery,chicken,baked,60,,cool_dry,30
+TR004,biscuit,homestyle_bakery,chicken,crunchy,70,,cool_dry,30
+TR005,crisps,homestyle_bakery,chicken,crispy,,,frozen,20
+TR006,jerky,homestyle_bakery,duck,chewy,50,,cool_dry,30
+TR007,crisps,homestyle_bakery,pork,crispy,,,cool_dry,30

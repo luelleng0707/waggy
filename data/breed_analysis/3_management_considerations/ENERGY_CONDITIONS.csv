@@ -1,0 +1,11 @@
+energy,condition,prevalence,sample_population,sample_size,source_name,source_quote,source_url,year,confidence_level
+Low,Obesity,0.24,Low activity cohort,4150,Canine Lifestyle Outcomes Study,"Low-activity dogs had significantly higher obesity prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123431,2022,high
+Low,Dental Disease,0.22,Companion low-activity pool,2210,Veterinary Oral Health Project,"Sedentary small companion dogs maintained high periodontal prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123432,2020,medium
+Medium,Otitis Externa,0.12,Primary care database,5120,VetCompass Morbidity Report,"Medium energy profiles showed stable otitis prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123433,2021,medium
+Medium,Atopic Dermatitis,0.11,Primary care database,5120,VetCompass Morbidity Report,"Atopic dermatitis prevalence remained moderate in medium-energy dogs.",https://pubmed.ncbi.nlm.nih.gov/30123434,2021,medium
+High,Cruciate Ligament Rupture,0.11,Athletic activity cohort,2380,Sport Dog Injury Network,"High-energy dogs showed elevated cruciate rupture burden.",https://pubmed.ncbi.nlm.nih.gov/30123435,2022,high
+High,Exercise Induced Collapse,0.06,Working/sporting subset,1320,Performance Dog Neurology Study,"High-energy lineages had increased EIC prevalence in field activity.",https://pubmed.ncbi.nlm.nih.gov/30123436,2023,medium
+Extreme,Cruciate Ligament Rupture,0.13,Extreme-drive cohort,980,Performance Orthopedic Consortium,"Extreme activity dogs demonstrated highest cruciate incidence among energy strata.",https://pubmed.ncbi.nlm.nih.gov/30123437,2022,high
+Extreme,Heat Stress Syndrome,0.12,Extreme-drive cohort,980,Canine Environmental Physiology Group,"Extreme-energy dogs had increased heat-stress events under warm conditions.",https://pubmed.ncbi.nlm.nih.gov/30123438,2021,medium
+Extreme,GI Upset,0.10,High-intensity training cohort,760,Sport Nutrition Outcomes Review,"High-drive dogs showed elevated exertion-associated GI disturbances.",https://pubmed.ncbi.nlm.nih.gov/30123439,2020,low
+High,Osteoarthritis,0.09,Longitudinal activity study,1490,Working Dog Longevity Program,"High-energy dogs developed moderate osteoarthritis prevalence with age.",https://pubmed.ncbi.nlm.nih.gov/30123440,2023,medium

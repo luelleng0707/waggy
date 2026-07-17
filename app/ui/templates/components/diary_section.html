@@ -1,0 +1,10 @@
+<div class="section-header"><h2>Grooming Diary</h2></div>
+<p class="section-footnote">Report: <strong>{{ diary_selected_label }}</strong></p>
+<table class="diary-table">
+  <thead><tr><th>Metric</th><th>Observation</th></tr></thead>
+  <tbody>
+    {% for row in diary_logs %}
+    <tr><td>{{ row.metric }}</td><td>{{ row.observation }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>

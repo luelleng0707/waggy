@@ -1,0 +1,17 @@
+<div class="metric-card">
+  <strong>{{ trace.name }}</strong><br>
+  Target: {{ trace.target }} | Provided: {{ trace.provided }} | Coverage: {{ trace.coverage }}%
+</div>
+<strong>Sources Matrix</strong>
+<ul>
+  {% for source in trace.sources %}
+  <li>{{ source }}</li>
+  {% endfor %}
+</ul>
+<div class="metric-card">
+  <strong>Supporting Evidence</strong><br>
+  {{ trace.quote }}<br>
+  <span style="font-size:13px;">Metadata: {{ trace.source_name }}</span>
+</div>
+<p><a href="{{ trace.source_url }}" target="_blank">View Study →</a></p>
+<hr>

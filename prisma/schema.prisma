@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Breed {
+  name           String           @id
+  sizeClass      String           @map("size_class")
+  avgWeightMin   Float            @map("avg_weight_min")
+  avgWeightMax   Float            @map("avg_weight_max")
+  coatType       String           @map("coat_type")
+  breedConditions BreedCondition[]
+
+  @@map("breeds")
+}
+
+model BreedCondition {
+  id            Int    @id @default(autoincrement())
+  breedName     String @map("breed_name")
+  conditionName String @map("condition_name")
+  riskPercent   Float  @map("risk_percent")
+  sourceName    String @map("source_name")
+  sourceQuote   String @map("source_quote")
+  sourceUrl     String @map("source_url")
+  breed         Breed  @relation(fields: [breedName], references: [name])
+
+  @@unique([breedName, conditionName])
+  @@map("breed_conditions")
+}
+
+model AgeCondition {
+  id            Int    @id @default(autoincrement())
+  ageStage      String @map("age_stage")
+  conditionName String @map("condition_name")
+  riskPercent   Float  @map("risk_percent")
+  sourceName    String @map("source_name")
+  sourceQuote   String @map("source_quote")
+  sourceUrl     String @map("source_url")
+
+  @@unique([ageStage, conditionName])
+  @@map("age_conditions")
+}
+
+model Ingredient {
+  ingredientName String              @id @map("ingredient_name")
+  benefits       String
+  evidenceQuote  String              @map("evidence_quote")
+  sourceName     String              @map("source_name")
+  sourceUrl      String              @map("source_url")
+  conditionLinks ConditionIngredient[]
+  productLinks   ProductIngredient[]
+
+  @@map("ingredients")
+}
+
+model ConditionIngredient {
+  id              Int        @id @default(autoincrement())
+  conditionName   String     @map("condition_name")
+  ingredientName  String     @map("ingredient_name")
+  dailyTargetMg   Float      @map("daily_target_mg")
+  ingredient      Ingredient @relation(fields: [ingredientName], references: [ingredientName])
+
+  @@unique([conditionName, ingredientName])
+  @@map("condition_ingredients")
+}
+
+model Product {
+  productName  String              @id @map("product_name")
+  brand        String
+  productType  String              @map("product_type")
+  price        Float
+  weightG      Float?              @map("weight_g")
+  unitCount    Int?                @map("unit_count")
+  shelfLifeDays Int?               @map("shelf_life_days")
+  freshBool    Boolean             @map("fresh_bool")
+  kcalPerPiece Float?              @map("kcal_per_piece")
+  ingredients  ProductIngredient[]
+
+  @@map("products")
+}
+
+model ProductIngredient {
+  id               Int        @id @default(autoincrement())
+  productName      String     @map("product_name")
+  ingredientName   String     @map("ingredient_name")
+  amountPerUnitMg  Float      @map("amount_per_unit_mg")
+  product          Product    @relation(fields: [productName], references: [productName])
+  ingredient       Ingredient @relation(fields: [ingredientName], references: [ingredientName])
+
+  @@unique([productName, ingredientName])
+  @@map("product_ingredients")
+}
+
+model GroomerObservation {
+  id          Int      @id @default(autoincrement())
+  petName     String   @map("pet_name")
+  observation String
+  severity    String
+  photoUrl    String?  @map("photo_url")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("groomer_observations")
+}

@@ -1,0 +1,14 @@
+node_modules/
+.env
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+parity_output/
+*.pyc
+.streamlit/secrets.toml

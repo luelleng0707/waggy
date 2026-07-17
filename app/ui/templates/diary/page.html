@@ -1,0 +1,25 @@
+<div class="device-frame">
+  <h3 class="hero-title">📔 Grooming Diary</h3>
+  <p class="soft">Select a date to reveal care logs.</p>
+
+  <div class="token-card">
+    <strong style="color:#E53A7F;">Report: {{ selected_label }}</strong>
+  </div>
+
+  <table style="width:100%; border-collapse:collapse; font-size:14px;">
+    <thead>
+      <tr style="border-bottom:1px solid #efe8e2;">
+        <th style="text-align:left; padding:8px;">Metric</th>
+        <th style="text-align:left; padding:8px;">Observation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in selected_logs %}
+      <tr style="border-bottom:1px solid #f5f0eb;">
+        <td style="padding:8px;">{{ row.metric }}</td>
+        <td style="padding:8px;">{{ row.observation }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

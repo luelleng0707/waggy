@@ -1,0 +1,2877 @@
+{
+  "engine": "PPIE",
+  "version": "2.1.0",
+  "pipeline_flow": [
+    "biology",
+    "health_risk",
+    "management",
+    "nutrition",
+    "products",
+    "feeding_plan"
+  ],
+  "variable_map": {
+    "pipeline_flow": [
+      "biology",
+      "health_risk",
+      "management",
+      "nutrition",
+      "products",
+      "feeding_plan"
+    ],
+    "profile_inputs": [
+      "breed",
+      "age_years",
+      "weight_kg",
+      "sex",
+      "bcs",
+      "activity_level",
+      "current_environment"
+    ],
+    "biology": {
+      "stage": 1,
+      "label": "Recognition Destructuring & Ancestry",
+      "files": {
+        "BREEDS": {
+          "path": "data/breed_analysis/1_biological_traits/BREEDS.csv",
+          "schema": [
+            "breed",
+            "body_size",
+            "body_type",
+            "coat_type",
+            "skull_type",
+            "energy_level",
+            "climate_adaptation",
+            "lifespan_profile"
+          ],
+          "runtime_aliases": {
+            "size": "body_size",
+            "energy": "energy_level",
+            "climate": "climate_adaptation",
+            "lifespan": "lifespan_profile"
+          }
+        },
+        "MIXED_BREED_MATRIX": {
+          "path": "data/breed_analysis/1_biological_traits/MIXED_BREED_MATRIX.csv",
+          "schema": [
+            "primary_breed",
+            "secondary_breed",
+            "breed_split_pct",
+            "inherited_traits"
+          ],
+          "runtime_aliases": {
+            "breed_a": "primary_breed",
+            "breed_b": "secondary_breed",
+            "condition": "inherited_traits",
+            "factor": "breed_split_pct"
+          }
+        },
+        "MIXED_BREED_INTERACTIONS": {
+          "path": "data/breed_analysis/1_biological_traits/MIXED_BREED_INTERACTIONS.csv",
+          "schema": [
+            "breed_combination",
+            "dominant_trait",
+            "suppressed_trait"
+          ],
+          "runtime_aliases": {
+            "trait_a": "dominant_trait",
+            "trait_b": "suppressed_trait",
+            "condition": "breed_combination",
+            "factor": "suppressed_trait"
+          }
+        },
+        "TRAIT_PURPOSES": {
+          "path": "data/breed_analysis/2_evolutionary_traits/TRAIT_PURPOSES.csv",
+          "schema": [
+            "trait",
+            "evolutionary_function",
+            "biological_advantages",
+            "adaptive_behavior",
+            "original_working_purpose"
+          ]
+        },
+        "ENVIRONMENTAL_MATRICES": {
+          "path": "data/breed_analysis/2_evolutionary_traits/ENVIRONMENTAL_MATRICES.csv",
+          "schema": [
+            "trait",
+            "environment",
+            "compatibility_score",
+            "benefits",
+            "management_requirements",
+            "scientific_source"
+          ]
+        }
+      }
+    },
+    "health_risk": {
+      "stage": 2,
+      "label": "Epidemiology Pools & Interaction Codes",
+      "formula": "final_priority = sum(prevalence_traits) * multiplier_effect",
+      "files": {
+        "BREED_CONDITIONS": {
+          "path": "data/breed_analysis/3_management_considerations/BREED_CONDITIONS.csv",
+          "schema": [
+            "breed",
+            "condition",
+            "prevalence",
+            "sample_size",
+            "confidence",
+            "study",
+            "source_url",
+            "year"
+          ]
+        },
+        "BODYTYPE_CONDITIONS": {
+          "path": "data/breed_analysis/3_management_considerations/BODYTYPE_CONDITIONS.csv",
+          "schema": [
+            "body_type",
+            "condition",
+            "prevalence",
+            "sample_size",
+            "confidence",
+            "study",
+            "source_url",
+            "year"
+          ]
+        },
+        "COATTYPE_CONDITIONS": {
+          "path": "data/breed_analysis/3_management_considerations/COATTYPE_CONDITIONS.csv",
+          "schema": [
+            "coat_type",
+            "condition",
+            "prevalence",
+            "sample_size",
+            "confidence",
+            "study",
+            "source_url",
+            "year"
+          ]
+        },
+        "TRAIT_INTERACTIONS": {
+          "path": "data/breed_analysis/3_management_considerations/TRAIT_INTERACTIONS.csv",
+          "schema": [
+            "trait_1",
+            "trait_2",
+            "target_condition",
+            "multiplier_effect"
+          ],
+          "runtime_aliases": {
+            "trait_a": "trait_1",
+            "trait_b": "trait_2",
+            "condition": "target_condition",
+            "factor": "multiplier_effect"
+          }
+        }
+      }
+    },
+    "management": {
+      "stage": 3,
+      "label": "Preventative Management",
+      "files": {
+        "TRAIT_BENEFITS": {
+          "path": "data/breed_analysis/4_preventative_management/TRAIT_BENEFITS.csv",
+          "schema": [
+            "trait",
+            "recommendation",
+            "benefit",
+            "environment",
+            "source"
+          ]
+        },
+        "CONDITION_ACTIVITIES": {
+          "path": "data/breed_analysis/4_preventative_management/CONDITION_ACTIVITIES.csv",
+          "schema": [
+            "condition",
+            "activity",
+            "priority_tier"
+          ]
+        },
+        "ACTIVITY_EVIDENCE": {
+          "path": "data/breed_analysis/4_preventative_management/ACTIVITY_EVIDENCE.csv",
+          "schema": [
+            "activity",
+            "frequency",
+            "duration",
+            "mechanism",
+            "study",
+            "quote",
+            "source_url"
+          ]
+        }
+      }
+    },
+    "nutrition": {
+      "stage": 4,
+      "label": "Clinical Ingredient Conversion",
+      "files": {
+        "CONDITION_INGREDIENTS": {
+          "path": "data/breed_analysis/5_scientific_nutrition/CONDITION_INGREDIENTS.csv",
+          "schema": [
+            "condition",
+            "ingredient_name",
+            "target_daily_dose",
+            "unit"
+          ],
+          "runtime_aliases": {
+            "recommended_daily_dose": "target_daily_dose",
+            "dose_unit": "unit"
+          }
+        },
+        "INGREDIENT_EVIDENCE": {
+          "path": "data/breed_analysis/5_scientific_nutrition/INGREDIENT_EVIDENCE.csv",
+          "schema": [
+            "ingredient_name",
+            "mechanism",
+            "evidence_level",
+            "clinical_study",
+            "doi",
+            "source_url"
+          ]
+        },
+        "INGREDIENT_MECHANISMS": {
+          "path": "data/breed_analysis/5_scientific_nutrition/INGREDIENT_MECHANISMS.csv",
+          "schema": [
+            "ingredient_name",
+            "biological_action",
+            "evidence_strength"
+          ]
+        },
+        "NATURAL_FOOD_SOURCES": {
+          "path": "data/breed_analysis/5_scientific_nutrition/NATURAL_FOOD_SOURCES.csv",
+          "schema": [
+            "ingredient_name",
+            "source_food_item",
+            "educational_notes"
+          ]
+        },
+        "NUTRIENT_PRIORITIES": {
+          "path": "data/breed_analysis/5_scientific_nutrition/NUTRIENT_PRIORITIES.csv",
+          "schema": [
+            "product_id",
+            "ingredient_name",
+            "target_intake",
+            "current_intake",
+            "required_intake",
+            "coverage_pct"
+          ]
+        }
+      }
+    },
+    "products": {
+      "stage": 5,
+      "label": "Inventory Fulfillment",
+      "formula": "unit_cost_per_bag = list_price_rmb / package_units",
+      "files": {
+        "PRODUCT_CATALOG": {
+          "path": "data/breed_analysis/product_portfolio/PRODUCT_CATALOG.csv",
+          "schema": [
+            "product_id",
+            "brand",
+            "category",
+            "subcategory",
+            "product_name",
+            "status",
+            "image_url",
+            "purchase_url"
+          ]
+        },
+        "PRODUCT_COMPONENTS": {
+          "path": "data/breed_analysis/product_portfolio/PRODUCT_COMPONENTS.csv",
+          "schema": [
+            "product_id",
+            "component_type",
+            "component_name",
+            "value",
+            "unit",
+            "evidence_level",
+            "notes"
+          ]
+        },
+        "PRODUCT_PRICING": {
+          "path": "data/breed_analysis/product_portfolio/PRODUCT_PRICING.csv",
+          "schema": [
+            "product_id",
+            "list_price_rmb",
+            "package_units",
+            "unit_label"
+          ]
+        },
+        "PRODUCT_FEEDING_RULES": {
+          "path": "data/breed_analysis/product_portfolio/PRODUCT_FEEDING_RULES.csv",
+          "schema": [
+            "product_id",
+            "weight_min_kg",
+            "weight_max_kg",
+            "daily_amount",
+            "daily_unit"
+          ],
+          "runtime_aliases": {
+            "min_weight_kg": "weight_min_kg",
+            "max_weight_kg": "weight_max_kg"
+          }
+        }
+      }
+    },
+    "feeding_plan": {
+      "stage": 6,
+      "label": "Feeding Plan Assembly",
+      "depends_on": [
+        "nutrition",
+        "products"
+      ]
+    }
+  },
+  "pipeline_trace": [
+    {
+      "stage": "biology",
+      "label": "Recognition Destructuring & Ancestry",
+      "source_files": [
+        "BREEDS",
+        "MIXED_BREED_MATRIX",
+        "MIXED_BREED_INTERACTIONS",
+        "TRAIT_PURPOSES",
+        "ENVIRONMENTAL_MATRICES"
+      ],
+      "record_counts": 1
+    },
+    {
+      "stage": "health_risk",
+      "label": "Epidemiology Pools & Interaction Codes",
+      "source_files": [
+        "BREED_CONDITIONS",
+        "BODYTYPE_CONDITIONS",
+        "COATTYPE_CONDITIONS",
+        "TRAIT_INTERACTIONS"
+      ],
+      "record_counts": 0
+    },
+    {
+      "stage": "management",
+      "label": "Preventative Management",
+      "source_files": [
+        "TRAIT_BENEFITS",
+        "CONDITION_ACTIVITIES",
+        "ACTIVITY_EVIDENCE"
+      ],
+      "record_counts": 0
+    },
+    {
+      "stage": "nutrition",
+      "label": "Clinical Ingredient Conversion",
+      "source_files": [
+        "CONDITION_INGREDIENTS",
+        "INGREDIENT_EVIDENCE",
+        "INGREDIENT_MECHANISMS",
+        "NATURAL_FOOD_SOURCES",
+        "NUTRIENT_PRIORITIES"
+      ],
+      "record_counts": 0,
+      "orphan_conditions": []
+    },
+    {
+      "stage": "products",
+      "label": "Inventory Fulfillment",
+      "source_files": [
+        "PRODUCT_CATALOG",
+        "PRODUCT_COMPONENTS",
+        "PRODUCT_PRICING",
+        "PRODUCT_FEEDING_RULES"
+      ],
+      "record_counts": 0,
+      "unmapped_ingredients": []
+    },
+    {
+      "stage": "feeding_plan",
+      "label": "Feeding Plan Assembly",
+      "source_files": [],
+      "record_counts": 1
+    }
+  ],
+  "profile": {
+    "pet_name": "Scout",
+    "breeds": [
+      "Border Collie"
+    ],
+    "birthday": "2017-02-08",
+    "gender": "Female",
+    "sex": "Female",
+    "bcs": null,
+    "activity_level": "Extreme",
+    "current_environment": "Rural Cool",
+    "weight_kg": 18,
+    "height_cm": null,
+    "age_years": 9.4,
+    "age_stage": "senior"
+  },
+  "biology": {
+    "breeds": [
+      "Border Collie"
+    ],
+    "breed_count": 1,
+    "age_years": 9.4,
+    "age_stage": "senior",
+    "trait_summary": [
+      "Medium",
+      "Athletic",
+      "Double Coat",
+      "Extreme",
+      "Neurological Heavy",
+      "Herding"
+    ],
+    "descriptors": [
+      {
+        "breed": "Border Collie",
+        "size": "Medium",
+        "body_type": "Athletic",
+        "coat_type": "Double Coat",
+        "energy": "Extreme",
+        "weakness_group": "Neurological Heavy",
+        "function_group": "Herding"
+      }
+    ]
+  },
+  "wellness_summary": {
+    "greeting": "Good evening",
+    "intro": "Based on Scout's breed, age, body size and biological characteristics, our veterinary research team estimates that preventative core wellness care will provide the greatest long-term health benefit.",
+    "closing": "We created several personalized wellness plans that balance health coverage and monthly cost.",
+    "wellness_score": 72,
+    "score_label": "Estimated Wellness Score",
+    "primary_priorities": [],
+    "traits_analysed": [
+      "Medium",
+      "Athletic",
+      "Double Coat",
+      "Extreme",
+      "Neurological Heavy",
+      "Herding"
+    ],
+    "analysis_detail": []
+  },
+  "wellness_coverage": {
+    "overall_score": 72,
+    "max_score": 100,
+    "label": "Overall Wellness Coverage",
+    "subtitle": "Nutritional coverage across preventative health priorities",
+    "dimensions": [
+      {
+        "goal_id": "joint_health",
+        "title": "Joint Health",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "skin_health",
+        "title": "Skin Health",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "dental_health",
+        "title": "Dental Health",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "digestive_health",
+        "title": "Digestive Health",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "weight_management",
+        "title": "Weight Management",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "immune_support",
+        "title": "Immune Support",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "activity_support",
+        "title": "Activity Support",
+        "coverage_percent": 72
+      }
+    ]
+  },
+  "healthInsights": [],
+  "nutritionalTargets": [],
+  "ingredientRequirements": [],
+  "productRecommendations": [],
+  "wellnessPackages": [
+    {
+      "tier": "essential",
+      "title": "Essential Care",
+      "recommended": false,
+      "best_for": "Budget-conscious owners.",
+      "tagline": "Provides the minimum evidence-supported nutritional coverage for Scout's biological needs while keeping monthly cost as low as possible.",
+      "description": "Provides the minimum evidence-supported nutritional coverage for Scout's biological needs while keeping monthly cost as low as possible.",
+      "coverage_score": 72,
+      "monthly_cost": 211,
+      "yearly_cost": 2405,
+      "includes_summary": [
+        "1 fresh food"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Single",
+          "monthly_cost": 293,
+          "product_id": "FF001",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 39,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 59
+        }
+      ],
+      "overview": "Our biological model estimates that Scout would benefit most from long-term preventative wellness support. This plan provides approximately 72% nutritional coverage across those priority areas while remaining budget-friendly.",
+      "activities_included": [],
+      "why_fits": "Designed for 18kg biology with focus on core preventative wellness.",
+      "subscribe_cta": "Subscribe to Essential Care",
+      "package_summary": "This package prioritizes daily nutritional adequacy at the lowest long-term cost using essential staple nutrition and core supplementation.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF001",
+          "product_name": "Fresh Dog Food Single",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "240g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 293
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 0,
+          "target_daily": 39.6,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 0,
+          "target_daily": 19.8,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 0,
+          "target_daily": 0.9,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 0,
+          "target_daily": 0.7,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 39.6,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 19.8,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 0.9,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 0.7,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "240g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 0g",
+            "Fat: 0g",
+            "Calcium: 0g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": []
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "240g/day \u00b7 Fresh Dog Food Single"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 0%",
+            "Fat 0%",
+            "Calcium 0%",
+            "Phosphorus 0%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Single",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$39",
+            "monthly_cost": 293
+          }
+        ],
+        "monthly_total": 211,
+        "yearly_total": 2405,
+        "annual_discount_percent": 5,
+        "savings_vs_monthly": 127
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        }
+      ]
+    },
+    {
+      "tier": "balanced",
+      "title": "Balanced Care",
+      "recommended": true,
+      "best_for": null,
+      "tagline": "Our recommended balance between health coverage and affordability.",
+      "description": "Our recommended balance between health coverage and affordability. Provides strong support for Scout's highest-priority health needs without unnecessary spending.",
+      "coverage_score": 88,
+      "monthly_cost": 261,
+      "yearly_cost": 2881,
+      "includes_summary": [
+        "Premium fresh food"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Combo - Beef Flavor",
+          "monthly_cost": 261,
+          "product_id": "FF002_BEEF",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 139,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 72
+        }
+      ],
+      "overview": "Our biological model estimates that Scout would benefit most from long-term preventative wellness support. This plan provides approximately 88% nutritional coverage across those priority areas while remaining cost efficient.",
+      "activities_included": [],
+      "why_fits": "Designed for 18kg biology with focus on core preventative wellness.",
+      "subscribe_cta": "Subscribe to Balanced Care",
+      "package_summary": "This package balances Scout's highest-priority nutritional targets using staple nutrition, targeted supplementation, and functional treats. PPIE selected this combination to maximize nutrient coverage while controlling daily calories.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF002_BEEF",
+          "product_name": "Fresh Dog Food Combo - Beef Flavor",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "240g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 261
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 130.3,
+          "target_daily": 39.6,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 71.3,
+          "target_daily": 19.8,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 1.7,
+          "target_daily": 0.9,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 1.2,
+          "target_daily": 0.7,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0.2,
+          "target_daily": 0,
+          "unit": "%",
+          "coverage_percent": 100,
+          "status": "Informational",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 39.6,
+          "provided": 130.3,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 130.3,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 19.8,
+          "provided": 71.3,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 71.3,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 0.9,
+          "provided": 1.7,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.7,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 0.7,
+          "provided": 1.2,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.2,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "target": 0,
+          "provided": 0.2,
+          "unit": "%",
+          "coverage_percent": 100,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 0.2,
+              "unit": "%"
+            }
+          ],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "240g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 130.3g",
+            "Fat: 71.3g",
+            "Calcium: 1.7g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": [
+            "Protein",
+            "Fat",
+            "Calcium",
+            "Phosphorus",
+            "EPA+DHA"
+          ]
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "240g/day \u00b7 Fresh Dog Food Combo - Beef Flavor"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 150%",
+            "Fat 150%",
+            "Calcium 150%",
+            "Phosphorus 150%",
+            "EPA+DHA 100%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Combo - Beef Flavor",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$139",
+            "monthly_cost": 261
+          }
+        ],
+        "monthly_total": 261,
+        "yearly_total": 2881,
+        "annual_discount_percent": 8,
+        "savings_vs_monthly": 251
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        }
+      ]
+    },
+    {
+      "tier": "optimal",
+      "title": "Optimal Care",
+      "recommended": false,
+      "best_for": null,
+      "tagline": "Designed for owners who want the highest possible nutritional coverage with minimal compromises.",
+      "description": "Designed for owners who want the highest possible nutritional coverage with minimal compromises.",
+      "coverage_score": 97,
+      "monthly_cost": 282,
+      "yearly_cost": 2978,
+      "includes_summary": [
+        "Premium fresh food",
+        "Skin support",
+        "Joint support",
+        "Digestive support"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Combo - Beef Flavor",
+          "monthly_cost": 261,
+          "product_id": "FF002_BEEF",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 139,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 81
+        }
+      ],
+      "overview": "Our biological model estimates that Scout would benefit most from long-term preventative wellness support. This plan provides approximately 97% nutritional coverage across those priority areas.",
+      "activities_included": [],
+      "why_fits": "Designed for 18kg biology with focus on core preventative wellness.",
+      "subscribe_cta": "Subscribe to Optimal Care",
+      "package_summary": "This package maximizes nutrient coverage across Scout's biological profile with complete supplementation and functional nutrition.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF002_BEEF",
+          "product_name": "Fresh Dog Food Combo - Beef Flavor",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "240g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 261
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 130.3,
+          "target_daily": 39.6,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 71.3,
+          "target_daily": 19.8,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 1.7,
+          "target_daily": 0.9,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 1.2,
+          "target_daily": 0.7,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0.2,
+          "target_daily": 0,
+          "unit": "%",
+          "coverage_percent": 100,
+          "status": "Informational",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 39.6,
+          "provided": 130.3,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 130.3,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 19.8,
+          "provided": 71.3,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 71.3,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 0.9,
+          "provided": 1.7,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.7,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 0.7,
+          "provided": 1.2,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.2,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "target": 0,
+          "provided": 0.2,
+          "unit": "%",
+          "coverage_percent": 100,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 0.2,
+              "unit": "%"
+            }
+          ],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "240g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 130.3g",
+            "Fat: 71.3g",
+            "Calcium: 1.7g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": [
+            "Protein",
+            "Fat",
+            "Calcium",
+            "Phosphorus",
+            "EPA+DHA"
+          ]
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "240g/day \u00b7 Fresh Dog Food Combo - Beef Flavor"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 150%",
+            "Fat 150%",
+            "Calcium 150%",
+            "Phosphorus 150%",
+            "EPA+DHA 100%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Combo - Beef Flavor",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$139",
+            "monthly_cost": 261
+          }
+        ],
+        "monthly_total": 282,
+        "yearly_total": 2978,
+        "annual_discount_percent": 12,
+        "savings_vs_monthly": 406
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        }
+      ]
+    }
+  ],
+  "packageDetails": {
+    "essential": {
+      "tier": "essential",
+      "title": "Essential Care",
+      "recommended": false,
+      "best_for": "Budget-conscious owners.",
+      "tagline": "Provides the minimum evidence-supported nutritional coverage for Scout's biological needs while keeping monthly cost as low as possible.",
+      "description": "Provides the minimum evidence-supported nutritional coverage for Scout's biological needs while keeping monthly cost as low as possible.",
+      "coverage_score": 72,
+      "monthly_cost": 211,
+      "yearly_cost": 2405,
+      "includes_summary": [
+        "1 fresh food"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Single",
+          "monthly_cost": 293,
+          "product_id": "FF001",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 39,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 59
+        }
+      ],
+      "overview": "Our biological model estimates that Scout would benefit most from long-term preventative wellness support. This plan provides approximately 72% nutritional coverage across those priority areas while remaining budget-friendly.",
+      "activities_included": [],
+      "why_fits": "Designed for 18kg biology with focus on core preventative wellness.",
+      "subscribe_cta": "Subscribe to Essential Care",
+      "package_summary": "This package prioritizes daily nutritional adequacy at the lowest long-term cost using essential staple nutrition and core supplementation.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF001",
+          "product_name": "Fresh Dog Food Single",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "240g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 293
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 0,
+          "target_daily": 39.6,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 0,
+          "target_daily": 19.8,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 0,
+          "target_daily": 0.9,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 0,
+          "target_daily": 0.7,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 39.6,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 19.8,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 0.9,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 0.7,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "240g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 0g",
+            "Fat: 0g",
+            "Calcium: 0g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": []
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "240g/day \u00b7 Fresh Dog Food Single"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 0%",
+            "Fat 0%",
+            "Calcium 0%",
+            "Phosphorus 0%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Single",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$39",
+            "monthly_cost": 293
+          }
+        ],
+        "monthly_total": 211,
+        "yearly_total": 2405,
+        "annual_discount_percent": 5,
+        "savings_vs_monthly": 127
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        }
+      ]
+    },
+    "balanced": {
+      "tier": "balanced",
+      "title": "Balanced Care",
+      "recommended": true,
+      "best_for": null,
+      "tagline": "Our recommended balance between health coverage and affordability.",
+      "description": "Our recommended balance between health coverage and affordability. Provides strong support for Scout's highest-priority health needs without unnecessary spending.",
+      "coverage_score": 88,
+      "monthly_cost": 261,
+      "yearly_cost": 2881,
+      "includes_summary": [
+        "Premium fresh food"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Combo - Beef Flavor",
+          "monthly_cost": 261,
+          "product_id": "FF002_BEEF",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 139,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 72
+        }
+      ],
+      "overview": "Our biological model estimates that Scout would benefit most from long-term preventative wellness support. This plan provides approximately 88% nutritional coverage across those priority areas while remaining cost efficient.",
+      "activities_included": [],
+      "why_fits": "Designed for 18kg biology with focus on core preventative wellness.",
+      "subscribe_cta": "Subscribe to Balanced Care",
+      "package_summary": "This package balances Scout's highest-priority nutritional targets using staple nutrition, targeted supplementation, and functional treats. PPIE selected this combination to maximize nutrient coverage while controlling daily calories.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF002_BEEF",
+          "product_name": "Fresh Dog Food Combo - Beef Flavor",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "240g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 261
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 130.3,
+          "target_daily": 39.6,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 71.3,
+          "target_daily": 19.8,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 1.7,
+          "target_daily": 0.9,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 1.2,
+          "target_daily": 0.7,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0.2,
+          "target_daily": 0,
+          "unit": "%",
+          "coverage_percent": 100,
+          "status": "Informational",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 39.6,
+          "provided": 130.3,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 130.3,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 19.8,
+          "provided": 71.3,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 71.3,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 0.9,
+          "provided": 1.7,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.7,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 0.7,
+          "provided": 1.2,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.2,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "target": 0,
+          "provided": 0.2,
+          "unit": "%",
+          "coverage_percent": 100,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 0.2,
+              "unit": "%"
+            }
+          ],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "240g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 130.3g",
+            "Fat: 71.3g",
+            "Calcium: 1.7g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": [
+            "Protein",
+            "Fat",
+            "Calcium",
+            "Phosphorus",
+            "EPA+DHA"
+          ]
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "240g/day \u00b7 Fresh Dog Food Combo - Beef Flavor"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 150%",
+            "Fat 150%",
+            "Calcium 150%",
+            "Phosphorus 150%",
+            "EPA+DHA 100%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Combo - Beef Flavor",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$139",
+            "monthly_cost": 261
+          }
+        ],
+        "monthly_total": 261,
+        "yearly_total": 2881,
+        "annual_discount_percent": 8,
+        "savings_vs_monthly": 251
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        }
+      ]
+    },
+    "optimal": {
+      "tier": "optimal",
+      "title": "Optimal Care",
+      "recommended": false,
+      "best_for": null,
+      "tagline": "Designed for owners who want the highest possible nutritional coverage with minimal compromises.",
+      "description": "Designed for owners who want the highest possible nutritional coverage with minimal compromises.",
+      "coverage_score": 97,
+      "monthly_cost": 282,
+      "yearly_cost": 2978,
+      "includes_summary": [
+        "Premium fresh food",
+        "Skin support",
+        "Joint support",
+        "Digestive support"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Combo - Beef Flavor",
+          "monthly_cost": 261,
+          "product_id": "FF002_BEEF",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 139,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 81
+        }
+      ],
+      "overview": "Our biological model estimates that Scout would benefit most from long-term preventative wellness support. This plan provides approximately 97% nutritional coverage across those priority areas.",
+      "activities_included": [],
+      "why_fits": "Designed for 18kg biology with focus on core preventative wellness.",
+      "subscribe_cta": "Subscribe to Optimal Care",
+      "package_summary": "This package maximizes nutrient coverage across Scout's biological profile with complete supplementation and functional nutrition.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF002_BEEF",
+          "product_name": "Fresh Dog Food Combo - Beef Flavor",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "240g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 261
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 130.3,
+          "target_daily": 39.6,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 71.3,
+          "target_daily": 19.8,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 1.7,
+          "target_daily": 0.9,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 1.2,
+          "target_daily": 0.7,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0.2,
+          "target_daily": 0,
+          "unit": "%",
+          "coverage_percent": 100,
+          "status": "Informational",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 39.6,
+          "provided": 130.3,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 130.3,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 19.8,
+          "provided": 71.3,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 71.3,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 0.9,
+          "provided": 1.7,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.7,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 0.7,
+          "provided": 1.2,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.2,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "target": 0,
+          "provided": 0.2,
+          "unit": "%",
+          "coverage_percent": 100,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 0.2,
+              "unit": "%"
+            }
+          ],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "240g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 130.3g",
+            "Fat: 71.3g",
+            "Calcium: 1.7g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": [
+            "Protein",
+            "Fat",
+            "Calcium",
+            "Phosphorus",
+            "EPA+DHA"
+          ]
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "206g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "240g/day \u00b7 Fresh Dog Food Combo - Beef Flavor"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 150%",
+            "Fat 150%",
+            "Calcium 150%",
+            "Phosphorus 150%",
+            "EPA+DHA 100%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Combo - Beef Flavor",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$139",
+            "monthly_cost": 261
+          }
+        ],
+        "monthly_total": 282,
+        "yearly_total": 2978,
+        "annual_discount_percent": 12,
+        "savings_vs_monthly": 406
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        }
+      ]
+    }
+  },
+  "productAnalyses": {
+    "FF001": {
+      "product_id": "FF001",
+      "product_name": "Fresh Dog Food Single",
+      "brand": "Wagtopia",
+      "category": "Fresh Food",
+      "package_tier": "essential",
+      "overview": "Fresh Dog Food Single is included in Scout's Essential Care plan because it closes measurable nutrient gaps with deterministic serving math.",
+      "serving": {
+        "daily": "240 g",
+        "monthly_requirement": "\u2014",
+        "calories_kcal": 420,
+        "weight_g": 10,
+        "container_lasts_days": 1
+      },
+      "active_ingredients": [],
+      "scientific_evidence": [],
+      "why_included": [],
+      "alternatives": [],
+      "cost": {
+        "unit_price": 39,
+        "yearly_cost": 0
+      },
+      "specifications": {
+        "brand": "Wagtopia",
+        "package_units": 1,
+        "shelf_life_days": 365,
+        "storage": "Cool, dry place",
+        "category": "Fresh Food"
+      }
+    },
+    "FF002_BEEF": {
+      "product_id": "FF002_BEEF",
+      "product_name": "Fresh Dog Food Combo - Beef Flavor",
+      "brand": "Wagtopia",
+      "category": "Fresh Food",
+      "package_tier": "optimal",
+      "overview": "Fresh Dog Food Combo - Beef Flavor is included in Scout's Optimal Care plan because it closes measurable nutrient gaps with deterministic serving math.",
+      "serving": {
+        "daily": "240 g",
+        "monthly_requirement": "\u2014",
+        "calories_kcal": 420,
+        "weight_g": 10,
+        "container_lasts_days": 4
+      },
+      "active_ingredients": [
+        {
+          "name": "Omega-3",
+          "amount": 0.2,
+          "unit": "%",
+          "target": 0,
+          "target_unit": "%",
+          "coverage_percent": 0,
+          "evidence": {
+            "mechanism": "Supports nutrient target from CONDITION_INGREDIENTS mapping.",
+            "summary": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "journal": "Inflammatory Lipid Modulation Study",
+            "year": 2022,
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+          }
+        }
+      ],
+      "scientific_evidence": [
+        {
+          "ingredient": "Omega-3",
+          "mechanism": "Supports nutrient target from CONDITION_INGREDIENTS mapping.",
+          "summary": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "journal": "Inflammatory Lipid Modulation Study",
+          "year": 2022,
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "recommended_daily": "0%"
+        }
+      ],
+      "why_included": [
+        "Contributes functional compounds toward Scout's package nutrient targets."
+      ],
+      "alternatives": [],
+      "cost": {
+        "unit_price": 139,
+        "yearly_cost": 0
+      },
+      "specifications": {
+        "brand": "Wagtopia",
+        "package_units": 4,
+        "shelf_life_days": 365,
+        "storage": "Cool, dry place",
+        "category": "Fresh Food"
+      }
+    }
+  },
+  "activityRecommendations": {
+    "recommended_daily_exercise": "56\u201371 minutes",
+    "suggested_physical": [
+      "Walking",
+      "Swimming",
+      "Fetch",
+      "Puzzle Toys"
+    ],
+    "suggested_mental": [
+      "Puzzle feeders",
+      "Training",
+      "Scent games",
+      "Mental enrichment"
+    ],
+    "lifestyle_tip": "Because Scout has working-breed ancestry, regular exercise and mental stimulation may support healthy weight and positive behaviour.",
+    "condition_specific": [],
+    "future_personalization_note": "Once walking history and activity logs are available, recommendations will automatically adapt."
+  },
+  "scientificEvidence": [],
+  "researchSection": {
+    "title": "Why did we recommend these products?",
+    "biological_traits": [
+      "Medium",
+      "Athletic",
+      "Double Coat",
+      "Extreme",
+      "Neurological Heavy",
+      "Herding"
+    ],
+    "health_priorities": [],
+    "ingredient_evidence": [],
+    "literature": []
+  },
+  "calculationTrace": [],
+  "groomer": [
+    {
+      "key": "eyes",
+      "label": "Eyes",
+      "match": [
+        "eyes",
+        "eye_discharge",
+        "tear_stains"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "ears",
+      "label": "Ears",
+      "match": [
+        "ears",
+        "ear_redness",
+        "odor"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "skin",
+      "label": "Skin",
+      "match": [
+        "skin",
+        "dry_skin",
+        "scratching",
+        "itching"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "teeth",
+      "label": "Teeth",
+      "match": [
+        "teeth",
+        "bad_breath"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "limps",
+      "label": "Limps",
+      "match": [
+        "limps",
+        "limping"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "shedding",
+      "label": "Shedding",
+      "match": [
+        "shedding"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "anal_gland",
+      "label": "Anal Gland",
+      "match": [
+        "anal_gland"
+      ],
+      "status": "clear",
+      "live": false
+    }
+  ],
+  "preventativeNutritionSystem": {
+    "pipeline_flow": [
+      "Dog Profile",
+      "Biological Traits",
+      "Management Considerations",
+      "Lifestyle Interventions",
+      "Nutritional Synthesis",
+      "Whole-Food Feeding Equivalents"
+    ],
+    "dog_profile": {
+      "pet_name": "Scout",
+      "breeds": [
+        "Border Collie"
+      ],
+      "birthday": "2017-02-08",
+      "gender": "Female",
+      "sex": "Female",
+      "bcs": null,
+      "activity_level": "Extreme",
+      "current_environment": "Rural Cool",
+      "weight_kg": 18,
+      "height_cm": null,
+      "age_years": 9.4,
+      "age_stage": "senior"
+    },
+    "biological_traits": [
+      {
+        "breed": "Border Collie",
+        "size": "Medium",
+        "body_type": "Athletic",
+        "coat_type": "Double Coat",
+        "energy": "Extreme",
+        "climate": "Cold Tolerant",
+        "skull_type": "Mesocephalic",
+        "function_group": "Herding",
+        "weakness_group": "Neurological Heavy",
+        "lifespan": "Long"
+      }
+    ],
+    "management_considerations": [],
+    "lifestyle_interventions": [],
+    "nutritional_synthesis": [],
+    "whole_food_feeding_equivalents": [],
+    "trait_analysis": [],
+    "preventative_health_priorities": [],
+    "standardized_outputs": {
+      "disease_risk_modifiers": [],
+      "environmental_compatibility_matrix": [
+        {
+          "breed": "Border Collie",
+          "trait_climate": "Cold Tolerant",
+          "current_climate": "Rural Cool",
+          "compatibility_score": 0.8
+        }
+      ],
+      "lifestyle_requirements": [],
+      "nutrition_priorities": []
+    },
+    "output_contracts": [],
+    "narrative_synthesis": "Scout inherited a Double Coat from their Border Collie ancestry. While advantageous for environmental adaptation and physiological resilience, in a Rural Cool environment, this trait presents specific management considerations, such as a 0% incidence of priority condition observed in breed-specific observational cohorts (Source: Veterinary comparative epidemiology dataset). To proactively manage this, lifestyle modifications including structured preventative exercise are recommended. Furthermore, based on veterinary physiology, targeted nutritional intervention with targeted nutrient support is required at a dosage of clinically mapped dose to support long-term health."
+  },
+  "pet": {
+    "pet_name": "Scout",
+    "breeds": [
+      "Border Collie"
+    ],
+    "birthday": "2017-02-08",
+    "gender": "Female",
+    "sex": "Female",
+    "bcs": null,
+    "activity_level": "Extreme",
+    "current_environment": "Rural Cool",
+    "weight_kg": 18,
+    "height_cm": null,
+    "age_years": 9.4,
+    "age_stage": "senior"
+  },
+  "wellness_score": 72,
+  "risks": [],
+  "ingredients": [],
+  "products": [],
+  "monthly_plan": {
+    "title": "Monthly Wellness Plan",
+    "duration_days": 30,
+    "items": [
+      {
+        "product_name": "Fresh Dog Food Combo - Beef Flavor",
+        "product_type": "fresh_food",
+        "daily": "240g/day",
+        "monthly": "7200g",
+        "depletion": "36 bag(s) exactly",
+        "quantity": 36,
+        "cost": 1251,
+        "unit_cost_per_bag": 34.75,
+        "fresh_warning": null
+      }
+    ],
+    "total_cost": 1251,
+    "product_count": 1
+  },
+  "yearly_plan": {
+    "title": "Annual Optimized Plan",
+    "duration_days": 365,
+    "items": [
+      {
+        "product_name": "Fresh Dog Food Combo - Beef Flavor",
+        "product_type": "fresh_food",
+        "daily": "240g/day",
+        "monthly": "7200g",
+        "depletion": "36 bag(s) exactly",
+        "quantity": 432,
+        "cost": 15012,
+        "unit_cost_per_bag": 34.75,
+        "fresh_warning": null,
+        "duration": "365 days"
+      }
+    ],
+    "total_cost": 15012,
+    "monthly_equivalent": 1251,
+    "savings": 0,
+    "savings_percent": 0,
+    "kibble_upgrade": {
+      "current": "Fresh Dog Food Single",
+      "recommended": "Fresh Dog Food Combo Mixed Flavors",
+      "reason": "Higher variety combo pack \u00b7 optimized omega profile for annual bundling"
+    },
+    "staple_upgrade": {
+      "current": "Fresh Dog Food Single",
+      "recommended": "Fresh Dog Food Combo Mixed Flavors",
+      "reason": "Higher variety combo pack \u00b7 optimized omega profile for annual bundling"
+    },
+    "bulk_notes": "Supplement bottles optimized \u00b7 combo fresh food packs \u00b7 treat renewal schedule"
+  },
+  "activities": [],
+  "evidence": []
+}

@@ -1,0 +1,39 @@
+{% from "components/macros.html" import section_title %}
+
+<h2 style="color:#7A1C4B;">{{ name }}</h2>
+
+<div class="metric-card">
+  <strong>Overview & Serving Matrix</strong><br>
+  Serving Size: {{ serving_size }} | Calorie Density: {{ calorie_density }}<br>
+  Monthly Requirement: {{ monthly_requirement }} | Container Lifespan: {{ container_lifespan }}
+</div>
+
+{{ section_title("Active Ingredients Profile Matrix") }}
+{% for active in actives %}
+{% set name = active.name %}
+{% set amount = active.amount %}
+{% set coverage = active.coverage %}
+{% include "components/ingredient_card.html" %}
+{% endfor %}
+
+{{ section_title("Verification Proof (Traceability Layer)") }}
+{% for ev in evidence %}
+  <div class="metric-card">
+    <strong>{{ ev.ingredient }}</strong><br>
+    Mechanism: {{ ev.mechanism }}<br>
+    Summary: {{ ev.summary }}<br>
+    Paper: {{ ev.paper }}<br>
+    Year: {{ ev.year }}<br>
+    DOI Link: <a href="{{ ev.doi_url }}" target="_blank">{{ ev.doi_url }}</a>
+  </div>
+{% endfor %}
+
+{{ section_title("Optimization Rationale Checklist") }}
+{% for item in checklist %}
+  <p>✅ {{ item }}</p>
+{% endfor %}
+
+<div class="metric-card">
+  <strong>Annual Subscription Math</strong><br>
+  Monthly net: {{ monthly_display }} · Discount factor: {{ discount_factor }} · Annual net: {{ annual_display }}
+</div>

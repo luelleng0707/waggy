@@ -1,0 +1,4043 @@
+{
+  "engine": "PPIE",
+  "version": "2.1.0",
+  "pipeline_flow": [
+    "biology",
+    "health_risk",
+    "management",
+    "nutrition",
+    "products",
+    "feeding_plan"
+  ],
+  "variable_map": {
+    "pipeline_flow": [
+      "biology",
+      "health_risk",
+      "management",
+      "nutrition",
+      "products",
+      "feeding_plan"
+    ],
+    "profile_inputs": [
+      "breed",
+      "age_years",
+      "weight_kg",
+      "sex",
+      "bcs",
+      "activity_level",
+      "current_environment"
+    ],
+    "biology": {
+      "stage": 1,
+      "label": "Recognition Destructuring & Ancestry",
+      "files": {
+        "BREEDS": {
+          "path": "data/breed_analysis/1_biological_traits/BREEDS.csv",
+          "schema": [
+            "breed",
+            "body_size",
+            "body_type",
+            "coat_type",
+            "skull_type",
+            "energy_level",
+            "climate_adaptation",
+            "lifespan_profile"
+          ],
+          "runtime_aliases": {
+            "size": "body_size",
+            "energy": "energy_level",
+            "climate": "climate_adaptation",
+            "lifespan": "lifespan_profile"
+          }
+        },
+        "MIXED_BREED_MATRIX": {
+          "path": "data/breed_analysis/1_biological_traits/MIXED_BREED_MATRIX.csv",
+          "schema": [
+            "primary_breed",
+            "secondary_breed",
+            "breed_split_pct",
+            "inherited_traits"
+          ],
+          "runtime_aliases": {
+            "breed_a": "primary_breed",
+            "breed_b": "secondary_breed",
+            "condition": "inherited_traits",
+            "factor": "breed_split_pct"
+          }
+        },
+        "MIXED_BREED_INTERACTIONS": {
+          "path": "data/breed_analysis/1_biological_traits/MIXED_BREED_INTERACTIONS.csv",
+          "schema": [
+            "breed_combination",
+            "dominant_trait",
+            "suppressed_trait"
+          ],
+          "runtime_aliases": {
+            "trait_a": "dominant_trait",
+            "trait_b": "suppressed_trait",
+            "condition": "breed_combination",
+            "factor": "suppressed_trait"
+          }
+        },
+        "TRAIT_PURPOSES": {
+          "path": "data/breed_analysis/2_evolutionary_traits/TRAIT_PURPOSES.csv",
+          "schema": [
+            "trait",
+            "evolutionary_function",
+            "biological_advantages",
+            "adaptive_behavior",
+            "original_working_purpose"
+          ]
+        },
+        "ENVIRONMENTAL_MATRICES": {
+          "path": "data/breed_analysis/2_evolutionary_traits/ENVIRONMENTAL_MATRICES.csv",
+          "schema": [
+            "trait",
+            "environment",
+            "compatibility_score",
+            "benefits",
+            "management_requirements",
+            "scientific_source"
+          ]
+        }
+      }
+    },
+    "health_risk": {
+      "stage": 2,
+      "label": "Epidemiology Pools & Interaction Codes",
+      "formula": "final_priority = sum(prevalence_traits) * multiplier_effect",
+      "files": {
+        "BREED_CONDITIONS": {
+          "path": "data/breed_analysis/3_management_considerations/BREED_CONDITIONS.csv",
+          "schema": [
+            "breed",
+            "condition",
+            "prevalence",
+            "sample_size",
+            "confidence",
+            "study",
+            "source_url",
+            "year"
+          ]
+        },
+        "BODYTYPE_CONDITIONS": {
+          "path": "data/breed_analysis/3_management_considerations/BODYTYPE_CONDITIONS.csv",
+          "schema": [
+            "body_type",
+            "condition",
+            "prevalence",
+            "sample_size",
+            "confidence",
+            "study",
+            "source_url",
+            "year"
+          ]
+        },
+        "COATTYPE_CONDITIONS": {
+          "path": "data/breed_analysis/3_management_considerations/COATTYPE_CONDITIONS.csv",
+          "schema": [
+            "coat_type",
+            "condition",
+            "prevalence",
+            "sample_size",
+            "confidence",
+            "study",
+            "source_url",
+            "year"
+          ]
+        },
+        "TRAIT_INTERACTIONS": {
+          "path": "data/breed_analysis/3_management_considerations/TRAIT_INTERACTIONS.csv",
+          "schema": [
+            "trait_1",
+            "trait_2",
+            "target_condition",
+            "multiplier_effect"
+          ],
+          "runtime_aliases": {
+            "trait_a": "trait_1",
+            "trait_b": "trait_2",
+            "condition": "target_condition",
+            "factor": "multiplier_effect"
+          }
+        }
+      }
+    },
+    "management": {
+      "stage": 3,
+      "label": "Preventative Management",
+      "files": {
+        "TRAIT_BENEFITS": {
+          "path": "data/breed_analysis/4_preventative_management/TRAIT_BENEFITS.csv",
+          "schema": [
+            "trait",
+            "recommendation",
+            "benefit",
+            "environment",
+            "source"
+          ]
+        },
+        "CONDITION_ACTIVITIES": {
+          "path": "data/breed_analysis/4_preventative_management/CONDITION_ACTIVITIES.csv",
+          "schema": [
+            "condition",
+            "activity",
+            "priority_tier"
+          ]
+        },
+        "ACTIVITY_EVIDENCE": {
+          "path": "data/breed_analysis/4_preventative_management/ACTIVITY_EVIDENCE.csv",
+          "schema": [
+            "activity",
+            "frequency",
+            "duration",
+            "mechanism",
+            "study",
+            "quote",
+            "source_url"
+          ]
+        }
+      }
+    },
+    "nutrition": {
+      "stage": 4,
+      "label": "Clinical Ingredient Conversion",
+      "files": {
+        "CONDITION_INGREDIENTS": {
+          "path": "data/breed_analysis/5_scientific_nutrition/CONDITION_INGREDIENTS.csv",
+          "schema": [
+            "condition",
+            "ingredient_name",
+            "target_daily_dose",
+            "unit"
+          ],
+          "runtime_aliases": {
+            "recommended_daily_dose": "target_daily_dose",
+            "dose_unit": "unit"
+          }
+        },
+        "INGREDIENT_EVIDENCE": {
+          "path": "data/breed_analysis/5_scientific_nutrition/INGREDIENT_EVIDENCE.csv",
+          "schema": [
+            "ingredient_name",
+            "mechanism",
+            "evidence_level",
+            "clinical_study",
+            "doi",
+            "source_url"
+          ]
+        },
+        "INGREDIENT_MECHANISMS": {
+          "path": "data/breed_analysis/5_scientific_nutrition/INGREDIENT_MECHANISMS.csv",
+          "schema": [
+            "ingredient_name",
+            "biological_action",
+            "evidence_strength"
+          ]
+        },
+        "NATURAL_FOOD_SOURCES": {
+          "path": "data/breed_analysis/5_scientific_nutrition/NATURAL_FOOD_SOURCES.csv",
+          "schema": [
+            "ingredient_name",
+            "source_food_item",
+            "educational_notes"
+          ]
+        },
+        "NUTRIENT_PRIORITIES": {
+          "path": "data/breed_analysis/5_scientific_nutrition/NUTRIENT_PRIORITIES.csv",
+          "schema": [
+            "product_id",
+            "ingredient_name",
+            "target_intake",
+            "current_intake",
+            "required_intake",
+            "coverage_pct"
+          ]
+        }
+      }
+    },
+    "products": {
+      "stage": 5,
+      "label": "Inventory Fulfillment",
+      "formula": "unit_cost_per_bag = list_price_rmb / package_units",
+      "files": {
+        "PRODUCT_CATALOG": {
+          "path": "data/breed_analysis/product_portfolio/PRODUCT_CATALOG.csv",
+          "schema": [
+            "product_id",
+            "brand",
+            "category",
+            "subcategory",
+            "product_name",
+            "status",
+            "image_url",
+            "purchase_url"
+          ]
+        },
+        "PRODUCT_COMPONENTS": {
+          "path": "data/breed_analysis/product_portfolio/PRODUCT_COMPONENTS.csv",
+          "schema": [
+            "product_id",
+            "component_type",
+            "component_name",
+            "value",
+            "unit",
+            "evidence_level",
+            "notes"
+          ]
+        },
+        "PRODUCT_PRICING": {
+          "path": "data/breed_analysis/product_portfolio/PRODUCT_PRICING.csv",
+          "schema": [
+            "product_id",
+            "list_price_rmb",
+            "package_units",
+            "unit_label"
+          ]
+        },
+        "PRODUCT_FEEDING_RULES": {
+          "path": "data/breed_analysis/product_portfolio/PRODUCT_FEEDING_RULES.csv",
+          "schema": [
+            "product_id",
+            "weight_min_kg",
+            "weight_max_kg",
+            "daily_amount",
+            "daily_unit"
+          ],
+          "runtime_aliases": {
+            "min_weight_kg": "weight_min_kg",
+            "max_weight_kg": "weight_max_kg"
+          }
+        }
+      }
+    },
+    "feeding_plan": {
+      "stage": 6,
+      "label": "Feeding Plan Assembly",
+      "depends_on": [
+        "nutrition",
+        "products"
+      ]
+    }
+  },
+  "pipeline_trace": [
+    {
+      "stage": "biology",
+      "label": "Recognition Destructuring & Ancestry",
+      "source_files": [
+        "BREEDS",
+        "MIXED_BREED_MATRIX",
+        "MIXED_BREED_INTERACTIONS",
+        "TRAIT_PURPOSES",
+        "ENVIRONMENTAL_MATRICES"
+      ],
+      "record_counts": 1
+    },
+    {
+      "stage": "health_risk",
+      "label": "Epidemiology Pools & Interaction Codes",
+      "source_files": [
+        "BREED_CONDITIONS",
+        "BODYTYPE_CONDITIONS",
+        "COATTYPE_CONDITIONS",
+        "TRAIT_INTERACTIONS"
+      ],
+      "record_counts": 2
+    },
+    {
+      "stage": "management",
+      "label": "Preventative Management",
+      "source_files": [
+        "TRAIT_BENEFITS",
+        "CONDITION_ACTIVITIES",
+        "ACTIVITY_EVIDENCE"
+      ],
+      "record_counts": 2
+    },
+    {
+      "stage": "nutrition",
+      "label": "Clinical Ingredient Conversion",
+      "source_files": [
+        "CONDITION_INGREDIENTS",
+        "INGREDIENT_EVIDENCE",
+        "INGREDIENT_MECHANISMS",
+        "NATURAL_FOOD_SOURCES",
+        "NUTRIENT_PRIORITIES"
+      ],
+      "record_counts": 2,
+      "orphan_conditions": [
+        "Degenerative Myelopathy"
+      ]
+    },
+    {
+      "stage": "products",
+      "label": "Inventory Fulfillment",
+      "source_files": [
+        "PRODUCT_CATALOG",
+        "PRODUCT_COMPONENTS",
+        "PRODUCT_PRICING",
+        "PRODUCT_FEEDING_RULES"
+      ],
+      "record_counts": 0,
+      "unmapped_ingredients": [
+        "Omega-3",
+        "Glucosamine"
+      ]
+    },
+    {
+      "stage": "feeding_plan",
+      "label": "Feeding Plan Assembly",
+      "source_files": [],
+      "record_counts": 1
+    }
+  ],
+  "profile": {
+    "pet_name": "Rex",
+    "breeds": [
+      "German Shepherd Dog"
+    ],
+    "birthday": "2018-04-12",
+    "gender": "Male",
+    "sex": "Male",
+    "bcs": null,
+    "activity_level": "High",
+    "current_environment": "Temperate Outdoor",
+    "weight_kg": 35,
+    "height_cm": null,
+    "age_years": 8.3,
+    "age_stage": "senior"
+  },
+  "biology": {
+    "breeds": [
+      "German Shepherd Dog"
+    ],
+    "breed_count": 1,
+    "age_years": 8.3,
+    "age_stage": "senior",
+    "trait_summary": [
+      "Large",
+      "Athletic",
+      "Double Coat",
+      "High",
+      "Joint Heavy",
+      "Working"
+    ],
+    "descriptors": [
+      {
+        "breed": "German Shepherd Dog",
+        "size": "Large",
+        "body_type": "Athletic",
+        "coat_type": "Double Coat",
+        "energy": "High",
+        "weakness_group": "Joint Heavy",
+        "function_group": "Working"
+      }
+    ]
+  },
+  "wellness_summary": {
+    "greeting": "Good evening",
+    "intro": "Based on Rex's breed, age, body size and biological characteristics, our veterinary research team estimates that preventative joint support and general wellness care will provide the greatest long-term health benefit.",
+    "closing": "We created several personalized wellness plans that balance health coverage and monthly cost.",
+    "wellness_score": 74,
+    "score_label": "Estimated Wellness Score",
+    "primary_priorities": [
+      "Joint Support",
+      "General Wellness"
+    ],
+    "traits_analysed": [
+      "Large",
+      "Athletic",
+      "Double Coat",
+      "High",
+      "Joint Heavy",
+      "Working"
+    ],
+    "analysis_detail": [
+      {
+        "goal_id": "joint_health",
+        "title": "Joint Support",
+        "biological_estimate_percent": 76.5,
+        "observed_prevalence_percent": 16.1,
+        "difference_percent": 60.4,
+        "supporting_traits": [
+          "Large body",
+          "Sporting build",
+          "Mesocephalic skull conformation",
+          "Cold Tolerant climate adaptation",
+          "Medium lifespan profile",
+          "Joint Heavy genetic architecture",
+          "Working working lineage"
+        ],
+        "explanation": "Our veterinary research team estimates Rex may benefit from preventative joint health support \u2014 elevated lifetime joint-support needs based on body conformation, size, and published veterinary prevalence studies. This does NOT mean Rex will develop illness; it highlights areas where long-term wellness care may help most."
+      },
+      {
+        "goal_id": "general_wellness",
+        "title": "General Wellness",
+        "biological_estimate_percent": 6.6,
+        "observed_prevalence_percent": 6.3,
+        "difference_percent": 0.3,
+        "supporting_traits": [],
+        "explanation": "Our veterinary research team estimates Rex may benefit from preventative general wellness support \u2014 preventative care may provide long-term benefit. This does NOT mean Rex will develop illness; it highlights areas where long-term wellness care may help most."
+      }
+    ]
+  },
+  "wellness_coverage": {
+    "overall_score": 74,
+    "max_score": 100,
+    "label": "Overall Wellness Coverage",
+    "subtitle": "Nutritional coverage across preventative health priorities",
+    "dimensions": [
+      {
+        "goal_id": "joint_health",
+        "title": "Joint Health",
+        "coverage_percent": 89
+      },
+      {
+        "goal_id": "skin_health",
+        "title": "Skin Health",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "dental_health",
+        "title": "Dental Health",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "digestive_health",
+        "title": "Digestive Health",
+        "coverage_percent": 78
+      },
+      {
+        "goal_id": "weight_management",
+        "title": "Weight Management",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "immune_support",
+        "title": "Immune Support",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "activity_support",
+        "title": "Activity Support",
+        "coverage_percent": 72
+      },
+      {
+        "goal_id": "general_wellness",
+        "title": "General Wellness",
+        "coverage_percent": 65
+      }
+    ]
+  },
+  "healthInsights": [
+    {
+      "goal_id": "joint_health",
+      "title": "Joint Health",
+      "priority_score": 16.9,
+      "biological_risk_percent": 76.5,
+      "observed_prevalence_percent": 16.1,
+      "confidence_percent": 77.8,
+      "evidence_count": 7,
+      "supporting_conditions": [
+        "Hip Dysplasia"
+      ],
+      "supporting_traits": [
+        "Large body",
+        "Sporting build",
+        "Mesocephalic skull conformation",
+        "Cold Tolerant climate adaptation",
+        "Medium lifespan profile",
+        "Joint Heavy genetic architecture",
+        "Working working lineage"
+      ],
+      "evidence_sources": [],
+      "groomer_priority": false,
+      "estimated_biological_risk_percent": 76.5,
+      "observed_breed_prevalence_percent": 16.1,
+      "estimate_vs_observed_difference": 60.4,
+      "explanation": "Our veterinary research team estimates Rex may benefit from preventative joint health support \u2014 elevated lifetime joint-support needs based on body conformation, size, and published veterinary prevalence studies. This does NOT mean Rex will develop illness; it highlights areas where long-term wellness care may help most.",
+      "why_this_matters": "elevated lifetime joint-support needs based on body conformation, size, and published veterinary prevalence studies",
+      "peer_reviewed_study_count": 0
+    },
+    {
+      "goal_id": "general_wellness",
+      "title": "General Wellness",
+      "priority_score": 6.6,
+      "biological_risk_percent": 6.6,
+      "observed_prevalence_percent": 6.3,
+      "confidence_percent": 0,
+      "evidence_count": 0,
+      "supporting_conditions": [
+        "Degenerative Myelopathy"
+      ],
+      "supporting_traits": [],
+      "evidence_sources": [],
+      "groomer_priority": false,
+      "estimated_biological_risk_percent": 6.6,
+      "observed_breed_prevalence_percent": 6.3,
+      "estimate_vs_observed_difference": 0.3,
+      "explanation": "Our veterinary research team estimates Rex may benefit from preventative general wellness support \u2014 preventative care may provide long-term benefit. This does NOT mean Rex will develop illness; it highlights areas where long-term wellness care may help most.",
+      "why_this_matters": "preventative care may provide long-term benefit",
+      "peer_reviewed_study_count": 0
+    }
+  ],
+  "nutritionalTargets": [
+    {
+      "ingredient": "Omega-3",
+      "ingredient_key": "omega_3",
+      "daily_target": "1000mg",
+      "monthly_target": "30000mg",
+      "supports_goals": [
+        "Joint Health"
+      ],
+      "evidence_quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+      "source_name": "Inflammatory Lipid Modulation Study",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+    },
+    {
+      "ingredient": "Glucosamine",
+      "ingredient_key": "glucosamine",
+      "daily_target": "500mg",
+      "monthly_target": "15000mg",
+      "supports_goals": [
+        "Joint Health"
+      ],
+      "evidence_quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+      "source_name": "Canine Joint Nutrition Trial",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621"
+    }
+  ],
+  "ingredientRequirements": [
+    {
+      "ingredient": "Omega-3",
+      "ingredient_key": "omega_3",
+      "daily_target": "1000mg",
+      "monthly_target": "30000mg",
+      "supports_goals": [
+        "Joint Health"
+      ],
+      "evidence_quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+      "source_name": "Inflammatory Lipid Modulation Study",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+    },
+    {
+      "ingredient": "Glucosamine",
+      "ingredient_key": "glucosamine",
+      "daily_target": "500mg",
+      "monthly_target": "15000mg",
+      "supports_goals": [
+        "Joint Health"
+      ],
+      "evidence_quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+      "source_name": "Canine Joint Nutrition Trial",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621"
+    }
+  ],
+  "productRecommendations": [],
+  "wellnessPackages": [
+    {
+      "tier": "essential",
+      "title": "Essential Care",
+      "recommended": false,
+      "best_for": "Budget-conscious owners.",
+      "tagline": "Provides the minimum evidence-supported nutritional coverage for Rex's biological needs while keeping monthly cost as low as possible.",
+      "description": "Provides the minimum evidence-supported nutritional coverage for Rex's biological needs while keeping monthly cost as low as possible.",
+      "coverage_score": 72,
+      "monthly_cost": 211,
+      "yearly_cost": 2405,
+      "includes_summary": [
+        "1 fresh food"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Single",
+          "monthly_cost": 293,
+          "product_id": "FF001",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 39,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 73
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 64
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 59
+        }
+      ],
+      "overview": "Our biological model estimates that Rex would benefit most from long-term joint support, general wellness support. This plan provides approximately 72% nutritional coverage across those priority areas while remaining budget-friendly.",
+      "activities_included": [
+        "Hydrotherapy treadmill"
+      ],
+      "why_fits": "Designed for 35kg biology with focus on Joint Support, General Wellness.",
+      "subscribe_cta": "Subscribe to Essential Care",
+      "package_summary": "This package prioritizes daily nutritional adequacy at the lowest long-term cost using essential staple nutrition and core supplementation.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF001",
+          "product_name": "Fresh Dog Food Single",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "340g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 293
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0,
+          "target_daily": 1000,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "nutrient_key": "glucosamine",
+          "provided": 0,
+          "target_daily": 500,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        },
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 0,
+          "target_daily": 77,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 0,
+          "target_daily": 38.5,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 0,
+          "target_daily": 1.8,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 0,
+          "target_daily": 1.4,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "EPA+DHA",
+          "target": 1000,
+          "provided": 0,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "target": 500,
+          "provided": 0,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [],
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        },
+        {
+          "nutrient": "Protein",
+          "target": 77,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 38.5,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 1.8,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 1.4,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "340g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "EPA+DHA: 0mg",
+            "Glucosamine: 0mg",
+            "Protein: 0g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": []
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "340g/day \u00b7 Fresh Dog Food Single"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "EPA+DHA 0%",
+            "Glucosamine 0%",
+            "Protein 0%",
+            "Fat 0%",
+            "Calcium 0%",
+            "Phosphorus 0%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Single",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$39",
+            "monthly_cost": 293
+          }
+        ],
+        "monthly_total": 211,
+        "yearly_total": 2405,
+        "annual_discount_percent": 5,
+        "savings_vs_monthly": 127
+      },
+      "research_notes": [
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        },
+        {
+          "nutrient": "Glucosamine",
+          "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+          "source_name": "Canine Joint Nutrition Trial",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+          "year": 2021
+        },
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        }
+      ]
+    },
+    {
+      "tier": "balanced",
+      "title": "Balanced Care",
+      "recommended": true,
+      "best_for": null,
+      "tagline": "Our recommended balance between health coverage and affordability.",
+      "description": "Our recommended balance between health coverage and affordability. Provides strong support for Rex's highest-priority health needs without unnecessary spending.",
+      "coverage_score": 88,
+      "monthly_cost": 261,
+      "yearly_cost": 2881,
+      "includes_summary": [
+        "Premium fresh food"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Combo - Beef Flavor",
+          "monthly_cost": 261,
+          "product_id": "FF002_BEEF",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 139,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 89
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 78
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 72
+        }
+      ],
+      "overview": "Our biological model estimates that Rex would benefit most from long-term joint support, general wellness support. This plan provides approximately 88% nutritional coverage across those priority areas while remaining cost efficient.",
+      "activities_included": [
+        "Hydrotherapy treadmill"
+      ],
+      "why_fits": "Designed for 35kg biology with focus on Joint Support, General Wellness.",
+      "subscribe_cta": "Subscribe to Balanced Care",
+      "package_summary": "This package balances Rex's highest-priority nutritional targets using staple nutrition, targeted supplementation, and functional treats. PPIE selected this combination to maximize nutrient coverage while controlling daily calories.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF002_BEEF",
+          "product_name": "Fresh Dog Food Combo - Beef Flavor",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "340g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 261
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 184.6,
+          "target_daily": 77,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 101,
+          "target_daily": 38.5,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 2.4,
+          "target_daily": 1.8,
+          "unit": "g",
+          "coverage_percent": 137,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 1.7,
+          "target_daily": 1.4,
+          "unit": "g",
+          "coverage_percent": 121,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0.2,
+          "target_daily": 1000,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "nutrient_key": "glucosamine",
+          "provided": 0,
+          "target_daily": 500,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 77,
+          "provided": 184.6,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 184.6,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 38.5,
+          "provided": 101,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 101,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 1.8,
+          "provided": 2.4,
+          "unit": "g",
+          "coverage_percent": 137,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 2.4,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 1.4,
+          "provided": 1.7,
+          "unit": "g",
+          "coverage_percent": 121,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.7,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "target": 1000,
+          "provided": 0.2,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 0.2,
+              "unit": "%"
+            }
+          ],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "target": 500,
+          "provided": 0,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [],
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "340g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 184.6g",
+            "Fat: 101g",
+            "Calcium: 2.4g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": [
+            "Protein",
+            "Fat",
+            "Calcium",
+            "Phosphorus"
+          ]
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "340g/day \u00b7 Fresh Dog Food Combo - Beef Flavor"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 150%",
+            "Fat 150%",
+            "Calcium 137%",
+            "Phosphorus 121%",
+            "EPA+DHA 0%",
+            "Glucosamine 0%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Combo - Beef Flavor",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$139",
+            "monthly_cost": 261
+          }
+        ],
+        "monthly_total": 261,
+        "yearly_total": 2881,
+        "annual_discount_percent": 8,
+        "savings_vs_monthly": 251
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        },
+        {
+          "nutrient": "Glucosamine",
+          "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+          "source_name": "Canine Joint Nutrition Trial",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "tier": "optimal",
+      "title": "Optimal Care",
+      "recommended": false,
+      "best_for": null,
+      "tagline": "Designed for owners who want the highest possible nutritional coverage with minimal compromises.",
+      "description": "Designed for owners who want the highest possible nutritional coverage with minimal compromises.",
+      "coverage_score": 97,
+      "monthly_cost": 282,
+      "yearly_cost": 2978,
+      "includes_summary": [
+        "Premium fresh food",
+        "Skin support",
+        "Joint support",
+        "Digestive support"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Combo - Beef Flavor",
+          "monthly_cost": 261,
+          "product_id": "FF002_BEEF",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 139,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 100
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 87
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 81
+        }
+      ],
+      "overview": "Our biological model estimates that Rex would benefit most from long-term joint support, general wellness support. This plan provides approximately 97% nutritional coverage across those priority areas.",
+      "activities_included": [
+        "Hydrotherapy treadmill"
+      ],
+      "why_fits": "Designed for 35kg biology with focus on Joint Support, General Wellness.",
+      "subscribe_cta": "Subscribe to Optimal Care",
+      "package_summary": "This package maximizes nutrient coverage across Rex's biological profile with complete supplementation and functional nutrition.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF002_BEEF",
+          "product_name": "Fresh Dog Food Combo - Beef Flavor",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "340g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 261
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 184.6,
+          "target_daily": 77,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 101,
+          "target_daily": 38.5,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 2.4,
+          "target_daily": 1.8,
+          "unit": "g",
+          "coverage_percent": 137,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 1.7,
+          "target_daily": 1.4,
+          "unit": "g",
+          "coverage_percent": 121,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0.2,
+          "target_daily": 1000,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "nutrient_key": "glucosamine",
+          "provided": 0,
+          "target_daily": 500,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 77,
+          "provided": 184.6,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 184.6,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 38.5,
+          "provided": 101,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 101,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 1.8,
+          "provided": 2.4,
+          "unit": "g",
+          "coverage_percent": 137,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 2.4,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 1.4,
+          "provided": 1.7,
+          "unit": "g",
+          "coverage_percent": 121,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.7,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "target": 1000,
+          "provided": 0.2,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 0.2,
+              "unit": "%"
+            }
+          ],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "target": 500,
+          "provided": 0,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [],
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "340g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 184.6g",
+            "Fat: 101g",
+            "Calcium: 2.4g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": [
+            "Protein",
+            "Fat",
+            "Calcium",
+            "Phosphorus"
+          ]
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "340g/day \u00b7 Fresh Dog Food Combo - Beef Flavor"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 150%",
+            "Fat 150%",
+            "Calcium 137%",
+            "Phosphorus 121%",
+            "EPA+DHA 0%",
+            "Glucosamine 0%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Combo - Beef Flavor",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$139",
+            "monthly_cost": 261
+          }
+        ],
+        "monthly_total": 282,
+        "yearly_total": 2978,
+        "annual_discount_percent": 12,
+        "savings_vs_monthly": 406
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        },
+        {
+          "nutrient": "Glucosamine",
+          "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+          "source_name": "Canine Joint Nutrition Trial",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+          "year": 2021
+        }
+      ]
+    }
+  ],
+  "packageDetails": {
+    "essential": {
+      "tier": "essential",
+      "title": "Essential Care",
+      "recommended": false,
+      "best_for": "Budget-conscious owners.",
+      "tagline": "Provides the minimum evidence-supported nutritional coverage for Rex's biological needs while keeping monthly cost as low as possible.",
+      "description": "Provides the minimum evidence-supported nutritional coverage for Rex's biological needs while keeping monthly cost as low as possible.",
+      "coverage_score": 72,
+      "monthly_cost": 211,
+      "yearly_cost": 2405,
+      "includes_summary": [
+        "1 fresh food"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Single",
+          "monthly_cost": 293,
+          "product_id": "FF001",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 39,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 73
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 64
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 59
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 59
+        }
+      ],
+      "overview": "Our biological model estimates that Rex would benefit most from long-term joint support, general wellness support. This plan provides approximately 72% nutritional coverage across those priority areas while remaining budget-friendly.",
+      "activities_included": [
+        "Hydrotherapy treadmill"
+      ],
+      "why_fits": "Designed for 35kg biology with focus on Joint Support, General Wellness.",
+      "subscribe_cta": "Subscribe to Essential Care",
+      "package_summary": "This package prioritizes daily nutritional adequacy at the lowest long-term cost using essential staple nutrition and core supplementation.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF001",
+          "product_name": "Fresh Dog Food Single",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "340g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 293
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0,
+          "target_daily": 1000,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "nutrient_key": "glucosamine",
+          "provided": 0,
+          "target_daily": 500,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        },
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 0,
+          "target_daily": 77,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 0,
+          "target_daily": 38.5,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 0,
+          "target_daily": 1.8,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 0,
+          "target_daily": 1.4,
+          "unit": "g",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": null
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "EPA+DHA",
+          "target": 1000,
+          "provided": 0,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "target": 500,
+          "provided": 0,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [],
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        },
+        {
+          "nutrient": "Protein",
+          "target": 77,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 38.5,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 1.8,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 1.4,
+          "provided": 0,
+          "unit": "g",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Single",
+              "amount": 0,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "340g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "EPA+DHA: 0mg",
+            "Glucosamine: 0mg",
+            "Protein: 0g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": []
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "340g/day \u00b7 Fresh Dog Food Single"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "EPA+DHA 0%",
+            "Glucosamine 0%",
+            "Protein 0%",
+            "Fat 0%",
+            "Calcium 0%",
+            "Phosphorus 0%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Single",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$39",
+            "monthly_cost": 293
+          }
+        ],
+        "monthly_total": 211,
+        "yearly_total": 2405,
+        "annual_discount_percent": 5,
+        "savings_vs_monthly": 127
+      },
+      "research_notes": [
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        },
+        {
+          "nutrient": "Glucosamine",
+          "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+          "source_name": "Canine Joint Nutrition Trial",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+          "year": 2021
+        },
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        }
+      ]
+    },
+    "balanced": {
+      "tier": "balanced",
+      "title": "Balanced Care",
+      "recommended": true,
+      "best_for": null,
+      "tagline": "Our recommended balance between health coverage and affordability.",
+      "description": "Our recommended balance between health coverage and affordability. Provides strong support for Rex's highest-priority health needs without unnecessary spending.",
+      "coverage_score": 88,
+      "monthly_cost": 261,
+      "yearly_cost": 2881,
+      "includes_summary": [
+        "Premium fresh food"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Combo - Beef Flavor",
+          "monthly_cost": 261,
+          "product_id": "FF002_BEEF",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 139,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 89
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 78
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 72
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 72
+        }
+      ],
+      "overview": "Our biological model estimates that Rex would benefit most from long-term joint support, general wellness support. This plan provides approximately 88% nutritional coverage across those priority areas while remaining cost efficient.",
+      "activities_included": [
+        "Hydrotherapy treadmill"
+      ],
+      "why_fits": "Designed for 35kg biology with focus on Joint Support, General Wellness.",
+      "subscribe_cta": "Subscribe to Balanced Care",
+      "package_summary": "This package balances Rex's highest-priority nutritional targets using staple nutrition, targeted supplementation, and functional treats. PPIE selected this combination to maximize nutrient coverage while controlling daily calories.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF002_BEEF",
+          "product_name": "Fresh Dog Food Combo - Beef Flavor",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "340g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 261
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 184.6,
+          "target_daily": 77,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 101,
+          "target_daily": 38.5,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 2.4,
+          "target_daily": 1.8,
+          "unit": "g",
+          "coverage_percent": 137,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 1.7,
+          "target_daily": 1.4,
+          "unit": "g",
+          "coverage_percent": 121,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0.2,
+          "target_daily": 1000,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "nutrient_key": "glucosamine",
+          "provided": 0,
+          "target_daily": 500,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 77,
+          "provided": 184.6,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 184.6,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 38.5,
+          "provided": 101,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 101,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 1.8,
+          "provided": 2.4,
+          "unit": "g",
+          "coverage_percent": 137,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 2.4,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 1.4,
+          "provided": 1.7,
+          "unit": "g",
+          "coverage_percent": 121,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.7,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "target": 1000,
+          "provided": 0.2,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 0.2,
+              "unit": "%"
+            }
+          ],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "target": 500,
+          "provided": 0,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [],
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "340g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 184.6g",
+            "Fat: 101g",
+            "Calcium: 2.4g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": [
+            "Protein",
+            "Fat",
+            "Calcium",
+            "Phosphorus"
+          ]
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "340g/day \u00b7 Fresh Dog Food Combo - Beef Flavor"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 150%",
+            "Fat 150%",
+            "Calcium 137%",
+            "Phosphorus 121%",
+            "EPA+DHA 0%",
+            "Glucosamine 0%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Combo - Beef Flavor",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$139",
+            "monthly_cost": 261
+          }
+        ],
+        "monthly_total": 261,
+        "yearly_total": 2881,
+        "annual_discount_percent": 8,
+        "savings_vs_monthly": 251
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        },
+        {
+          "nutrient": "Glucosamine",
+          "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+          "source_name": "Canine Joint Nutrition Trial",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+          "year": 2021
+        }
+      ]
+    },
+    "optimal": {
+      "tier": "optimal",
+      "title": "Optimal Care",
+      "recommended": false,
+      "best_for": null,
+      "tagline": "Designed for owners who want the highest possible nutritional coverage with minimal compromises.",
+      "description": "Designed for owners who want the highest possible nutritional coverage with minimal compromises.",
+      "coverage_score": 97,
+      "monthly_cost": 282,
+      "yearly_cost": 2978,
+      "includes_summary": [
+        "Premium fresh food",
+        "Skin support",
+        "Joint support",
+        "Digestive support"
+      ],
+      "products_included": [
+        {
+          "type": "fresh_food",
+          "name": "Fresh Dog Food Combo - Beef Flavor",
+          "monthly_cost": 261,
+          "product_id": "FF002_BEEF",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "serving_size": "1 serving/day",
+          "daily_amount": "1 serving/day",
+          "monthly_quantity": "30 bag/month",
+          "price": 139,
+          "coverage_percent": 0,
+          "why_selected": "",
+          "combined_coverage_note": "",
+          "advantages": [],
+          "active_ingredients": [],
+          "nutrition_contribution": []
+        }
+      ],
+      "nutrition_coverage": [
+        {
+          "goal_id": "joint_health",
+          "title": "Joint Support",
+          "coverage_percent": 100
+        },
+        {
+          "goal_id": "skin_health",
+          "title": "Skin Health",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "dental_health",
+          "title": "Dental Care",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "digestive_health",
+          "title": "Digestive Support",
+          "coverage_percent": 87
+        },
+        {
+          "goal_id": "weight_management",
+          "title": "Healthy Weight",
+          "coverage_percent": 81
+        },
+        {
+          "goal_id": "immune_support",
+          "title": "Immune Support",
+          "coverage_percent": 81
+        }
+      ],
+      "overview": "Our biological model estimates that Rex would benefit most from long-term joint support, general wellness support. This plan provides approximately 97% nutritional coverage across those priority areas.",
+      "activities_included": [
+        "Hydrotherapy treadmill"
+      ],
+      "why_fits": "Designed for 35kg biology with focus on Joint Support, General Wellness.",
+      "subscribe_cta": "Subscribe to Optimal Care",
+      "package_summary": "This package maximizes nutrient coverage across Rex's biological profile with complete supplementation and functional nutrition.",
+      "estimated_monthly_supply": "1 products \u00b7 30-day supply",
+      "product_cards": [
+        {
+          "product_id": "FF002_BEEF",
+          "product_name": "Fresh Dog Food Combo - Beef Flavor",
+          "brand": "Wagtopia",
+          "category": "fresh_food",
+          "image_url": null,
+          "daily_serving": "340g/day",
+          "monthly_amount": "30 bag/month",
+          "monthly_cost": 261
+        }
+      ],
+      "daily_nutrition_intake": [
+        {
+          "nutrient": "Protein",
+          "nutrient_key": "protein",
+          "provided": 184.6,
+          "target_daily": 77,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Fat",
+          "nutrient_key": "fat",
+          "provided": 101,
+          "target_daily": 38.5,
+          "unit": "g",
+          "coverage_percent": 150,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Calcium",
+          "nutrient_key": "calcium",
+          "provided": 2.4,
+          "target_daily": 1.8,
+          "unit": "g",
+          "coverage_percent": 137,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "nutrient_key": "phosphorus",
+          "provided": 1.7,
+          "target_daily": 1.4,
+          "unit": "g",
+          "coverage_percent": 121,
+          "status": "Meets target",
+          "evidence": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "nutrient_key": "omega_3",
+          "provided": 0.2,
+          "target_daily": 1000,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "nutrient_key": "glucosamine",
+          "provided": 0,
+          "target_daily": 500,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "status": "Below target",
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        }
+      ],
+      "full_nutrition_report": [
+        {
+          "nutrient": "Protein",
+          "target": 77,
+          "provided": 184.6,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 184.6,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Fat",
+          "target": 38.5,
+          "provided": 101,
+          "unit": "g",
+          "coverage_percent": 150,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 101,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Calcium",
+          "target": 1.8,
+          "provided": 2.4,
+          "unit": "g",
+          "coverage_percent": 137,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 2.4,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "Phosphorus",
+          "target": 1.4,
+          "provided": 1.7,
+          "unit": "g",
+          "coverage_percent": 121,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 1.7,
+              "unit": "g"
+            }
+          ],
+          "evidence": {
+            "quote": "Computed from product composition and published daily intake guidelines.",
+            "source_name": "PPIE deterministic nutrient model",
+            "source_url": null,
+            "year": null
+          }
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "target": 1000,
+          "provided": 0.2,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [
+            {
+              "product_name": "Fresh Dog Food Combo - Beef Flavor",
+              "amount": 0.2,
+              "unit": "%"
+            }
+          ],
+          "evidence": {
+            "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "source_name": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "year": 2022
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "target": 500,
+          "provided": 0,
+          "unit": "mg",
+          "coverage_percent": 0,
+          "sources": [],
+          "evidence": {
+            "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+            "source_name": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "year": 2021
+          }
+        }
+      ],
+      "feeding_strategies": [
+        {
+          "id": "A",
+          "title": "Staple Food Only",
+          "description": "Maximum calories from staple nutrition only.",
+          "items": [
+            "340g fresh food/day"
+          ],
+          "calories_estimate": 880,
+          "highlights": [
+            "Protein: 184.6g",
+            "Fat: 101g",
+            "Calcium: 2.4g"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Staple Food + Supplements",
+          "description": "Redistributes calories from staple food to targeted supplementation.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 903,
+          "highlights": [
+            "Protein",
+            "Fat",
+            "Calcium",
+            "Phosphorus"
+          ]
+        },
+        {
+          "id": "C",
+          "title": "Staple Food + Treats",
+          "description": "Uses functional treats for partial nutrient delivery.",
+          "items": [
+            "292g fresh food"
+          ],
+          "calories_estimate": 915,
+          "highlights": [
+            "Functional treat contribution",
+            "Maintains protein targets"
+          ]
+        },
+        {
+          "id": "D",
+          "title": "Complete Plan",
+          "description": "Full package feeding strategy for this care tier.",
+          "items": [
+            "340g/day \u00b7 Fresh Dog Food Combo - Beef Flavor"
+          ],
+          "calories_estimate": 928,
+          "highlights": [
+            "Protein 150%",
+            "Fat 150%",
+            "Calcium 137%",
+            "Phosphorus 121%",
+            "EPA+DHA 0%",
+            "Glucosamine 0%"
+          ]
+        }
+      ],
+      "cost_breakdown": {
+        "rows": [
+          {
+            "product_name": "Fresh Dog Food Combo - Beef Flavor",
+            "daily": "1 serving/day",
+            "monthly": "30 bag/month",
+            "unit_price": "$139",
+            "monthly_cost": 261
+          }
+        ],
+        "monthly_total": 282,
+        "yearly_total": 2978,
+        "annual_discount_percent": 12,
+        "savings_vs_monthly": 406
+      },
+      "research_notes": [
+        {
+          "nutrient": "Protein",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Fat",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Calcium",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "Phosphorus",
+          "quote": "Computed from product composition and published daily intake guidelines.",
+          "source_name": "PPIE deterministic nutrient model",
+          "source_url": null,
+          "year": null
+        },
+        {
+          "nutrient": "EPA+DHA",
+          "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "year": 2022
+        },
+        {
+          "nutrient": "Glucosamine",
+          "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+          "source_name": "Canine Joint Nutrition Trial",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+          "year": 2021
+        }
+      ]
+    }
+  },
+  "productAnalyses": {
+    "FF001": {
+      "product_id": "FF001",
+      "product_name": "Fresh Dog Food Single",
+      "brand": "Wagtopia",
+      "category": "Fresh Food",
+      "package_tier": "essential",
+      "overview": "Fresh Dog Food Single is included in Rex's Essential Care plan because it closes measurable nutrient gaps with deterministic serving math.",
+      "serving": {
+        "daily": "340 g",
+        "monthly_requirement": "\u2014",
+        "calories_kcal": 420,
+        "weight_g": 10,
+        "container_lasts_days": 1
+      },
+      "active_ingredients": [],
+      "scientific_evidence": [],
+      "why_included": [],
+      "alternatives": [],
+      "cost": {
+        "unit_price": 39,
+        "yearly_cost": 0
+      },
+      "specifications": {
+        "brand": "Wagtopia",
+        "package_units": 1,
+        "shelf_life_days": 365,
+        "storage": "Cool, dry place",
+        "category": "Fresh Food"
+      }
+    },
+    "FF002_BEEF": {
+      "product_id": "FF002_BEEF",
+      "product_name": "Fresh Dog Food Combo - Beef Flavor",
+      "brand": "Wagtopia",
+      "category": "Fresh Food",
+      "package_tier": "optimal",
+      "overview": "Fresh Dog Food Combo - Beef Flavor is included in Rex's Optimal Care plan because it closes measurable nutrient gaps with deterministic serving math.",
+      "serving": {
+        "daily": "340 g",
+        "monthly_requirement": "\u2014",
+        "calories_kcal": 420,
+        "weight_g": 10,
+        "container_lasts_days": 4
+      },
+      "active_ingredients": [
+        {
+          "name": "Omega-3",
+          "amount": 0.2,
+          "unit": "%",
+          "target": 1000,
+          "target_unit": "mg",
+          "coverage_percent": 0,
+          "evidence": {
+            "mechanism": "Supports nutrient target from CONDITION_INGREDIENTS mapping.",
+            "summary": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+            "journal": "Inflammatory Lipid Modulation Study",
+            "year": 2022,
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+          }
+        }
+      ],
+      "scientific_evidence": [
+        {
+          "ingredient": "Omega-3",
+          "mechanism": "Supports nutrient target from CONDITION_INGREDIENTS mapping.",
+          "summary": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+          "journal": "Inflammatory Lipid Modulation Study",
+          "year": 2022,
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+          "recommended_daily": "1000mg"
+        }
+      ],
+      "why_included": [
+        "Contributes functional compounds toward Rex's package nutrient targets."
+      ],
+      "alternatives": [],
+      "cost": {
+        "unit_price": 139,
+        "yearly_cost": 0
+      },
+      "specifications": {
+        "brand": "Wagtopia",
+        "package_units": 4,
+        "shelf_life_days": 365,
+        "storage": "Cool, dry place",
+        "category": "Fresh Food"
+      }
+    }
+  },
+  "activityRecommendations": {
+    "recommended_daily_exercise": "56\u201371 minutes",
+    "suggested_physical": [
+      "Walking",
+      "Swimming",
+      "Fetch",
+      "Puzzle Toys"
+    ],
+    "suggested_mental": [
+      "Puzzle feeders",
+      "Training",
+      "Scent games",
+      "Mental enrichment"
+    ],
+    "lifestyle_tip": "Because Rex has working-breed ancestry, regular exercise and mental stimulation may support healthy weight and positive behaviour.",
+    "condition_specific": [],
+    "future_personalization_note": "Once walking history and activity logs are available, recommendations will automatically adapt."
+  },
+  "scientificEvidence": [
+    {
+      "type": "breed",
+      "condition": "Hip Dysplasia",
+      "breed": "German Shepherd Dog",
+      "source_name": "OFA Breed Registry",
+      "quote": "German Shepherd Dogs carried elevated hip dysplasia prevalence.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123513"
+    },
+    {
+      "type": "breed",
+      "condition": "Degenerative Myelopathy",
+      "breed": "German Shepherd Dog",
+      "source_name": "Canine Neurology Outcomes Network",
+      "quote": "GSD cohorts showed measurable degenerative myelopathy prevalence.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123514"
+    },
+    {
+      "type": "ingredient",
+      "condition": "Omega-3",
+      "breed": null,
+      "source_name": "Inflammatory Lipid Modulation Study",
+      "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+    },
+    {
+      "type": "ingredient",
+      "condition": "Glucosamine",
+      "breed": null,
+      "source_name": "Canine Joint Nutrition Trial",
+      "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123621"
+    }
+  ],
+  "researchSection": {
+    "title": "Why did we recommend these products?",
+    "biological_traits": [
+      "Large",
+      "Athletic",
+      "Double Coat",
+      "High",
+      "Joint Heavy",
+      "Working"
+    ],
+    "health_priorities": [
+      {
+        "title": "Joint Support",
+        "biological_estimate_percent": 76.5,
+        "observed_prevalence_percent": 16.1,
+        "supporting_traits": [
+          "Large body",
+          "Sporting build",
+          "Mesocephalic skull conformation",
+          "Cold Tolerant climate adaptation",
+          "Medium lifespan profile",
+          "Joint Heavy genetic architecture",
+          "Working working lineage"
+        ]
+      },
+      {
+        "title": "General Wellness",
+        "biological_estimate_percent": 6.6,
+        "observed_prevalence_percent": 6.3,
+        "supporting_traits": []
+      }
+    ],
+    "ingredient_evidence": [
+      {
+        "ingredient": "Omega-3",
+        "supports": [
+          "Joint Health"
+        ],
+        "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+        "source_name": "Inflammatory Lipid Modulation Study",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+      },
+      {
+        "ingredient": "Glucosamine",
+        "supports": [
+          "Joint Health"
+        ],
+        "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+        "source_name": "Canine Joint Nutrition Trial",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621"
+      }
+    ],
+    "literature": [
+      {
+        "type": "breed",
+        "condition": "Hip Dysplasia",
+        "breed": "German Shepherd Dog",
+        "source_name": "OFA Breed Registry",
+        "quote": "German Shepherd Dogs carried elevated hip dysplasia prevalence.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30123513"
+      },
+      {
+        "type": "breed",
+        "condition": "Degenerative Myelopathy",
+        "breed": "German Shepherd Dog",
+        "source_name": "Canine Neurology Outcomes Network",
+        "quote": "GSD cohorts showed measurable degenerative myelopathy prevalence.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30123514"
+      },
+      {
+        "type": "ingredient",
+        "condition": "Omega-3",
+        "breed": null,
+        "source_name": "Inflammatory Lipid Modulation Study",
+        "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+      },
+      {
+        "type": "ingredient",
+        "condition": "Glucosamine",
+        "breed": null,
+        "source_name": "Canine Joint Nutrition Trial",
+        "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30123621"
+      }
+    ]
+  },
+  "calculationTrace": [
+    {
+      "condition": "Joint Health",
+      "observed_inputs": {
+        "age": "8.3 years",
+        "weight": "35kg",
+        "body_size": "Large",
+        "body_type": "Athletic",
+        "coat_type": "Double Coat",
+        "skull": null,
+        "activity": "High",
+        "breed_mix": [
+          "German Shepherd Dog"
+        ]
+      },
+      "published_evidence": [
+        {
+          "breed": "German Shepherd Dog",
+          "condition": "Hip Dysplasia",
+          "observed_prevalence_percent": 16.1,
+          "study_population": "GSD registry cohort",
+          "sample_size": 2870,
+          "source_title": "OFA Breed Registry",
+          "source_journal": "OFA Breed Registry",
+          "source_year": 2022,
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123513"
+        }
+      ],
+      "trait_contributions": [
+        {
+          "trait": "Large body",
+          "role": "primary",
+          "explanation": "Matched against normalized epidemiology tables in deterministic trait aggregation."
+        },
+        {
+          "trait": "Sporting build",
+          "role": "primary",
+          "explanation": "Matched against normalized epidemiology tables in deterministic trait aggregation."
+        },
+        {
+          "trait": "Mesocephalic skull conformation",
+          "role": "supporting",
+          "explanation": "Matched against normalized epidemiology tables in deterministic trait aggregation."
+        },
+        {
+          "trait": "Cold Tolerant climate adaptation",
+          "role": "supporting",
+          "explanation": "Matched against normalized epidemiology tables in deterministic trait aggregation."
+        },
+        {
+          "trait": "Medium lifespan profile",
+          "role": "supporting",
+          "explanation": "Matched against normalized epidemiology tables in deterministic trait aggregation."
+        },
+        {
+          "trait": "Joint Heavy genetic architecture",
+          "role": "supporting",
+          "explanation": "Matched against normalized epidemiology tables in deterministic trait aggregation."
+        },
+        {
+          "trait": "Working working lineage",
+          "role": "supporting",
+          "explanation": "Matched against normalized epidemiology tables in deterministic trait aggregation."
+        }
+      ],
+      "nutrient_targets": [
+        {
+          "nutrient": "Omega-3",
+          "target_daily_value": 1000,
+          "unit": "mg",
+          "reason": "Supports joint health requirements from deterministic profile-to-nutrient mapping.",
+          "evidence": {
+            "source_title": "Inflammatory Lipid Modulation Study",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622",
+            "summary": "EPA and DHA intake was associated with reduced inflammatory cytokine expression."
+          }
+        },
+        {
+          "nutrient": "Glucosamine",
+          "target_daily_value": 500,
+          "unit": "mg",
+          "reason": "Supports joint health requirements from deterministic profile-to-nutrient mapping.",
+          "evidence": {
+            "source_title": "Canine Joint Nutrition Trial",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621",
+            "summary": "Daily glucosamine supplementation improved force-plate symmetry over 90 days."
+          }
+        }
+      ],
+      "product_contributions": [],
+      "decision_log": [
+        "PPIE compared Rex's observed profile with deterministic trait-risk tables.",
+        "Published breed epidemiology for joint health was matched across 1 breed input(s).",
+        "Nutrient targets were generated from CONDITION_INGREDIENTS and INGREDIENT_EVIDENCE mappings.",
+        "No direct nutrient-mapped product was selected for this priority."
+      ]
+    },
+    {
+      "condition": "General Wellness",
+      "observed_inputs": {
+        "age": "8.3 years",
+        "weight": "35kg",
+        "body_size": "Large",
+        "body_type": "Athletic",
+        "coat_type": "Double Coat",
+        "skull": null,
+        "activity": "High",
+        "breed_mix": [
+          "German Shepherd Dog"
+        ]
+      },
+      "published_evidence": [
+        {
+          "breed": "German Shepherd Dog",
+          "condition": "Degenerative Myelopathy",
+          "observed_prevalence_percent": 6.3,
+          "study_population": "GSD neurology cohort",
+          "sample_size": 760,
+          "source_title": "Canine Neurology Outcomes Network",
+          "source_journal": "Canine Neurology Outcomes Network",
+          "source_year": 2021,
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123514"
+        }
+      ],
+      "trait_contributions": [],
+      "nutrient_targets": [],
+      "product_contributions": [],
+      "decision_log": [
+        "PPIE compared Rex's observed profile with deterministic trait-risk tables.",
+        "Published breed epidemiology for general wellness was matched across 1 breed input(s).",
+        "Nutrient targets were generated from CONDITION_INGREDIENTS and INGREDIENT_EVIDENCE mappings.",
+        "No direct nutrient-mapped product was selected for this priority."
+      ]
+    }
+  ],
+  "groomer": [
+    {
+      "key": "eyes",
+      "label": "Eyes",
+      "match": [
+        "eyes",
+        "eye_discharge",
+        "tear_stains"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "ears",
+      "label": "Ears",
+      "match": [
+        "ears",
+        "ear_redness",
+        "odor"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "skin",
+      "label": "Skin",
+      "match": [
+        "skin",
+        "dry_skin",
+        "scratching",
+        "itching"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "teeth",
+      "label": "Teeth",
+      "match": [
+        "teeth",
+        "bad_breath"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "limps",
+      "label": "Limps",
+      "match": [
+        "limps",
+        "limping"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "shedding",
+      "label": "Shedding",
+      "match": [
+        "shedding"
+      ],
+      "status": "clear",
+      "live": false
+    },
+    {
+      "key": "anal_gland",
+      "label": "Anal Gland",
+      "match": [
+        "anal_gland"
+      ],
+      "status": "clear",
+      "live": false
+    }
+  ],
+  "preventativeNutritionSystem": {
+    "pipeline_flow": [
+      "Dog Profile",
+      "Biological Traits",
+      "Management Considerations",
+      "Lifestyle Interventions",
+      "Nutritional Synthesis",
+      "Whole-Food Feeding Equivalents"
+    ],
+    "dog_profile": {
+      "pet_name": "Rex",
+      "breeds": [
+        "German Shepherd Dog"
+      ],
+      "birthday": "2018-04-12",
+      "gender": "Male",
+      "sex": "Male",
+      "bcs": null,
+      "activity_level": "High",
+      "current_environment": "Temperate Outdoor",
+      "weight_kg": 35,
+      "height_cm": null,
+      "age_years": 8.3,
+      "age_stage": "senior"
+    },
+    "biological_traits": [
+      {
+        "breed": "German Shepherd Dog",
+        "size": "Large",
+        "body_type": "Athletic",
+        "coat_type": "Double Coat",
+        "energy": "High",
+        "climate": "Cold Tolerant",
+        "skull_type": "Mesocephalic",
+        "function_group": "Working",
+        "weakness_group": "Joint Heavy",
+        "lifespan": "Medium"
+      }
+    ],
+    "management_considerations": [
+      {
+        "condition_name": "Hip Dysplasia",
+        "condition_key": "hip_dysplasia",
+        "management_consideration": true,
+        "prevalence_percent": 16.1,
+        "confidence_percent": 77.8,
+        "source_name": "OFA Breed Registry",
+        "source_quote": "German Shepherd Dogs carried elevated hip dysplasia prevalence.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123513"
+      },
+      {
+        "condition_name": "Degenerative Myelopathy",
+        "condition_key": "degenerative_myelopathy",
+        "management_consideration": true,
+        "prevalence_percent": 6.3,
+        "confidence_percent": 0,
+        "source_name": "Canine Neurology Outcomes Network",
+        "source_quote": "GSD cohorts showed measurable degenerative myelopathy prevalence.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123514"
+      }
+    ],
+    "lifestyle_interventions": [
+      {
+        "condition_name": "Hip Dysplasia",
+        "activity_name": "Hydrotherapy treadmill",
+        "frequency": "weekly",
+        "duration_minutes": 30,
+        "source_name": "Canine Rehabilitation Outcomes Review",
+        "source_quote": "Hydrotherapy improved gait symmetry and reduced pain scores in hip-dysplastic dogs.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123641",
+        "requirement_type": "lifestyle_requirement"
+      },
+      {
+        "condition_name": "Hip Dysplasia",
+        "activity_name": "Controlled incline walking",
+        "frequency": "daily",
+        "duration_minutes": 20,
+        "source_name": "Canine Rehabilitation Outcomes Review",
+        "source_quote": "Controlled incline walking supported periarticular muscle strength.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123642",
+        "requirement_type": "lifestyle_requirement"
+      }
+    ],
+    "nutritional_synthesis": [
+      {
+        "condition_name": "Hip Dysplasia",
+        "nutrient_name": "Glucosamine",
+        "target_dose": 500,
+        "target_unit": "mg",
+        "priority_rank": 1,
+        "evidence_level": "condition_specific",
+        "source_name": "Canine Joint Nutrition Trial",
+        "source_quote": "Glucosamine at guideline doses improved mobility index in osteoarthritic dogs.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123601",
+        "mechanisms": []
+      },
+      {
+        "condition_name": "Hip Dysplasia",
+        "nutrient_name": "Omega-3",
+        "target_dose": 1000,
+        "target_unit": "mg",
+        "priority_rank": 2,
+        "evidence_level": "condition_specific",
+        "source_name": "Inflammatory Lipid Modulation Study",
+        "source_quote": "EPA and DHA supplementation reduced inflammatory mediators in canine joints.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123602",
+        "mechanisms": [
+          {
+            "ingredient_name": "EPA+DHA",
+            "amount_per_serving": 0.2,
+            "unit": "%",
+            "mechanism_summary": "Declared label guaranteed analysis for combo fresh food.",
+            "source_product_id": "FF002_BEEF"
+          },
+          {
+            "ingredient_name": "EPA+DHA",
+            "amount_per_serving": 0.2,
+            "unit": "%",
+            "mechanism_summary": "Declared label guaranteed analysis for combo fresh food.",
+            "source_product_id": "FF002_PORK"
+          },
+          {
+            "ingredient_name": "EPA+DHA",
+            "amount_per_serving": 0.44,
+            "unit": "%",
+            "mechanism_summary": "Declared label guaranteed analysis for combo fresh food.",
+            "source_product_id": "FF002_CHICKEN"
+          },
+          {
+            "ingredient_name": "EPA+DHA",
+            "amount_per_serving": 0.6,
+            "unit": "%",
+            "mechanism_summary": "Declared label guaranteed analysis for combo fresh food.",
+            "source_product_id": "FF002_FISH"
+          }
+        ]
+      }
+    ],
+    "whole_food_feeding_equivalents": [
+      {
+        "condition": "Hip Dysplasia",
+        "priority_rank": 1,
+        "targeted_intervention": {
+          "active_ingredient": "Glucosamine",
+          "required_dosage": "500 mg",
+          "scientific_validation": {
+            "study": "Canine Joint Nutrition Trial",
+            "verbatim_finding": "Glucosamine at guideline doses improved mobility index in osteoarthritic dogs.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30123601"
+          },
+          "natural_food_alternatives": [
+            {
+              "food_item": "Green-Lipped Mussel (Dehydrated)",
+              "estimated_yield_per_100g": "1500 mg",
+              "calculated_daily_addition": "33g",
+              "clinical_note": "Highly bioavailable lipid-matrix joint support"
+            },
+            {
+              "food_item": "Chicken Feet / Beef Trachea",
+              "estimated_yield_per_100g": "1200 mg",
+              "calculated_daily_addition": "42g",
+              "clinical_note": "Natural connective tissue cartilage matrix"
+            }
+          ],
+          "lifestyle_requirement": {
+            "activity_name": "Hydrotherapy treadmill",
+            "frequency": "weekly",
+            "duration_minutes": 30,
+            "source_name": "Canine Rehabilitation Outcomes Review",
+            "source_quote": "Hydrotherapy improved gait symmetry and reduced pain scores in hip-dysplastic dogs.",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123641"
+          }
+        }
+      }
+    ],
+    "trait_analysis": [
+      {
+        "condition_name": "Hip Dysplasia",
+        "condition_key": "hip_dysplasia",
+        "management_consideration": true,
+        "prevalence_percent": 16.1,
+        "confidence_percent": 77.8,
+        "source_name": "OFA Breed Registry",
+        "source_quote": "German Shepherd Dogs carried elevated hip dysplasia prevalence.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123513"
+      },
+      {
+        "condition_name": "Degenerative Myelopathy",
+        "condition_key": "degenerative_myelopathy",
+        "management_consideration": true,
+        "prevalence_percent": 6.3,
+        "confidence_percent": 0,
+        "source_name": "Canine Neurology Outcomes Network",
+        "source_quote": "GSD cohorts showed measurable degenerative myelopathy prevalence.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123514"
+      }
+    ],
+    "preventative_health_priorities": [
+      {
+        "condition_name": "Hip Dysplasia",
+        "condition_key": "hip_dysplasia",
+        "management_consideration": true,
+        "prevalence_percent": 16.1,
+        "confidence_percent": 77.8,
+        "source_name": "OFA Breed Registry",
+        "source_quote": "German Shepherd Dogs carried elevated hip dysplasia prevalence.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123513"
+      },
+      {
+        "condition_name": "Degenerative Myelopathy",
+        "condition_key": "degenerative_myelopathy",
+        "management_consideration": true,
+        "prevalence_percent": 6.3,
+        "confidence_percent": 0,
+        "source_name": "Canine Neurology Outcomes Network",
+        "source_quote": "GSD cohorts showed measurable degenerative myelopathy prevalence.",
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123514"
+      }
+    ],
+    "standardized_outputs": {
+      "disease_risk_modifiers": [
+        {
+          "condition_name": "Hip Dysplasia",
+          "condition_key": "hip_dysplasia",
+          "risk_percent": 16.9,
+          "trait_risk_percent": 76.5,
+          "prevalence_percent": 16.1,
+          "interaction_factor": 1,
+          "benefit_factor": 0.86,
+          "mixed_breed_factor": 1,
+          "supporting_sources": [
+            {
+              "trait_category": "size",
+              "trait_value": "Large",
+              "prevalence": 0.17,
+              "source_name": "OFA Longitudinal Registry",
+              "source_quote": "Large-breed dogs demonstrated significantly higher hip dysplasia prevalence.",
+              "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123407"
+            },
+            {
+              "trait_category": "body_type",
+              "trait_value": "Athletic",
+              "prevalence": 0.08,
+              "source_name": "Canine Biomechanics Review",
+              "source_quote": "Athletic body lines carried moderate hip laxity prevalence.",
+              "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123411"
+            },
+            {
+              "trait_category": "skull_type",
+              "trait_value": "Mesocephalic",
+              "prevalence": 0.1,
+              "source_name": "OFA Cross-Section Review",
+              "source_quote": "Mesocephalic groups showed moderate orthopedic prevalence.",
+              "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123444"
+            },
+            {
+              "trait_category": "climate",
+              "trait_value": "Cold Tolerant",
+              "prevalence": 0.12,
+              "source_name": "Nordic Orthopedic Audit",
+              "source_quote": "Large cold-tolerant working breeds had sustained hip dysplasia burden.",
+              "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123452"
+            },
+            {
+              "trait_category": "lifespan",
+              "trait_value": "Medium",
+              "prevalence": 0.11,
+              "source_name": "OFA Epidemiology Review",
+              "source_quote": "Medium-lifespan breeds demonstrated moderate hip dysplasia prevalence.",
+              "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123463"
+            },
+            {
+              "trait_category": "weakness_group",
+              "trait_value": "Joint Heavy",
+              "prevalence": 0.17,
+              "source_name": "OFA Functional Group Analysis",
+              "source_quote": "Joint-heavy group classification strongly associated with hip dysplasia.",
+              "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123471"
+            },
+            {
+              "trait_category": "function_group",
+              "trait_value": "Working",
+              "prevalence": 0.14,
+              "source_name": "OFA Function Group Analysis",
+              "source_quote": "Working dogs maintained elevated hip dysplasia prevalence.",
+              "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123481"
+            }
+          ]
+        },
+        {
+          "condition_name": "Degenerative Myelopathy",
+          "condition_key": "degenerative_myelopathy",
+          "risk_percent": 6.6,
+          "trait_risk_percent": null,
+          "prevalence_percent": 6.3,
+          "interaction_factor": 1,
+          "benefit_factor": 1,
+          "mixed_breed_factor": 1,
+          "supporting_sources": []
+        }
+      ],
+      "environmental_compatibility_matrix": [
+        {
+          "breed": "German Shepherd Dog",
+          "trait_climate": "Cold Tolerant",
+          "current_climate": "Temperate Outdoor",
+          "compatibility_score": 0.8
+        }
+      ],
+      "lifestyle_requirements": [
+        {
+          "condition_name": "Hip Dysplasia",
+          "activity_name": "Hydrotherapy treadmill",
+          "frequency": "weekly",
+          "duration_minutes": 30,
+          "source_name": "Canine Rehabilitation Outcomes Review",
+          "source_quote": "Hydrotherapy improved gait symmetry and reduced pain scores in hip-dysplastic dogs.",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123641",
+          "requirement_type": "lifestyle_requirement"
+        },
+        {
+          "condition_name": "Hip Dysplasia",
+          "activity_name": "Controlled incline walking",
+          "frequency": "daily",
+          "duration_minutes": 20,
+          "source_name": "Canine Rehabilitation Outcomes Review",
+          "source_quote": "Controlled incline walking supported periarticular muscle strength.",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123642",
+          "requirement_type": "lifestyle_requirement"
+        }
+      ],
+      "nutrition_priorities": [
+        {
+          "condition_name": "Hip Dysplasia",
+          "nutrient_name": "Glucosamine",
+          "target_dose": 500,
+          "target_unit": "mg",
+          "priority_rank": 1,
+          "evidence_level": "condition_specific",
+          "source_name": "Canine Joint Nutrition Trial",
+          "source_quote": "Glucosamine at guideline doses improved mobility index in osteoarthritic dogs.",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123601",
+          "mechanisms": []
+        },
+        {
+          "condition_name": "Hip Dysplasia",
+          "nutrient_name": "Omega-3",
+          "target_dose": 1000,
+          "target_unit": "mg",
+          "priority_rank": 2,
+          "evidence_level": "condition_specific",
+          "source_name": "Inflammatory Lipid Modulation Study",
+          "source_quote": "EPA and DHA supplementation reduced inflammatory mediators in canine joints.",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123602",
+          "mechanisms": [
+            {
+              "ingredient_name": "EPA+DHA",
+              "amount_per_serving": 0.2,
+              "unit": "%",
+              "mechanism_summary": "Declared label guaranteed analysis for combo fresh food.",
+              "source_product_id": "FF002_BEEF"
+            },
+            {
+              "ingredient_name": "EPA+DHA",
+              "amount_per_serving": 0.2,
+              "unit": "%",
+              "mechanism_summary": "Declared label guaranteed analysis for combo fresh food.",
+              "source_product_id": "FF002_PORK"
+            },
+            {
+              "ingredient_name": "EPA+DHA",
+              "amount_per_serving": 0.44,
+              "unit": "%",
+              "mechanism_summary": "Declared label guaranteed analysis for combo fresh food.",
+              "source_product_id": "FF002_CHICKEN"
+            },
+            {
+              "ingredient_name": "EPA+DHA",
+              "amount_per_serving": 0.6,
+              "unit": "%",
+              "mechanism_summary": "Declared label guaranteed analysis for combo fresh food.",
+              "source_product_id": "FF002_FISH"
+            }
+          ]
+        }
+      ]
+    },
+    "output_contracts": [
+      {
+        "condition": "Hip Dysplasia",
+        "priority_rank": 1,
+        "targeted_intervention": {
+          "active_ingredient": "Glucosamine",
+          "required_dosage": "500 mg",
+          "scientific_validation": {
+            "study": "Canine Joint Nutrition Trial",
+            "verbatim_finding": "Glucosamine at guideline doses improved mobility index in osteoarthritic dogs.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30123601"
+          },
+          "natural_food_alternatives": [
+            {
+              "food_item": "Green-Lipped Mussel (Dehydrated)",
+              "estimated_yield_per_100g": "1500 mg",
+              "calculated_daily_addition": "33g",
+              "clinical_note": "Highly bioavailable lipid-matrix joint support"
+            },
+            {
+              "food_item": "Chicken Feet / Beef Trachea",
+              "estimated_yield_per_100g": "1200 mg",
+              "calculated_daily_addition": "42g",
+              "clinical_note": "Natural connective tissue cartilage matrix"
+            }
+          ],
+          "lifestyle_requirement": {
+            "activity_name": "Hydrotherapy treadmill",
+            "frequency": "weekly",
+            "duration_minutes": 30,
+            "source_name": "Canine Rehabilitation Outcomes Review",
+            "source_quote": "Hydrotherapy improved gait symmetry and reduced pain scores in hip-dysplastic dogs.",
+            "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123641"
+          }
+        }
+      }
+    ],
+    "narrative_synthesis": "Rex inherited a Double Coat from their German Shepherd Dog ancestry. While advantageous for environmental adaptation and physiological resilience, in a Temperate Outdoor environment, this trait presents specific management considerations, such as a 16.1% incidence of Hip Dysplasia observed in German Shepherd Dog (Source: OFA Breed Registry). To proactively manage this, lifestyle modifications including Hydrotherapy treadmill are recommended. Furthermore, based on veterinary physiology, targeted nutritional intervention with Glucosamine is required at a dosage of 500 to support long-term health."
+  },
+  "pet": {
+    "pet_name": "Rex",
+    "breeds": [
+      "German Shepherd Dog"
+    ],
+    "birthday": "2018-04-12",
+    "gender": "Male",
+    "sex": "Male",
+    "bcs": null,
+    "activity_level": "High",
+    "current_environment": "Temperate Outdoor",
+    "weight_kg": 35,
+    "height_cm": null,
+    "age_years": 8.3,
+    "age_stage": "senior"
+  },
+  "wellness_score": 74,
+  "risks": [
+    {
+      "condition": "Joint Health",
+      "condition_key": "joint_health",
+      "risk_percent": 16.9,
+      "estimated_risk_percent": 76.5,
+      "trait_risk_percent": 76.5,
+      "breed_prevalence_percent": 16.1,
+      "confidence_percent": 77.8,
+      "evidence_count": 7,
+      "supporting_traits": [
+        {
+          "category": "trait",
+          "value": "Large body"
+        },
+        {
+          "category": "trait",
+          "value": "Sporting build"
+        },
+        {
+          "category": "trait",
+          "value": "Mesocephalic skull conformation"
+        },
+        {
+          "category": "trait",
+          "value": "Cold Tolerant climate adaptation"
+        },
+        {
+          "category": "trait",
+          "value": "Medium lifespan profile"
+        },
+        {
+          "category": "trait",
+          "value": "Joint Heavy genetic architecture"
+        },
+        {
+          "category": "trait",
+          "value": "Working working lineage"
+        }
+      ],
+      "logic": "wellness_insight",
+      "groomer_boosted": false,
+      "why": "Our veterinary research team estimates Rex may benefit from preventative joint health support \u2014 elevated lifetime joint-support needs based on body conformation, size, and published veterinary prevalence studies. This does NOT mean Rex will develop illness; it highlights areas where long-term wellness care may help most."
+    },
+    {
+      "condition": "General Wellness",
+      "condition_key": "general_wellness",
+      "risk_percent": 6.6,
+      "estimated_risk_percent": 6.6,
+      "trait_risk_percent": 6.6,
+      "breed_prevalence_percent": 6.3,
+      "confidence_percent": 0,
+      "evidence_count": 0,
+      "supporting_traits": [],
+      "logic": "wellness_insight",
+      "groomer_boosted": false,
+      "why": "Our veterinary research team estimates Rex may benefit from preventative general wellness support \u2014 preventative care may provide long-term benefit. This does NOT mean Rex will develop illness; it highlights areas where long-term wellness care may help most."
+    }
+  ],
+  "ingredients": [
+    {
+      "ingredient": "Omega-3",
+      "ingredient_key": "omega_3",
+      "daily_dose": "1000mg",
+      "monthly_dose": "30000mg",
+      "for_conditions": [
+        "Joint Health"
+      ],
+      "evidence_quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+      "source_name": "Inflammatory Lipid Modulation Study",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+    },
+    {
+      "ingredient": "Glucosamine",
+      "ingredient_key": "glucosamine",
+      "daily_dose": "500mg",
+      "monthly_dose": "15000mg",
+      "for_conditions": [
+        "Joint Health"
+      ],
+      "evidence_quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+      "source_name": "Canine Joint Nutrition Trial",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/30123621"
+    }
+  ],
+  "products": [],
+  "monthly_plan": {
+    "title": "Monthly Wellness Plan",
+    "duration_days": 30,
+    "items": [
+      {
+        "product_name": "Fresh Dog Food Combo - Beef Flavor",
+        "product_type": "fresh_food",
+        "daily": "340g/day",
+        "monthly": "10200g",
+        "depletion": "51 bag(s) exactly",
+        "quantity": 51,
+        "cost": 1772,
+        "unit_cost_per_bag": 34.75,
+        "fresh_warning": null
+      }
+    ],
+    "total_cost": 1772,
+    "product_count": 1
+  },
+  "yearly_plan": {
+    "title": "Annual Optimized Plan",
+    "duration_days": 365,
+    "items": [
+      {
+        "product_name": "Fresh Dog Food Combo - Beef Flavor",
+        "product_type": "fresh_food",
+        "daily": "340g/day",
+        "monthly": "10200g",
+        "depletion": "51 bag(s) exactly",
+        "quantity": 612,
+        "cost": 21264,
+        "unit_cost_per_bag": 34.75,
+        "fresh_warning": null,
+        "duration": "365 days"
+      }
+    ],
+    "total_cost": 21264,
+    "monthly_equivalent": 1772,
+    "savings": 0,
+    "savings_percent": 0,
+    "kibble_upgrade": {
+      "current": "Fresh Dog Food Single",
+      "recommended": "Fresh Dog Food Combo Mixed Flavors",
+      "reason": "Higher variety combo pack \u00b7 optimized omega profile for annual bundling"
+    },
+    "staple_upgrade": {
+      "current": "Fresh Dog Food Single",
+      "recommended": "Fresh Dog Food Combo Mixed Flavors",
+      "reason": "Higher variety combo pack \u00b7 optimized omega profile for annual bundling"
+    },
+    "bulk_notes": "Supplement bottles optimized \u00b7 combo fresh food packs \u00b7 treat renewal schedule"
+  },
+  "activities": [],
+  "evidence": [
+    {
+      "type": "breed",
+      "condition": "Hip Dysplasia",
+      "breed": "German Shepherd Dog",
+      "source_name": "OFA Breed Registry",
+      "quote": "German Shepherd Dogs carried elevated hip dysplasia prevalence.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123513"
+    },
+    {
+      "type": "breed",
+      "condition": "Degenerative Myelopathy",
+      "breed": "German Shepherd Dog",
+      "source_name": "Canine Neurology Outcomes Network",
+      "quote": "GSD cohorts showed measurable degenerative myelopathy prevalence.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123514"
+    },
+    {
+      "type": "ingredient",
+      "condition": "Omega-3",
+      "breed": null,
+      "source_name": "Inflammatory Lipid Modulation Study",
+      "quote": "EPA and DHA intake was associated with reduced inflammatory cytokine expression.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123622"
+    },
+    {
+      "type": "ingredient",
+      "condition": "Glucosamine",
+      "breed": null,
+      "source_name": "Canine Joint Nutrition Trial",
+      "quote": "Daily glucosamine supplementation improved force-plate symmetry over 90 days.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123621"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+condition,activity_name,frequency,duration_minutes,source_name,source_quote,source_url
+Hip Dysplasia,Hydrotherapy treadmill,weekly,30,Canine Rehabilitation Outcomes Review,"Hydrotherapy improved gait symmetry and reduced pain scores in hip-dysplastic dogs.",https://pubmed.ncbi.nlm.nih.gov/30123641
+Hip Dysplasia,Controlled incline walking,daily,20,Canine Rehabilitation Outcomes Review,"Controlled incline walking supported periarticular muscle strength.",https://pubmed.ncbi.nlm.nih.gov/30123642
+IVDD,Core stability exercises,daily,15,Canine Spine Rehabilitation Program,"Core strengthening reduced recurrent pain episodes in IVDD-managed dogs.",https://pubmed.ncbi.nlm.nih.gov/30123643
+BOAS,Cool-hour leash walks,daily,20,RVC Respiratory Heat Study,"Short cool-hour exercise windows reduced respiratory distress incidents.",https://pubmed.ncbi.nlm.nih.gov/30123644
+Atopic Dermatitis,Barrier-support bathing,weekly,25,European Veterinary Dermatology Consortium,"Routine barrier-friendly bathing reduced pruritus flare frequency.",https://pubmed.ncbi.nlm.nih.gov/30123645
+Dental Disease,Daily dental chew protocol,daily,10,Canine Oral Health Network,"Daily mechanical plaque disruption improved gingival health metrics.",https://pubmed.ncbi.nlm.nih.gov/30123646
+Obesity,Structured interval walks,daily,35,Canine Lifestyle Outcomes Study,"Structured daily interval walking improved weight-loss adherence.",https://pubmed.ncbi.nlm.nih.gov/30123647
+Chronic Enteropathy,Low-stress post-meal walk,daily,15,GI Outcomes in Companion Dogs,"Gentle post-prandial activity improved stool consistency trends.",https://pubmed.ncbi.nlm.nih.gov/30123648
+Cataracts,Indoor contrast navigation games,weekly,20,ACVO Ocular Quality-of-Life Survey,"Visual enrichment protocols improved confidence in reduced-vision dogs.",https://pubmed.ncbi.nlm.nih.gov/30123649
+Degenerative Valve Disease,Low-impact cardiac conditioning,daily,20,Canine Cardiology Exercise Review,"Low-impact conditioning preserved exercise tolerance in early valve disease.",https://pubmed.ncbi.nlm.nih.gov/30123650

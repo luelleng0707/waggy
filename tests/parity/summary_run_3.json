@@ -1,0 +1,101 @@
+{
+  "run": 3,
+  "mode": "golden_vs_python",
+  "total_profiles": 10,
+  "passed": 10,
+  "failed": 0,
+  "failed_ids": [],
+  "results": [
+    {
+      "id": "dolly_golden_x_labrador",
+      "label": "Golden Retriever \u00d7 Labrador (Dolly golden)",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 5.3,
+      "ok": true,
+      "py_wellness_score": 89
+    },
+    {
+      "id": "chihuahua",
+      "label": "Chihuahua (toy)",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 7.1,
+      "ok": true,
+      "py_wellness_score": 72
+    },
+    {
+      "id": "german_shepherd_dog",
+      "label": "German Shepherd Dog",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 8.3,
+      "ok": true,
+      "py_wellness_score": 74
+    },
+    {
+      "id": "french_bulldog",
+      "label": "French Bulldog",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 5.8,
+      "ok": true,
+      "py_wellness_score": 75
+    },
+    {
+      "id": "border_collie",
+      "label": "Border Collie",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 9.4,
+      "ok": true,
+      "py_wellness_score": 72
+    },
+    {
+      "id": "great_pyrenees_giant",
+      "label": "Great Pyrenees (giant stand-in; Great Dane not in BREEDS.csv)",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 9.6,
+      "ok": true,
+      "py_wellness_score": 72
+    },
+    {
+      "id": "mixed_chow_x_rural",
+      "label": "Mixed Breed (Chow Chow \u00d7 Chinese Rural Dog)",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 7.5,
+      "ok": true,
+      "py_wellness_score": 89
+    },
+    {
+      "id": "senior_labrador",
+      "label": "Senior Labrador Retriever",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 12.4,
+      "ok": true,
+      "py_wellness_score": 75
+    },
+    {
+      "id": "puppy_golden",
+      "label": "Puppy Golden Retriever",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 0.6,
+      "ok": true,
+      "py_wellness_score": 75
+    },
+    {
+      "id": "overweight_labrador",
+      "label": "Overweight Labrador Retriever (obese/high BCS)",
+      "py_status": 200,
+      "diff_count": 0,
+      "age_years": 8.0,
+      "ok": true,
+      "py_wellness_score": 75
+    }
+  ],
+  "generated_at": "2026-07-17T13:43:07.074272+00:00"
+}

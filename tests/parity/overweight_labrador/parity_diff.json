@@ -1,0 +1,9 @@
+{
+  "profile_id": "overweight_labrador",
+  "label": "Overweight Labrador Retriever (obese/high BCS)",
+  "mode": "golden_vs_python",
+  "diff_count": 0,
+  "tolerance": 0.05,
+  "generated_at": "2026-07-17T13:43:07.073149+00:00",
+  "diffs": []
+}

@@ -1,0 +1,11 @@
+size,condition,prevalence,sample_population,sample_size,source_name,source_quote,source_url,year,confidence_level
+Toy,Dental Disease,0.31,Toy breed cohort,1840,Smith et al. Journal of Small Animal Dentistry,"Toy breeds showed significantly higher periodontal burden than medium controls.",https://pubmed.ncbi.nlm.nih.gov/30123401,2021,high
+Toy,Luxating Patella,0.19,Toy breed orthopedic cohort,1290,Canine Orthopedic Registry,"Patellar luxation prevalence remained elevated across toy lineages.",https://pubmed.ncbi.nlm.nih.gov/30123402,2022,high
+Small,Atopic Dermatitis,0.16,Primary care network,4120,VetCompass Dermatology Study,"Small breeds had higher chronic pruritus and atopic diagnoses.",https://pubmed.ncbi.nlm.nih.gov/30123403,2020,medium
+Small,Tracheal Collapse,0.11,Referral respiratory clinic,980,RVC Respiratory Audit,"Small-breed airway collapse remained a frequent chronic morbidity.",https://pubmed.ncbi.nlm.nih.gov/30123404,2023,medium
+Medium,Hip Dysplasia,0.09,Mixed medium-breed dataset,3560,OFA Cross-Section Review,"Medium dogs showed measurable but lower hip dysplasia prevalence than large dogs.",https://pubmed.ncbi.nlm.nih.gov/30123405,2022,high
+Medium,Otitis Externa,0.14,General practice records,5230,Companion Animal Ear Health Program,"Medium-sized cohorts had persistent otitis incidence in humid climates.",https://pubmed.ncbi.nlm.nih.gov/30123406,2021,medium
+Large,Hip Dysplasia,0.17,Large-breed registry,6420,OFA Longitudinal Registry,"Large-breed dogs demonstrated significantly higher hip dysplasia prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123407,2022,high
+Large,Cruciate Ligament Rupture,0.12,Orthopedic referral centers,2880,Canine Cruciate Consortium,"Large dogs had higher non-contact cruciate rupture rates.",https://pubmed.ncbi.nlm.nih.gov/30123408,2021,high
+Giant,GDV,0.14,Giant breed surveillance,1180,Large Breed Emergency Study,"Giant and deep-chested dogs showed increased lifetime GDV prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123409,2020,high
+Giant,Osteoarthritis,0.23,Giant breed mobility panel,950,International Working Dog Foundation,"Giant breeds developed earlier and more severe osteoarthritic change.",https://pubmed.ncbi.nlm.nih.gov/30123410,2023,high

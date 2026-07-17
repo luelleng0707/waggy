@@ -1,0 +1,11 @@
+body_type,condition,prevalence,sample_population,sample_size,source_name,source_quote,source_url,year,confidence_level
+Athletic,Hip Dysplasia,0.08,Athletic conformation set,2700,Canine Biomechanics Review,"Athletic body lines carried moderate hip laxity prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123411,2021,medium
+Athletic,Cruciate Ligament Rupture,0.10,Sporting/working pool,2440,Sport Dog Injury Network,"Athletic high-activity dogs had elevated cruciate injury incidence.",https://pubmed.ncbi.nlm.nih.gov/30123412,2022,high
+Heavy Sporting,Osteoarthritis,0.19,Heavy frame cohort,1890,Orthopedic Burden Study,"Heavy sporting body types were overrepresented in osteoarthritis cases.",https://pubmed.ncbi.nlm.nih.gov/30123413,2020,high
+Heavy Sporting,Hip Dysplasia,0.15,Heavy frame cohort,1890,OFA Body Type Substudy,"Heavy sporting dogs had elevated hip dysplasia prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123414,2022,high
+Chondrodysplastic,IVDD,0.22,Chondrodysplastic breeds,1220,Canine Spine Consortium,"Chondrodysplastic body types demonstrated high IVDD prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123415,2023,high
+Chondrodysplastic,Luxating Patella,0.13,Small limb-disproportion cohort,940,Companion Orthopedic Collaborative,"Forelimb-hindlimb disproportion increased patellar instability risk.",https://pubmed.ncbi.nlm.nih.gov/30123416,2021,medium
+Compact,BOAS,0.17,Brachy/compact subset,1360,Small Dog Airway Registry,"Compact body designs correlated with chronic upper-airway burden.",https://pubmed.ncbi.nlm.nih.gov/30123417,2020,medium
+Compact,Dental Disease,0.27,Companion compact breeds,2680,Veterinary Oral Health Project,"Compact skull and jaw crowding increased periodontal disease prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123418,2022,high
+Deep Chested,GDV,0.13,Deep-chested breeds,1185,Emergency GI Outcomes Group,"Deep thoracic conformation remained a major GDV risk factor.",https://pubmed.ncbi.nlm.nih.gov/30123419,2021,high
+Deep Chested,Dilated Cardiomyopathy,0.09,Deep chest cardiac cohort,910,Canine Cardiology Registry,"Deep chest morphology was enriched in DCM diagnoses.",https://pubmed.ncbi.nlm.nih.gov/30123420,2023,medium

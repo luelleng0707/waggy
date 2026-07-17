@@ -1,0 +1,20 @@
+<div class="voucher-card">
+  <strong>{{ trace.name }}</strong>
+  <div class="measure-grid">
+    <div class="measure-cell">
+      <span class="label">Target</span>
+      <span class="value">{{ trace.target }}</span>
+    </div>
+    <div class="measure-cell">
+      <span class="label">Provided</span>
+      <span class="value">{{ trace.provided }}</span>
+    </div>
+    <div class="measure-cell">
+      <span class="label">Coverage</span>
+      <span class="value">{{ trace.coverage }}%</span>
+    </div>
+  </div>
+  {% if trace.sources %}
+  <p class="muted" style="margin-top:10px;">Sources: {{ trace.sources | join(', ') }}</p>
+  {% endif %}
+</div>

@@ -1,0 +1,10 @@
+{% from "components/macros.html" import section_title %}
+
+<div class="phone-viewport">
+  <h2 style="color:#7A1C4B;">Full Nutrition Report</h2>
+  <p>Traceable nutrient pathway breakdown with source-line attribution and clinical evidence.</p>
+
+  {% for trace in traces %}
+    {% include "components/evidence_card.html" %}
+  {% endfor %}
+</div>

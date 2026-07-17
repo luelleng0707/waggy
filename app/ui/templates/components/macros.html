@@ -1,0 +1,46 @@
+{% macro section_title(text) %}
+<div class="section-title">{{ text }}</div>
+{% endmacro %}
+
+{% macro metric_card(label, value) %}
+<div class="metric-card">
+  <strong>{{ label }}</strong><br>
+  <span style="color:#3D3429; opacity:0.9;">{{ value }}</span>
+</div>
+{% endmacro %}
+
+{% macro package_card(title, monthly_display, yearly_display) %}
+<div class="package-card">
+  <div style="font-size:18px; font-weight:700; color:#7A1C4B;">{{ title }}</div>
+  <div style="margin-top:6px;">Monthly: <strong>{{ monthly_display }}</strong> · Yearly: <strong>{{ yearly_display }}</strong></div>
+</div>
+{% endmacro %}
+
+{% macro product_row(name, type_label, daily, monthly) %}
+<div class="product-row">
+  <strong>{{ name }}</strong> ({{ type_label }})<br>
+  {{ daily }} | {{ monthly }}
+</div>
+{% endmacro %}
+
+{% macro nutrition_row(name, amount, pct) %}
+<div class="nutrient-row">
+  <div><strong>{{ name }}</strong> <span style="color:#7A1C4B; margin-left:8px;">{{ amount }}</span></div>
+  <div style="color:#1EC0B8; font-weight:bold;">○ {{ pct }}%</div>
+</div>
+{% endmacro %}
+
+{% macro detail_block(title, text) %}
+<div class="token-card">
+  <strong style="color:#E53A7F;">{{ title }}</strong><br>
+  <span class="soft">{{ text }}</span>
+</div>
+{% endmacro %}
+
+{% macro shop_item(name, category, product_id, price_display) %}
+<div class="token-card">
+  <strong style="color:#E53A7F;">{{ name }}</strong><br>
+  <span class="soft">{{ category }} · {{ product_id }}</span><br>
+  <span class="trend-up">{{ price_display }}</span>
+</div>
+{% endmacro %}

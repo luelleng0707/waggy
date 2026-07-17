@@ -1,0 +1,171 @@
+<div class="device-frame">
+  <div class="device-notch"></div>
+  <div class="phone-app journey-scroll">
+
+    <header class="home-header">
+      <div class="header-top">
+        <span class="brand-mark">Wagtopia</span>
+        <span class="header-badge">Premium Care</span>
+      </div>
+      <h1 class="greeting">{{ home.greeting }}</h1>
+      <p class="greeting-sub">{{ home.greeting_sub }}</p>
+    </header>
+
+    <div class="hero-dog" style="position:relative;">
+      <img src="{{ home.hero_url }}" alt="{{ home.pet_name }}">
+      <div class="hero-overlay"><span class="hero-tag">Your companion, remembered</span></div>
+    </div>
+
+    {% set pet_name = home.pet_name %}
+    {% set avatar_url = home.avatar_url %}
+    {% set breed_label = home.breed_label %}
+    {% set age_display = home.age_display %}
+    {% set weight_display = home.weight_display %}
+    {% set sex = home.sex %}
+    {% set tags = home.tags %}
+    {% set detail_blocks = home.detail_blocks %}
+    {% include "components/dog_profile_card.html" %}
+
+    <hr class="section-divider">
+    <div class="section-header"><h2>Wellness Analysis</h2></div>
+    <p class="section-intro">Based on breed epidemiology, environmental exposure, and published veterinary nutrition literature — every value below is traceable to PPIE calculations and product data.</p>
+
+    <div class="section-header"><h2>Breed × Environment Matrix</h2></div>
+    {% for row in environment_rows %}
+    {% set label = row.label %}
+    {% set value = row.value %}
+    {% include "components/trait_card.html" %}
+    {% endfor %}
+
+    <div class="section-header"><h2>Trait Analysis</h2></div>
+    <div class="tag-row" style="padding:0 16px 8px;">
+      {% for trait in trait_labels %}
+      <span class="tag">{{ trait }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="section-header"><h2>Trait Benefits</h2></div>
+    {% for item in trait_benefits %}
+    {% set title = item.title %}
+    {% set detail = item.detail %}
+    {% include "components/trait_benefit_card.html" %}
+    {% endfor %}
+
+    <div class="section-header"><h2>Trait Weaknesses</h2></div>
+    {% for item in trait_weaknesses %}
+    {% set trait = item.trait %}
+    {% set condition = item.condition %}
+    {% set prevalence_display = item.prevalence_display %}
+    {% include "components/trait_weakness_card.html" %}
+    {% endfor %}
+
+    <div class="section-header"><h2>Preventative Wellness</h2></div>
+    {% for p in priorities %}
+    <div class="module-card"><strong>{{ p.condition }}</strong> · Observed prevalence <span class="trend-up">{{ p.prevalence_display }}</span></div>
+    {% endfor %}
+
+    <div class="section-header"><h2>Nutrition Priorities</h2></div>
+    {% for item in nutrition_priorities %}
+    {% set ingredient = item.ingredient %}
+    {% set daily_target = item.daily_target %}
+    {% set monthly_target = item.monthly_target %}
+    {% set supports = item.supports %}
+    {% include "components/nutrition_priority_card.html" %}
+    {% endfor %}
+
+    {% if wellness_recommendations %}
+    <div class="section-header"><h2>Evidence-backed Recommendations</h2></div>
+    {% for item in wellness_recommendations %}
+    {% set title = item.title %}
+    {% set detail = item.detail %}
+    {% include "components/wellness_recommendation_card.html" %}
+    {% endfor %}
+    {% endif %}
+
+    <div class="section-header"><h2>Recommended Care Packages</h2></div>
+    {% for pkg in packages %}
+    {% set title = pkg.title %}
+    {% set monthly_display = pkg.monthly_display %}
+    {% set yearly_display = pkg.yearly_display %}
+    {% include "components/package_card.html" %}
+    {% endfor %}
+
+    <div class="section-header"><h2>Package Detail — {{ package_detail.title }}</h2></div>
+    <div class="module-card">
+      <strong>Cost Matrix</strong><br>
+      Monthly: {{ package_detail.monthly_display }} · Yearly: {{ package_detail.yearly_display }}<br><br>
+      {{ package_detail.summary }}
+    </div>
+
+    <div class="section-header"><h2>Products</h2></div>
+    {% for product in package_detail.products %}
+    {% set name = product.name %}
+    {% set type_label = product.type_label %}
+    {% set daily = product.daily %}
+    {% set monthly = product.monthly %}
+    {% include "components/product_row.html" %}
+    {% endfor %}
+
+    <div class="section-header"><h2>Daily Nutrition Intake</h2></div>
+    {% for nutrient in package_detail.nutrients %}
+    {% set name = nutrient.name %}
+    {% set amount = nutrient.amount %}
+    {% set pct = nutrient.pct %}
+    {% include "components/nutrition_row.html" %}
+    {% endfor %}
+
+    <div class="section-header"><h2>Full Nutrition Report</h2></div>
+    {% for trace in nutrition_traces %}
+    {% include "components/evidence_card.html" %}
+    {% endfor %}
+
+    <div class="section-header"><h2>Feeding Guide</h2></div>
+    {% for option in package_detail.feeding_options %}
+    {% set label = option.label %}
+    {% set detail = option.detail %}
+    {% include "components/feeding_option.html" %}
+    {% endfor %}
+    <p class="section-footnote">{{ package_detail.feeding_footer }}</p>
+
+    <div class="section-header"><h2>Scientific Evidence</h2></div>
+    {% for trace in nutrition_traces %}
+    <div class="module-card">
+      <strong>{{ trace.name }}</strong><br>
+      <span style="font-size:13px;color:var(--text-muted);">{{ trace.quote }}</span><br>
+      <span style="font-size:12px;">{{ trace.source_name }} · <a href="{{ trace.source_url }}">View Study →</a></span>
+    </div>
+    {% endfor %}
+
+    {% if product_analysis %}
+    <div class="section-header"><h2>Product Analysis — {{ product_analysis.name }}</h2></div>
+    <div class="module-card">
+      Serving: {{ product_analysis.serving_size }} · {{ product_analysis.calorie_density }}<br>
+      Monthly: {{ product_analysis.monthly_requirement }} · Lifespan: {{ product_analysis.container_lifespan }}
+    </div>
+    {% for active in product_analysis.actives %}
+    {% set name = active.name %}
+    {% set amount = active.amount %}
+    {% set coverage = active.coverage %}
+    {% include "components/ingredient_card.html" %}
+    {% endfor %}
+
+    <div class="section-header"><h2>Cost Breakdown</h2></div>
+    {% for row in product_analysis.cost_rows %}
+    <div class="module-card cost-row">
+      <strong>{{ row.product }}</strong><br>
+      {{ row.daily_amount }} · {{ row.monthly_vol }} · Unit ¥{{ row.unit_price }} · Net ¥{{ row.monthly_net_cost }}
+    </div>
+    {% endfor %}
+    <div class="module-card">
+      Annual: {{ product_analysis.monthly_display }}/mo · Discount {{ product_analysis.discount_factor }} · {{ product_analysis.annual_display }}/yr
+    </div>
+    {% endif %}
+
+    <hr class="section-divider">
+    {% include "components/shop_section.html" %}
+
+    <hr class="section-divider">
+    {% include "components/diary_section.html" %}
+
+  </div>
+</div>

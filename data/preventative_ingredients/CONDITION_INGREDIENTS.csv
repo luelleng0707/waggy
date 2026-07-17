@@ -1,0 +1,13 @@
+condition,ingredient_name,recommended_daily_dose,dose_unit,source_name,source_quote,source_url,priority_rank
+Hip Dysplasia,Glucosamine,500,mg,Canine Joint Nutrition Trial,"Glucosamine at guideline doses improved mobility index in osteoarthritic dogs.",https://pubmed.ncbi.nlm.nih.gov/30123601,1
+Hip Dysplasia,Omega-3,1000,mg,Inflammatory Lipid Modulation Study,"EPA and DHA supplementation reduced inflammatory mediators in canine joints.",https://pubmed.ncbi.nlm.nih.gov/30123602,2
+IVDD,MSM,300,mg,Canine Spine Support Review,"MSM-supported protocols improved comfort scores in chronic spinal pain cohorts.",https://pubmed.ncbi.nlm.nih.gov/30123603,1
+IVDD,Glucosamine,400,mg,Canine Spine Support Review,"Joint-support substrates contributed to improved spinal mobility outcomes.",https://pubmed.ncbi.nlm.nih.gov/30123604,2
+BOAS,Omega-3,900,mg,RVC Respiratory Nutrition Substudy,"Omega-3 supplementation correlated with reduced airway inflammatory burden.",https://pubmed.ncbi.nlm.nih.gov/30123605,1
+Atopic Dermatitis,Omega-3,1200,mg,European Veterinary Dermatology Consortium,"Omega-3 enriched diets reduced pruritus severity in atopic dogs.",https://pubmed.ncbi.nlm.nih.gov/30123606,1
+Atopic Dermatitis,Zinc,20,mg,Canine Barrier Function Audit,"Trace zinc support improved epidermal repair outcomes.",https://pubmed.ncbi.nlm.nih.gov/30123607,2
+Dental Disease,Seaweed Blend,500,mg,Companion Oral Biofilm Trial,"Natural seaweed actives reduced plaque index in daily use protocols.",https://pubmed.ncbi.nlm.nih.gov/30123608,1
+Degenerative Valve Disease,Taurine,500,mg,Canine Cardiology Nutraceutical Review,"Taurine support was associated with improved cardiac functional markers.",https://pubmed.ncbi.nlm.nih.gov/30123609,1
+Chronic Enteropathy,Probiotics,2,billion CFU,GI Outcomes in Companion Dogs,"Multi-strain probiotics reduced chronic stool instability frequency.",https://pubmed.ncbi.nlm.nih.gov/30123610,1
+Obesity,L-Carnitine,250,mg,Canine Lifestyle Outcomes Study,"L-carnitine support improved lean mass retention during weight reduction.",https://pubmed.ncbi.nlm.nih.gov/30123611,1
+Cataracts,Lutein,15,mg,ACVO Ocular Nutrition Review,"Lutein supplementation improved oxidative stress profiles in lens tissue.",https://pubmed.ncbi.nlm.nih.gov/30123612,1

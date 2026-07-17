@@ -1,0 +1,28 @@
+{% from "components/macros.html" import section_title, nutrition_row %}
+
+<h2 style="color:#7A1C4B;">{{ title }}</h2>
+
+<div class="metric-card">
+  <strong>Cost Display Matrix</strong><br>
+  Monthly: <span style="color:#7A1C4B;">{{ monthly_display }}</span> ·
+  Yearly: <span style="color:#7A1C4B;">{{ yearly_display }}</span>
+</div>
+
+<div class="metric-card">{{ summary }}</div>
+
+{{ section_title("📊 Daily Nutrition Intake") }}
+{% for nutrient in nutrients %}
+{% set name = nutrient.name %}
+{% set amount = nutrient.amount %}
+{% set pct = nutrient.pct %}
+{% include "components/nutrition_row.html" %}
+{% endfor %}
+
+{{ section_title("Multi-Strategy Feeding Guide") }}
+{% for option in feeding_options %}
+{% set label = option.label %}
+{% set detail = option.detail %}
+{% include "components/feeding_option.html" %}
+{% endfor %}
+
+<p style="font-size:13px; color:#3D3429; opacity:0.8;">{{ feeding_footer }}</p>

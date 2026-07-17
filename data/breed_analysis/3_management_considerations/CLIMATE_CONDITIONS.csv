@@ -1,0 +1,11 @@
+climate,condition,prevalence,sample_population,sample_size,source_name,source_quote,source_url,year,confidence_level
+Cold Tolerant,Atopic Dermatitis,0.11,Cold climate registry,2800,Nordic Companion Animal Study,"Cold-adapted breeds still exhibited moderate atopic prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123451,2021,medium
+Cold Tolerant,Hip Dysplasia,0.12,Cold climate registry,2800,Nordic Orthopedic Audit,"Large cold-tolerant working breeds had sustained hip dysplasia burden.",https://pubmed.ncbi.nlm.nih.gov/30123452,2022,high
+Heat Tolerant,Leishmaniasis Exposure Syndrome,0.07,Heat-region surveillance,1020,Tropical Canine Public Health Report,"Heat-tolerant populations in endemic zones showed increased exposure-linked morbidity.",https://pubmed.ncbi.nlm.nih.gov/30123453,2020,low
+Heat Tolerant,GI Parasite Burden,0.13,Heat-region surveillance,1020,Tropical Canine Public Health Report,"Heat-adapted dogs showed higher chronic GI parasitism prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123454,2020,medium
+Heat Sensitive,Heat Stress Syndrome,0.18,Urban heat admissions,1190,Canine Environmental Physiology Group,"Heat-sensitive breeds demonstrated significantly higher heat stress incidence.",https://pubmed.ncbi.nlm.nih.gov/30123455,2023,high
+Heat Sensitive,BOAS,0.20,Heat-sensitive brachy subset,860,RVC Respiratory Heat Study,"Heat exposure amplified upper-airway morbidity in heat-sensitive dogs.",https://pubmed.ncbi.nlm.nih.gov/30123456,2022,high
+Temperate,Otitis Externa,0.12,Temperate mixed-practice data,4610,VetCompass Morbidity Report,"Temperate cohorts showed stable otitis prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123457,2021,medium
+Temperate,Dental Disease,0.19,Temperate mixed-practice data,4610,Canine Oral Health Network,"Dental disease remained a common diagnosis in temperate companion populations.",https://pubmed.ncbi.nlm.nih.gov/30123458,2022,high
+Cold Tolerant,Immune-Mediated Dermatosis,0.06,Cold-adapted spitz subset,740,Immune Dermatology Review,"Cold-adapted spitz lineages had measurable immune-mediated skin disease prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123459,2023,low
+Temperate,Obesity,0.17,Routine wellness exams,6330,Canine Lifestyle Outcomes Study,"Temperate urban cohorts showed persistent obesity prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123460,2022,high

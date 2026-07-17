@@ -1,0 +1,11 @@
+function_group,condition,prevalence,sample_population,sample_size,source_name,source_quote,source_url,year,confidence_level
+Working,Hip Dysplasia,0.14,Working breed registry,2420,OFA Function Group Analysis,"Working dogs maintained elevated hip dysplasia prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123481,2021,high
+Working,Osteoarthritis,0.16,Working breed registry,2420,Working Dog Longevity Program,"Cumulative mechanical load increased osteoarthritis prevalence in working dogs.",https://pubmed.ncbi.nlm.nih.gov/30123482,2022,high
+Sporting,Otitis Externa,0.13,Sporting group cohort,1980,Sporting Breed Health Audit,"Sporting breeds showed persistent otitis burden.",https://pubmed.ncbi.nlm.nih.gov/30123483,2020,medium
+Sporting,Atopic Dermatitis,0.12,Sporting group cohort,1980,Dermatology Surveillance Program,"Atopic dermatitis prevalence was moderate in sporting breeds.",https://pubmed.ncbi.nlm.nih.gov/30123484,2023,medium
+Hound,GDV,0.09,Hound referral subset,1210,Emergency GI Outcomes Group,"Deep-chested hound lines showed increased GDV prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123485,2022,high
+Hound,IVDD,0.11,Hound referral subset,1210,Canine Spine Consortium,"Hound breeds with elongated spines had elevated IVDD prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123486,2021,high
+Terrier,Atopic Dermatitis,0.15,Terrier network cohort,1500,European Veterinary Dermatology Consortium,"Terriers demonstrated increased chronic dermatitis prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123487,2020,medium
+Companion,Dental Disease,0.27,Companion care dataset,3360,Veterinary Oral Health Project,"Companion breeds carried high periodontal disease prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123488,2022,high
+Herding,Epilepsy,0.08,Herding breed neurology subset,940,Canine Neurology Outcomes Network,"Herding lineages showed above-baseline idiopathic epilepsy prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123489,2021,medium
+Toy,Luxating Patella,0.18,Toy group orthopedic panel,1290,Companion Orthopedic Collaborative,"Toy function group retained elevated luxating patella burden.",https://pubmed.ncbi.nlm.nih.gov/30123490,2023,high

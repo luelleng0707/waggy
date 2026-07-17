@@ -1,0 +1,35 @@
+<div class="profile-card">
+  <div class="profile-header">
+    <img class="profile-avatar" src="{{ avatar_url }}" alt="{{ pet_name }}">
+    <div class="profile-meta">
+      <h2>{{ pet_name }}</h2>
+      <p class="breed">{{ breed_label }}</p>
+      <div class="profile-stats">
+        <span>{{ age_display }}</span>
+        <span>{{ weight_display }}</span>
+        <span>{{ sex }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="tag-row">
+    {% for tag in tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  <div class="detail-sections">
+    {% for block in detail_blocks %}
+    <div class="detail-block">
+      <h3>{{ block.title }}</h3>
+      {% if block.bullets %}
+      <ul class="detail-bullets">
+        {% for item in block.bullets %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>{{ block.text }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
