@@ -24,14 +24,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ppie.api")
 
-DATA_DIR = os.getenv("PPIE_DATA_DIR", "data")
+ROOT = Path(__file__).resolve().parents[2]
+_raw_data = os.getenv("PPIE_DATA_DIR", "data")
+_data_path = Path(_raw_data)
 # Resolve relative data dirs against repo root (not process cwd) so clean
 # clones / service managers still find CSVs.
-_data_path = Path(DATA_DIR)
 if not _data_path.is_absolute():
     _data_path = ROOT / _data_path
 DATA_DIR = str(_data_path)
-ROOT = Path(__file__).resolve().parents[2]
 VALID_KEYS = {
     k.strip()
     for k in os.getenv("API_KEYS", "wagtopia-demo-key,ppie-dev-key").split(",")
