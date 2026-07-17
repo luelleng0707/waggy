@@ -2,6 +2,7 @@
   {
     "run": 1,
     "mode": "golden_vs_python",
+    "golden_dir": "tests\\golden",
     "total_profiles": 10,
     "passed": 10,
     "failed": 0,
@@ -9,8 +10,10 @@
     "results": [
       {
         "id": "dolly_golden_x_labrador",
+        "golden": "dolly.json",
         "label": "Golden Retriever \u00d7 Labrador (Dolly golden)",
         "py_status": 200,
+        "elapsed_ms": 2177.6,
         "diff_count": 0,
         "age_years": 5.3,
         "ok": true,
@@ -18,8 +21,10 @@
       },
       {
         "id": "chihuahua",
+        "golden": "chihuahua.json",
         "label": "Chihuahua (toy)",
         "py_status": 200,
+        "elapsed_ms": 1439.5,
         "diff_count": 0,
         "age_years": 7.1,
         "ok": true,
@@ -27,8 +32,10 @@
       },
       {
         "id": "german_shepherd_dog",
+        "golden": "german_shepherd.json",
         "label": "German Shepherd Dog",
         "py_status": 200,
+        "elapsed_ms": 1592.3,
         "diff_count": 0,
         "age_years": 8.3,
         "ok": true,
@@ -36,8 +43,10 @@
       },
       {
         "id": "french_bulldog",
+        "golden": "french_bulldog.json",
         "label": "French Bulldog",
         "py_status": 200,
+        "elapsed_ms": 1402.7,
         "diff_count": 0,
         "age_years": 5.8,
         "ok": true,
@@ -45,8 +54,10 @@
       },
       {
         "id": "border_collie",
+        "golden": "border_collie.json",
         "label": "Border Collie",
         "py_status": 200,
+        "elapsed_ms": 1455.4,
         "diff_count": 0,
         "age_years": 9.4,
         "ok": true,
@@ -54,8 +65,10 @@
       },
       {
         "id": "great_pyrenees_giant",
+        "golden": "great_pyrenees.json",
         "label": "Great Pyrenees (giant stand-in; Great Dane not in BREEDS.csv)",
         "py_status": 200,
+        "elapsed_ms": 1293.1,
         "diff_count": 0,
         "age_years": 9.6,
         "ok": true,
@@ -63,8 +76,10 @@
       },
       {
         "id": "mixed_chow_x_rural",
+        "golden": "mixed_chow.json",
         "label": "Mixed Breed (Chow Chow \u00d7 Chinese Rural Dog)",
         "py_status": 200,
+        "elapsed_ms": 2299.9,
         "diff_count": 0,
         "age_years": 7.5,
         "ok": true,
@@ -72,8 +87,10 @@
       },
       {
         "id": "senior_labrador",
+        "golden": "senior_labrador.json",
         "label": "Senior Labrador Retriever",
         "py_status": 200,
+        "elapsed_ms": 1549.3,
         "diff_count": 0,
         "age_years": 12.4,
         "ok": true,
@@ -81,8 +98,10 @@
       },
       {
         "id": "puppy_golden",
+        "golden": "puppy_golden.json",
         "label": "Puppy Golden Retriever",
         "py_status": 200,
+        "elapsed_ms": 1739.9,
         "diff_count": 0,
         "age_years": 0.6,
         "ok": true,
@@ -90,14 +109,260 @@
       },
       {
         "id": "overweight_labrador",
+        "golden": "overweight_labrador.json",
         "label": "Overweight Labrador Retriever (obese/high BCS)",
         "py_status": 200,
+        "elapsed_ms": 1480.5,
         "diff_count": 0,
         "age_years": 8.0,
         "ok": true,
         "py_wellness_score": 75
       }
     ],
-    "generated_at": "2026-07-17T13:45:50.205235+00:00"
+    "generated_at": "2026-07-17T14:04:28.497155+00:00"
+  },
+  {
+    "run": 2,
+    "mode": "golden_vs_python",
+    "golden_dir": "tests\\golden",
+    "total_profiles": 10,
+    "passed": 10,
+    "failed": 0,
+    "failed_ids": [],
+    "results": [
+      {
+        "id": "dolly_golden_x_labrador",
+        "golden": "dolly.json",
+        "label": "Golden Retriever \u00d7 Labrador (Dolly golden)",
+        "py_status": 200,
+        "elapsed_ms": 1965.2,
+        "diff_count": 0,
+        "age_years": 5.3,
+        "ok": true,
+        "py_wellness_score": 89
+      },
+      {
+        "id": "chihuahua",
+        "golden": "chihuahua.json",
+        "label": "Chihuahua (toy)",
+        "py_status": 200,
+        "elapsed_ms": 1420.7,
+        "diff_count": 0,
+        "age_years": 7.1,
+        "ok": true,
+        "py_wellness_score": 72
+      },
+      {
+        "id": "german_shepherd_dog",
+        "golden": "german_shepherd.json",
+        "label": "German Shepherd Dog",
+        "py_status": 200,
+        "elapsed_ms": 1605.3,
+        "diff_count": 0,
+        "age_years": 8.3,
+        "ok": true,
+        "py_wellness_score": 74
+      },
+      {
+        "id": "french_bulldog",
+        "golden": "french_bulldog.json",
+        "label": "French Bulldog",
+        "py_status": 200,
+        "elapsed_ms": 1576.2,
+        "diff_count": 0,
+        "age_years": 5.8,
+        "ok": true,
+        "py_wellness_score": 75
+      },
+      {
+        "id": "border_collie",
+        "golden": "border_collie.json",
+        "label": "Border Collie",
+        "py_status": 200,
+        "elapsed_ms": 1333.7,
+        "diff_count": 0,
+        "age_years": 9.4,
+        "ok": true,
+        "py_wellness_score": 72
+      },
+      {
+        "id": "great_pyrenees_giant",
+        "golden": "great_pyrenees.json",
+        "label": "Great Pyrenees (giant stand-in; Great Dane not in BREEDS.csv)",
+        "py_status": 200,
+        "elapsed_ms": 1545.4,
+        "diff_count": 0,
+        "age_years": 9.6,
+        "ok": true,
+        "py_wellness_score": 72
+      },
+      {
+        "id": "mixed_chow_x_rural",
+        "golden": "mixed_chow.json",
+        "label": "Mixed Breed (Chow Chow \u00d7 Chinese Rural Dog)",
+        "py_status": 200,
+        "elapsed_ms": 2307.5,
+        "diff_count": 0,
+        "age_years": 7.5,
+        "ok": true,
+        "py_wellness_score": 89
+      },
+      {
+        "id": "senior_labrador",
+        "golden": "senior_labrador.json",
+        "label": "Senior Labrador Retriever",
+        "py_status": 200,
+        "elapsed_ms": 1614.2,
+        "diff_count": 0,
+        "age_years": 12.4,
+        "ok": true,
+        "py_wellness_score": 75
+      },
+      {
+        "id": "puppy_golden",
+        "golden": "puppy_golden.json",
+        "label": "Puppy Golden Retriever",
+        "py_status": 200,
+        "elapsed_ms": 1892.7,
+        "diff_count": 0,
+        "age_years": 0.6,
+        "ok": true,
+        "py_wellness_score": 75
+      },
+      {
+        "id": "overweight_labrador",
+        "golden": "overweight_labrador.json",
+        "label": "Overweight Labrador Retriever (obese/high BCS)",
+        "py_status": 200,
+        "elapsed_ms": 1798.0,
+        "diff_count": 0,
+        "age_years": 8.0,
+        "ok": true,
+        "py_wellness_score": 75
+      }
+    ],
+    "generated_at": "2026-07-17T14:04:45.723934+00:00"
+  },
+  {
+    "run": 3,
+    "mode": "golden_vs_python",
+    "golden_dir": "tests\\golden",
+    "total_profiles": 10,
+    "passed": 10,
+    "failed": 0,
+    "failed_ids": [],
+    "results": [
+      {
+        "id": "dolly_golden_x_labrador",
+        "golden": "dolly.json",
+        "label": "Golden Retriever \u00d7 Labrador (Dolly golden)",
+        "py_status": 200,
+        "elapsed_ms": 1912.1,
+        "diff_count": 0,
+        "age_years": 5.3,
+        "ok": true,
+        "py_wellness_score": 89
+      },
+      {
+        "id": "chihuahua",
+        "golden": "chihuahua.json",
+        "label": "Chihuahua (toy)",
+        "py_status": 200,
+        "elapsed_ms": 1509.0,
+        "diff_count": 0,
+        "age_years": 7.1,
+        "ok": true,
+        "py_wellness_score": 72
+      },
+      {
+        "id": "german_shepherd_dog",
+        "golden": "german_shepherd.json",
+        "label": "German Shepherd Dog",
+        "py_status": 200,
+        "elapsed_ms": 1614.9,
+        "diff_count": 0,
+        "age_years": 8.3,
+        "ok": true,
+        "py_wellness_score": 74
+      },
+      {
+        "id": "french_bulldog",
+        "golden": "french_bulldog.json",
+        "label": "French Bulldog",
+        "py_status": 200,
+        "elapsed_ms": 1507.4,
+        "diff_count": 0,
+        "age_years": 5.8,
+        "ok": true,
+        "py_wellness_score": 75
+      },
+      {
+        "id": "border_collie",
+        "golden": "border_collie.json",
+        "label": "Border Collie",
+        "py_status": 200,
+        "elapsed_ms": 1490.6,
+        "diff_count": 0,
+        "age_years": 9.4,
+        "ok": true,
+        "py_wellness_score": 72
+      },
+      {
+        "id": "great_pyrenees_giant",
+        "golden": "great_pyrenees.json",
+        "label": "Great Pyrenees (giant stand-in; Great Dane not in BREEDS.csv)",
+        "py_status": 200,
+        "elapsed_ms": 1142.2,
+        "diff_count": 0,
+        "age_years": 9.6,
+        "ok": true,
+        "py_wellness_score": 72
+      },
+      {
+        "id": "mixed_chow_x_rural",
+        "golden": "mixed_chow.json",
+        "label": "Mixed Breed (Chow Chow \u00d7 Chinese Rural Dog)",
+        "py_status": 200,
+        "elapsed_ms": 1699.6,
+        "diff_count": 0,
+        "age_years": 7.5,
+        "ok": true,
+        "py_wellness_score": 89
+      },
+      {
+        "id": "senior_labrador",
+        "golden": "senior_labrador.json",
+        "label": "Senior Labrador Retriever",
+        "py_status": 200,
+        "elapsed_ms": 1255.2,
+        "diff_count": 0,
+        "age_years": 12.4,
+        "ok": true,
+        "py_wellness_score": 75
+      },
+      {
+        "id": "puppy_golden",
+        "golden": "puppy_golden.json",
+        "label": "Puppy Golden Retriever",
+        "py_status": 200,
+        "elapsed_ms": 889.7,
+        "diff_count": 0,
+        "age_years": 0.6,
+        "ok": true,
+        "py_wellness_score": 75
+      },
+      {
+        "id": "overweight_labrador",
+        "golden": "overweight_labrador.json",
+        "label": "Overweight Labrador Retriever (obese/high BCS)",
+        "py_status": 200,
+        "elapsed_ms": 876.0,
+        "diff_count": 0,
+        "age_years": 8.0,
+        "ok": true,
+        "py_wellness_score": 75
+      }
+    ],
+    "generated_at": "2026-07-17T14:04:59.800002+00:00"
   }
 ]

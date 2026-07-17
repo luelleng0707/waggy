@@ -1,9 +1,10 @@
 {
   "profile_id": "german_shepherd_dog",
-  "label": "German Shepherd Dog",
+  "golden": "german_shepherd.json",
   "mode": "golden_vs_python",
   "diff_count": 0,
   "tolerance": 0.05,
-  "generated_at": "2026-07-17T13:45:38.235292+00:00",
+  "elapsed_ms": 1614.9,
+  "generated_at": "2026-07-17T14:04:50.840072+00:00",
   "diffs": []
 }

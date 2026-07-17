@@ -64,9 +64,9 @@ All profiles: **PASS**, `diff_count == 0`, three consecutive runs.
 |-----|------|
 | `5dfc5cc` | Multi-profile parity fixes |
 | `282ddb7` | Python production routes + algorithm docs |
+| `5e9ba66` | Golden fixtures, versioning, observability, final docs |
 | `8575606` / **`legacy-node-final`** | Full Node archive in Git |
 | `0976b82` | Delete Node runtime from working tree |
-| (this commit) | `tests/golden/`, versioning, observability, final docs |
 
 Recover Node: `git checkout legacy-node-final`  
 Mapping: [LEGACY_NODE_REFERENCE.md](LEGACY_NODE_REFERENCE.md)

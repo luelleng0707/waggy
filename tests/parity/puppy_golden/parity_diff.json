@@ -1,9 +1,10 @@
 {
   "profile_id": "puppy_golden",
-  "label": "Puppy Golden Retriever",
+  "golden": "puppy_golden.json",
   "mode": "golden_vs_python",
   "diff_count": 0,
   "tolerance": 0.05,
-  "generated_at": "2026-07-17T13:45:48.350460+00:00",
+  "elapsed_ms": 889.7,
+  "generated_at": "2026-07-17T14:04:58.911753+00:00",
   "diffs": []
 }

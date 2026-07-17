@@ -1,9 +1,10 @@
 {
   "profile_id": "dolly_golden_x_labrador",
-  "label": "Golden Retriever \u00d7 Labrador (Dolly golden)",
+  "golden": "dolly.json",
   "mode": "golden_vs_python",
   "diff_count": 0,
   "tolerance": 0.05,
-  "generated_at": "2026-07-17T13:45:35.107923+00:00",
+  "elapsed_ms": 1912.1,
+  "generated_at": "2026-07-17T14:04:47.692247+00:00",
   "diffs": []
 }

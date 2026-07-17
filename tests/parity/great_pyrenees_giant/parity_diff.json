@@ -1,9 +1,10 @@
 {
   "profile_id": "great_pyrenees_giant",
-  "label": "Great Pyrenees (giant stand-in; Great Dane not in BREEDS.csv)",
+  "golden": "great_pyrenees.json",
   "mode": "golden_vs_python",
   "diff_count": 0,
   "tolerance": 0.05,
-  "generated_at": "2026-07-17T13:45:42.426386+00:00",
+  "elapsed_ms": 1142.2,
+  "generated_at": "2026-07-17T14:04:55.020822+00:00",
   "diffs": []
 }

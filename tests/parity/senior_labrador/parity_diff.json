@@ -1,9 +1,10 @@
 {
   "profile_id": "senior_labrador",
-  "label": "Senior Labrador Retriever",
+  "golden": "senior_labrador.json",
   "mode": "golden_vs_python",
   "diff_count": 0,
   "tolerance": 0.05,
-  "generated_at": "2026-07-17T13:45:46.566129+00:00",
+  "elapsed_ms": 1255.2,
+  "generated_at": "2026-07-17T14:04:58.012533+00:00",
   "diffs": []
 }

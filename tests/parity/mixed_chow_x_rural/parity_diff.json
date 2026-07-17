@@ -1,9 +1,10 @@
 {
   "profile_id": "mixed_chow_x_rural",
-  "label": "Mixed Breed (Chow Chow \u00d7 Chinese Rural Dog)",
+  "golden": "mixed_chow.json",
   "mode": "golden_vs_python",
   "diff_count": 0,
   "tolerance": 0.05,
-  "generated_at": "2026-07-17T13:45:44.699342+00:00",
+  "elapsed_ms": 1699.6,
+  "generated_at": "2026-07-17T14:04:56.747347+00:00",
   "diffs": []
 }
