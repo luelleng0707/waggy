@@ -17,6 +17,7 @@ from app.agent.condition_lookup import (
     ingredient_key,
 )
 from app.agent.ingredient_engine import map_ingredients
+from app.agent.calculation_trace import build_calculation_trace
 from app.agent.bundle_engine import build_monthly_plan, build_yearly_plan
 from app.agent.package_detail import (
     activities_for_condition,
@@ -24,6 +25,7 @@ from app.agent.package_detail import (
     enrich_package_for_detail,
 )
 from app.agent.pipeline_trace import build_pipeline_trace
+from app.agent.variable_map import PIPELINE_STAGES, VARIABLE_MAP
 from app.agent.state import DogProfileInput, WellnessReportPayload
 from app.agent.utils import (
     DataRepository,
@@ -162,22 +164,30 @@ def _pick_staple(staples: list[dict[str, Any]], tier: str) -> dict[str, Any] | N
     )
 
 
-def build_profile_block(profile: DogProfileInput) -> dict[str, Any]:
-    breeds = [profile.primary_breed]
-    if profile.secondary_breed:
-        breeds.append(profile.secondary_breed)
+def build_profile_block(
+    profile: DogProfileInput,
+    meta: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Mirror src/engine/index.js analyze() profile block."""
+    breeds = (meta or {}).get("breeds")
+    if not breeds:
+        breeds = [profile.primary_breed]
+        if profile.secondary_breed:
+            breeds.append(profile.secondary_breed)
+    sex = profile.sex or profile.gender
     return {
         "pet_name": profile.name.title(),
         "breeds": breeds,
-        "birthday": None,
-        "gender": profile.sex,
-        "sex": profile.sex,
-        "weight_kg": float(profile.weight_kg),
-        "age_years": round(float(profile.age_years), 1),
-        "age_stage": _age_stage(profile.age_years),
-        "sizeBracket": _size_bracket(profile.weight_kg),
+        "birthday": profile.birthday,
+        "gender": sex,
+        "sex": sex,
+        "bcs": profile.bcs,
         "activity_level": profile.activity_level,
         "current_environment": profile.current_environment,
+        "weight_kg": float(profile.weight_kg),
+        "height_cm": profile.height_cm,
+        "age_years": round(float(profile.age_years), 1),
+        "age_stage": _age_stage(profile.age_years),
     }
 
 
@@ -829,21 +839,56 @@ def build_nutritional_targets(ingredients: list[dict[str, Any]]) -> list[dict[st
     return targets
 
 
-def build_activity_recommendations(biology: dict[str, Any], profile: DogProfileInput) -> dict[str, Any]:
-    energies = [str(b.get("energy", "")).lower() for b in biology.get("resolved_breeds", [])]
-    is_high = any(e in ("high", "extreme") for e in energies)
-    daily = 75 if is_high else 60
-    if _age_stage(profile.age_years) == "senior":
-        daily = int(daily * 0.75)
-    pet_name = profile.name.title()
+def build_activity_recommendations(
+    resolved_breeds: list[dict[str, Any]],
+    meta: dict[str, Any],
+    pet_name: str,
+) -> dict[str, Any]:
+    """Port of wellnessEngine.buildActivityPlan."""
+    energy = [b.get("energy_level") or b.get("energy") for b in resolved_breeds]
+    is_high_drive = any(str(e) in ("Extreme", "High") for e in energy if e)
+    is_low = any(str(e) == "Low" for e in energy if e)
+    has_working = any(
+        b.get("function_group") in ("Working", "Sporting", "Herding")
+        for b in resolved_breeds
+    )
+
+    if is_high_drive:
+        daily_minutes = 75
+    elif is_low:
+        daily_minutes = 45
+    else:
+        daily_minutes = 60
+
+    age_stage = meta.get("ageStage") or meta.get("age_stage")
+    if age_stage == "senior":
+        daily_minutes = js_round(daily_minutes * 0.75)
+    elif age_stage == "puppy":
+        daily_minutes = js_round(daily_minutes * 0.85)
+
+    physical = (
+        ["Walking", "Swimming", "Fetch", "Puzzle Toys"]
+        if is_high_drive
+        else ["Walking", "Gentle play", "Sniff walks"]
+    )
+    mental = ["Puzzle feeders", "Training", "Scent games", "Mental enrichment"]
+
+    if has_working:
+        lifestyle_tip = (
+            f"Because {pet_name} has working-breed ancestry, regular exercise and "
+            f"mental stimulation may support healthy weight and positive behaviour."
+        )
+    else:
+        lifestyle_tip = (
+            f"Regular activity tailored to {pet_name}'s energy level supports long-term "
+            f"mobility and overall wellness."
+        )
+
     return {
-        "recommended_daily_exercise": f"{daily}–{daily + 15} minutes",
-        "suggested_physical": ["Walking", "Swimming", "Fetch"] if is_high else ["Walking", "Gentle play"],
-        "suggested_mental": ["Puzzle feeders", "Training", "Scent games"],
-        "lifestyle_tip": (
-            f"Regular activity tailored to {pet_name}'s energy level supports long-term mobility "
-            f"and overall wellness."
-        ),
+        "recommended_daily_exercise": f"{daily_minutes}–{daily_minutes + 15} minutes",
+        "suggested_physical": physical,
+        "suggested_mental": mental,
+        "lifestyle_tip": lifestyle_tip,
         "condition_specific": [],
         "future_personalization_note": (
             "Once walking history and activity logs are available, recommendations will automatically adapt."
@@ -1310,7 +1355,8 @@ def assemble_frontend_response(
 ) -> dict[str, Any]:
     """Top-level envelope matching FRONTEND_LAYOUT_SPEC.md / JS analyze()."""
     pet_name = profile.name.title()
-    profile_block = build_profile_block(profile)
+    meta = (health_risk or {}).get("meta") or {}
+    profile_block = build_profile_block(profile, meta)
     biology_block = build_biology_block(biology, profile)
 
     risks = (health_risk or {}).get("risks") or []
@@ -1340,10 +1386,22 @@ def assemble_frontend_response(
     ]
     package_details = build_package_details(wellness_packages)
     nutritional_targets = build_nutritional_targets(raw_ingredients)
-    activity_recommendations = build_activity_recommendations(biology, profile)
+    activity_recommendations = build_activity_recommendations(
+        biology.get("resolved_breeds") or [],
+        meta,
+        pet_name,
+    )
     scientific_evidence = collect_evidence(risks, raw_ingredients)
     research_section = build_research_section(
         biology_block, health_insights, scientific_evidence, nutritional_targets
+    )
+    calculation_trace = build_calculation_trace(
+        profile=profile_block,
+        biology=biology_block,
+        health_insights=health_insights,
+        nutritional_targets=nutritional_targets,
+        product_recommendations=product_recommendations,
+        repo=repo,
     )
 
     product_analyses: dict[str, Any] = {}
@@ -1434,15 +1492,8 @@ def assemble_frontend_response(
     return {
         "engine": "PPIE",
         "version": ENGINE_VERSION,
-        "currency": "RMB",
-        "pipeline_flow": [
-            "biology",
-            "health_risk",
-            "management",
-            "nutrition",
-            "products",
-            "feeding_plan",
-        ],
+        "pipeline_flow": PIPELINE_STAGES,
+        "variable_map": VARIABLE_MAP,
         "profile": profile_block,
         "biology": biology_block,
         "wellness_summary": wellness_summary,
@@ -1455,19 +1506,15 @@ def assemble_frontend_response(
         "packageDetails": package_details,
         "productAnalyses": product_analyses,
         "activityRecommendations": activity_recommendations,
+        "scientificEvidence": scientific_evidence,
         "researchSection": research_section,
-        "calculationTrace": [],
+        "calculationTrace": calculation_trace,
         "groomer": groomer,
         "preventativeNutritionSystem": preventative,
         "monthly_plan": monthly_plan,
         "yearly_plan": yearly_plan,
         "wellness_score": wellness_coverage["overall_score"],
-        "wellness_reports": [r.model_dump() for r in reports],
         "pipeline_trace": pipeline_trace,
-        "epidemiology": epidemiology,
-        "nutrition": nutrition,
-        "management": management,
-        "feeding_plan": feeding_plan,
         # Legacy JS aliases
         "pet": profile_block,
         "risks": legacy_risks,
@@ -1487,5 +1534,4 @@ def assemble_frontend_response(
         "products": product_recommendations,
         "activities": activity_recommendations.get("condition_specific", []),
         "evidence": scientific_evidence,
-        "scientificEvidence": scientific_evidence,
     }
