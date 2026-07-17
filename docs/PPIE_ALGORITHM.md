@@ -1,6 +1,9 @@
 # PPIE Algorithm Reference (Python)
 
-Canonical implementation: `app/agent/`. The JavaScript engine under `src/engine/` is retired; parity tests validate Python output against historical JS fixtures.
+Canonical implementation: `app/agent/`.  
+Algorithm version: see `app/agent/version.py` and [PPIE_ALGORITHM_VERSIONING.md](PPIE_ALGORITHM_VERSIONING.md).  
+Legacy Node mapping: [LEGACY_NODE_REFERENCE.md](LEGACY_NODE_REFERENCE.md).  
+Regression baseline: `tests/golden/*.json` (not JavaScript).
 
 **Orchestrator:** `PPIEWellnessAgent.generate_reproducible_report()` in `app/agent/engine.py`
 

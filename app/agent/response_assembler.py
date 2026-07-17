@@ -39,8 +39,8 @@ from app.agent.wellness_map import (
     priority_label,
     WELLNESS_GOALS,
 )
+from app.agent.version import ALGORITHM_VERSION as ENGINE_VERSION
 
-ENGINE_VERSION = "2.1.0"
 LEGACY_MOCK_PATTERN = re.compile(r"^(SF00[1-5]|SP00[1-8]|TR00[1-2])$", re.I)
 
 VERIFIED_STAPLES = {

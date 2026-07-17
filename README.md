@@ -33,13 +33,13 @@ Default API keys: `wagtopia-demo-key`, `ppie-dev-key` (override with `API_KEYS`)
 
 ## Regression
 
-Golden fixtures live under `tests/parity/<profile>/golden_response.json`.
+Canonical fixtures: `tests/golden/*.json`.
 
 ```bash
 py -3 tools/parity_suite.py --repeat 3
 ```
 
-Refresh goldens only for intentional algorithm changes:
+Refresh goldens only for intentional algorithm changes (and bump `ALGORITHM_VERSION`):
 
 ```bash
 py -3 tools/parity_suite.py --freeze
@@ -50,8 +50,11 @@ py -3 tools/parity_suite.py --freeze
 - [docs/PPIE_ALGORITHM.md](docs/PPIE_ALGORITHM.md)
 - [docs/PPIE_CSV_MAP.md](docs/PPIE_CSV_MAP.md)
 - [docs/PPIE_RESPONSE_SCHEMA.md](docs/PPIE_RESPONSE_SCHEMA.md)
+- [docs/PPIE_ALGORITHM_VERSIONING.md](docs/PPIE_ALGORITHM_VERSIONING.md)
+- [docs/LEGACY_NODE_REFERENCE.md](docs/LEGACY_NODE_REFERENCE.md)
 - [docs/PPIE_IMPORT_AUDIT.md](docs/PPIE_IMPORT_AUDIT.md)
 - [docs/PPIE_MIGRATION_REPORT.md](docs/PPIE_MIGRATION_REPORT.md)
+- [docs/PPIE_FINAL_REPORT.md](docs/PPIE_FINAL_REPORT.md)
 
 ## Data
 

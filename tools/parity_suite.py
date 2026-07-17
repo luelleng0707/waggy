@@ -1,13 +1,13 @@
 """
 PPIE golden regression suite.
 
-Compares live Python output against frozen golden fixtures under:
-  tests/parity/<profile_id>/golden_response.json
+Compares live Python `/api/v1/analyze` against frozen fixtures in:
+  tests/golden/<name>.json
 
 Usage:
-  py -3 tools/parity_suite.py              # run against goldens
+  py -3 tools/parity_suite.py
   py -3 tools/parity_suite.py --repeat 3
-  py -3 tools/parity_suite.py --freeze     # refresh goldens from live Python (intentional)
+  py -3 tools/parity_suite.py --freeze   # intentional fixture refresh only
 """
 
 from __future__ import annotations
@@ -16,6 +16,7 @@ import argparse
 import json
 import shutil
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -30,11 +31,13 @@ from parity_harness import (  # noqa: E402
     http_json,
 )
 
-SUITE_DIR = ROOT / "tests" / "parity"
+GOLDEN_DIR = ROOT / "tests" / "golden"
+SUITE_DIR = ROOT / "tests" / "parity"  # run artifacts + historical copies
 
 PROFILES: list[dict[str, Any]] = [
     {
         "id": "dolly_golden_x_labrador",
+        "golden": "dolly.json",
         "label": "Golden Retriever × Labrador (Dolly golden)",
         "name": "Dolly",
         "breeds": ["Golden Retriever", "Labrador Retriever"],
@@ -47,6 +50,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "chihuahua",
+        "golden": "chihuahua.json",
         "label": "Chihuahua (toy)",
         "name": "Peanut",
         "breeds": ["Chihuahua"],
@@ -59,6 +63,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "german_shepherd_dog",
+        "golden": "german_shepherd.json",
         "label": "German Shepherd Dog",
         "name": "Rex",
         "breeds": ["German Shepherd Dog"],
@@ -71,6 +76,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "french_bulldog",
+        "golden": "french_bulldog.json",
         "label": "French Bulldog",
         "name": "Baguette",
         "breeds": ["French Bulldog"],
@@ -83,6 +89,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "border_collie",
+        "golden": "border_collie.json",
         "label": "Border Collie",
         "name": "Scout",
         "breeds": ["Border Collie"],
@@ -95,6 +102,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "great_pyrenees_giant",
+        "golden": "great_pyrenees.json",
         "label": "Great Pyrenees (giant stand-in; Great Dane not in BREEDS.csv)",
         "name": "Atlas",
         "breeds": ["Great Pyrenees"],
@@ -107,6 +115,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "mixed_chow_x_rural",
+        "golden": "mixed_chow.json",
         "label": "Mixed Breed (Chow Chow × Chinese Rural Dog)",
         "name": "Mochi",
         "breeds": ["Chow Chow", "Chinese Rural Dog"],
@@ -119,6 +128,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "senior_labrador",
+        "golden": "senior_labrador.json",
         "label": "Senior Labrador Retriever",
         "name": "OldBoy",
         "breeds": ["Labrador Retriever"],
@@ -131,6 +141,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "puppy_golden",
+        "golden": "puppy_golden.json",
         "label": "Puppy Golden Retriever",
         "name": "Pip",
         "breeds": ["Golden Retriever"],
@@ -143,6 +154,7 @@ PROFILES: list[dict[str, Any]] = [
     },
     {
         "id": "overweight_labrador",
+        "golden": "overweight_labrador.json",
         "label": "Overweight Labrador Retriever (obese/high BCS)",
         "name": "Butter",
         "breeds": ["Labrador Retriever"],
@@ -157,30 +169,7 @@ PROFILES: list[dict[str, Any]] = [
 ]
 
 
-def py_payload(p: dict[str, Any]) -> dict[str, Any]:
-    breeds = p["breeds"]
-    body: dict[str, Any] = {
-        "name": p["name"],
-        "primary_breed": breeds[0],
-        "secondary_breed": breeds[1] if len(breeds) > 1 else None,
-        "breed_split_pct": 50.0 if len(breeds) > 1 else 100.0,
-        "age_years": age_years_from_birthday(p["birthday"]),
-        "weight_kg": p["weight_kg"],
-        "current_environment": p["current_environment"],
-        "activity_level": p["activity_level"],
-        "sex": p["sex"],
-        "gender": p["sex"],
-        "birthday": p["birthday"],
-        "height_cm": None,
-        "observed_conditions": p.get("observed_conditions") or [],
-    }
-    if p.get("bcs") is not None:
-        body["bcs"] = p["bcs"]
-    return body
-
-
 def analyze_payload(p: dict[str, Any]) -> dict[str, Any]:
-    """Node-compatible /api/v1/analyze body (also accepted by Python)."""
     body: dict[str, Any] = {
         "name": p["name"],
         "pet_name": p["name"],
@@ -197,36 +186,55 @@ def analyze_payload(p: dict[str, Any]) -> dict[str, Any]:
     return body
 
 
+def golden_path(p: dict[str, Any]) -> Path:
+    return GOLDEN_DIR / p["golden"]
+
+
 def ensure_python_health() -> None:
     code, body = http_json("GET", "http://127.0.0.1:8000/health")
     print(f"Python /health: {code} {body}")
     if code != 200:
-        raise SystemExit("Python API is not healthy. Start: py -3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000")
+        raise SystemExit(
+            "Python API is not healthy. Start: "
+            "py -3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000"
+        )
+
+
+def seed_goldens_from_parity() -> None:
+    """One-time seed: copy tests/parity/*/golden_response.json → tests/golden/*.json."""
+    GOLDEN_DIR.mkdir(parents=True, exist_ok=True)
+    for p in PROFILES:
+        dest = golden_path(p)
+        if dest.exists():
+            continue
+        legacy = SUITE_DIR / p["id"] / "golden_response.json"
+        alt = SUITE_DIR / p["id"] / "py_response.json"
+        src = legacy if legacy.exists() else alt
+        if src.exists():
+            shutil.copyfile(src, dest)
+            print(f"Seeded {dest.name} from {src.relative_to(ROOT)}")
 
 
 def run_profile(p: dict[str, Any], *, freeze: bool = False) -> dict[str, Any]:
     out_dir = SUITE_DIR / p["id"]
     out_dir.mkdir(parents=True, exist_ok=True)
-    golden_path = out_dir / "golden_response.json"
+    gpath = golden_path(p)
 
-    # Prefer v1 analyze contract (production path); fall back to v2 evaluate.
+    t0 = time.perf_counter()
     py_code, py_body = http_json(
         "POST",
         "http://127.0.0.1:8000/api/v1/analyze",
         analyze_payload(p),
         headers={"x-api-key": "wagtopia-demo-key"},
     )
-    if py_code != 200:
-        py_code, py_body = http_json(
-            "POST",
-            "http://127.0.0.1:8000/api/v2/wellness/evaluate",
-            py_payload(p),
-        )
+    elapsed_ms = round((time.perf_counter() - t0) * 1000, 1)
 
     result: dict[str, Any] = {
         "id": p["id"],
+        "golden": p["golden"],
         "label": p["label"],
         "py_status": py_code,
+        "elapsed_ms": elapsed_ms,
         "diff_count": None,
         "age_years": age_years_from_birthday(p["birthday"]),
         "ok": False,
@@ -234,25 +242,28 @@ def run_profile(p: dict[str, Any], *, freeze: bool = False) -> dict[str, Any]:
 
     if py_code != 200:
         (out_dir / "py_error.json").write_text(json.dumps(py_body, indent=2, default=str), encoding="utf-8")
-        result["error"] = f"Python evaluate failed: {py_code}"
+        result["error"] = f"Python analyze failed: {py_code}"
         return result
 
     (out_dir / "py_response.json").write_text(json.dumps(py_body, indent=2, default=str), encoding="utf-8")
 
-    if freeze or not golden_path.exists():
-        # Seed golden from locked py_response if migrating from Node parity era
-        legacy_py = out_dir / "py_response.json"
-        if not freeze and legacy_py.exists() and not golden_path.exists():
-            shutil.copyfile(legacy_py, golden_path)
-        else:
-            golden_path.write_text(json.dumps(py_body, indent=2, default=str), encoding="utf-8")
-        if freeze:
-            result["diff_count"] = 0
-            result["ok"] = True
-            result["frozen"] = True
-            return result
+    if freeze:
+        GOLDEN_DIR.mkdir(parents=True, exist_ok=True)
+        gpath.write_text(json.dumps(py_body, indent=2, default=str), encoding="utf-8")
+        # keep parity mirror for historical tooling
+        (out_dir / "golden_response.json").write_text(
+            json.dumps(py_body, indent=2, default=str), encoding="utf-8"
+        )
+        result["diff_count"] = 0
+        result["ok"] = True
+        result["frozen"] = True
+        return result
 
-    golden = json.loads(golden_path.read_text(encoding="utf-8"))
+    if not gpath.exists():
+        result["error"] = f"Missing golden fixture: {gpath}"
+        return result
+
+    golden = json.loads(gpath.read_text(encoding="utf-8"))
     diffs: list[dict[str, Any]] = []
     diff("", golden, py_body, diffs)
 
@@ -260,10 +271,11 @@ def run_profile(p: dict[str, Any], *, freeze: bool = False) -> dict[str, Any]:
         json.dumps(
             {
                 "profile_id": p["id"],
-                "label": p["label"],
+                "golden": p["golden"],
                 "mode": "golden_vs_python",
                 "diff_count": len(diffs),
                 "tolerance": TOLERANCE,
+                "elapsed_ms": elapsed_ms,
                 "generated_at": datetime.now(timezone.utc).isoformat(),
                 "diffs": diffs[:200],
             },
@@ -281,34 +293,20 @@ def run_profile(p: dict[str, Any], *, freeze: bool = False) -> dict[str, Any]:
     return result
 
 
-def freeze_all() -> None:
-    """Copy existing py_response.json → golden_response.json, or refresh from live API."""
-    ensure_python_health()
-    for p in PROFILES:
-        print(f"Freezing {p['id']}...")
-        r = run_profile(p, freeze=True)
-        print(f"  {'OK' if r.get('ok') else 'FAIL'} {r.get('error', '')}")
-
-
 def run_suite() -> list[dict[str, Any]]:
     ensure_python_health()
+    seed_goldens_from_parity()
     SUITE_DIR.mkdir(parents=True, exist_ok=True)
-    # Ensure goldens exist (seed once from current py_response if present)
-    for p in PROFILES:
-        out_dir = SUITE_DIR / p["id"]
-        golden = out_dir / "golden_response.json"
-        legacy = out_dir / "py_response.json"
-        if not golden.exists() and legacy.exists():
-            shutil.copyfile(legacy, golden)
-            print(f"Seeded golden from py_response: {p['id']}")
-
     results = []
     for p in PROFILES:
-        print(f"\n=== {p['id']} ({p['label']}) ===")
+        print(f"\n=== {p['id']} -> {p['golden']} ({p['label']}) ===")
         r = run_profile(p)
         results.append(r)
         status = "PASS" if r.get("ok") else "FAIL"
-        print(f"  {status} diff_count={r.get('diff_count')} py={r.get('py_status')}")
+        print(
+            f"  {status} diff_count={r.get('diff_count')} "
+            f"py={r.get('py_status')} {r.get('elapsed_ms')}ms"
+        )
         if r.get("error"):
             print(f"  ERROR: {r['error']}")
         if r.get("sample_diffs"):
@@ -317,15 +315,24 @@ def run_suite() -> list[dict[str, Any]]:
     return results
 
 
+def freeze_all() -> None:
+    ensure_python_health()
+    GOLDEN_DIR.mkdir(parents=True, exist_ok=True)
+    for p in PROFILES:
+        print(f"Freezing {p['golden']}...")
+        r = run_profile(p, freeze=True)
+        print(f"  {'OK' if r.get('ok') else 'FAIL'} {r.get('error', '')}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="PPIE golden regression suite")
-    parser.add_argument("--repeat", type=int, default=1, help="Consecutive full-suite runs")
-    parser.add_argument("--freeze", action="store_true", help="Refresh golden fixtures from live Python")
+    parser.add_argument("--repeat", type=int, default=1)
+    parser.add_argument("--freeze", action="store_true", help="Refresh tests/golden fixtures")
     args = parser.parse_args()
 
     if args.freeze:
         freeze_all()
-        print("\nGolden fixtures frozen from live Python.")
+        print("\nGolden fixtures frozen under tests/golden/.")
         return
 
     all_runs = []
@@ -336,6 +343,7 @@ def main() -> None:
         summary = {
             "run": run_idx,
             "mode": "golden_vs_python",
+            "golden_dir": str(GOLDEN_DIR.relative_to(ROOT)),
             "total_profiles": len(results),
             "passed": len(results) - len(failed),
             "failed": len(failed),
@@ -352,6 +360,7 @@ def main() -> None:
             print("FAILED:", ", ".join(summary["failed_ids"]))
 
     (SUITE_DIR / "summary.json").write_text(json.dumps(all_runs, indent=2, default=str), encoding="utf-8")
+    (GOLDEN_DIR / "suite_summary.json").write_text(json.dumps(all_runs, indent=2, default=str), encoding="utf-8")
     if any(r["failed"] > 0 for r in all_runs):
         raise SystemExit(1)
     print("\nALL GOLDEN REGRESSION RUNS PASSED (0 diffs each).")

@@ -125,7 +125,7 @@ py -3 tools/parity_suite.py --repeat 3
 | `5dfc5cc` | Multi-profile parity fixes |
 | `282ddb7` | Python production routes + algorithm docs |
 | `8575606` / **`legacy-node-final`** | Full Node archive in git |
-| (retirement commit) | Delete Node runtime paths |
+| `0976b82` | Delete Node runtime paths |
 
 ---
 

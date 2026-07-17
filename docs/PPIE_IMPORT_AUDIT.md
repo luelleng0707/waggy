@@ -1,74 +1,46 @@
-# PPIE JavaScript Import Audit
+# PPIE JavaScript Import Audit (Final)
 
-Generated before `legacy-node-final` tag and Node retirement.
-Scan tool: `tools/import_audit_scan.py`.
+**Date:** 2026-07-17  
+**Scan tool:** `tools/import_audit_scan.py`  
+**Working tree status:** Node runtime **REMOVED**.
 
-Classification keys:
+## Classification legend
 
-- **ACTIVE** — required by current production runtime
-- **MIGRATE** — must move to Python before Node can be removed
-- **DELETE** — safe to remove after migration verification
-- **DOC-ONLY** — comment / historical reference, not a runtime import
-- **KEEP** — non-engine frontend or tooling retained intentionally
+| Class | Meaning |
+|-------|---------|
+| **ACTIVE** | Required by current Python production runtime |
+| **REMOVED** | Deleted from working tree; recoverable via `legacy-node-final` |
+| **ARCHIVED** | Present only in Git history / tag |
+| **DOCUMENTATION ONLY** | Mentions in docs or comments; not a runtime import |
+| **KEEP** | Non-engine asset retained intentionally |
 
----
+## Production runtime files
 
-## Production runtime (pre-migration)
+| Path | Class | Evidence |
+|------|-------|----------|
+| `app/api/main.py` | **ACTIVE** | FastAPI production entry |
+| `app/agent/**` | **ACTIVE** | Canonical algorithm |
+| `data/**` | **ACTIVE** | CSV knowledge base |
+| `server.js` | **REMOVED** / **ARCHIVED** | Deleted; tag `legacy-node-final` |
+| `server/**` | **REMOVED** / **ARCHIVED** | Deleted |
+| `src/engine/**` | **REMOVED** / **ARCHIVED** | Deleted |
+| `src/api/**`, `src/db/**`, `src/socket/**`, `src/security/**` | **REMOVED** / **ARCHIVED** | Deleted |
+| `package.json` | **KEEP** | Scripts delegate to Python only; no Express deps |
+| `app.js` / `index.html` / `styles.css` | **KEEP** | Static demo UI |
 
-| Path | References | Class | Evidence |
-|------|------------|-------|----------|
-| `server.js` | Express boot, `/health`, static, Socket.IO | **MIGRATE → DELETE** | `package.json` `"start": "node server.js"`; boots `src/api/routes` |
-| `src/api/routes.js` | `require('../engine')`, evidence/products | **MIGRATE → DELETE** | Registers `/api/v1/analyze`, `/api/recommendations`, evidence, products, groomer |
-| `src/engine/*` | Entire PPIE JS engine | **MIGRATE → DELETE** | Required by `src/api/routes.js` |
-| `src/engine/evidenceEngine.js` | Condition evidence/products helpers | **MIGRATE → DELETE** | Used by routes |
-| `src/api/db/*`, `src/db/*` | CSV loaders for Node engine | **DELETE** | Only consumed by `src/engine` |
-| `src/api/middleware.js` | API key + HMAC | **MIGRATE → DELETE** | Replaced by FastAPI `require_api_key` |
-| `src/security/*` | License / JWT / HMAC / keys | **DELETE** | Node-only boot path |
-| `src/socket/socketServer.js` | Socket.IO pet rooms | **DELETE** | No groomer.html in repo; HTTP groomer routes ported without sockets |
-| `server/index.js` | Legacy Express (`npm run legacy`) | **DELETE** | `package.json` `"legacy"` |
-| `server/logic.js` | `computeRecommendations` | **DELETE** | Required by `server/routes.js` / `server/index.js` |
-| `server/routes.js` | Legacy recommendations/breeds | **DELETE** | `require('./logic')` |
-| `server/socket.js` | Legacy sockets | **DELETE** | Legacy server only |
-| `server/import.js` | CSV import helper | **DELETE** | Legacy path |
+## Scan hits (post-retirement)
 
----
+All remaining string hits for `src/engine`, `server.js`, `server/logic`, `computeRecommendations` are:
 
-## Python ports (canonical after migration)
+- **DOCUMENTATION ONLY** (`docs/*`, `FRONTEND_LAYOUT_SPEC.md`, `PYTHON_AGENT.md`)
+- **DOCUMENTATION ONLY** (Python module docstrings noting historical ports)
+- The scan tool needle list itself
 
-| Former JS | Python |
-|-----------|--------|
-| `src/engine/index.js` `analyze` | `app/agent/engine.py` + `response_assembler.py` via `POST /api/v1/analyze` |
-| `src/engine/evidenceEngine.js` | `app/api/evidence.py` |
-| `mapLegacyResponse` | `app/api/payload_adapter.py` |
-| Express static | FastAPI `FileResponse` for `/`, `/app.js`, `/styles.css` |
-| API key middleware | `app/api/main.py` `require_api_key` |
+**Zero** production `require('../engine')`, Express boots, or `npm run legacy` remain.
 
----
+## Gate checklist
 
-## Non-runtime references
-
-| Path | Class | Notes |
-|------|-------|-------|
-| `app/agent/*.py` docstrings mentioning `src/engine` | **DOC-ONLY** | Historical parity comments; not imports |
-| `docs/PPIE_ALGORITHM.md` | **DOC-ONLY** | Mentions retired JS |
-| `FRONTEND_LAYOUT_SPEC.md` | **DOC-ONLY** | Update pointers to Python |
-| `app.js` / `index.html` / `styles.css` | **KEEP** | Static demo UI; no engine `require` |
-| `tools/parity_suite.py` | **KEEP** | Golden regression (Python-only) |
-| `tools/parity_harness.py` | **KEEP** (optional Node compare) | Historical; suite is canonical |
-
----
-
-## Post-migration gate
-
-Before deleting Node files, verify:
-
-1. `GET http://127.0.0.1:8000/health` → 200
-2. `POST /api/v1/analyze` with `x-api-key` → 200
-3. `GET /api/v1/evidence/{condition}` → 200
-4. `GET /api/v1/products/{condition}` → 200
-5. `POST /api/recommendations` → 200 legacy shape
-6. `py -3 tools/parity_suite.py --repeat 3` → 10/10 × 3
-
-After deletion, re-run `tools/import_audit_scan.py`.
-
-**Post-retirement result (2026-07-17):** zero production `require()` of `src/engine`, `server/logic`, or `server.js`. Remaining hits are DOC-ONLY (comments, docs, historical audit text) or the scan tool's own needle list.
+- [x] `GET /health` on Python → 200
+- [x] Node not required for suite
+- [x] `server.js` / `src/engine` absent from working tree
+- [x] Tag `legacy-node-final` exists

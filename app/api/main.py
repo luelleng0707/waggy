@@ -12,6 +12,7 @@ from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 
+from app.agent.version import ALGORITHM_VERSION
 from app.agent.engine import PPIEWellnessAgent
 from app.agent.state import DogProfileInput
 from app.api.evidence import get_evidence_for_condition, get_products_for_condition
@@ -31,7 +32,7 @@ VALID_KEYS = {
     if k.strip()
 }
 
-app = FastAPI(title="Wagtopia PPIE Wellness Agent API", version="2.1.0")
+app = FastAPI(title="Wagtopia PPIE Wellness Agent API", version=ALGORITHM_VERSION)
 agent = PPIEWellnessAgent(data_dir=DATA_DIR)
 _groomer_sessions: dict[str, dict[str, Any]] = {}
 
@@ -44,6 +45,29 @@ app.add_middleware(
 )
 
 
+@app.middleware("http")
+async def request_timing(request: Request, call_next):
+    started = datetime.now(timezone.utc)
+    t0 = started.timestamp()
+    try:
+        response = await call_next(request)
+    except Exception:
+        logger.exception("Unhandled exception path=%s", request.url.path)
+        raise
+    elapsed_ms = round((datetime.now(timezone.utc).timestamp() - t0) * 1000, 1)
+    response.headers["X-PPIE-Elapsed-Ms"] = str(elapsed_ms)
+    response.headers["X-PPIE-Algorithm-Version"] = ALGORITHM_VERSION
+    if request.url.path.startswith("/api") or request.url.path == "/health":
+        logger.info(
+            "request method=%s path=%s status=%s elapsed_ms=%s",
+            request.method,
+            request.url.path,
+            response.status_code,
+            elapsed_ms,
+        )
+    return response
+
+
 async def require_api_key(x_api_key: str | None = Header(default=None)) -> str:
     if not x_api_key or x_api_key not in VALID_KEYS:
         raise HTTPException(status_code=401, detail="Invalid or missing x-api-key")
@@ -51,8 +75,27 @@ async def require_api_key(x_api_key: str | None = Header(default=None)) -> str:
 
 
 @app.get("/health")
-async def health() -> dict[str, str]:
-    return {"status": "ok", "engine": "PPIE", "version": "2.1.0", "runtime": "python"}
+async def health() -> dict[str, Any]:
+    csv_ok = True
+    csv_detail = "ok"
+    try:
+        breeds = agent.repo.breeds()
+        if breeds.empty:
+            csv_ok = False
+            csv_detail = "BREEDS.csv empty or missing"
+        else:
+            csv_detail = f"breeds_loaded={len(breeds)}"
+    except Exception as exc:  # noqa: BLE001
+        csv_ok = False
+        csv_detail = str(exc)
+    return {
+        "status": "ok" if csv_ok else "degraded",
+        "engine": "PPIE",
+        "version": ALGORITHM_VERSION,
+        "algorithm_version": ALGORITHM_VERSION,
+        "runtime": "python",
+        "csv": {"ok": csv_ok, "detail": csv_detail},
+    }
 
 
 @app.post("/api/v2/wellness/evaluate")
