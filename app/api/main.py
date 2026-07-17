@@ -283,11 +283,19 @@ if (_static_root / "index.html").exists():
 
     @app.get("/app.js")
     async def serve_app_js() -> FileResponse:
-        return FileResponse(_static_root / "app.js", media_type="application/javascript")
+        return FileResponse(
+            _static_root / "app.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
 
     @app.get("/styles.css")
     async def serve_styles() -> FileResponse:
-        return FileResponse(_static_root / "styles.css", media_type="text/css")
+        return FileResponse(
+            _static_root / "styles.css",
+            media_type="text/css",
+            headers={"Cache-Control": "no-cache"},
+        )
 
 
 if __name__ == "__main__":

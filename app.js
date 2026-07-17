@@ -384,4 +384,68 @@
   });
 
   renderShop('all');
+
+  // ── Live PPIE hydrate (Python API only) ──
+  // Demo shell is mostly static; package pricing must come from /api/v1/analyze.
+  const API_BASE = window.location.origin;
+  const API_KEY = 'wagtopia-demo-key';
+
+  async function hydrateFromPPIE() {
+    const packageEl = document.querySelector('.package-price');
+    if (packageEl) {
+      packageEl.dataset.state = 'loading';
+      packageEl.textContent = 'Loading live pricing…';
+    }
+    try {
+      const res = await fetch(`${API_BASE}/api/v1/analyze`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'x-api-key': API_KEY
+        },
+        body: JSON.stringify({
+          name: 'Dolly',
+          pet_name: 'Dolly',
+          breeds: ['Golden Retriever', 'Labrador Retriever'],
+          birthday: '2021-03-15',
+          weight: 30,
+          sex: 'Female',
+          activity_level: 'High',
+          current_environment: 'Shanghai Summer',
+          observed_conditions: []
+        })
+      });
+      if (!res.ok) throw new Error(`analyze HTTP ${res.status}`);
+      const data = await res.json();
+      const pkgs = data.wellnessPackages || [];
+      const balanced =
+        pkgs.find(p => String(p.tier || '').toLowerCase() === 'balanced') ||
+        pkgs.find(p => /balanced/i.test(p.title || '')) ||
+        pkgs[1] ||
+        pkgs[0];
+      if (packageEl && balanced) {
+        const monthly = Number(balanced.monthly_cost ?? 0);
+        const yearly = Number(balanced.yearly_cost ?? 0);
+        packageEl.textContent =
+          `Monthly: ¥${monthly.toLocaleString('en-US')} · Yearly: ¥${yearly.toLocaleString('en-US')}`;
+        packageEl.dataset.state = 'ready';
+      }
+      const titleEl = document.querySelector('.package-title');
+      if (titleEl && balanced?.title) titleEl.textContent = balanced.title;
+      window.__PPIE_LAST__ = {
+        wellness_score: data.wellness_score,
+        version: data.version,
+        packageCount: pkgs.length
+      };
+    } catch (err) {
+      console.error('[Wagtopia] PPIE hydrate failed', err);
+      if (packageEl) {
+        packageEl.textContent = 'Pricing unavailable — retry refresh';
+        packageEl.dataset.state = 'error';
+      }
+    }
+  }
+
+  hydrateFromPPIE();
 })();
