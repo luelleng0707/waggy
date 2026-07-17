@@ -797,16 +797,16 @@ Never send pre-formatted `"$0"` strings for PPIE-driven fields — send numbers;
 
 ### E.1 Static file server
 
-`server.js` → `express.static(__dirname)` serves `index.html`, `app.js`, `styles.css` at port **3000**.
+`app/api/main.py` (uvicorn) serves `index.html`, `app.js`, `styles.css` at port **8000**. Legacy Node Express (`server.js`) is retired — see tag `legacy-node-final`.
 
-### E.2 API routes (`src/api/routes.js`)
+### E.2 API routes (`app/api/main.py`)
 
 | Method | Path | Handler |
 |--------|------|---------|
-| POST | `/api/v1/analyze` | `analyze(req.body)` → full v2.1 envelope |
-| POST | `/api/recommendations` | `analyze` → `mapLegacyResponse` |
+| POST | `/api/v1/analyze` | Python PPIE agent → full v2.1 envelope |
+| POST | `/api/recommendations` | Same pipeline → `map_legacy_response` |
 | GET | `/api/breeds` | Breed typeahead |
-| POST | `/api/v1/groomer/update` | Session observations → Socket emit |
+| POST | `/api/v1/groomer/update` | Session observations (HTTP) |
 | POST | `/api/groomer/submit` | Legacy groomer form |
 
 ### E.3 Client fetch evolution
@@ -814,8 +814,8 @@ Never send pre-formatted `"$0"` strings for PPIE-driven fields — send numbers;
 | Generation | Endpoint | Notes |
 |------------|----------|-------|
 | v1 | `POST /api/recommendations` | Returns `monthlyPack`, `priorities` |
-| v2 | `POST /api/v1/analyze` | Full wellness envelope |
-| Python target | `POST /api/v2/wellness/evaluate` (FastAPI) | Must map to same field names |
+| v2 | `POST /api/v1/analyze` | Full wellness envelope (canonical) |
+| v2 alternate | `POST /api/v2/wellness/evaluate` | Same pipeline; Python profile schema |
 
 **Client refresh pipeline:**
 

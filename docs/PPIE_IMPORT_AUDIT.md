@@ -69,4 +69,6 @@ Before deleting Node files, verify:
 5. `POST /api/recommendations` → 200 legacy shape
 6. `py -3 tools/parity_suite.py --repeat 3` → 10/10 × 3
 
-After deletion, re-run `tools/import_audit_scan.py` — production code paths must show **zero** `require('../engine')` / `server/logic` / `server.js` runtime boots.
+After deletion, re-run `tools/import_audit_scan.py`.
+
+**Post-retirement result (2026-07-17):** zero production `require()` of `src/engine`, `server/logic`, or `server.js`. Remaining hits are DOC-ONLY (comments, docs, historical audit text) or the scan tool's own needle list.

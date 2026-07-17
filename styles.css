@@ -1,23 +1,29 @@
-/* ===== Wagtopia AI — Luxury Mobile Demo ===== */
+/* Wagtopia — Premium Deterministic Wellness Report */
 
 :root {
-  --cream: #FAF6F0;
-  --cream-dark: #F0E8DC;
-  --beige: #E8DFD0;
-  --brown: #8B7355;
-  --brown-dark: #6B5740;
-  --brown-light: #A89078;
-  --gold: #C4A574;
-  --gold-light: #D4BC94;
+  --bg-start: #FBF9F6;
+  --bg-end: #FFF0F5;
+  --primary: #7A1C4B;
+  --accent: #A12568;
+  --button: #E53A7F;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: 1px solid rgba(229, 58, 127, 0.15);
+  --cream: var(--bg-start);
+  --cream-dark: #F5E8EE;
+  --beige: #F5E8EE;
+  --brown: var(--accent);
+  --brown-dark: var(--primary);
+  --brown-light: var(--button);
+  --gold: var(--button);
+  --gold-light: #F5A0C0;
   --text: #3D3429;
-  --text-muted: #7A6F63;
-  --white: #FFFCF8;
-  --shadow: 0 4px 24px rgba(107, 87, 64, 0.08);
-  --shadow-lg: 0 8px 32px rgba(107, 87, 64, 0.12);
-  --radius: 16px;
-  --radius-sm: 12px;
-  --radius-lg: 24px;
-  --nav-height: 72px;
+  --text-muted: rgba(61, 52, 41, 0.72);
+  --white: #FFFFFF;
+  --shadow: 0 8px 32px rgba(122, 28, 75, 0.08);
+  --shadow-lg: 0 16px 48px rgba(122, 28, 75, 0.1);
+  --radius: 20px;
+  --radius-sm: 16px;
+  --radius-lg: 28px;
   --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Noto Serif', Georgia, serif;
 }
@@ -30,9 +36,9 @@
 
 html, body {
   min-height: 100vh;
-  background: linear-gradient(145deg, #2C2419 0%, #4A3F32 50%, #3D3429 100%);
+  background: linear-gradient(165deg, var(--bg-start) 0%, var(--bg-end) 100%);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 24px 16px;
   font-family: var(--font);
@@ -44,13 +50,10 @@ html, body {
 .device-frame {
   width: 390px;
   max-width: 100%;
-  background: #1a1a1a;
+  background: linear-gradient(145deg, #2a1520 0%, #4a2035 100%);
   border-radius: 44px;
   padding: 12px;
-  box-shadow:
-    0 0 0 2px #333,
-    0 24px 80px rgba(0, 0, 0, 0.5),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-lg);
   position: relative;
 }
 
@@ -68,29 +71,23 @@ html, body {
 
 .phone-app {
   width: 100%;
-  height: 844px;
-  max-height: calc(100vh - 80px);
-  background: var(--cream);
+  min-height: 844px;
+  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
   border-radius: 36px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Pages */
-.page {
-  display: none;
-  flex: 1;
-  overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: var(--nav-height);
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  position: relative;
 }
 
-.page.active {
+.journey-scroll {
+  padding-bottom: 40px;
+}
+
+.page {
   display: block;
+  overflow: visible;
+  padding-bottom: 0;
+  scroll-behavior: smooth;
 }
 
 .page-spacer {
@@ -99,7 +96,7 @@ html, body {
 
 /* ===== HOME ===== */
 .home-header {
-  background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown) 50%, var(--gold) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 55%, var(--button) 100%);
   padding: 48px 20px 28px;
   color: var(--white);
 }
@@ -174,10 +171,80 @@ html, body {
 
 .profile-card {
   margin: 20px 16px;
-  background: var(--white);
+  background: var(--card-bg);
+  border: var(--card-border);
   border-radius: var(--radius-lg);
   padding: 20px;
   box-shadow: var(--shadow);
+}
+
+.voucher-card,
+.module-card {
+  margin: 0 16px 14px;
+  background: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: 0 4px 16px rgba(122, 28, 75, 0.06);
+  word-wrap: break-word;
+}
+
+.section-intro {
+  padding: 0 16px 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.section-divider {
+  margin: 28px 16px;
+  border: none;
+  border-top: 1px solid rgba(229, 58, 127, 0.12);
+}
+
+.section-header h2 {
+  color: var(--primary);
+}
+
+.measure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.measure-cell {
+  background: rgba(255, 240, 245, 0.6);
+  border-radius: 12px;
+  padding: 8px 4px;
+  font-size: 12px;
+}
+
+.measure-cell .label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.measure-cell .value {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.trend-up {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 6px 0 0;
 }
 
 .profile-header {
@@ -807,251 +874,7 @@ html, body {
   color: var(--brown-dark);
 }
 
-/* ===== AI CARE ===== */
-.ai-header .ai-badge {
-  display: inline-block;
-  font-size: 11px;
-  background: var(--brown);
-  color: var(--white);
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.wellness-score-card {
-  margin: 0 16px 20px;
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: var(--shadow);
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.score-ring {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  flex-shrink: 0;
-}
-
-.score-ring svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-
-.ring-bg {
-  fill: none;
-  stroke: var(--cream-dark);
-  stroke-width: 8;
-}
-
-.ring-fill {
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-dasharray: 327;
-  stroke-dashoffset: 42;
-  transition: stroke-dashoffset 1s ease;
-}
-
-.score-value {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.score-num {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--brown-dark);
-  line-height: 1;
-}
-
-.score-label {
-  font-size: 10px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.score-details h3 {
-  font-family: var(--font-serif);
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.score-details p {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.insight-cards {
-  padding: 0 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.insight-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 16px;
-  box-shadow: var(--shadow);
-  display: flex;
-  gap: 14px;
-}
-
-.insight-card.emotional {
-  background: linear-gradient(135deg, #FFF9F0 0%, var(--white) 100%);
-  border: 1px solid var(--cream-dark);
-}
-
-.insight-icon {
-  font-size: 24px;
-  flex-shrink: 0;
-}
-
-.insight-card h4 {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.insight-card p {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.note-author {
-  display: block;
-  font-size: 11px;
-  color: var(--brown);
-  margin-top: 8px;
-  font-weight: 500;
-}
-
-.mini-chart {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 32px;
-  margin-top: 10px;
-}
-
-.mini-chart span {
-  flex: 1;
-  background: linear-gradient(180deg, var(--gold) 0%, var(--brown-light) 100%);
-  border-radius: 3px 3px 0 0;
-  min-height: 4px;
-}
-
-.trend-line {
-  height: 32px;
-  margin-top: 8px;
-}
-
-.trend-line svg {
-  width: 100%;
-  height: 100%;
-}
-
-.activity-bar {
-  height: 6px;
-  background: var(--cream-dark);
-  border-radius: 3px;
-  margin-top: 10px;
-  overflow: hidden;
-}
-
-.activity-bar span {
-  display: block;
-  height: 100%;
-  background: linear-gradient(90deg, var(--gold), var(--brown));
-  border-radius: 3px;
-}
-
-.trends-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 0 16px 20px;
-}
-
-.trend-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 14px;
-  box-shadow: var(--shadow);
-}
-
-.trend-title {
-  font-size: 12px;
-  color: var(--text-muted);
-  display: block;
-  margin-bottom: 4px;
-}
-
-.trend-change {
-  font-size: 14px;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.trend-change.up { color: #5A7A4A; }
-.trend-change.neutral { color: var(--brown); }
-
-.sparkline {
-  height: 24px;
-  border-radius: 4px;
-}
-
-.up-spark {
-  background: linear-gradient(90deg,
-    transparent 0%, transparent 10%,
-    var(--cream-dark) 10%, var(--cream-dark) 15%,
-    transparent 15%, transparent 25%,
-    var(--cream-dark) 25%, var(--cream-dark) 30%,
-    transparent 30%, transparent 40%,
-    var(--gold-light) 40%, var(--gold-light) 50%,
-    transparent 50%, transparent 60%,
-    var(--gold) 60%, var(--gold) 75%,
-    var(--brown-light) 75%, var(--brown-light) 100%
-  );
-  opacity: 0.6;
-}
-
-.flat-spark {
-  background: linear-gradient(90deg,
-    var(--cream-dark) 0%, var(--cream-dark) 100%
-  );
-  opacity: 0.5;
-}
-
-.ai-disclaimer {
-  margin: 0 16px 20px;
-  padding: 14px;
-  background: var(--cream-dark);
-  border-radius: var(--radius-sm);
-}
-
-.ai-disclaimer p {
-  font-size: 11px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  text-align: center;
-}
+/* Legacy AI Care styles removed — wellness report uses voucher-card components */
 
 /* ===== SHOP ===== */
 .shop-layout {
@@ -1174,20 +997,7 @@ html, body {
 
 /* ===== BOTTOM NAV ===== */
 .bottom-nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: var(--nav-height);
-  background: rgba(255, 252, 248, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid var(--cream-dark);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-bottom: 8px;
-  z-index: 50;
+  display: none !important;
 }
 
 .nav-item {

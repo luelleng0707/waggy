@@ -1,30 +1,7 @@
-/* Wagtopia AI — Demo Interactions */
+/* Wagtopia — Demo Interactions (single-scroll wellness report) */
 
 (function () {
   'use strict';
-
-  // ── Navigation ──
-  const pages = document.querySelectorAll('.page');
-  const navItems = document.querySelectorAll('.nav-item');
-
-  function showPage(name) {
-    pages.forEach(p => p.classList.remove('active'));
-    navItems.forEach(n => n.classList.remove('active'));
-    const page = document.getElementById('page-' + name);
-    const nav = document.querySelector('[data-page="' + name + '"]');
-    if (page) page.classList.add('active');
-    if (nav) nav.classList.add('active');
-    const activePage = document.querySelector('.page.active');
-    if (activePage) activePage.scrollTop = 0;
-  }
-
-  navItems.forEach(btn => {
-    btn.addEventListener('click', () => showPage(btn.dataset.page));
-  });
-
-  document.querySelectorAll('.quick-card[data-nav]').forEach(card => {
-    card.addEventListener('click', () => showPage(card.dataset.nav));
-  });
 
   // ── Image pools (Unsplash) ──
   const dogClean = [

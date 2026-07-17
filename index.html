@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wagtopia AI — Dolly's Care Journey</title>
+  <title>Wagtopia — Dolly's Wellness Report</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -15,8 +15,8 @@
   <div class="device-notch"></div>
   <div class="phone-app">
 
-    <!-- ========== PAGE 1: HOME ========== -->
-    <section class="page active" id="page-home">
+    <!-- ========== CONTINUOUS WELLNESS REPORT ========== -->
+    <section class="page active journey-scroll" id="page-home">
       <header class="home-header">
         <div class="header-top">
           <span class="brand-mark">Wagtopia</span>
@@ -73,69 +73,36 @@
         </div>
       </div>
 
-      <div class="section-header">
-        <h2>Upcoming Events</h2>
-        <span class="see-all">See all</span>
-      </div>
-      <div class="banner-carousel">
-        <div class="event-banner banner-1">
-          <span class="banner-label">This Weekend</span>
-          <h3>Puppy Social Weekend</h3>
-          <p>Meet &amp; play at our garden lounge</p>
-        </div>
-        <div class="event-banner banner-2">
-          <span class="banner-label">July 28</span>
-          <h3>Dog Birthday Event</h3>
-          <p>Celebrate with bakery treats &amp; photos</p>
-        </div>
-        <div class="event-banner banner-3">
-          <span class="banner-label">Aug 5</span>
-          <h3>Grooming Workshop</h3>
-          <p>Learn coat care from our experts</p>
-        </div>
-        <div class="event-banner banner-4">
-          <span class="banner-label">Aug 12</span>
-          <h3>Summer Bakery Pop-up</h3>
-          <p>Limited seasonal treats for Dolly</p>
-        </div>
+      <hr class="section-divider">
+      <div class="section-header"><h2>Wellness Analysis</h2></div>
+      <p class="section-intro">Based on breed epidemiology, environmental exposure, and published veterinary nutrition literature — every value is traceable to PPIE calculations and product data.</p>
+
+      <div class="section-header"><h2>Breed × Environment Matrix</h2></div>
+      <div class="voucher-card"><strong>Climate</strong><p class="muted">Shanghai Summer — elevated heat-stress and coat moisture retention demand.</p></div>
+      <div class="voucher-card"><strong>Activity</strong><p class="muted">High — increased caloric and joint-support nutrient requirements.</p></div>
+
+      <div class="section-header"><h2>Trait Analysis</h2></div>
+      <div class="tag-row" style="padding:0 16px 8px;">
+        <span class="tag">large</span><span class="tag">athletic</span><span class="tag">double-coat</span><span class="tag">high-energy</span>
       </div>
 
-      <div class="section-header">
-        <h2>Quick Access</h2>
-      </div>
-      <div class="quick-grid">
-        <button class="quick-card" data-nav="diary">
-          <span class="quick-icon">📔</span>
-          <span>Grooming Diary</span>
-        </button>
-        <button class="quick-card" data-nav="ai">
-          <span class="quick-icon">✨</span>
-          <span>AI Care</span>
-        </button>
-        <button class="quick-card" data-nav="ai">
-          <span class="quick-icon">🌿</span>
-          <span>Personalized Wellness</span>
-        </button>
-        <button class="quick-card" data-nav="shop">
-          <span class="quick-icon">🥐</span>
-          <span>Bakery &amp; Treats</span>
-        </button>
-        <button class="quick-card">
-          <span class="quick-icon">🎉</span>
-          <span>Community Events</span>
-        </button>
-      </div>
-      <div class="page-spacer"></div>
-    </section>
+      <div class="section-header"><h2>Trait Benefits</h2></div>
+      <div class="voucher-card"><strong>Joint Mobility Support</strong><p class="muted">Large athletic breeds benefit from structured glucosamine and omega-3 intake.</p></div>
 
-    <!-- ========== PAGE 2: DIARY ========== -->
-    <section class="page" id="page-diary">
-      <header class="page-header">
-        <h1>Dolly's Diary</h1>
-        <p>Every visit, every detail — remembered.</p>
-      </header>
+      <div class="section-header"><h2>Trait Weaknesses</h2></div>
+      <div class="voucher-card"><strong>Golden Retriever</strong> — Hip Dysplasia<p class="muted">Observed prevalence: <span class="trend-up">12.4%</span></p></div>
 
-      <div class="calendar-card">
+      <div class="section-header"><h2>Preventative Wellness</h2></div>
+      <div class="voucher-card"><strong>Skin &amp; Coat</strong> · Observed prevalence <span class="trend-up">18.2%</span></div>
+
+      <div class="section-header"><h2>Nutrition Priorities</h2></div>
+      <div class="voucher-card"><strong>Glucosamine</strong><div class="measure-grid"><div class="measure-cell"><span class="label">Daily</span><span class="value">520 mg</span></div><div class="measure-cell"><span class="label">Monthly</span><span class="value">15.6 g</span></div><div class="measure-cell"><span class="label">Coverage</span><span class="value">87%</span></div></div></div>
+
+      <div class="section-header"><h2>Recommended Care Packages</h2></div>
+      <div class="voucher-card"><div class="package-title">Balanced Care</div><div class="package-price">Monthly: <strong>¥0</strong> · Yearly: <strong>¥0</strong></div></div>
+
+      <hr class="section-divider">
+      <div class="section-header"><h2>Grooming Diary</h2></div>
         <div class="calendar-nav">
           <button class="cal-btn" aria-label="Previous month">‹</button>
           <span class="cal-month">July – August 2025</span>
@@ -203,117 +170,10 @@
         <!-- Filled by JS -->
       </div>
       <div class="page-spacer"></div>
-    </section>
 
-    <!-- ========== PAGE 3: AI CARE ========== -->
-    <section class="page" id="page-ai">
-      <header class="page-header ai-header">
-        <div class="ai-badge">Wagtopia Intelligence</div>
-        <h1>AI Care Center</h1>
-        <p>Powered by recurring grooming observations — not medical diagnosis.</p>
-      </header>
-
-      <div class="wellness-score-card">
-        <div class="score-ring">
-          <svg viewBox="0 0 120 120">
-            <circle cx="60" cy="60" r="52" class="ring-bg"/>
-            <circle cx="60" cy="60" r="52" class="ring-fill" style="stroke-dashoffset: 42"/>
-          </svg>
-          <div class="score-value">
-            <span class="score-num">92</span>
-            <span class="score-label">Wellness</span>
-          </div>
-        </div>
-        <div class="score-details">
-          <h3>Dolly's Wellness Score</h3>
-          <p>Based on 14 grooming sessions, coat observations, and behavioral notes from our care team.</p>
-        </div>
-      </div>
-
-      <div class="insight-cards">
-        <div class="insight-card">
-          <div class="insight-icon">💧</div>
-          <div>
-            <h4>Coat Hydration Trend</h4>
-            <p>Improved 18% since June. Hydration treatments are working well.</p>
-            <div class="mini-chart">
-              <span style="height:40%"></span>
-              <span style="height:55%"></span>
-              <span style="height:50%"></span>
-              <span style="height:70%"></span>
-              <span style="height:85%"></span>
-              <span style="height:92%"></span>
-            </div>
-          </div>
-        </div>
-        <div class="insight-card">
-          <div class="insight-icon">👁</div>
-          <div>
-            <h4>Tear Stain Improvement</h4>
-            <p>Eye area clarity up 24%. Weekly wipe routine recommended.</p>
-            <div class="trend-line">
-              <svg viewBox="0 0 200 40" preserveAspectRatio="none">
-                <polyline points="0,35 40,30 80,28 120,18 160,12 200,8" fill="none" stroke="#8B7355" stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="insight-card">
-          <div class="insight-icon">🏃</div>
-          <div>
-            <h4>Activity Level</h4>
-            <p>High energy maintained. Social play sessions boost mood post-grooming.</p>
-            <div class="activity-bar"><span style="width:88%"></span></div>
-          </div>
-        </div>
-        <div class="insight-card emotional">
-          <div class="insight-icon">💛</div>
-          <div>
-            <h4>Emotional Notes</h4>
-            <p>"Dolly arrived excited today — tail wagging at the door. She remembered Emma, her favorite groomer. Post-session cuddles lasted 5 minutes longer than usual."</p>
-            <span class="note-author">— Emma, Lead Groomer</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-header">
-        <h2>Grooming Trends</h2>
-      </div>
-      <div class="trends-grid">
-        <div class="trend-card">
-          <span class="trend-title">Coat Softness</span>
-          <span class="trend-change up">↑ 12%</span>
-          <div class="sparkline up-spark"></div>
-        </div>
-        <div class="trend-card">
-          <span class="trend-title">Ear Health</span>
-          <span class="trend-change up">↑ 8%</span>
-          <div class="sparkline up-spark"></div>
-        </div>
-        <div class="trend-card">
-          <span class="trend-title">Paw Condition</span>
-          <span class="trend-change up">↑ 15%</span>
-          <div class="sparkline up-spark"></div>
-        </div>
-        <div class="trend-card">
-          <span class="trend-title">Calm Score</span>
-          <span class="trend-change neutral">→ Stable</span>
-          <div class="sparkline flat-spark"></div>
-        </div>
-      </div>
-
-      <div class="ai-disclaimer">
-        <p>Insights are generated from grooming observations and wellness notes. This is not veterinary advice or medical diagnosis.</p>
-      </div>
-      <div class="page-spacer"></div>
-    </section>
-
-    <!-- ========== PAGE 4: SHOP ========== -->
-    <section class="page" id="page-shop">
-      <header class="page-header">
-        <h1>Wagtopia Shop</h1>
-        <p>Curated for Dolly · Luxury pet essentials</p>
-      </header>
+      <hr class="section-divider">
+      <div class="section-header"><h2>Wagtopia Shop</h2></div>
+      <p class="section-intro">Curated products from the PPIE product catalog — priced from published product data.</p>
 
       <div class="shop-layout">
         <aside class="shop-sidebar">
@@ -338,26 +198,6 @@
       </div>
       <div class="page-spacer"></div>
     </section>
-
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-      <button class="nav-item active" data-page="home">
-        <span class="nav-icon">🏠</span>
-        <span>Home</span>
-      </button>
-      <button class="nav-item" data-page="diary">
-        <span class="nav-icon">📔</span>
-        <span>Diary</span>
-      </button>
-      <button class="nav-item" data-page="ai">
-        <span class="nav-icon">✨</span>
-        <span>AI Care</span>
-      </button>
-      <button class="nav-item" data-page="shop">
-        <span class="nav-icon">🛍</span>
-        <span>Shop</span>
-      </button>
-    </nav>
 
   </div>
 </div>
