@@ -1,0 +1,261 @@
+{
+  "summary": {
+    "count": 16
+  },
+  "columns": [
+    {
+      "file": "CONDITION_PROTOCOLS.csv",
+      "column": "evidence_type",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/data/clinical_report_builder.py",
+        "app/data/repository.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "INGREDIENT_NUTRIENT_ESTIMATES.csv",
+      "column": "is_estimated",
+      "reason": "metadata_like_unreferenced",
+      "python_references": [
+        "app/inference/formula_registry.py",
+        "app/inference/ingredient.py"
+      ],
+      "safe_to_delete": false,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "food_type",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "life_stage",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "size_support",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "protein_source",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "package_weight_g",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "daily_feeding_chart",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "energy_kcal_per_kg",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "fiber_pct",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "ash_pct",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "STAPLE_FOOD.csv",
+      "column": "ingredient_list",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/api/evidence.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "TREATS.csv",
+      "column": "treat_type",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/data/clinical_report_builder.py",
+        "app/data/repository.py",
+        "app/ui/renderer/home.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "TREATS.csv",
+      "column": "protein_source",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/data/clinical_report_builder.py",
+        "app/data/repository.py",
+        "app/ui/renderer/home.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "TREATS.csv",
+      "column": "texture",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/data/clinical_report_builder.py",
+        "app/data/repository.py",
+        "app/ui/renderer/home.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    },
+    {
+      "file": "TREATS.csv",
+      "column": "feeding_recommendation",
+      "reason": "file_unused_by_engine",
+      "python_references": [
+        "app/agent/bundle_engine.py",
+        "app/agent/package_detail.py",
+        "app/agent/package_optimizer.py",
+        "app/agent/pipeline_trace.py",
+        "app/agent/response_assembler.py",
+        "app/data/clinical_report_builder.py",
+        "app/data/repository.py",
+        "app/ui/renderer/home.py",
+        "app/ui/renderer/wellness.py"
+      ],
+      "safe_to_delete": true,
+      "replacement": null
+    }
+  ]
+}

@@ -50,6 +50,22 @@ class AssessmentAgent:
         )
         self.graph.execute(context)
         result = AssessmentResult.from_context(context)
+        # Phase 4: additive knowledge-graph explainability (does not alter clinical math)
+        try:
+            from app.science.attach import attach_science_to_analyze, build_reasoning_payload
+
+            reasoning = build_reasoning_payload(
+                profile=profile, result=result, repository=self.repository
+            )
+            result.legacy_json = attach_science_to_analyze(result.legacy_json or {}, reasoning)
+            result.debug = {**(result.debug or {}), "science": reasoning}
+            result.evidence = {
+                **(result.evidence or {}),
+                "objects": reasoning.get("evidence_objects") or [],
+                "recommendations": reasoning.get("recommendation_explanations") or [],
+            }
+        except Exception:  # noqa: BLE001
+            logger.exception("Science explainability attach failed — clinical result preserved")
         elapsed = round((perf_counter() - t0) * 1000, 3)
         result.performance = {
             **(result.performance or {}),

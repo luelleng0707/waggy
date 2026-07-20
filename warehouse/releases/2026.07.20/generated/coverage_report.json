@@ -1,0 +1,262 @@
+{
+  "formula_chains": [
+    {
+      "formula": "RISK_V2_1 / compute_risk",
+      "csv": "BREED_CONDITIONS + 9x *_CONDITIONS",
+      "row_key": "breed|traits x condition",
+      "paper_link": "inline citation columns today; warehouse -> paper_id",
+      "calculation": "base prevalence x trait interactions x benefits x mixed matrix",
+      "output": "risk_percent / ranked conditions",
+      "gaps": [
+        "citations not normalized to papers.csv",
+        "9 isomorphic trait tables"
+      ]
+    },
+    {
+      "formula": "map_ingredients",
+      "csv": "CONDITION_INGREDIENTS (sci+prev merge)",
+      "row_key": "condition x ingredient/nutrient",
+      "paper_link": "partial via INGREDIENT_EVIDENCE",
+      "calculation": "dose targets + priority",
+      "output": "nutrition targets",
+      "gaps": [
+        "dual folder homes",
+        "units not canonicalized"
+      ]
+    },
+    {
+      "formula": "package_optimizer.build_packages",
+      "csv": "PRODUCT_* + PACKAGE_TIERS + EXT_* + INGREDIENT_ALIASES",
+      "row_key": "product x component coverage",
+      "paper_link": "none (commercial)",
+      "calculation": "coverage score + tier staple + cost",
+      "output": "packages",
+      "gaps": [
+        "STAPLE_FOOD/TREATS unmanifested"
+      ]
+    },
+    {
+      "formula": "response_assembler",
+      "csv": "NUTRIENT_PRIORITIES, NATURAL_FOOD_SOURCES, mechanisms, activities",
+      "row_key": "assembled sections",
+      "paper_link": "evidence tables + CLINICAL_EVIDENCE_BASE (reports)",
+      "calculation": "assembly only (no new risk math)",
+      "output": "analyze / clinical JSON",
+      "gaps": [
+        "report-only tables not in risk path"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "formula": "RISK_V2_1 / compute_risk",
+      "gap": "citations not normalized to papers.csv"
+    },
+    {
+      "formula": "RISK_V2_1 / compute_risk",
+      "gap": "9 isomorphic trait tables"
+    },
+    {
+      "formula": "map_ingredients",
+      "gap": "dual folder homes"
+    },
+    {
+      "formula": "map_ingredients",
+      "gap": "units not canonicalized"
+    },
+    {
+      "formula": "package_optimizer.build_packages",
+      "gap": "STAPLE_FOOD/TREATS unmanifested"
+    },
+    {
+      "formula": "response_assembler",
+      "gap": "report-only tables not in risk path"
+    }
+  ],
+  "citation_column_inventory": [
+    {
+      "file": "MIXED_BREED_MATRIX.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 5
+    },
+    {
+      "file": "ENVIRONMENTAL_MATRICES.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 6
+    },
+    {
+      "file": "TRAIT_ATTRIBUTE_EXPLANATIONS.csv",
+      "citation_columns": [
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "TRAIT_PURPOSES.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 5
+    },
+    {
+      "file": "BODYTYPE_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "BREED_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 16
+    },
+    {
+      "file": "CLIMATE_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "COATTYPE_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "ENERGY_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "FUNCTIONGROUP_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "LIFESPAN_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "SIZE_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "SKULLTYPE_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "WEAKNESSGROUP_CONDITIONS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "ACTIVITY_EVIDENCE.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "ACTIVITY_PRESCRIPTION_RULES.csv",
+      "citation_columns": [
+        "source_url"
+      ],
+      "rows": 4
+    },
+    {
+      "file": "CONDITION_ACTIVITIES.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "CLINICAL_EVIDENCE_BASE.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 7
+    },
+    {
+      "file": "CONDITION_INGREDIENTS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 12
+    },
+    {
+      "file": "INGREDIENT_EVIDENCE.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 10
+    },
+    {
+      "file": "NUTRIENT_PRIORITIES.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 5
+    },
+    {
+      "file": "CONDITION_PROTOCOLS.csv",
+      "citation_columns": [
+        "source_quote",
+        "source_url"
+      ],
+      "rows": 12
+    },
+    {
+      "file": "PRODUCT_CATALOG.csv",
+      "citation_columns": [
+        "image_url",
+        "purchase_url"
+      ],
+      "rows": 16
+    }
+  ],
+  "warehouse_target": "Every science row carries paper_id -> reference/papers.csv",
+  "status": "Phase 1 inventory only - engine still uses data/"
+}

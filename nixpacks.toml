@@ -1,0 +1,9 @@
+# Force Python provider. package.json exists only for convenience scripts
+# that shell out to Python; Node is not the production runtime.
+providers = ["python"]
+
+[variables]
+NIXPACKS_PYTHON_VERSION = "3.12"
+
+[start]
+cmd = "uvicorn app.main:app --host 0.0.0.0 --port $PORT"

@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-07-20T22:13:36.758582+00:00",
+  "version": "2026.07.20",
+  "clinical_formulas_changed": false,
+  "core_architecture_frozen": true,
+  "steps": [
+    {
+      "step": "system_runtime",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\observability\\reports\\SYSTEM_RUNTIME.md"
+    },
+    {
+      "step": "formula_observatory",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\observability\\reports\\FORMULA_OBSERVATORY.md"
+    },
+    {
+      "step": "science_observatory",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\observability\\reports\\SCIENCE_OBSERVATORY.md"
+    },
+    {
+      "step": "dependency_observatory",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\observability\\reports\\DEPENDENCY_OBSERVATORY.md"
+    },
+    {
+      "step": "performance_observatory",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\observability\\reports\\PERFORMANCE_OBSERVATORY.md"
+    },
+    {
+      "step": "failure_simulation",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\quality\\reports\\FAILURE_SIMULATION.md"
+    },
+    {
+      "step": "fuzz",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\quality\\reports\\FUZZ_REPORT.md"
+    },
+    {
+      "step": "synthetic_population",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\quality\\reports\\SYNTHETIC_POPULATION.md"
+    },
+    {
+      "step": "mutation",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\quality\\reports\\MUTATION_REPORT.md"
+    },
+    {
+      "step": "security_audit",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\security\\SECURITY_AUDIT.md"
+    },
+    {
+      "step": "api_stability",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\meta\\architecture\\API_STABILITY.md"
+    },
+    {
+      "step": "living_architecture",
+      "paths": {
+        "ARCHITECTURE": "C:\\Users\\Admin\\Downloads\\waggy\\meta\\architecture\\ARCHITECTURE.md",
+        "DATA_DICTIONARY": "C:\\Users\\Admin\\Downloads\\waggy\\meta\\architecture\\DATA_DICTIONARY.md",
+        "WAREHOUSE": "C:\\Users\\Admin\\Downloads\\waggy\\meta\\architecture\\WAREHOUSE.md",
+        "QUALITY": "C:\\Users\\Admin\\Downloads\\waggy\\meta\\architecture\\QUALITY.md",
+        "RELEASE_HISTORY": "C:\\Users\\Admin\\Downloads\\waggy\\meta\\architecture\\RELEASE_HISTORY.md"
+      }
+    },
+    {
+      "step": "docs_reference",
+      "ok": true
+    },
+    {
+      "step": "sdk",
+      "paths": {
+        "openapi": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\sdk\\generated\\openapi.json",
+        "schemas": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\sdk\\generated\\schemas.json",
+        "typescript": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\sdk\\generated\\ppie.d.ts",
+        "python": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\sdk\\generated\\client.py"
+      }
+    },
+    {
+      "step": "snapshot",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\operations\\snapshots\\2026.07.20-omega"
+    },
+    {
+      "step": "dashboard",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\dashboard\\index.html"
+    },
+    {
+      "step": "science_release",
+      "skipped": true
+    },
+    {
+      "step": "deployment_artifact",
+      "path": "C:\\Users\\Admin\\Downloads\\waggy\\ppie_platform\\deployment\\ARTIFACT.md"
+    }
+  ]
+}

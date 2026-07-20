@@ -578,6 +578,159 @@ async def ppie_debug_repository_table(
         raise HTTPException(status_code=404, detail=str(exc)) from exc
 
 
+def _graph_repo():
+    from app.science.repository import GraphRepository
+
+    return GraphRepository.from_platform(agent.repo.platform)
+
+
+@app.get("/api/v1/graph/summary")
+async def graph_summary(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    grepo = _graph_repo()
+    return {"schema": "knowledge_graph.v1", "summary": grepo.graph.summary()}
+
+
+@app.get("/api/v1/graph/condition/{condition_id:path}")
+async def graph_condition(condition_id: str, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    grepo = _graph_repo()
+    hit = grepo.condition(condition_id)
+    if not hit:
+        raise HTTPException(status_code=404, detail=f"Condition not found: {condition_id}")
+    return {"schema": "graph_entity.v1", "entity": hit}
+
+
+@app.get("/api/v1/graph/paper/{paper_id:path}")
+async def graph_paper(paper_id: str, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    grepo = _graph_repo()
+    hit = grepo.paper(paper_id)
+    if not hit:
+        raise HTTPException(status_code=404, detail=f"Paper not found: {paper_id}")
+    return {"schema": "graph_entity.v1", "entity": hit}
+
+
+@app.get("/api/v1/graph/ingredient/{ingredient_id:path}")
+async def graph_ingredient(ingredient_id: str, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    grepo = _graph_repo()
+    hit = grepo.ingredient(ingredient_id)
+    if not hit:
+        raise HTTPException(status_code=404, detail=f"Ingredient not found: {ingredient_id}")
+    return {"schema": "graph_entity.v1", "entity": hit}
+
+
+@app.get("/api/v1/graph/product/{product_id:path}")
+async def graph_product(product_id: str, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    grepo = _graph_repo()
+    hit = grepo.product(product_id)
+    if not hit:
+        raise HTTPException(status_code=404, detail=f"Product not found: {product_id}")
+    return {"schema": "graph_entity.v1", "entity": hit}
+
+
+@app.get("/api/v1/graph/explanation/{recommendation_id:path}")
+async def graph_explanation(recommendation_id: str, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    grepo = _graph_repo()
+    return {"schema": "graph_explanation.v1", **grepo.explanation(recommendation_id)}
+
+
+@app.get("/api/v1/graph/why")
+async def graph_why(
+    q: str = Query(..., min_length=1),
+    kind: str = Query(default="ingredient"),
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    grepo = _graph_repo()
+    return {"schema": "graph_why.v1", **grepo.why(q, kind=kind)}
+
+
+@app.get("/api/v1/science/audit")
+async def science_audit(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from app.science.audit import ScientificAudit
+
+    return {"schema": "scientific_audit.v1", **ScientificAudit(agent.repo.platform).build()}
+
+
+@app.get("/api/v1/science/coverage")
+async def science_coverage(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from app.science.coverage import KnowledgeCoverageReport
+    from app.science.repository import GraphRepository
+
+    grepo = GraphRepository.from_platform(agent.repo.platform)
+    return {"schema": "knowledge_coverage.v1", **KnowledgeCoverageReport(grepo.graph).build()}
+
+
+@app.get("/api/v1/science/versions")
+async def science_versions(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from app.science.versioning import current_science_versions
+
+    return {"schema": "versioned_science.v1", **current_science_versions().to_dict()}
+
+
+# ── Phase Ω — platform self-inspection (ops / developers; no clinical math) ──
+
+
+@app.get("/api/v1/platform/status")
+async def platform_status_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_status
+
+    return platform_status()
+
+
+@app.get("/api/v1/platform/runtime")
+async def platform_runtime_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_runtime
+
+    return platform_runtime()
+
+
+@app.get("/api/v1/platform/dependencies")
+async def platform_dependencies_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_dependencies
+
+    return platform_dependencies()
+
+
+@app.get("/api/v1/platform/formulas")
+async def platform_formulas_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_formulas
+
+    return platform_formulas()
+
+
+@app.get("/api/v1/platform/science")
+async def platform_science_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_science
+
+    return platform_science()
+
+
+@app.get("/api/v1/platform/performance")
+async def platform_performance_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_performance
+
+    return platform_performance()
+
+
+@app.get("/api/v1/platform/coverage")
+async def platform_coverage_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_coverage
+
+    return platform_coverage()
+
+
+@app.get("/api/v1/platform/release")
+async def platform_release_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_release
+
+    return platform_release()
+
+
+@app.get("/api/v1/platform/audit")
+async def platform_audit_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ppie_platform.status import platform_audit
+
+    return platform_audit()
+
+
 @app.post("/api/recommendations")
 async def recommendations_legacy(
     request: Request,
@@ -720,6 +873,13 @@ if (_static_root / "index.html").exists():
     @app.get("/")
     async def index_page() -> FileResponse:
         return FileResponse(_static_root / "index.html")
+
+    @app.get("/platform/dashboard")
+    async def platform_dashboard_page() -> FileResponse:
+        dash = ROOT / "ppie_platform" / "dashboard" / "index.html"
+        if not dash.exists():
+            raise HTTPException(status_code=404, detail="Run: py -3 -m platform.omega --quick")
+        return FileResponse(dash)
 
     @app.get("/app.js")
     async def serve_app_js() -> FileResponse:

@@ -1,0 +1,4 @@
+tier_id,title,yearly_discount_factor,staple_product_id,sort_order,_csv_row,_csv_file
+essential,Essential Care,0.95,SF001,1,2,PACKAGE_TIERS.csv
+balanced,Balanced Care,0.92,SF001,2,3,PACKAGE_TIERS.csv
+optimal,Optimal Care,0.88,SF001,3,4,PACKAGE_TIERS.csv

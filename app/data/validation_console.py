@@ -60,6 +60,9 @@ NAV = [
     {"id": "s13", "label": "13 · Dependency Graph"},
     {"id": "s14", "label": "14 · Runtime Stats"},
     {"id": "s15", "label": "15 · Validation"},
+    {"id": "s16", "label": "16 · Knowledge Graph"},
+    {"id": "s17", "label": "17 · Evidence & Confidence"},
+    {"id": "s18", "label": "18 · Science Versions"},
 ]
 
 
@@ -363,6 +366,21 @@ def build_validation_console(
         "raw_analyze_keys": sorted(analyze.keys()) if isinstance(analyze, dict) else [],
         "analyze_debug": debug,
         "export": {"formats": ["json", "markdown"]},
+        # Phase 4 — knowledge / evidence graphs (additive; from analyze.debug.science)
+        "knowledge_graph": (debug.get("science") or {}).get("knowledge_graph")
+        or (analyze.get("scientificExplainability") or {}).get("knowledge_graph")
+        or {},
+        "science": debug.get("science") or analyze.get("scientificExplainability") or {},
+        "science_versions": debug.get("science_versions")
+        or (debug.get("science") or {}).get("versions")
+        or {},
+        "recommendation_explanations": (debug.get("science") or {}).get("recommendation_explanations")
+        or (analyze.get("scientificExplainability") or {}).get("recommendations")
+        or [],
+        "formula_explanations": (debug.get("science") or {}).get("formula_explanations")
+        or (analyze.get("scientificExplainability") or {}).get("formulas")
+        or [],
+        "evidence_objects": (debug.get("science") or {}).get("evidence_objects") or [],
     }
     console["search_index"] = build_search_index(
         {

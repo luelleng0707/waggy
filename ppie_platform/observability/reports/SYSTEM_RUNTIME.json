@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-07-20T22:10:59.136857+00:00",
+  "sample_dogs": 2,
+  "total_runtime_seconds": 18.2946,
+  "memory_peak_mb": 2.295,
+  "warnings": 0,
+  "errors": 0,
+  "nodes": {
+    "profile": {
+      "runs": 2,
+      "avg_runtime_ms": 0.035,
+      "avg_lookups": 0.0
+    },
+    "breed": {
+      "runs": 2,
+      "avg_runtime_ms": 4.801,
+      "avg_lookups": 1.0
+    },
+    "biology": {
+      "runs": 2,
+      "avg_runtime_ms": 20.947,
+      "avg_lookups": 1.0
+    },
+    "grooming": {
+      "runs": 2,
+      "avg_runtime_ms": 4.075,
+      "avg_lookups": 1.0
+    },
+    "risk": {
+      "runs": 2,
+      "avg_runtime_ms": 337.587,
+      "avg_lookups": 1.0
+    },
+    "confidence": {
+      "runs": 2,
+      "avg_runtime_ms": 0.035,
+      "avg_lookups": 0.0
+    },
+    "epidemiology": {
+      "runs": 2,
+      "avg_runtime_ms": 235.275,
+      "avg_lookups": 0.0
+    },
+    "activity": {
+      "runs": 2,
+      "avg_runtime_ms": 4.98,
+      "avg_lookups": 1.0
+    },
+    "nutrition": {
+      "runs": 2,
+      "avg_runtime_ms": 27.429,
+      "avg_lookups": 1.0
+    },
+    "ingredient": {
+      "runs": 2,
+      "avg_runtime_ms": 63.249,
+      "avg_lookups": 1.0
+    },
+    "evidence": {
+      "runs": 2,
+      "avg_runtime_ms": 0.774,
+      "avg_lookups": 1.0
+    },
+    "product": {
+      "runs": 2,
+      "avg_runtime_ms": 14.903,
+      "avg_lookups": 1.0
+    },
+    "package": {
+      "runs": 2,
+      "avg_runtime_ms": 0.061,
+      "avg_lookups": 0.0
+    },
+    "assessment": {
+      "runs": 2,
+      "avg_runtime_ms": 0.054,
+      "avg_lookups": 0.0
+    },
+    "report": {
+      "runs": 2,
+      "avg_runtime_ms": 0.026,
+      "avg_lookups": 0.0
+    },
+    "validation": {
+      "runs": 2,
+      "avg_runtime_ms": 0.06,
+      "avg_lookups": 0.0
+    },
+    "trace": {
+      "runs": 2,
+      "avg_runtime_ms": 0.195,
+      "avg_lookups": 0.0
+    },
+    "export": {
+      "runs": 2,
+      "avg_runtime_ms": 8134.02,
+      "avg_lookups": 0.0
+    }
+  },
+  "repository_tables": 45,
+  "cache_note": "DataPlatform loads CSVs once per process into _tables"
+}

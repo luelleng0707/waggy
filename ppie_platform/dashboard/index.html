@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>PPIE Platform Dashboard — Omega</title>
+<style>
+:root { --bg:#0c1218; --card:#15202b; --text:#e8eef5; --muted:#8fa3b8; --accent:#4db6ac; --line:#243040; }
+body { margin:0; font-family:"Source Sans 3","Segoe UI",sans-serif; background:
+  radial-gradient(1200px 600px at 10% -10%, #1a3340 0%, transparent 55%),
+  linear-gradient(165deg, #0c1218, #121a22 50%, #0e151c); color:var(--text); }
+header { padding:2rem 2.25rem 1rem; }
+h1 { margin:0; font-size:1.85rem; letter-spacing:-0.03em; }
+.sub { color:var(--muted); margin-top:.4rem; }
+main { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; padding:0 2.25rem 2.5rem; }
+section { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:1rem 1.15rem; }
+h2 { margin:0 0 .7rem; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); }
+ul { margin:0; padding-left:1.1rem; color:var(--muted); font-size:.9rem; }
+code { font-family:"IBM Plex Mono",Consolas,monospace; font-size:.8rem; color:#c5e0dc; }
+.ok { color:#7dcea0; } .bad { color:#f1948a; }
+</style>
+</head>
+<body>
+<header>
+  <h1>PPIE Platform Dashboard</h1>
+  <p class="sub">Phase Ω · generated 2026-07-20 22:13 UTC · core architecture frozen · clinical path unchanged</p>
+</header>
+<main>
+  <section>
+    <h2>Platform Health</h2>
+    <ul>
+      <li>Omega: <code>omega.1.0.0</code></li>
+      <li>Algorithm: <code>2.1.0</code></li>
+      <li>Release: <code>2026.07.20</code></li>
+      <li>Frozen: <span class="ok">True</span></li>
+    </ul>
+  </section>
+  <section>
+    <h2>FormulaGraph</h2>
+    <ul>
+      <li>Formulas: 18</li>
+      <li>Nodes: 18</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Knowledge Graph / Science</h2>
+    <ul>
+      <li>Papers: 128</li>
+      <li>Conditions: 37</li>
+      <li>Nodes/Edges: 353 / 791</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Performance</h2>
+    <ul>
+      <li>Runtime peak MB: 2.295</li>
+      <li>Sample dogs: 2</li>
+      <li>See <code>PERFORMANCE_OBSERVATORY.md</code></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Coverage / Validation</h2>
+    <ul>
+      <li>Data health present: True</li>
+      <li>Security audit: <span class="ok">True</span></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Releases</h2>
+    <ul>
+      <li>Current: <code>2026.07.20</code></li>
+      <li>Rollback: <code>py -3 -m ppie_platform.omega --rollback VERSION</code></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Telemetry / Runtime</h2>
+    <ul>
+      <li>Warnings: 0</li>
+      <li>Errors: 0</li>
+      <li>APIs: <code>/api/v1/platform/*</code></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Dependencies</h2>
+    <ul>
+      <li><code>meta/dependency_graph/</code></li>
+      <li><code>meta/architecture/DEPENDENCY_GRAPH.md</code></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

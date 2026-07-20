@@ -1,0 +1,13 @@
+product_id,treat_type,bakery_type,protein_source,texture,weight_g,feeding_recommendation,storage_method,shelf_life_days,_csv_row,_csv_file
+TR001,biscuit,homestyle_bakery,goat_milk,baked,60,,cool_dry,30,2,EXT_TREATS_BAKERY.csv
+TR002,biscuit,homestyle_bakery,chicken_vegetable,crunchy,70,,cool_dry,30,3,EXT_TREATS_BAKERY.csv
+TR003,crisps,homestyle_bakery,chicken,crispy,,,frozen,20,4,EXT_TREATS_BAKERY.csv
+TR004,jerky,homestyle_bakery,duck,chewy,50,,cool_dry,30,5,EXT_TREATS_BAKERY.csv
+TR005,crisps,homestyle_bakery,pork,crispy,,,cool_dry,30,6,EXT_TREATS_BAKERY.csv
+TR006,jerky,homestyle_bakery,rabbit,chewy,,,cool_dry,20,7,EXT_TREATS_BAKERY.csv
+TR007,food_topper,air_dried,mixed_meat,dehydrated,45,,cool_dry,180,8,EXT_TREATS_BAKERY.csv
+TR008,food_topper,freeze_dried,vegetable,crunchy,160,,cool_dry,365,9,EXT_TREATS_BAKERY.csv
+TR009,chew,air_dried,venison,tough,125,,cool_dry,730,10,EXT_TREATS_BAKERY.csv
+TR010,chew,air_dried,beef,bony,125,,cool_dry,730,11,EXT_TREATS_BAKERY.csv
+TR011,freeze_dried,freeze_dried,mussel,crispy,50,,cool_dry,730,12,EXT_TREATS_BAKERY.csv
+TR012,chew,air_dried,beef,bony,500,,cool_dry,730,13,EXT_TREATS_BAKERY.csv

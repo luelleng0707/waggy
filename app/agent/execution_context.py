@@ -7,16 +7,26 @@ from typing import Any
 
 from app.agent.state import DogProfileInput, PipelineTraceEntry
 from app.agent.utils import DataRepository
-from app.data.warehouse.parameters import ParameterRepository
-from app.data.warehouse.units import UnitNormalizer
+
+
+def _default_parameters():
+    from app.data.warehouse.parameters import ParameterRepository
+
+    return ParameterRepository()
+
+
+def _default_units():
+    from app.data.warehouse.units import UnitNormalizer
+
+    return UnitNormalizer()
 
 
 @dataclass
 class ExecutionContext:
     profile: DogProfileInput
     repository: DataRepository
-    parameters: ParameterRepository = field(default_factory=ParameterRepository)
-    units: UnitNormalizer = field(default_factory=UnitNormalizer)
+    parameters: Any = field(default_factory=_default_parameters)
+    units: Any = field(default_factory=_default_units)
 
     inputs: dict[str, Any] = field(default_factory=dict)
     outputs: dict[str, Any] = field(default_factory=dict)

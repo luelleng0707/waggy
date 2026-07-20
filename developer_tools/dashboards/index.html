@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PPIE Developer Dashboard</title>
+  <style>
+    :root { --bg:#0f1419; --panel:#1a222c; --text:#e7eef7; --muted:#9aadc2; --accent:#3d9cf0; --ok:#3ecf8e; --bad:#f07178; }
+    body { margin:0; font-family: "IBM Plex Sans", "Segoe UI", sans-serif; background:linear-gradient(160deg,#0f1419,#182230 40%,#101820); color:var(--text); }
+    header { padding:2rem 2.5rem 1rem; }
+    h1 { margin:0; font-size:1.75rem; letter-spacing:-0.02em; }
+    .sub { color:var(--muted); margin-top:0.35rem; }
+    main { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1rem; padding:0 2.5rem 2.5rem; }
+    section { background:var(--panel); border:1px solid #2a3644; border-radius:12px; padding:1rem 1.1rem; }
+    h2 { margin:0 0 0.75rem; font-size:1rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; }
+    table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+    td, th { text-align:left; padding:0.35rem 0.25rem; border-bottom:1px solid #2a3644; }
+    .pill { display:inline-block; padding:0.15rem 0.55rem; border-radius:999px; font-size:0.75rem; }
+    .ok { background:#1e3d32; color:var(--ok); }
+    .bad { background:#3d2226; color:var(--bad); }
+    code { font-family: "IBM Plex Mono", Consolas, monospace; font-size:0.8rem; }
+    ol { margin:0; padding-left:1.2rem; color:var(--muted); font-size:0.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PPIE Developer Dashboard</h1>
+    <p class="sub">Generated 2026-07-20 21:58 UTC · clinical execution path unchanged · Phase 5 governance view</p>
+  </header>
+  <main>
+    <section>
+      <h2>Validation</h2>
+      <p>Status:
+        <span class="pill ok">PASS</span>
+      </p>
+      <p>Errors: 0 · Warnings: 10</p>
+      <p>Release: <code>—</code></p>
+    </section>
+    <section>
+      <h2>Runtime</h2>
+      <p>Dogs: 5</p>
+      <p>Avg latency: 5040.092 ms</p>
+      <p>Peak memory: 2.334 MB</p>
+      <p>Graph: 353 nodes / 791 edges</p>
+    </section>
+    <section>
+      <h2>FormulaGraph order</h2>
+      <ol><li><code>profile</code></li><li><code>breed</code></li><li><code>biology</code></li><li><code>grooming</code></li><li><code>risk</code></li><li><code>confidence</code></li><li><code>epidemiology</code></li><li><code>activity</code></li><li><code>nutrition</code></li><li><code>ingredient</code></li><li><code>evidence</code></li><li><code>product</code></li><li><code>package</code></li><li><code>assessment</code></li><li><code>report</code></li><li><code>validation</code></li><li><code>trace</code></li><li><code>export</code></li></ol>
+    </section>
+    <section>
+      <h2>Formula nodes</h2>
+      <table><tr><th>Node</th><th>Ver</th><th>Deps</th></tr><tr><td><code>profile</code></td><td>2.1.0</td><td></td></tr><tr><td><code>breed</code></td><td>2.1.0</td><td>profile</td></tr><tr><td><code>biology</code></td><td>2.1.0</td><td>profile, breed</td></tr><tr><td><code>grooming</code></td><td>2.1.0</td><td>profile, biology</td></tr><tr><td><code>risk</code></td><td>2.1.0</td><td>profile, breed, biology</td></tr><tr><td><code>confidence</code></td><td>2.1.0</td><td>risk</td></tr><tr><td><code>epidemiology</code></td><td>2.1.0</td><td>profile, biology, risk</td></tr><tr><td><code>activity</code></td><td>2.1.0</td><td>epidemiology</td></tr><tr><td><code>nutrition</code></td><td>2.1.0</td><td>profile, epidemiology</td></tr><tr><td><code>ingredient</code></td><td>2.1.0</td><td>profile, risk, nutrition</td></tr><tr><td><code>evidence</code></td><td>2.1.0</td><td>risk, ingredient</td></tr><tr><td><code>product</code></td><td>2.1.0</td><td>profile, nutrition</td></tr><tr><td><code>package</code></td><td>2.1.0</td><td>product, ingredient, risk</td></tr><tr><td><code>assessment</code></td><td>2.1.0</td><td>biology, risk, nutrition, activity, product, package</td></tr><tr><td><code>report</code></td><td>2.1.0</td><td>product, assessment</td></tr><tr><td><code>validation</code></td><td>2.1.0</td><td>assessment, risk, nutrition, product, confidence, evidence</td></tr><tr><td><code>trace</code></td><td>2.1.0</td><td>validation, confidence, evidence, grooming</td></tr><tr><td><code>export</code></td><td>2.1.0</td><td>biology, epidemiology, nutrition, activity, product, risk, report, trace, validation</td></tr></table>
+    </section>
+    <section>
+      <h2>Warehouse tables</h2>
+      <table><tr><th>Table</th><th>Rows</th><th>Cols</th></tr><tr><td>product_components</td><td>59</td><td>9</td></tr><tr><td>breeds</td><td>48</td><td>12</td></tr><tr><td>product_feeding_rules</td><td>23</td><td>7</td></tr><tr><td>breed_conditions</td><td>16</td><td>12</td></tr><tr><td>products</td><td>16</td><td>18</td></tr><tr><td>product_pricing</td><td>16</td><td>6</td></tr><tr><td>natural_food_sources</td><td>15</td><td>7</td></tr><tr><td>condition_ingredients_sci</td><td>12</td><td>11</td></tr><tr><td>condition_ingredients_prev</td><td>12</td><td>10</td></tr><tr><td>condition_protocols</td><td>12</td><td>12</td></tr><tr><td>ext_treats_bakery</td><td>12</td><td>11</td></tr><tr><td>mixed_breed_interactions</td><td>10</td><td>9</td></tr><tr><td>trait_attribute_explanations</td><td>10</td><td>12</td></tr><tr><td>grooming_observation_defs</td><td>10</td><td>10</td></tr><tr><td>size_conditions</td><td>10</td><td>12</td></tr><tr><td>bodytype_conditions</td><td>10</td><td>12</td></tr><tr><td>coattype_conditions</td><td>10</td><td>12</td></tr><tr><td>energy_conditions</td><td>10</td><td>12</td></tr><tr><td>skulltype_conditions</td><td>10</td><td>12</td></tr><tr><td>climate_conditions</td><td>10</td><td>12</td></tr><tr><td>functiongroup_conditions</td><td>10</td><td>12</td></tr><tr><td>weaknessgroup_conditions</td><td>10</td><td>12</td></tr><tr><td>lifespan_conditions</td><td>10</td><td>12</td></tr><tr><td>trait_interactions</td><td>10</td><td>9</td></tr><tr><td>trait_benefits</td><td>10</td><td>8</td></tr><tr><td>condition_activities</td><td>10</td><td>9</td></tr><tr><td>activity_evidence</td><td>10</td><td>7</td></tr><tr><td>ingredient_evidence_sci</td><td>10</td><td>11</td></tr><tr><td>ingredient_evidence_prev</td><td>10</td><td>7</td></tr><tr><td>product_functions</td><td>10</td><td>5</td></tr><tr><td>ingredient_mechanisms</td><td>8</td><td>9</td></tr><tr><td>ingredient_nutrient_estimates</td><td>8</td><td>14</td></tr><tr><td>trait_contribution_weights</td><td>7</td><td>10</td></tr><tr><td>clinical_evidence_base</td><td>7</td><td>12</td></tr><tr><td>environmental_matrices</td><td>6</td><td>12</td></tr><tr><td>clinical_risk_timeline</td><td>6</td><td>9</td></tr><tr><td>ingredient_aliases</td><td>6</td><td>6</td></tr><tr><td>mixed_breed_matrix</td><td>5</td><td>9</td></tr><tr><td>trait_purposes</td><td>5</td><td>9</td></tr><tr><td>nutrient_priorities</td><td>5</td><td>11</td></tr></table>
+    </section>
+    <section>
+      <h2>Knowledge graph</h2>
+      <table><tr><th>Type</th><th>Count</th></tr><tr><td>activity</td><td>10</td></tr><tr><td>breed</td><td>48</td></tr><tr><td>condition</td><td>37</td></tr><tr><td>food</td><td>15</td></tr><tr><td>ingredient</td><td>50</td></tr><tr><td>paper</td><td>128</td></tr><tr><td>product</td><td>16</td></tr><tr><td>trait</td><td>49</td></tr></table>
+    </section>
+    <section>
+      <h2>Science</h2>
+      <p>Papers: 128</p>
+      <p>Conditions: 37</p>
+      <p>Ingredients: 50</p>
+      <p>Products: 16</p>
+      <p>See <code>governance/reports/DATA_HEALTH.md</code></p>
+    </section>
+    <section>
+      <h2>Release pipeline</h2>
+      <p><code>py -3 -m science_pipeline.release</code></p>
+      <p>Artifacts under <code>governance/reports/</code> and <code>warehouse/releases/</code></p>
+    </section>
+  </main>
+</body>
+</html>

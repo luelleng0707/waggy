@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-07-20T22:13:35.033127+00:00",
+  "profile_mutation_detected": true,
+  "validator_alive": true,
+  "formula_registry_fingerprint": "f07649318417bb4d",
+  "pass": true,
+  "note": "Science CSV mutations are gated by parity + ExtendedScienceValidator in release pipeline"
+}

@@ -1,0 +1,1181 @@
+{
+  "generated_at": "2026-07-20T22:11:15.818696+00:00",
+  "edge_count": 235,
+  "edges": [
+    {
+      "from": "formula:PROFILE_V1",
+      "to": "consumer:breed",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:PROFILE_V1",
+      "to": "consumer:biology",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:PROFILE_V1",
+      "to": "consumer:risk",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:PROFILE_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:PROFILE_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:breeds",
+      "to": "formula:BREED_RESOLVE_V1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:BREED_RESOLVE_V1",
+      "to": "repository:breeds",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:breed_aliases",
+      "to": "formula:BREED_RESOLVE_V1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:BREED_RESOLVE_V1",
+      "to": "repository:breed_aliases",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:BREED_RESOLVE_V1",
+      "to": "consumer:biology",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:BREED_RESOLVE_V1",
+      "to": "consumer:risk",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:BREED_RESOLVE_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:BREED_RESOLVE_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:breeds",
+      "to": "formula:BIOLOGY_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:BIOLOGY_V2_1",
+      "to": "repository:breeds",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:trait_purposes",
+      "to": "formula:BIOLOGY_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:BIOLOGY_V2_1",
+      "to": "repository:trait_purposes",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:environmental_matrices",
+      "to": "formula:BIOLOGY_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:BIOLOGY_V2_1",
+      "to": "repository:environmental_matrices",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:BIOLOGY_V2_1",
+      "to": "consumer:risk",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:BIOLOGY_V2_1",
+      "to": "consumer:epidemiology",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:BIOLOGY_V2_1",
+      "to": "consumer:assessment",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:BIOLOGY_V2_1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:BIOLOGY_V2_1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:breed_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:breed_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:size_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:size_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:bodytype_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:bodytype_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:coattype_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:coattype_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:energy_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:energy_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:skulltype_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:skulltype_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:climate_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:climate_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:lifespan_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:lifespan_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:functiongroup_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:functiongroup_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:weaknessgroup_conditions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:weaknessgroup_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:trait_interactions",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:trait_interactions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:trait_benefits",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:trait_benefits",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:mixed_breed_matrix",
+      "to": "formula:RISK_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "repository:mixed_breed_matrix",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "consumer:epidemiology",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "consumer:nutrition",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "consumer:ingredient",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "consumer:packages",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "consumer:assessment",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "consumer:validation",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:RISK_V2_1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:breed_conditions",
+      "to": "formula:EPIDEMIOLOGY_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:EPIDEMIOLOGY_V2_1",
+      "to": "repository:breed_conditions",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:trait_condition tables",
+      "to": "formula:EPIDEMIOLOGY_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:EPIDEMIOLOGY_V2_1",
+      "to": "repository:trait_condition tables",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:EPIDEMIOLOGY_V2_1",
+      "to": "consumer:activity",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:EPIDEMIOLOGY_V2_1",
+      "to": "consumer:nutrition",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:EPIDEMIOLOGY_V2_1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:EPIDEMIOLOGY_V2_1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:condition_activities",
+      "to": "formula:ACTIVITY_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:ACTIVITY_V2_1",
+      "to": "repository:condition_activities",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:ACTIVITY_V2_1",
+      "to": "consumer:assessment",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:ACTIVITY_V2_1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:ACTIVITY_V2_1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:ACTIVITY_V2_1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:grooming_observation_defs",
+      "to": "formula:GROOMING_V1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:GROOMING_V1",
+      "to": "repository:grooming_observation_defs",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:GROOMING_V1",
+      "to": "consumer:assessment",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:GROOMING_V1",
+      "to": "consumer:report",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:GROOMING_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:GROOMING_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:condition_ingredients",
+      "to": "formula:NUTRITION_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:NUTRITION_V2_1",
+      "to": "repository:condition_ingredients",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:NUTRITION_V2_1",
+      "to": "consumer:ingredient",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:NUTRITION_V2_1",
+      "to": "consumer:product",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:NUTRITION_V2_1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:NUTRITION_V2_1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:NUTRITION_V2_1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:condition_ingredients",
+      "to": "formula:NUTRIENT_TARGET_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "repository:condition_ingredients",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:ingredient_evidence",
+      "to": "formula:NUTRIENT_TARGET_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "repository:ingredient_evidence",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:ingredient_mechanisms",
+      "to": "formula:NUTRIENT_TARGET_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "repository:ingredient_mechanisms",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "consumer:product",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "consumer:package",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "consumer:evidence",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:NUTRIENT_TARGET_V2_1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:products",
+      "to": "formula:PRODUCT_MATCH_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "repository:products",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:product_components",
+      "to": "formula:PRODUCT_MATCH_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "repository:product_components",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:product_pricing",
+      "to": "formula:PRODUCT_MATCH_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "repository:product_pricing",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:product_feeding_rules",
+      "to": "formula:PRODUCT_MATCH_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "repository:product_feeding_rules",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "consumer:package",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "consumer:report",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:PRODUCT_MATCH_V2_1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:package_tiers",
+      "to": "formula:PACKAGE_OPTIMIZER_V2_1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:PACKAGE_OPTIMIZER_V2_1",
+      "to": "repository:package_tiers",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:PACKAGE_OPTIMIZER_V2_1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:PACKAGE_OPTIMIZER_V2_1",
+      "to": "consumer:assessment",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:PACKAGE_OPTIMIZER_V2_1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:PACKAGE_OPTIMIZER_V2_1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "formula:ASSESSMENT_PROJECT_V1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:ASSESSMENT_PROJECT_V1",
+      "to": "consumer:validation",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:ASSESSMENT_PROJECT_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:ASSESSMENT_PROJECT_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "formula:REPORT_V1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:REPORT_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:REPORT_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "formula:CONFIDENCE_V1",
+      "to": "consumer:validation",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:CONFIDENCE_V1",
+      "to": "consumer:trace",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:CONFIDENCE_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:CONFIDENCE_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "csv:ingredient_evidence",
+      "to": "formula:EVIDENCE_V1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:EVIDENCE_V1",
+      "to": "repository:ingredient_evidence",
+      "via": "DataRepository"
+    },
+    {
+      "from": "csv:clinical_evidence_base",
+      "to": "formula:EVIDENCE_V1",
+      "via": "registry.tables"
+    },
+    {
+      "from": "formula:EVIDENCE_V1",
+      "to": "repository:clinical_evidence_base",
+      "via": "DataRepository"
+    },
+    {
+      "from": "formula:EVIDENCE_V1",
+      "to": "consumer:validation",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:EVIDENCE_V1",
+      "to": "consumer:trace",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:EVIDENCE_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:EVIDENCE_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "formula:VALIDATION_V1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:VALIDATION_V1",
+      "to": "consumer:trace",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:VALIDATION_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:VALIDATION_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "formula:TRACE_V1",
+      "to": "consumer:export",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:TRACE_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:TRACE_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "formula:EXPORT_LEGACY_V1",
+      "to": "consumer:api",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:EXPORT_LEGACY_V1",
+      "to": "consumer:frontend",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:EXPORT_LEGACY_V1",
+      "to": "consumer:validation_console",
+      "via": "registry.consumers"
+    },
+    {
+      "from": "formula:EXPORT_LEGACY_V1",
+      "to": "api:/api/v1/ppie/assess",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "formula:EXPORT_LEGACY_V1",
+      "to": "api:/api/v1/clinical-report",
+      "via": "AssessmentAgent"
+    },
+    {
+      "from": "api:/api/v1/clinical-report",
+      "to": "frontend:app.js",
+      "via": "boot"
+    },
+    {
+      "from": "node:profile",
+      "to": "formula:PROFILE_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:breed",
+      "to": "formula:BREED_RESOLVE_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:profile",
+      "to": "node:breed",
+      "via": "dependency"
+    },
+    {
+      "from": "node:biology",
+      "to": "formula:BIOLOGY_V2_1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:profile",
+      "to": "node:biology",
+      "via": "dependency"
+    },
+    {
+      "from": "node:breed",
+      "to": "node:biology",
+      "via": "dependency"
+    },
+    {
+      "from": "node:risk",
+      "to": "formula:RISK_V2_1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:profile",
+      "to": "node:risk",
+      "via": "dependency"
+    },
+    {
+      "from": "node:breed",
+      "to": "node:risk",
+      "via": "dependency"
+    },
+    {
+      "from": "node:biology",
+      "to": "node:risk",
+      "via": "dependency"
+    },
+    {
+      "from": "node:epidemiology",
+      "to": "formula:EPIDEMIOLOGY_V2_1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:profile",
+      "to": "node:epidemiology",
+      "via": "dependency"
+    },
+    {
+      "from": "node:biology",
+      "to": "node:epidemiology",
+      "via": "dependency"
+    },
+    {
+      "from": "node:risk",
+      "to": "node:epidemiology",
+      "via": "dependency"
+    },
+    {
+      "from": "node:activity",
+      "to": "formula:ACTIVITY_V2_1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:epidemiology",
+      "to": "node:activity",
+      "via": "dependency"
+    },
+    {
+      "from": "node:grooming",
+      "to": "formula:GROOMING_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:profile",
+      "to": "node:grooming",
+      "via": "dependency"
+    },
+    {
+      "from": "node:biology",
+      "to": "node:grooming",
+      "via": "dependency"
+    },
+    {
+      "from": "node:nutrition",
+      "to": "formula:NUTRITION_V2_1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:profile",
+      "to": "node:nutrition",
+      "via": "dependency"
+    },
+    {
+      "from": "node:epidemiology",
+      "to": "node:nutrition",
+      "via": "dependency"
+    },
+    {
+      "from": "node:ingredient",
+      "to": "formula:NUTRIENT_TARGET_V2_1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:profile",
+      "to": "node:ingredient",
+      "via": "dependency"
+    },
+    {
+      "from": "node:risk",
+      "to": "node:ingredient",
+      "via": "dependency"
+    },
+    {
+      "from": "node:nutrition",
+      "to": "node:ingredient",
+      "via": "dependency"
+    },
+    {
+      "from": "node:product",
+      "to": "formula:PRODUCT_MATCH_V2_1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:profile",
+      "to": "node:product",
+      "via": "dependency"
+    },
+    {
+      "from": "node:nutrition",
+      "to": "node:product",
+      "via": "dependency"
+    },
+    {
+      "from": "node:package",
+      "to": "formula:PACKAGE_OPTIMIZER_V2_1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:product",
+      "to": "node:package",
+      "via": "dependency"
+    },
+    {
+      "from": "node:ingredient",
+      "to": "node:package",
+      "via": "dependency"
+    },
+    {
+      "from": "node:risk",
+      "to": "node:package",
+      "via": "dependency"
+    },
+    {
+      "from": "node:assessment",
+      "to": "formula:ASSESSMENT_PROJECT_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:biology",
+      "to": "node:assessment",
+      "via": "dependency"
+    },
+    {
+      "from": "node:risk",
+      "to": "node:assessment",
+      "via": "dependency"
+    },
+    {
+      "from": "node:nutrition",
+      "to": "node:assessment",
+      "via": "dependency"
+    },
+    {
+      "from": "node:activity",
+      "to": "node:assessment",
+      "via": "dependency"
+    },
+    {
+      "from": "node:product",
+      "to": "node:assessment",
+      "via": "dependency"
+    },
+    {
+      "from": "node:package",
+      "to": "node:assessment",
+      "via": "dependency"
+    },
+    {
+      "from": "node:report",
+      "to": "formula:REPORT_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:product",
+      "to": "node:report",
+      "via": "dependency"
+    },
+    {
+      "from": "node:assessment",
+      "to": "node:report",
+      "via": "dependency"
+    },
+    {
+      "from": "node:confidence",
+      "to": "formula:CONFIDENCE_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:risk",
+      "to": "node:confidence",
+      "via": "dependency"
+    },
+    {
+      "from": "node:evidence",
+      "to": "formula:EVIDENCE_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:risk",
+      "to": "node:evidence",
+      "via": "dependency"
+    },
+    {
+      "from": "node:ingredient",
+      "to": "node:evidence",
+      "via": "dependency"
+    },
+    {
+      "from": "node:validation",
+      "to": "formula:VALIDATION_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:assessment",
+      "to": "node:validation",
+      "via": "dependency"
+    },
+    {
+      "from": "node:risk",
+      "to": "node:validation",
+      "via": "dependency"
+    },
+    {
+      "from": "node:nutrition",
+      "to": "node:validation",
+      "via": "dependency"
+    },
+    {
+      "from": "node:product",
+      "to": "node:validation",
+      "via": "dependency"
+    },
+    {
+      "from": "node:confidence",
+      "to": "node:validation",
+      "via": "dependency"
+    },
+    {
+      "from": "node:evidence",
+      "to": "node:validation",
+      "via": "dependency"
+    },
+    {
+      "from": "node:trace",
+      "to": "formula:TRACE_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:validation",
+      "to": "node:trace",
+      "via": "dependency"
+    },
+    {
+      "from": "node:confidence",
+      "to": "node:trace",
+      "via": "dependency"
+    },
+    {
+      "from": "node:evidence",
+      "to": "node:trace",
+      "via": "dependency"
+    },
+    {
+      "from": "node:grooming",
+      "to": "node:trace",
+      "via": "dependency"
+    },
+    {
+      "from": "node:export",
+      "to": "formula:EXPORT_LEGACY_V1",
+      "via": "FormulaNode"
+    },
+    {
+      "from": "node:biology",
+      "to": "node:export",
+      "via": "dependency"
+    },
+    {
+      "from": "node:epidemiology",
+      "to": "node:export",
+      "via": "dependency"
+    },
+    {
+      "from": "node:nutrition",
+      "to": "node:export",
+      "via": "dependency"
+    },
+    {
+      "from": "node:activity",
+      "to": "node:export",
+      "via": "dependency"
+    },
+    {
+      "from": "node:product",
+      "to": "node:export",
+      "via": "dependency"
+    },
+    {
+      "from": "node:risk",
+      "to": "node:export",
+      "via": "dependency"
+    },
+    {
+      "from": "node:report",
+      "to": "node:export",
+      "via": "dependency"
+    },
+    {
+      "from": "node:trace",
+      "to": "node:export",
+      "via": "dependency"
+    },
+    {
+      "from": "node:validation",
+      "to": "node:export",
+      "via": "dependency"
+    }
+  ]
+}

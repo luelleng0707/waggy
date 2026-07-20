@@ -1,0 +1,17 @@
+product_id,brand,category,subcategory,product_name,status,image_url,purchase_url,description,short_description,featured,tags,display_order,inventory_status,rating,review_count,_csv_row,_csv_file
+SF001,Farmina,STAPLE_FOOD,tropical_selection,Farmina Small Breed Adult Dog Food (Chicken Flavor),active,,,,Farmina N&D Tropical Selection Chicken,all_life_stages,chicken_tropical_fruit,10,in_stock,,,2,PRODUCT_CATALOG.csv
+SF002,Farmina,STAPLE_FOOD,tropical_selection,Farmina Small Breed Adult Dog Food (Lamb Flavor),sold_out,,,,Farmina N&D Tropical Selection Lamb,adult,lamb_tropical_fruit,20,out_of_stock,,,3,PRODUCT_CATALOG.csv
+SF003,Farmina,STAPLE_FOOD,tropical_selection,Farmina Tropical Fruit Series Small Breed Adult Dog Food,active,,,,Farmina N&D Tropical Selection Series,adult,tropical_fruit,30,in_stock,,,4,PRODUCT_CATALOG.csv
+SF004,Royal Canin,STAPLE_FOOD,digestive_care,Royal Canin Digestive Care 2kg,active,,,,Royal Canin Digestive Care High Efficiency,adult,digestive,40,in_stock,,,5,PRODUCT_CATALOG.csv
+TR001,Wagtopia,TREAT,bakery,Goat Milk Scones,active,,,,Wagtopia Homestyle Bakery Goat Milk Scones,all_life_stages,goat_milk,50,in_stock,,,6,PRODUCT_CATALOG.csv
+TR002,Wagtopia,TREAT,cookies,Colorful Vegetable Bear Cookies,active,,,,Wagtopia All-Natural Cookies Vegetable Bear,all_life_stages,vegetable_mix,60,in_stock,,,7,PRODUCT_CATALOG.csv
+TR003,Wagtopia,TREAT,crisps,Turmeric Chicken Crisps,active,,,,Wagtopia All-Natural Treats Turmeric Chicken,joint_health,chicken_turmeric,70,in_stock,,,8,PRODUCT_CATALOG.csv
+TR004,Wagtopia,TREAT,jerky,Cheesy Duck Jerky Sticks,active,,,,Wagtopia All-Natural Treats Cheesy Duck Sticks,new_product,duck_cheese,80,in_stock,,,9,PRODUCT_CATALOG.csv
+TR005,Wagtopia,TREAT,crisps,Pork Seed Crisps,active,,,,Wagtopia All-Natural Treats Pork Seed Crisps,normal_temperature,pork_seed,90,in_stock,,,10,PRODUCT_CATALOG.csv
+TR006,Wagtopia,TREAT,jerky,Parsley Cheese Rabbit Jerky Sticks,sold_out,,,,Wagtopia Homestyle Bakery Parsley Cheese Rabbit,joint_health,rabbit_cheese,100,out_of_stock,,,11,PRODUCT_CATALOG.csv
+TR007,D&W,TREAT,food_topper,DW Meat & Vegetables 45g,active,,,,Low-temperature air-dried meat and vegetable meal companion,all_life_stages,meat_vegetable_topper,110,in_stock,,,12,PRODUCT_CATALOG.csv
+TR008,D&W,TREAT,food_topper,DW Freeze-dried Fruits & Vegetables 160g,active,,,,Premium freeze-dried double dietary fiber rice/food companion,all_life_stages,freeze_dried_vegetable,120,in_stock,,,13,PRODUCT_CATALOG.csv
+TR009,Zeal,TREAT,chews,Air-Dried Deer Ears 125g,sold_out,,,,100% New Zealand free-range air-dried venison ears cartilage support,all_life_stages,venison_ear_chew,130,out_of_stock,,,14,PRODUCT_CATALOG.csv
+TR010,Zeal,TREAT,jerky,Zeal Dried Beef Wags 125g,sold_out,,,,100% New Zealand natural calf veal rib wags chew bone,all_life_stages,calf_ribs_chew,140,out_of_stock,,,15,PRODUCT_CATALOG.csv
+TR011,Zeal,TREAT,freeze_dried,Zeal Green Lipped Mussels 50g,active,,,,100% New Zealand wild caught green lipped mussels omega rich,all_life_stages,green_lipped_mussel,150,in_stock,,,16,PRODUCT_CATALOG.csv
+TR012,Zeal,TREAT,jerky,Zeal Dried Beef Wags 500g,active,,,,100% New Zealand natural calf veal rib wags chew bone large pack,all_life_stages,calf_ribs_chew,160,in_stock,,,17,PRODUCT_CATALOG.csv

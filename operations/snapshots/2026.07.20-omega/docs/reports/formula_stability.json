@@ -1,0 +1,406 @@
+[
+  {
+    "formula": "PROFILE_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.profile_node",
+    "wrapped": null
+  },
+  {
+    "formula": "BREED_RESOLVE_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "breeds",
+      "breed_aliases"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.breed_node",
+    "wrapped": null
+  },
+  {
+    "formula": "BIOLOGY_V2_1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "breeds",
+      "trait_purposes",
+      "environmental_matrices"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.biology_node",
+    "wrapped": null
+  },
+  {
+    "formula": "RISK_V2_1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "breed_conditions",
+      "size_conditions",
+      "bodytype_conditions",
+      "coattype_conditions",
+      "energy_conditions",
+      "skulltype_conditions",
+      "climate_conditions",
+      "lifespan_conditions",
+      "functiongroup_conditions",
+      "weaknessgroup_conditions",
+      "trait_interactions",
+      "trait_benefits",
+      "mixed_breed_matrix"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.risk_node",
+    "wrapped": "app.agent.stages.health_risk.compute_risks"
+  },
+  {
+    "formula": "EPIDEMIOLOGY_V2_1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "breed_conditions",
+      "trait_condition tables"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.epidemiology_node",
+    "wrapped": "app.agent.stages.epidemiology.run_epidemiology_stage"
+  },
+  {
+    "formula": "ACTIVITY_V2_1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "condition_activities"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.activity_node",
+    "wrapped": null
+  },
+  {
+    "formula": "GROOMING_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "grooming_observation_defs"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.grooming_node",
+    "wrapped": null
+  },
+  {
+    "formula": "NUTRITION_V2_1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "condition_ingredients"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.nutrition_node",
+    "wrapped": "app.agent.stages.nutrition.run_nutrition_stage"
+  },
+  {
+    "formula": "NUTRIENT_TARGET_V2_1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "condition_ingredients",
+      "ingredient_evidence",
+      "ingredient_mechanisms"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.ingredient_node",
+    "wrapped": "app.agent.ingredient_engine.map_ingredients"
+  },
+  {
+    "formula": "PRODUCT_MATCH_V2_1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "products",
+      "product_components",
+      "product_pricing",
+      "product_feeding_rules"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.product_node",
+    "wrapped": "app.agent.stages.optimization.run_optimization_stage"
+  },
+  {
+    "formula": "PACKAGE_OPTIMIZER_V2_1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "package_tiers"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.package_node",
+    "wrapped": null
+  },
+  {
+    "formula": "ASSESSMENT_PROJECT_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.assessment_node",
+    "wrapped": null
+  },
+  {
+    "formula": "REPORT_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.report_node",
+    "wrapped": null
+  },
+  {
+    "formula": "CONFIDENCE_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.confidence_node",
+    "wrapped": null
+  },
+  {
+    "formula": "EVIDENCE_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [
+      "ingredient_evidence",
+      "clinical_evidence_base"
+    ],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.evidence_node",
+    "wrapped": null
+  },
+  {
+    "formula": "VALIDATION_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.validation_node",
+    "wrapped": null
+  },
+  {
+    "formula": "TRACE_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.trace_node",
+    "wrapped": null
+  },
+  {
+    "formula": "EXPORT_LEGACY_V1",
+    "version": "2.1.0",
+    "last_changed": "2.1.0",
+    "affected_papers": "see knowledge graph supported_by edges",
+    "affected_csv": [],
+    "affected_apis": [
+      "/api/v1/ppie/assess",
+      "/api/v1/clinical-report"
+    ],
+    "affected_ui": [
+      "Validation Console",
+      "Journey / Wellness"
+    ],
+    "parity_status": "gated by tests/test_warehouse_parity.py + golden suite",
+    "coverage": "see DATA_HEALTH.md",
+    "performance": "see PERFORMANCE_REPORT.md / BENCHMARK_REPORT.md",
+    "module": "app.agent.nodes.export_node",
+    "wrapped": "app.agent.response_assembler.assemble_frontend_response"
+  }
+]

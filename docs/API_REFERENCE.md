@@ -1,0 +1,63 @@
+# API Reference
+
+Generated: `2026-07-20T22:13:36.016459+00:00`
+
+Extracted from `app/api/main.py` route decorators.
+
+- `GET /health`
+- `GET /api/v1/catalog`
+- `GET /api/v1/store`
+- `GET /api/v1/store/{product_id}`
+- `POST /api/v2/wellness/evaluate`
+- `POST /api/v1/analyze`
+- `POST /api/v1/clinical-report`
+- `POST /api/v1/ppie/assess`
+- `POST /api/v1/ppie/trace`
+- `POST /api/v1/ppie/validation-console`
+- `POST /api/v1/ppie/validation-console/markdown`
+- `POST /api/v1/ppie/validation-console/compare`
+- `GET /api/v1/ppie/debug/status`
+- `GET /api/v1/ppie/debug/presets`
+- `GET /api/v1/ppie/debug/repository`
+- `GET /api/v1/ppie/debug/repository/{table}`
+- `GET /api/v1/graph/summary`
+- `GET /api/v1/graph/condition/{condition_id:path}`
+- `GET /api/v1/graph/paper/{paper_id:path}`
+- `GET /api/v1/graph/ingredient/{ingredient_id:path}`
+- `GET /api/v1/graph/product/{product_id:path}`
+- `GET /api/v1/graph/explanation/{recommendation_id:path}`
+- `GET /api/v1/graph/why`
+- `GET /api/v1/science/audit`
+- `GET /api/v1/science/coverage`
+- `GET /api/v1/science/versions`
+- `GET /api/v1/platform/status`
+- `GET /api/v1/platform/runtime`
+- `GET /api/v1/platform/dependencies`
+- `GET /api/v1/platform/formulas`
+- `GET /api/v1/platform/science`
+- `GET /api/v1/platform/performance`
+- `GET /api/v1/platform/coverage`
+- `GET /api/v1/platform/release`
+- `GET /api/v1/platform/audit`
+- `POST /api/recommendations`
+- `GET /api/v1/evidence/{condition}`
+- `GET /api/v1/products/{condition}`
+- `POST /api/v1/groomer/update`
+- `GET /api/v1/groomer/session/{pet_id}`
+- `POST /api/groomer/submit`
+- `GET /api/breeds`
+- `GET /`
+- `GET /platform/dashboard`
+- `GET /app.js`
+- `GET /report-renderer.js`
+- `GET /catalog-service.js`
+- `GET /ppie-ui.js`
+- `GET /ppie-trace.js`
+- `GET /ppie-validation-console.js`
+- `GET /ppie-validation-console.css`
+- `GET /ppie-dev-menu.js`
+- `GET /debug/calculation`
+- `GET /ppie-shell.js`
+- `GET /ppie-sheets.js`
+- `GET /styles.css`
+- `GET /theme.css`

@@ -1,0 +1,222 @@
+{
+  "generated_at": "2026-07-20T21:58:06.567720+00:00",
+  "change": {
+    "entity_type": "ingredient",
+    "entity_id": "Glucosamine",
+    "field": "dose",
+    "old_value": null,
+    "new_value": null
+  },
+  "matched_nodes": [
+    {
+      "id": "ingredient:glucosamine",
+      "type": "ingredient",
+      "label": "Glucosamine"
+    },
+    {
+      "id": "ingredient:omega-3",
+      "type": "ingredient",
+      "label": "Omega-3"
+    },
+    {
+      "id": "ingredient:msm",
+      "type": "ingredient",
+      "label": "MSM"
+    },
+    {
+      "id": "ingredient:zinc",
+      "type": "ingredient",
+      "label": "Zinc"
+    },
+    {
+      "id": "ingredient:seaweed_blend",
+      "type": "ingredient",
+      "label": "Seaweed Blend"
+    },
+    {
+      "id": "ingredient:taurine",
+      "type": "ingredient",
+      "label": "Taurine"
+    },
+    {
+      "id": "ingredient:probiotics",
+      "type": "ingredient",
+      "label": "Probiotics"
+    },
+    {
+      "id": "ingredient:l-carnitine",
+      "type": "ingredient",
+      "label": "L-Carnitine"
+    },
+    {
+      "id": "ingredient:lutein",
+      "type": "ingredient",
+      "label": "Lutein"
+    },
+    {
+      "id": "ingredient:chondroitin_sulfate",
+      "type": "ingredient",
+      "label": "Chondroitin Sulfate"
+    },
+    {
+      "id": "ingredient:crude_protein",
+      "type": "ingredient",
+      "label": "Crude Protein"
+    },
+    {
+      "id": "ingredient:crude_fat",
+      "type": "ingredient",
+      "label": "Crude Fat"
+    },
+    {
+      "id": "ingredient:crude_fiber",
+      "type": "ingredient",
+      "label": "Crude Fiber"
+    },
+    {
+      "id": "ingredient:ash",
+      "type": "ingredient",
+      "label": "Ash"
+    },
+    {
+      "id": "ingredient:calcium",
+      "type": "ingredient",
+      "label": "Calcium"
+    },
+    {
+      "id": "ingredient:phosphorus",
+      "type": "ingredient",
+      "label": "Phosphorus"
+    },
+    {
+      "id": "ingredient:moisture",
+      "type": "ingredient",
+      "label": "Moisture"
+    },
+    {
+      "id": "ingredient:lysine",
+      "type": "ingredient",
+      "label": "Lysine"
+    },
+    {
+      "id": "ingredient:water-soluble_chloride",
+      "type": "ingredient",
+      "label": "Water-Soluble Chloride"
+    },
+    {
+      "id": "ingredient:energy",
+      "type": "ingredient",
+      "label": "Energy"
+    }
+  ],
+  "affected_conditions": [
+    "Atopic Dermatitis",
+    "BOAS",
+    "Cataracts",
+    "Chronic Enteropathy",
+    "Degenerative Valve Disease",
+    "Dental Disease",
+    "Gut Health",
+    "Hip Dysplasia",
+    "IVDD",
+    "Joint Health",
+    "Obesity",
+    "Skin Health"
+  ],
+  "affected_ingredients": [
+    "Antibiotic-Free Black Pork",
+    "Ash",
+    "Beetroot",
+    "Calcium",
+    "Calf Wags (Veal Ribs)",
+    "Carrot",
+    "Cheddar Cheese",
+    "Cheese",
+    "Chicken",
+    "Chicken Breast",
+    "Chondroitin Sulfate",
+    "Coconut Flakes",
+    "Coconut Oil",
+    "Crude Ash",
+    "Crude Fat",
+    "Crude Fiber",
+    "Crude Protein",
+    "Duck Breast",
+    "Energy",
+    "Glucosamine",
+    "Green Lipped Mussels",
+    "Honey",
+    "L-Carnitine",
+    "Lutein",
+    "Lysine",
+    "MSM",
+    "Marigold Petals",
+    "Moisture",
+    "Natural Fruit & Vegetable Powder",
+    "Natural Fruit And Vegetable Powder",
+    "Okra",
+    "Omega-3",
+    "Parsley",
+    "Pet Cheese",
+    "Phosphorus",
+    "Probiotics",
+    "Pumpkin",
+    "Pumpkin Seed Kernels",
+    "Purple Sweet Potato",
+    "Rabbit Loin",
+    "Roasted Flaxseed",
+    "Rosemary",
+    "Seaweed Blend",
+    "Sheep Milk Powder",
+    "Sunflower Seed Kernels",
+    "Taurine",
+    "Turmeric Powder",
+    "Venison Ears",
+    "Water-Soluble Chloride",
+    "Zinc"
+  ],
+  "affected_products": [
+    "SF001",
+    "TR001",
+    "TR002",
+    "TR003",
+    "TR004",
+    "TR005",
+    "TR006",
+    "TR009",
+    "TR010",
+    "TR011",
+    "TR012"
+  ],
+  "affected_packages": [],
+  "affected_papers": [
+    "Animals",
+    "Frontiers in Veterinary Science",
+    "Journal of Small Animal Practice",
+    "Journal of Veterinary Science",
+    "Metabolites",
+    "PLOS ONE",
+    "Veterinary Sciences"
+  ],
+  "affected_formulas": [
+    "EVIDENCE_V1",
+    "NUTRIENT_TARGET_V2_1",
+    "NUTRITION_V2_1",
+    "PRODUCT_MATCH_V2_1"
+  ],
+  "affected_reports": [
+    "clinical-report",
+    "ppie/assess",
+    "scientificExplainability"
+  ],
+  "affected_dogs": "Re-run 100-dog parity / benchmark suite to enumerate profile-level deltas.",
+  "confidence_change": "Confidence scores are not recalculated in impact analysis; run AssessmentAgent with debug.science after applying the change.",
+  "counts": {
+    "conditions": 12,
+    "ingredients": 50,
+    "products": 11,
+    "packages": 0,
+    "papers": 7,
+    "formulas": 4
+  }
+}

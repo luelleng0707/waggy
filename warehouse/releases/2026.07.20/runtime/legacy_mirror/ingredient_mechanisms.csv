@@ -1,0 +1,9 @@
+nutrient_name,ingredient_name,source_product_id,amount_per_serving,unit,mechanism_summary,evidence_level,_csv_row,_csv_file
+Omega-3,EPA+DHA,FF002_BEEF,0.2,%,Declared label guaranteed analysis for combo fresh food.,,2,INGREDIENT_MECHANISMS.csv
+Omega-3,EPA+DHA,FF002_PORK,0.2,%,Declared label guaranteed analysis for combo fresh food.,,3,INGREDIENT_MECHANISMS.csv
+Omega-3,EPA+DHA,FF002_CHICKEN,0.44,%,Declared label guaranteed analysis for combo fresh food.,,4,INGREDIENT_MECHANISMS.csv
+Omega-3,EPA+DHA,FF002_FISH,0.6,%,Declared label guaranteed analysis for combo fresh food.,,5,INGREDIENT_MECHANISMS.csv
+Probiotics,Brady Yeast Probiotics,SP011,30,g,Pack-weight probiotic payload from declared label.,,6,INGREDIENT_MECHANISMS.csv
+Goat Milk,Goat Milk Powder,SP012,400,g,Pack-weight milk powder payload from declared label.,,7,INGREDIENT_MECHANISMS.csv
+Joint Support,Joint Health Formula,SP013,120,g,Pack-weight joint formula payload from declared label.,,8,INGREDIENT_MECHANISMS.csv
+Immunity,LF-MAG 300,SP015,60,capsules,Pack capsule count from declared label.,,9,INGREDIENT_MECHANISMS.csv

@@ -1,0 +1,6 @@
+{
+  "active_version": "2026.07.20",
+  "release_path": "warehouse/releases/2026.07.20",
+  "published_at": "2026-07-20T21:58:07.625691+00:00",
+  "note": "Live clinical engine still reads data/ via DataPlatform. warehouse/current is the governance pointer for science releases."
+}

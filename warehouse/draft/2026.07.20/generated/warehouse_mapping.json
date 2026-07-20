@@ -1,0 +1,335 @@
+{
+  "phase": 1,
+  "note": "Old data/ CSV -> warehouse target (no rows copied except unit_conversion seed)",
+  "mappings": [
+    {
+      "old": "data/breed_analysis/1_biological_traits/BREED_ALIASES.csv",
+      "filename": "BREED_ALIASES.csv",
+      "new": "runtime/aliases.csv",
+      "transform": "alias_type=breed",
+      "rows": 4
+    },
+    {
+      "old": "data/breed_analysis/1_biological_traits/BREEDS.csv",
+      "filename": "BREEDS.csv",
+      "new": "reference/breeds.csv",
+      "transform": "identity + FK to trait dims",
+      "rows": 48
+    },
+    {
+      "old": "data/breed_analysis/1_biological_traits/MIXED_BREED_INTERACTIONS.csv",
+      "filename": "MIXED_BREED_INTERACTIONS.csv",
+      "new": "science/mixed_trait_interactions.csv",
+      "transform": "optional; currently unused",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/1_biological_traits/MIXED_BREED_MATRIX.csv",
+      "filename": "MIXED_BREED_MATRIX.csv",
+      "new": "science/mixed_trait_interactions.csv",
+      "transform": "scope=breed_pair",
+      "rows": 5
+    },
+    {
+      "old": "data/breed_analysis/2_evolutionary_profiles/ENVIRONMENTAL_MATRICES.csv",
+      "filename": "ENVIRONMENTAL_MATRICES.csv",
+      "new": "runtime/lookup_maps.csv",
+      "transform": "map_type=environment",
+      "rows": 6
+    },
+    {
+      "old": "data/breed_analysis/2_evolutionary_profiles/TRAIT_ATTRIBUTE_EXPLANATIONS.csv",
+      "filename": "TRAIT_ATTRIBUTE_EXPLANATIONS.csv",
+      "new": "runtime/lookup_maps.csv",
+      "transform": "map_type=trait_explain",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/2_evolutionary_profiles/TRAIT_PURPOSES.csv",
+      "filename": "TRAIT_PURPOSES.csv",
+      "new": "runtime/lookup_maps.csv",
+      "transform": "map_type=trait_purpose",
+      "rows": 5
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/BODYTYPE_CONDITIONS.csv",
+      "filename": "BODYTYPE_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=body_type; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/BREED_CONDITIONS.csv",
+      "filename": "BREED_CONDITIONS.csv",
+      "new": "science/breed_condition_risk.csv",
+      "transform": "citation -> paper_id",
+      "rows": 16
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/CLIMATE_CONDITIONS.csv",
+      "filename": "CLIMATE_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=climate; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/CLINICAL_RISK_TIMELINE.csv",
+      "filename": "CLINICAL_RISK_TIMELINE.csv",
+      "new": "runtime/lookup_maps.csv",
+      "transform": "map_type=risk_timeline",
+      "rows": 6
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/COATTYPE_CONDITIONS.csv",
+      "filename": "COATTYPE_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=coat_type; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/ENERGY_CONDITIONS.csv",
+      "filename": "ENERGY_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=energy; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/FUNCTIONGROUP_CONDITIONS.csv",
+      "filename": "FUNCTIONGROUP_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=function_group; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/LIFESPAN_CONDITIONS.csv",
+      "filename": "LIFESPAN_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=lifespan; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/SIZE_CONDITIONS.csv",
+      "filename": "SIZE_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=size; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/SKULLTYPE_CONDITIONS.csv",
+      "filename": "SKULLTYPE_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=skull_type; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/TRAIT_CONTRIBUTION_WEIGHTS.csv",
+      "filename": "TRAIT_CONTRIBUTION_WEIGHTS.csv",
+      "new": "runtime/parameter_defaults.csv",
+      "transform": "param_group=report_weights",
+      "rows": 7
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/TRAIT_INTERACTIONS.csv",
+      "filename": "TRAIT_INTERACTIONS.csv",
+      "new": "science/mixed_trait_interactions.csv",
+      "transform": "rename; keep multipliers",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/3_management_considerations/WEAKNESSGROUP_CONDITIONS.csv",
+      "filename": "WEAKNESSGROUP_CONDITIONS.csv",
+      "new": "science/trait_condition_risk.csv",
+      "transform": "trait_category=weakness_group; citation -> paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/4_preventative_interventions/ACTIVITY_EVIDENCE.csv",
+      "filename": "ACTIVITY_EVIDENCE.csv",
+      "new": "reference/papers.csv (+ prevention)",
+      "transform": "unused today",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/4_preventative_interventions/ACTIVITY_PRESCRIPTION_RULES.csv",
+      "filename": "ACTIVITY_PRESCRIPTION_RULES.csv",
+      "new": "runtime/lookup_maps.csv",
+      "transform": "map_type=activity_rx",
+      "rows": 4
+    },
+    {
+      "old": "data/breed_analysis/4_preventative_interventions/CONDITION_ACTIVITIES.csv",
+      "filename": "CONDITION_ACTIVITIES.csv",
+      "new": "science/prevention_effectiveness.csv",
+      "transform": "prevention_type=activity",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/4_preventative_interventions/GROOMING_OBSERVATION_DEFS.csv",
+      "filename": "GROOMING_OBSERVATION_DEFS.csv",
+      "new": "runtime/lookup_maps.csv",
+      "transform": "map_type=grooming",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/4_preventative_interventions/TRAIT_BENEFITS.csv",
+      "filename": "TRAIT_BENEFITS.csv",
+      "new": "science/prevention_effectiveness.csv",
+      "transform": "benefit rows; paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/5_scientific_nutrition/CLINICAL_EVIDENCE_BASE.csv",
+      "filename": "CLINICAL_EVIDENCE_BASE.csv",
+      "new": "reference/papers.csv",
+      "transform": "normalize into papers",
+      "rows": 7
+    },
+    {
+      "old": "data/breed_analysis/5_scientific_nutrition/CONDITION_INGREDIENTS.csv",
+      "filename": "CONDITION_INGREDIENTS.csv",
+      "new": "science/nutrient_targets.csv (+ ingredient_evidence)",
+      "transform": "dose->canonical units; citation->paper_id",
+      "rows": 12
+    },
+    {
+      "old": "data/breed_analysis/5_scientific_nutrition/INGREDIENT_ALIASES.csv",
+      "filename": "INGREDIENT_ALIASES.csv",
+      "new": "runtime/aliases.csv",
+      "transform": "alias_type=ingredient",
+      "rows": 6
+    },
+    {
+      "old": "data/breed_analysis/5_scientific_nutrition/INGREDIENT_EVIDENCE.csv",
+      "filename": "INGREDIENT_EVIDENCE.csv",
+      "new": "science/ingredient_evidence.csv",
+      "transform": "citation->paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/breed_analysis/5_scientific_nutrition/INGREDIENT_MECHANISMS.csv",
+      "filename": "INGREDIENT_MECHANISMS.csv",
+      "new": "science/ingredient_evidence.csv",
+      "transform": "mechanism narrative cols",
+      "rows": 8
+    },
+    {
+      "old": "data/breed_analysis/5_scientific_nutrition/INGREDIENT_NUTRIENT_ESTIMATES.csv",
+      "filename": "INGREDIENT_NUTRIENT_ESTIMATES.csv",
+      "new": "science/food_nutrients.csv",
+      "transform": "units->canonical",
+      "rows": 8
+    },
+    {
+      "old": "data/breed_analysis/5_scientific_nutrition/NATURAL_FOOD_SOURCES.csv",
+      "filename": "NATURAL_FOOD_SOURCES.csv",
+      "new": "science/ingredient_food_sources.csv",
+      "transform": "identity",
+      "rows": 15
+    },
+    {
+      "old": "data/breed_analysis/5_scientific_nutrition/NUTRIENT_PRIORITIES.csv",
+      "filename": "NUTRIENT_PRIORITIES.csv",
+      "new": "runtime/parameter_defaults.csv",
+      "transform": "param_group=nutrient_priority",
+      "rows": 5
+    },
+    {
+      "old": "data/preventative_ingredients/CONDITION_INGREDIENTS.csv",
+      "filename": "CONDITION_INGREDIENTS.csv",
+      "new": "science/nutrient_targets.csv (+ ingredient_evidence)",
+      "transform": "dose->canonical units; citation->paper_id",
+      "rows": 12
+    },
+    {
+      "old": "data/preventative_ingredients/CONDITION_PROTOCOLS.csv",
+      "filename": "CONDITION_PROTOCOLS.csv",
+      "new": "science/prevention_effectiveness.csv",
+      "transform": "unused today",
+      "rows": 12
+    },
+    {
+      "old": "data/preventative_ingredients/INGREDIENT_EVIDENCE.csv",
+      "filename": "INGREDIENT_EVIDENCE.csv",
+      "new": "science/ingredient_evidence.csv",
+      "transform": "citation->paper_id",
+      "rows": 10
+    },
+    {
+      "old": "data/product_portfolio/EXT_SUPPLEMENTS.csv",
+      "filename": "EXT_SUPPLEMENTS.csv",
+      "new": "science/product_composition.csv",
+      "transform": "source=ext_supplements",
+      "rows": 0
+    },
+    {
+      "old": "data/product_portfolio/EXT_TREATS_BAKERY.csv",
+      "filename": "EXT_TREATS_BAKERY.csv",
+      "new": "science/product_composition.csv",
+      "transform": "source=ext_treats",
+      "rows": 12
+    },
+    {
+      "old": "data/product_portfolio/PACKAGE_TIERS.csv",
+      "filename": "PACKAGE_TIERS.csv",
+      "new": "runtime/parameter_defaults.csv",
+      "transform": "param_group=package_tier",
+      "rows": 3
+    },
+    {
+      "old": "data/product_portfolio/PRODUCT_CATALOG.csv",
+      "filename": "PRODUCT_CATALOG.csv",
+      "new": "science/product_composition.csv (catalog half)",
+      "transform": "split identity vs composition",
+      "rows": 16
+    },
+    {
+      "old": "data/product_portfolio/PRODUCT_COMPONENTS.csv",
+      "filename": "PRODUCT_COMPONENTS.csv",
+      "new": "science/product_composition.csv",
+      "transform": "composition rows",
+      "rows": 59
+    },
+    {
+      "old": "data/product_portfolio/PRODUCT_DEFAULTS.csv",
+      "filename": "PRODUCT_DEFAULTS.csv",
+      "new": "runtime/parameter_defaults.csv",
+      "transform": "unused today",
+      "rows": 5
+    },
+    {
+      "old": "data/product_portfolio/PRODUCT_FEEDING_RULES.csv",
+      "filename": "PRODUCT_FEEDING_RULES.csv",
+      "new": "runtime/lookup_maps.csv",
+      "transform": "map_type=feeding",
+      "rows": 23
+    },
+    {
+      "old": "data/product_portfolio/PRODUCT_FUNCTIONS.csv",
+      "filename": "PRODUCT_FUNCTIONS.csv",
+      "new": "runtime/lookup_maps.csv",
+      "transform": "map_type=product_function",
+      "rows": 10
+    },
+    {
+      "old": "data/product_portfolio/PRODUCT_PRICING.csv",
+      "filename": "PRODUCT_PRICING.csv",
+      "new": "runtime/parameter_defaults.csv",
+      "transform": "param_group=pricing",
+      "rows": 16
+    },
+    {
+      "old": "data/product_portfolio/STAPLE_FOOD.csv",
+      "filename": "STAPLE_FOOD.csv",
+      "new": "reference/foods.csv",
+      "transform": "unmanifested; inventory only",
+      "rows": 4
+    },
+    {
+      "old": "data/product_portfolio/TREATS.csv",
+      "filename": "TREATS.csv",
+      "new": "reference/foods.csv",
+      "transform": "unmanifested; inventory only",
+      "rows": 12
+    }
+  ]
+}

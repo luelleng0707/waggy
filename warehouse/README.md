@@ -49,6 +49,45 @@ py -3 -m pytest tests/test_warehouse_parity.py -m slow -v
 
 Table round-trip and golden-dog clinical hashes must match.
 
-## Phase 3 (later)
+## Phase 3 — FormulaGraph
 
-Formula graph / AssessmentAgent rewrite — **only after** adapter parity stays green.
+`AssessmentAgent` → `FormulaGraph` → nodes wrapping locked engines.
+See `app/agent/assessment_agent.py`. Math unchanged.
+
+## Phase 4 — Knowledge graph & explainability
+
+Deterministic only (no AI in the clinical path):
+
+```
+warehouse/graph/       # nodes.json, edges.json, summary.json
+warehouse/reasoning/   # templates / notes
+warehouse/generated/   # SCIENTIFIC_AUDIT.md, knowledge_coverage.json
+app/science/           # KnowledgeGraphBuilder, GraphRepository, EvidenceObject, …
+```
+
+```bash
+py -3 warehouse/tools/build_science_graph.py
+py -3 -m pytest tests/test_science_graph.py -q
+```
+
+APIs: `GET /api/v1/graph/{condition|paper|ingredient|product|explanation}/…`,
+`GET /api/v1/graph/why?q=…`, `GET /api/v1/science/{audit|coverage|versions}`.
+
+## Phase 5 — Versioned releases (governance OS)
+
+Live engine still reads `data/`. Warehouse adds release pointers:
+
+```
+warehouse/
+  reference|science|runtime|generated|graph/   # working science tree
+  current/release.json                         # active version pointer
+  draft|staging|production/<YYYY.MM.DD>/
+  releases/<YYYY.MM.DD>/release.json
+  snapshots/
+```
+
+```bash
+py -3 -m science_pipeline.release
+```
+
+See `docs/governance/PHASE5.md` and `governance/README.md`.

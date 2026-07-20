@@ -1,0 +1,11 @@
+trait_a,trait_b,condition,reduction_factor,reason,source,_csv_row,_csv_file
+Athletic,Joint Heavy,Hip Dysplasia,0.86,Stronger periarticular musculature lowers joint instability expression,Canine Biomechanics Review 2022,2,TRAIT_BENEFITS.csv
+Athletic,Chondrodysplastic,IVDD,0.78,Improved trunk conditioning reduces disc loading events,Canine Spine Consortium 2023,3,TRAIT_BENEFITS.csv
+Double Coat,Cold Tolerant,Dry Skin,0.84,Coat insulation and climate adaptation reduce transepidermal water loss,Nordic Dermatology Study 2021,4,TRAIT_BENEFITS.csv
+Medium,High,Obesity,0.82,Higher routine activity offsets obesity expression,Canine Lifestyle Outcomes Study 2022,5,TRAIT_BENEFITS.csv
+Mesocephalic,Athletic,BOAS,0.74,Non-brachycephalic skull morphology lowers airway obstruction burden,RVC Airway Morphology Program 2023,6,TRAIT_BENEFITS.csv
+Long,Sporting,Dental Disease,0.88,Frequent chew-use behavior associated with lower plaque retention,Companion Oral Health Network 2021,7,TRAIT_BENEFITS.csv
+Heat Tolerant,Athletic,Heat Stress Syndrome,0.79,Thermal adaptation and fitness reduce heat injury expression,Canine Environmental Physiology Group 2022,8,TRAIT_BENEFITS.csv
+Compact,Companion,Cruciate Ligament Rupture,0.90,Lower peak torque loads reduce non-contact rupture frequency,Orthopedic Burden Study 2020,9,TRAIT_BENEFITS.csv
+Working,Athletic,Degenerative Valve Disease,0.87,Conditioned cardiovascular profiles show lower valvular degeneration prevalence,Canine Cardiology Registry 2021,10,TRAIT_BENEFITS.csv
+Curly Coat,Skin Heavy,Hot Spots,0.85,Regular grooming protocols reduce acute moist dermatitis episodes,European Veterinary Dermatology Consortium 2023,11,TRAIT_BENEFITS.csv

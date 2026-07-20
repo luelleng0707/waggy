@@ -1,0 +1,8 @@
+trait_category,trait_value,condition,risk_delta,unit,source_csv,evidence_id,mechanism_note,_csv_row,_csv_file
+size,Large,Hip Dysplasia,12,percent,BREEDS.csv|SIZE_CONDITIONS.csv,EVD-ORTHO-001,Increased skeletal loading on hip joints,2,TRAIT_CONTRIBUTION_WEIGHTS.csv
+coat_type,Double Coat,Atopic Dermatitis,6,percent,COATTYPE_CONDITIONS.csv,EVD-DERM-001,Humidity and coat maintenance burden,3,TRAIT_CONTRIBUTION_WEIGHTS.csv
+function_group,Sporting,Obesity,-4,percent,FUNCTIONGROUP_CONDITIONS.csv,EVD-LIFE-001,Activity offset when exercise targets met,4,TRAIT_CONTRIBUTION_WEIGHTS.csv
+energy,High,Heat Stress Syndrome,8,percent,ENERGY_CONDITIONS.csv,EVD-ENV-001,Elevated metabolic heat production,5,TRAIT_CONTRIBUTION_WEIGHTS.csv
+body_type,Athletic,Cruciate Ligament Rupture,-3,percent,BODYTYPE_CONDITIONS.csv,EVD-ACT-001,Muscle support reduces non-contact rupture,6,TRAIT_CONTRIBUTION_WEIGHTS.csv
+weakness_group,Joint Heavy,Hip Dysplasia,10,percent,WEAKNESSGROUP_CONDITIONS.csv,EVD-ORTHO-001,Weakness group orthopedic predisposition,7,TRAIT_CONTRIBUTION_WEIGHTS.csv
+function_group,Sporting,Anxiety,5,percent,TRAIT_INTERACTIONS.csv,EVD-SPORT-001,Under-stimulation when enrichment insufficient,8,TRAIT_CONTRIBUTION_WEIGHTS.csv

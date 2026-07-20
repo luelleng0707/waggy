@@ -1,0 +1,2644 @@
+[
+  {
+    "id": "breed:alaskan_malamute",
+    "type": "breed",
+    "label": "Alaskan Malamute",
+    "props": {}
+  },
+  {
+    "id": "trait:size:giant",
+    "type": "trait",
+    "label": "Giant",
+    "props": {
+      "trait_category": "size"
+    }
+  },
+  {
+    "id": "trait:body_type:athletic",
+    "type": "trait",
+    "label": "Athletic",
+    "props": {
+      "trait_category": "body_type"
+    }
+  },
+  {
+    "id": "trait:coat_type:double_coat",
+    "type": "trait",
+    "label": "Double Coat",
+    "props": {
+      "trait_category": "coat_type"
+    }
+  },
+  {
+    "id": "trait:energy:high",
+    "type": "trait",
+    "label": "High",
+    "props": {
+      "trait_category": "energy"
+    }
+  },
+  {
+    "id": "trait:skull_type:mesocephalic",
+    "type": "trait",
+    "label": "Mesocephalic",
+    "props": {
+      "trait_category": "skull_type"
+    }
+  },
+  {
+    "id": "trait:climate:cold_tolerant",
+    "type": "trait",
+    "label": "Cold Tolerant",
+    "props": {
+      "trait_category": "climate"
+    }
+  },
+  {
+    "id": "trait:lifespan:medium",
+    "type": "trait",
+    "label": "Medium",
+    "props": {
+      "trait_category": "lifespan"
+    }
+  },
+  {
+    "id": "trait:function_group:working",
+    "type": "trait",
+    "label": "Working",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "trait:weakness_group:joint_heavy",
+    "type": "trait",
+    "label": "Joint Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:afghan_hound",
+    "type": "breed",
+    "label": "Afghan Hound",
+    "props": {}
+  },
+  {
+    "id": "trait:size:large",
+    "type": "trait",
+    "label": "Large",
+    "props": {
+      "trait_category": "size"
+    }
+  },
+  {
+    "id": "trait:coat_type:single_coat",
+    "type": "trait",
+    "label": "Single Coat",
+    "props": {
+      "trait_category": "coat_type"
+    }
+  },
+  {
+    "id": "trait:skull_type:dolichocephalic",
+    "type": "trait",
+    "label": "Dolichocephalic",
+    "props": {
+      "trait_category": "skull_type"
+    }
+  },
+  {
+    "id": "trait:climate:heat_tolerant",
+    "type": "trait",
+    "label": "Heat Tolerant",
+    "props": {
+      "trait_category": "climate"
+    }
+  },
+  {
+    "id": "trait:lifespan:long",
+    "type": "trait",
+    "label": "Long",
+    "props": {
+      "trait_category": "lifespan"
+    }
+  },
+  {
+    "id": "trait:function_group:hound",
+    "type": "trait",
+    "label": "Hound",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "trait:weakness_group:eye_heavy",
+    "type": "trait",
+    "label": "Eye Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:border_collie",
+    "type": "breed",
+    "label": "Border Collie",
+    "props": {}
+  },
+  {
+    "id": "trait:size:medium",
+    "type": "trait",
+    "label": "Medium",
+    "props": {
+      "trait_category": "size"
+    }
+  },
+  {
+    "id": "trait:energy:extreme",
+    "type": "trait",
+    "label": "Extreme",
+    "props": {
+      "trait_category": "energy"
+    }
+  },
+  {
+    "id": "trait:function_group:herding",
+    "type": "trait",
+    "label": "Herding",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "trait:weakness_group:neurological_heavy",
+    "type": "trait",
+    "label": "Neurological Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:bernese_mountain_dog",
+    "type": "breed",
+    "label": "Bernese Mountain Dog",
+    "props": {}
+  },
+  {
+    "id": "trait:body_type:heavy_sporting",
+    "type": "trait",
+    "label": "Heavy Sporting",
+    "props": {
+      "trait_category": "body_type"
+    }
+  },
+  {
+    "id": "trait:energy:medium",
+    "type": "trait",
+    "label": "Medium",
+    "props": {
+      "trait_category": "energy"
+    }
+  },
+  {
+    "id": "breed:pomeranian",
+    "type": "breed",
+    "label": "Pomeranian",
+    "props": {}
+  },
+  {
+    "id": "trait:size:toy",
+    "type": "trait",
+    "label": "Toy",
+    "props": {
+      "trait_category": "size"
+    }
+  },
+  {
+    "id": "trait:body_type:compact",
+    "type": "trait",
+    "label": "Compact",
+    "props": {
+      "trait_category": "body_type"
+    }
+  },
+  {
+    "id": "trait:skull_type:brachycephalic",
+    "type": "trait",
+    "label": "Brachycephalic",
+    "props": {
+      "trait_category": "skull_type"
+    }
+  },
+  {
+    "id": "trait:function_group:toy",
+    "type": "trait",
+    "label": "Toy",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "trait:weakness_group:dental_heavy",
+    "type": "trait",
+    "label": "Dental Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:pekingese",
+    "type": "breed",
+    "label": "Pekingese",
+    "props": {}
+  },
+  {
+    "id": "trait:energy:low",
+    "type": "trait",
+    "label": "Low",
+    "props": {
+      "trait_category": "energy"
+    }
+  },
+  {
+    "id": "trait:climate:heat_sensitive",
+    "type": "trait",
+    "label": "Heat Sensitive",
+    "props": {
+      "trait_category": "climate"
+    }
+  },
+  {
+    "id": "trait:weakness_group:respiratory_heavy",
+    "type": "trait",
+    "label": "Respiratory Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:pug",
+    "type": "breed",
+    "label": "Pug",
+    "props": {}
+  },
+  {
+    "id": "trait:size:small",
+    "type": "trait",
+    "label": "Small",
+    "props": {
+      "trait_category": "size"
+    }
+  },
+  {
+    "id": "breed:boston_terrier",
+    "type": "breed",
+    "label": "Boston Terrier",
+    "props": {}
+  },
+  {
+    "id": "trait:function_group:companion",
+    "type": "trait",
+    "label": "Companion",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "breed:basset_hound",
+    "type": "breed",
+    "label": "Basset Hound",
+    "props": {}
+  },
+  {
+    "id": "trait:body_type:chondrodysplastic",
+    "type": "trait",
+    "label": "Chondrodysplastic",
+    "props": {
+      "trait_category": "body_type"
+    }
+  },
+  {
+    "id": "trait:climate:temperate",
+    "type": "trait",
+    "label": "Temperate",
+    "props": {
+      "trait_category": "climate"
+    }
+  },
+  {
+    "id": "breed:beagle",
+    "type": "breed",
+    "label": "Beagle",
+    "props": {}
+  },
+  {
+    "id": "trait:weakness_group:digestive_heavy",
+    "type": "trait",
+    "label": "Digestive Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:bichon_frise",
+    "type": "breed",
+    "label": "Bichon Frise",
+    "props": {}
+  },
+  {
+    "id": "trait:coat_type:curly_coat",
+    "type": "trait",
+    "label": "Curly Coat",
+    "props": {
+      "trait_category": "coat_type"
+    }
+  },
+  {
+    "id": "trait:weakness_group:skin_heavy",
+    "type": "trait",
+    "label": "Skin Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:bedlington_terrier",
+    "type": "breed",
+    "label": "Bedlington Terrier",
+    "props": {}
+  },
+  {
+    "id": "trait:function_group:terrier",
+    "type": "trait",
+    "label": "Terrier",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "trait:weakness_group:urinary_heavy",
+    "type": "trait",
+    "label": "Urinary Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:shiba_inu",
+    "type": "breed",
+    "label": "Shiba Inu",
+    "props": {}
+  },
+  {
+    "id": "trait:function_group:spitz",
+    "type": "trait",
+    "label": "Spitz",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "trait:weakness_group:immune_heavy",
+    "type": "trait",
+    "label": "Immune Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:cavalier_king_charles_spaniel",
+    "type": "breed",
+    "label": "Cavalier King Charles Spaniel",
+    "props": {}
+  },
+  {
+    "id": "trait:weakness_group:cardiac_heavy",
+    "type": "trait",
+    "label": "Cardiac Heavy",
+    "props": {
+      "trait_category": "weakness_group"
+    }
+  },
+  {
+    "id": "breed:german_shepherd_dog",
+    "type": "breed",
+    "label": "German Shepherd Dog",
+    "props": {}
+  },
+  {
+    "id": "breed:great_pyrenees",
+    "type": "breed",
+    "label": "Great Pyrenees",
+    "props": {}
+  },
+  {
+    "id": "trait:function_group:guardian",
+    "type": "trait",
+    "label": "Guardian",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "breed:doberman_pinscher",
+    "type": "breed",
+    "label": "Doberman Pinscher",
+    "props": {}
+  },
+  {
+    "id": "breed:dalmatian",
+    "type": "breed",
+    "label": "Dalmatian",
+    "props": {}
+  },
+  {
+    "id": "trait:function_group:sporting",
+    "type": "trait",
+    "label": "Sporting",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "breed:french_bulldog",
+    "type": "breed",
+    "label": "French Bulldog",
+    "props": {}
+  },
+  {
+    "id": "breed:old_english_sheepdog",
+    "type": "breed",
+    "label": "Old English Sheepdog",
+    "props": {}
+  },
+  {
+    "id": "breed:wirehaired_dachshund",
+    "type": "breed",
+    "label": "Wirehaired Dachshund",
+    "props": {}
+  },
+  {
+    "id": "trait:coat_type:wire_coat",
+    "type": "trait",
+    "label": "Wire Coat",
+    "props": {
+      "trait_category": "coat_type"
+    }
+  },
+  {
+    "id": "breed:poodle",
+    "type": "breed",
+    "label": "Poodle",
+    "props": {}
+  },
+  {
+    "id": "breed:siberian_husky",
+    "type": "breed",
+    "label": "Siberian Husky",
+    "props": {}
+  },
+  {
+    "id": "breed:golden_retriever",
+    "type": "breed",
+    "label": "Golden Retriever",
+    "props": {}
+  },
+  {
+    "id": "breed:chihuahua",
+    "type": "breed",
+    "label": "Chihuahua",
+    "props": {}
+  },
+  {
+    "id": "breed:jack_russell_terrier",
+    "type": "breed",
+    "label": "Jack Russell Terrier",
+    "props": {}
+  },
+  {
+    "id": "breed:pembroke_welsh_corgi",
+    "type": "breed",
+    "label": "Pembroke Welsh Corgi",
+    "props": {}
+  },
+  {
+    "id": "breed:kerry_blue_terrier",
+    "type": "breed",
+    "label": "Kerry Blue Terrier",
+    "props": {}
+  },
+  {
+    "id": "breed:foxhound",
+    "type": "breed",
+    "label": "Foxhound",
+    "props": {}
+  },
+  {
+    "id": "breed:labrador_retriever",
+    "type": "breed",
+    "label": "Labrador Retriever",
+    "props": {}
+  },
+  {
+    "id": "breed:greyhound",
+    "type": "breed",
+    "label": "Greyhound",
+    "props": {}
+  },
+  {
+    "id": "breed:smooth_dachshund",
+    "type": "breed",
+    "label": "Smooth Dachshund",
+    "props": {}
+  },
+  {
+    "id": "breed:american_cocker_spaniel",
+    "type": "breed",
+    "label": "American Cocker Spaniel",
+    "props": {}
+  },
+  {
+    "id": "breed:maltese",
+    "type": "breed",
+    "label": "Maltese",
+    "props": {}
+  },
+  {
+    "id": "breed:bull_terrier",
+    "type": "breed",
+    "label": "Bull Terrier",
+    "props": {}
+  },
+  {
+    "id": "breed:akita_inu",
+    "type": "breed",
+    "label": "Akita Inu",
+    "props": {}
+  },
+  {
+    "id": "breed:samoyed",
+    "type": "breed",
+    "label": "Samoyed",
+    "props": {}
+  },
+  {
+    "id": "breed:rough_collie",
+    "type": "breed",
+    "label": "Rough Collie",
+    "props": {}
+  },
+  {
+    "id": "breed:chow_chow",
+    "type": "breed",
+    "label": "Chow Chow",
+    "props": {}
+  },
+  {
+    "id": "breed:english_springer_spaniel",
+    "type": "breed",
+    "label": "English Springer Spaniel",
+    "props": {}
+  },
+  {
+    "id": "breed:chinese_rural_dog",
+    "type": "breed",
+    "label": "Chinese Rural Dog",
+    "props": {}
+  },
+  {
+    "id": "trait:function_group:landrace",
+    "type": "trait",
+    "label": "Landrace",
+    "props": {
+      "trait_category": "function_group"
+    }
+  },
+  {
+    "id": "breed:west_highland_white_terrier",
+    "type": "breed",
+    "label": "West Highland White Terrier",
+    "props": {}
+  },
+  {
+    "id": "breed:shetland_sheepdog",
+    "type": "breed",
+    "label": "Shetland Sheepdog",
+    "props": {}
+  },
+  {
+    "id": "breed:miniature_pinscher",
+    "type": "breed",
+    "label": "Miniature Pinscher",
+    "props": {}
+  },
+  {
+    "id": "breed:shih_tzu",
+    "type": "breed",
+    "label": "Shih Tzu",
+    "props": {}
+  },
+  {
+    "id": "breed:english_cocker_spaniel",
+    "type": "breed",
+    "label": "English Cocker Spaniel",
+    "props": {}
+  },
+  {
+    "id": "breed:yorkshire_terrier",
+    "type": "breed",
+    "label": "Yorkshire Terrier",
+    "props": {}
+  },
+  {
+    "id": "breed:longhaired_dachshund",
+    "type": "breed",
+    "label": "Longhaired Dachshund",
+    "props": {}
+  },
+  {
+    "id": "condition:hip_dysplasia",
+    "type": "condition",
+    "label": "Hip Dysplasia",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_b03f4672f5a1",
+    "type": "paper",
+    "label": "BMC Genomics",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7818755/",
+      "year": "2021",
+      "quote": "Labrador Retrievers showed consistently elevated hip dysplasia prevalence across multi-breed genetic validation cohorts."
+    }
+  },
+  {
+    "id": "condition:obesity",
+    "type": "condition",
+    "label": "Obesity",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_b05709857ad1",
+    "type": "paper",
+    "label": "Cell Metabolism",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4873617/",
+      "year": "2016",
+      "quote": "A POMC gene deletion was strongly associated with increased weight and obesity prevalence in Labrador Retriever dogs."
+    }
+  },
+  {
+    "id": "paper:paper_ba17106af094",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11758603/",
+      "year": "2024",
+      "quote": "Golden Retrievers had the highest risk of CHD diagnosis among guide dog breeding program cohorts."
+    }
+  },
+  {
+    "id": "condition:atopic_dermatitis",
+    "type": "condition",
+    "label": "Atopic Dermatitis",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_a5ffd20f00dd",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12030778/",
+      "year": "2024",
+      "quote": "Golden Retrievers demonstrated elevated atopic dermatitis prevalence linked to environmental allergen seropositivity."
+    }
+  },
+  {
+    "id": "condition:cataracts",
+    "type": "condition",
+    "label": "Cataracts",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_1bf046f32ff4",
+    "type": "paper",
+    "label": "Veterinary Ophthalmology",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7836154/",
+      "year": "2021",
+      "quote": "Siberian Huskies presented with hereditary cataracts at higher rates than non-Arctic breed comparators in multicenter retrospective data."
+    }
+  },
+  {
+    "id": "condition:immune-mediated_dermatosis",
+    "type": "condition",
+    "label": "Immune-Mediated Dermatosis",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_41fc493e35f8",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/",
+      "year": "2024",
+      "quote": "Northern spitz-type breeds carried distinct genetic markers associated with immune-mediated skin disease susceptibility."
+    }
+  },
+  {
+    "id": "condition:ivdd",
+    "type": "condition",
+    "label": "IVDD",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_f6d492210f18",
+    "type": "paper",
+    "label": "PNAS",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5664524/",
+      "year": "2017",
+      "quote": "Chondrodystrophic breeds including Welsh Corgis carried the FGF4 retrogene driving elevated intervertebral disc disease risk."
+    }
+  },
+  {
+    "id": "paper:paper_5b570da50a7d",
+    "type": "paper",
+    "label": "BMC Veterinary Research",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7347163/",
+      "year": "2020",
+      "quote": "Smaller chondrodystrophic breeds retained measurable hip dysplasia prevalence in radiographic screening programs."
+    }
+  },
+  {
+    "id": "condition:boas",
+    "type": "condition",
+    "label": "BOAS",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_7aac8352d2ba",
+    "type": "paper",
+    "label": "PLOS ONE",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12915975/",
+      "year": "2025",
+      "quote": "French Bulldogs exhibited high brachycephalic obstructive airway syndrome prevalence across multi-breed cross-sectional data."
+    }
+  },
+  {
+    "id": "condition:corneal_ulceration",
+    "type": "condition",
+    "label": "Corneal Ulceration",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_21f0a9b74772",
+    "type": "paper",
+    "label": "PLOS ONE",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4430292/",
+      "year": "2015",
+      "quote": "Brachycephalic dogs were twenty times more likely to develop corneal ulceration than non-brachycephalic controls."
+    }
+  },
+  {
+    "id": "paper:paper_8623bfe933f8",
+    "type": "paper",
+    "label": "PLOS ONE",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12915975/",
+      "year": "2025",
+      "quote": "Pugs showed among the highest BOAS prevalence rates of all brachycephalic breeds evaluated in cross-sectional screening."
+    }
+  },
+  {
+    "id": "condition:dental_disease",
+    "type": "condition",
+    "label": "Dental Disease",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_4e0c1e369486",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9291557/",
+      "year": "2022",
+      "quote": "Brachycephalic skull conformation and dental crowding substantially increased periodontal disease prevalence in small breeds."
+    }
+  },
+  {
+    "id": "paper:paper_80107f0c98ac",
+    "type": "paper",
+    "label": "BMC Genomics",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7818755/",
+      "year": "2021",
+      "quote": "German Shepherd Dogs retained elevated hip dysplasia prevalence in across-breed genetic marker validation studies."
+    }
+  },
+  {
+    "id": "condition:degenerative_myelopathy",
+    "type": "condition",
+    "label": "Degenerative Myelopathy",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_12b18c39ef91",
+    "type": "paper",
+    "label": "Veterinary Sciences",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9264911/",
+      "year": "2022",
+      "quote": "German Shepherd Dogs carried a high SOD1 mutant allele frequency linked to degenerative myelopathy susceptibility."
+    }
+  },
+  {
+    "id": "condition:chronic_enteropathy",
+    "type": "condition",
+    "label": "Chronic Enteropathy",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_7e6d7cff6935",
+    "type": "paper",
+    "label": "Veterinary Medicine",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6902862/",
+      "year": "2019",
+      "quote": "Chronic enteropathy represented a substantial gastrointestinal disease burden across hound and companion breed populations."
+    }
+  },
+  {
+    "id": "condition:degenerative_valve_disease",
+    "type": "condition",
+    "label": "Degenerative Valve Disease",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_12c0b65040b1",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4895395/",
+      "year": "2016",
+      "quote": "Small and toy breed dogs carried the highest degenerative mitral valve disease prevalence in primary-care veterinary populations."
+    }
+  },
+  {
+    "id": "paper:paper_c45bc580c096",
+    "type": "paper",
+    "label": "Smith et al. Journal of Small Animal Dentistry",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123401",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "condition:luxating_patella",
+    "type": "condition",
+    "label": "Luxating Patella",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_28fb5b0b0dab",
+    "type": "paper",
+    "label": "Canine Orthopedic Registry",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123402",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_3caa04cd1d48",
+    "type": "paper",
+    "label": "VetCompass Dermatology Study",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123403",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "condition:tracheal_collapse",
+    "type": "condition",
+    "label": "Tracheal Collapse",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_794d65957ab1",
+    "type": "paper",
+    "label": "RVC Respiratory Audit",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123404",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_58ac1425a79c",
+    "type": "paper",
+    "label": "OFA Cross-Section Review",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123405",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "condition:otitis_externa",
+    "type": "condition",
+    "label": "Otitis Externa",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_42d9801739da",
+    "type": "paper",
+    "label": "Companion Animal Ear Health Program",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123406",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_508afe5aa7bf",
+    "type": "paper",
+    "label": "OFA Longitudinal Registry",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123407",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "condition:cruciate_ligament_rupture",
+    "type": "condition",
+    "label": "Cruciate Ligament Rupture",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_994e73e12fa1",
+    "type": "paper",
+    "label": "Canine Cruciate Consortium",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123408",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "condition:gdv",
+    "type": "condition",
+    "label": "GDV",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_82bcb4beacf2",
+    "type": "paper",
+    "label": "Large Breed Emergency Study",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123409",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "condition:osteoarthritis",
+    "type": "condition",
+    "label": "Osteoarthritis",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_16c714a83ea1",
+    "type": "paper",
+    "label": "International Working Dog Foundation",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123410",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_6ed04734bc3c",
+    "type": "paper",
+    "label": "Journal of Veterinary Medicine",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5366211/",
+      "year": "2017"
+    }
+  },
+  {
+    "id": "paper:paper_758aec0886db",
+    "type": "paper",
+    "label": "Acta Veterinaria Scandinavica",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8100293/",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_da9e1a4fb73e",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10713818/",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_2f1783c383f9",
+    "type": "paper",
+    "label": "BMC Veterinary Research",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7347163/",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "paper:paper_30485aeef26a",
+    "type": "paper",
+    "label": "PNAS",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5664524/",
+      "year": "2017"
+    }
+  },
+  {
+    "id": "paper:paper_b50331933f22",
+    "type": "paper",
+    "label": "Canine Genetics and Epidemiology",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4898461/",
+      "year": "2016"
+    }
+  },
+  {
+    "id": "paper:paper_4603bd8b5515",
+    "type": "paper",
+    "label": "PLOS ONE",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12915975/",
+      "year": "2025"
+    }
+  },
+  {
+    "id": "paper:paper_ac81c6777b29",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9291557/",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "trait:body_type:deep_chested",
+    "type": "trait",
+    "label": "Deep Chested",
+    "props": {
+      "trait_category": "body_type"
+    }
+  },
+  {
+    "id": "paper:paper_a7f8c5658c0f",
+    "type": "paper",
+    "label": "Veterinary Sciences",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11851494/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "condition:dilated_cardiomyopathy",
+    "type": "condition",
+    "label": "Dilated Cardiomyopathy",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_a3a9bcf00662",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8606013/",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_577d87648ad6",
+    "type": "paper",
+    "label": "European Veterinary Dermatology Consortium",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123421",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "condition:hot_spots",
+    "type": "condition",
+    "label": "Hot Spots",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_89d4a363bd60",
+    "type": "paper",
+    "label": "Companion Skin Network",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123422",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "condition:dry_skin",
+    "type": "condition",
+    "label": "Dry Skin",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_7eb7ddad815e",
+    "type": "paper",
+    "label": "Canine Barrier Function Audit",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123423",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "paper:paper_2b17cace8614",
+    "type": "paper",
+    "label": "RVC Ear and Skin Review",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123424",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_2dee6358b1db",
+    "type": "paper",
+    "label": "Vet Ear Canal Morphology Study",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123425",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_30f085380d41",
+    "type": "paper",
+    "label": "Dermatology Referral Database",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123426",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "condition:interdigital_dermatitis",
+    "type": "condition",
+    "label": "Interdigital Dermatitis",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_9ba248ed1ec4",
+    "type": "paper",
+    "label": "Terrier Health Registry",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123427",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "paper:paper_bf0450305ef9",
+    "type": "paper",
+    "label": "Small Breed Skin Registry",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123428",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "trait:coat_type:hairless",
+    "type": "trait",
+    "label": "Hairless",
+    "props": {
+      "trait_category": "coat_type"
+    }
+  },
+  {
+    "id": "condition:sun_dermatitis",
+    "type": "condition",
+    "label": "Sun Dermatitis",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_21b8c22b83af",
+    "type": "paper",
+    "label": "Canine Photodermatosis Study",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123429",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "condition:folliculitis",
+    "type": "condition",
+    "label": "Folliculitis",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_15d0d6a95b10",
+    "type": "paper",
+    "label": "Canine Photodermatosis Study",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123430",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_61aa70d67b37",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10713818/",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_4e316178b677",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9291557/",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_abaaf9f8685d",
+    "type": "paper",
+    "label": "Antibiotics",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12649684/",
+      "year": "2025"
+    }
+  },
+  {
+    "id": "paper:paper_d29196f7b29c",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12030778/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "paper:paper_290acf072567",
+    "type": "paper",
+    "label": "Acta Veterinaria Scandinavica",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8100293/",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "condition:exercise_induced_collapse",
+    "type": "condition",
+    "label": "Exercise Induced Collapse",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_2538409f811f",
+    "type": "paper",
+    "label": "Frontiers in Genetics",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8701027/",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_fbf80a7b2765",
+    "type": "paper",
+    "label": "Acta Veterinaria Scandinavica",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8100293/",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "condition:heat_stress_syndrome",
+    "type": "condition",
+    "label": "Heat Stress Syndrome",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_5eec51edf98c",
+    "type": "paper",
+    "label": "Scientific Reports",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7303136/",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "condition:gi_upset",
+    "type": "condition",
+    "label": "GI Upset",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_9a35a582dc44",
+    "type": "paper",
+    "label": "Veterinary Medicine",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6902862/",
+      "year": "2019"
+    }
+  },
+  {
+    "id": "paper:paper_5a9cc8be0fa1",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10713818/",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_0ad0698f27a6",
+    "type": "paper",
+    "label": "Royal Veterinary College BOAS Program",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123441",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_b8f6e3d01524",
+    "type": "paper",
+    "label": "ACVO Ocular Morbidity Review",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123442",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_04b1160df604",
+    "type": "paper",
+    "label": "Canine Craniofacial Dental Study",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123443",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "paper:paper_274dbbe6286a",
+    "type": "paper",
+    "label": "OFA Cross-Section Review",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123444",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_4cc47ac62a3e",
+    "type": "paper",
+    "label": "Dermatology Surveillance Program",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123445",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_8e08dcb57b67",
+    "type": "paper",
+    "label": "Emergency GI Outcomes Group",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123446",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "paper:paper_4642e8daed67",
+    "type": "paper",
+    "label": "Canine Cardiology Registry",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123447",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "condition:retinal_degeneration",
+    "type": "condition",
+    "label": "Retinal Degeneration",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_6ed9cdb989d3",
+    "type": "paper",
+    "label": "Inherited Ocular Disease Working Group",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123448",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_84edfd97a183",
+    "type": "paper",
+    "label": "VetCompass Morbidity Report",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123449",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_e6723857750c",
+    "type": "paper",
+    "label": "Canine Environmental Physiology Group",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123450",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_1b43d5dc7b02",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "paper:paper_fcebf6a55a41",
+    "type": "paper",
+    "label": "Journal of Veterinary Medicine",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5366211/",
+      "year": "2017"
+    }
+  },
+  {
+    "id": "condition:leishmaniasis_exposure_syndrome",
+    "type": "condition",
+    "label": "Leishmaniasis Exposure Syndrome",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_2c0234ddbce8",
+    "type": "paper",
+    "label": "Pathogens",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11206782/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "condition:gi_parasite_burden",
+    "type": "condition",
+    "label": "GI Parasite Burden",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_bddf1ae2cb92",
+    "type": "paper",
+    "label": "Parasites & Vectors",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12016947/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "paper:paper_aa86b96d8c53",
+    "type": "paper",
+    "label": "Scientific Reports",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7303136/",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "paper:paper_85cba32a215b",
+    "type": "paper",
+    "label": "PLOS ONE",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12915975/",
+      "year": "2025"
+    }
+  },
+  {
+    "id": "paper:paper_c9f307f1044a",
+    "type": "paper",
+    "label": "Antibiotics",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12649684/",
+      "year": "2025"
+    }
+  },
+  {
+    "id": "paper:paper_5a42d2820379",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9291557/",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_50d610486a45",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "paper:paper_ef44cbb696b3",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10713818/",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "trait:lifespan:short",
+    "type": "trait",
+    "label": "Short",
+    "props": {
+      "trait_category": "lifespan"
+    }
+  },
+  {
+    "id": "paper:paper_f9f81549c4ee",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8606013/",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_4646f553a250",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10713818/",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_f94578b7daa8",
+    "type": "paper",
+    "label": "Journal of Veterinary Medicine",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5366211/",
+      "year": "2017"
+    }
+  },
+  {
+    "id": "paper:paper_b46941d1007d",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12030778/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "paper:paper_0287ce53636d",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9291557/",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_9de58671b48e",
+    "type": "paper",
+    "label": "Canine Genetics and Epidemiology",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4898461/",
+      "year": "2016"
+    }
+  },
+  {
+    "id": "paper:paper_51842202f8b5",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4895395/",
+      "year": "2016"
+    }
+  },
+  {
+    "id": "paper:paper_46bbfc394199",
+    "type": "paper",
+    "label": "Antibiotics",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12649684/",
+      "year": "2025"
+    }
+  },
+  {
+    "id": "paper:paper_6002905e4d6d",
+    "type": "paper",
+    "label": "Veterinary Sciences",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11851494/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "condition:chronic_kidney_disease",
+    "type": "condition",
+    "label": "Chronic Kidney Disease",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_cd73155cae06",
+    "type": "paper",
+    "label": "BMC Veterinary Research",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11886590/",
+      "year": "2025"
+    }
+  },
+  {
+    "id": "paper:paper_c1594ca66ad3",
+    "type": "paper",
+    "label": "OFA Functional Group Analysis",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123471",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_1814ed6b9919",
+    "type": "paper",
+    "label": "Canine Cruciate Consortium",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123472",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_f5294c0e3a79",
+    "type": "paper",
+    "label": "ACVO Ocular Morbidity Review",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123473",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "condition:tear_staining",
+    "type": "condition",
+    "label": "Tear Staining",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_6c0e5e0cc4dd",
+    "type": "paper",
+    "label": "Companion Ophthalmic Survey",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123474",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_4abfc49820db",
+    "type": "paper",
+    "label": "European Veterinary Dermatology Consortium",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123475",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_03a8799592c1",
+    "type": "paper",
+    "label": "Royal Veterinary College BOAS Program",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123476",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_8cfa90c0cb58",
+    "type": "paper",
+    "label": "Canine Cardiology Registry",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123477",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_8fe95655d09e",
+    "type": "paper",
+    "label": "Canine Spine Consortium",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123478",
+      "year": "2021"
+    }
+  },
+  {
+    "id": "paper:paper_94a260bc4ef8",
+    "type": "paper",
+    "label": "GI Outcomes in Companion Dogs",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123479",
+      "year": "2020"
+    }
+  },
+  {
+    "id": "condition:periodontal_disease",
+    "type": "condition",
+    "label": "Periodontal Disease",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_52828b9d5475",
+    "type": "paper",
+    "label": "Canine Oral Health Network",
+    "props": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30123480",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_54b5c37fc4d1",
+    "type": "paper",
+    "label": "Journal of Veterinary Medicine",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5366211/",
+      "year": "2017"
+    }
+  },
+  {
+    "id": "paper:paper_1b4f1f60f4f3",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10713818/",
+      "year": "2023"
+    }
+  },
+  {
+    "id": "paper:paper_eb38b4c4fd49",
+    "type": "paper",
+    "label": "Antibiotics",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12649684/",
+      "year": "2025"
+    }
+  },
+  {
+    "id": "paper:paper_7eb001aea630",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12030778/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "paper:paper_7bb70b7365bc",
+    "type": "paper",
+    "label": "Veterinary Sciences",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11851494/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "paper:paper_22dc72d34dad",
+    "type": "paper",
+    "label": "PNAS",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5664524/",
+      "year": "2017"
+    }
+  },
+  {
+    "id": "paper:paper_975d02d8b0cb",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/",
+      "year": "2024"
+    }
+  },
+  {
+    "id": "paper:paper_747ac35328af",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9291557/",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "condition:epilepsy",
+    "type": "condition",
+    "label": "Epilepsy",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_a39b99d16c9b",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9133619/",
+      "year": "2022"
+    }
+  },
+  {
+    "id": "paper:paper_86f6d6ea4e4d",
+    "type": "paper",
+    "label": "Canine Genetics and Epidemiology",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4898461/",
+      "year": "2016"
+    }
+  },
+  {
+    "id": "ingredient:glucosamine",
+    "type": "ingredient",
+    "label": "Glucosamine",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_63380fba8545",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/"
+    }
+  },
+  {
+    "id": "ingredient:omega-3",
+    "type": "ingredient",
+    "label": "Omega-3",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_fab14a256bed",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/"
+    }
+  },
+  {
+    "id": "ingredient:msm",
+    "type": "ingredient",
+    "label": "MSM",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_218eb6df8958",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/"
+    }
+  },
+  {
+    "id": "paper:paper_e39e1dc20c74",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/"
+    }
+  },
+  {
+    "id": "paper:paper_6e0c1d27fbf7",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/"
+    }
+  },
+  {
+    "id": "paper:paper_abdf8e534b08",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12030778/"
+    }
+  },
+  {
+    "id": "ingredient:zinc",
+    "type": "ingredient",
+    "label": "Zinc",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_a5d41ccd500d",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/"
+    }
+  },
+  {
+    "id": "ingredient:seaweed_blend",
+    "type": "ingredient",
+    "label": "Seaweed Blend",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_575532175380",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9291557/"
+    }
+  },
+  {
+    "id": "ingredient:taurine",
+    "type": "ingredient",
+    "label": "Taurine",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_782b50a6e7c5",
+    "type": "paper",
+    "label": "PLOS ONE",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6292607/"
+    }
+  },
+  {
+    "id": "ingredient:probiotics",
+    "type": "ingredient",
+    "label": "Probiotics",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_47006eaadbc4",
+    "type": "paper",
+    "label": "Veterinary Sciences",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/"
+    }
+  },
+  {
+    "id": "ingredient:l-carnitine",
+    "type": "ingredient",
+    "label": "L-Carnitine",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_dada7176d0b6",
+    "type": "paper",
+    "label": "Metabolites",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6390349/"
+    }
+  },
+  {
+    "id": "ingredient:lutein",
+    "type": "ingredient",
+    "label": "Lutein",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_5c7198a892cd",
+    "type": "paper",
+    "label": "Journal of Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/"
+    }
+  },
+  {
+    "id": "paper:paper_f5d8146c521e",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/"
+    }
+  },
+  {
+    "id": "condition:joint_health",
+    "type": "condition",
+    "label": "Joint Health",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_54a4d4ac6cff",
+    "type": "paper",
+    "label": "Animals",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/"
+    }
+  },
+  {
+    "id": "condition:skin_health",
+    "type": "condition",
+    "label": "Skin Health",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_21b030689e70",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/"
+    }
+  },
+  {
+    "id": "paper:paper_87ec7e1e07da",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/"
+    }
+  },
+  {
+    "id": "paper:paper_0000b02612c1",
+    "type": "paper",
+    "label": "Journal of Small Animal Practice",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9291557/"
+    }
+  },
+  {
+    "id": "paper:paper_9ae4937956c5",
+    "type": "paper",
+    "label": "PLOS ONE",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6292607/"
+    }
+  },
+  {
+    "id": "paper:paper_611bf526ecaf",
+    "type": "paper",
+    "label": "Veterinary Sciences",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/"
+    }
+  },
+  {
+    "id": "condition:gut_health",
+    "type": "condition",
+    "label": "Gut Health",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_2add3c1b2d9e",
+    "type": "paper",
+    "label": "Metabolites",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6390349/"
+    }
+  },
+  {
+    "id": "paper:paper_86708901edb6",
+    "type": "paper",
+    "label": "Journal of Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/"
+    }
+  },
+  {
+    "id": "ingredient:chondroitin_sulfate",
+    "type": "ingredient",
+    "label": "Chondroitin Sulfate",
+    "props": {}
+  },
+  {
+    "id": "paper:paper_b8d2ae27f0bd",
+    "type": "paper",
+    "label": "Frontiers in Veterinary Science",
+    "props": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/"
+    }
+  },
+  {
+    "id": "food:green-lipped_mussel_(dehydrated)",
+    "type": "food",
+    "label": "Green-Lipped Mussel (Dehydrated)",
+    "props": {}
+  },
+  {
+    "id": "food:chicken_feet_/_beef_trachea",
+    "type": "food",
+    "label": "Chicken Feet / Beef Trachea",
+    "props": {}
+  },
+  {
+    "id": "food:wild_atlantic_sardines_(in_water)",
+    "type": "food",
+    "label": "Wild Atlantic Sardines (In Water)",
+    "props": {}
+  },
+  {
+    "id": "food:wild_caught_pink_salmon",
+    "type": "food",
+    "label": "Wild Caught Pink Salmon",
+    "props": {}
+  },
+  {
+    "id": "food:raw_organic_alfalfa_sprouts",
+    "type": "food",
+    "label": "Raw Organic Alfalfa Sprouts",
+    "props": {}
+  },
+  {
+    "id": "food:boiled_pacific_oysters",
+    "type": "food",
+    "label": "Boiled Pacific Oysters",
+    "props": {}
+  },
+  {
+    "id": "food:raw_beef_liver",
+    "type": "food",
+    "label": "Raw Beef Liver",
+    "props": {}
+  },
+  {
+    "id": "food:organic_kelp_meal_(ascophyllum_nodosum)",
+    "type": "food",
+    "label": "Organic Kelp Meal (Ascophyllum Nodosum)",
+    "props": {}
+  },
+  {
+    "id": "food:raw_beef_heart",
+    "type": "food",
+    "label": "Raw Beef Heart",
+    "props": {}
+  },
+  {
+    "id": "food:fresh_whole_mussels",
+    "type": "food",
+    "label": "Fresh Whole Mussels",
+    "props": {}
+  },
+  {
+    "id": "food:grass-fed_lean_beef",
+    "type": "food",
+    "label": "Grass-Fed Lean Beef",
+    "props": {}
+  },
+  {
+    "id": "food:boneless_kangaroo_meat",
+    "type": "food",
+    "label": "Boneless Kangaroo Meat",
+    "props": {}
+  },
+  {
+    "id": "food:steamed_curly_kale",
+    "type": "food",
+    "label": "Steamed Curly Kale",
+    "props": {}
+  },
+  {
+    "id": "food:raw_egg_yolk",
+    "type": "food",
+    "label": "Raw Egg Yolk",
+    "props": {}
+  },
+  {
+    "id": "food:raw_fermented_goat_milk_kefir",
+    "type": "food",
+    "label": "Raw Fermented Goat Milk Kefir",
+    "props": {}
+  },
+  {
+    "id": "activity:hydrotherapy_treadmill",
+    "type": "activity",
+    "label": "Hydrotherapy treadmill",
+    "props": {}
+  },
+  {
+    "id": "activity:controlled_incline_walking",
+    "type": "activity",
+    "label": "Controlled incline walking",
+    "props": {}
+  },
+  {
+    "id": "activity:core_stability_exercises",
+    "type": "activity",
+    "label": "Core stability exercises",
+    "props": {}
+  },
+  {
+    "id": "activity:cool-hour_leash_walks",
+    "type": "activity",
+    "label": "Cool-hour leash walks",
+    "props": {}
+  },
+  {
+    "id": "activity:barrier-support_bathing",
+    "type": "activity",
+    "label": "Barrier-support bathing",
+    "props": {}
+  },
+  {
+    "id": "activity:daily_dental_chew_protocol",
+    "type": "activity",
+    "label": "Daily dental chew protocol",
+    "props": {}
+  },
+  {
+    "id": "activity:structured_interval_walks",
+    "type": "activity",
+    "label": "Structured interval walks",
+    "props": {}
+  },
+  {
+    "id": "activity:low-stress_post-meal_walk",
+    "type": "activity",
+    "label": "Low-stress post-meal walk",
+    "props": {}
+  },
+  {
+    "id": "activity:indoor_contrast_navigation_games",
+    "type": "activity",
+    "label": "Indoor contrast navigation games",
+    "props": {}
+  },
+  {
+    "id": "activity:low-impact_cardiac_conditioning",
+    "type": "activity",
+    "label": "Low-impact cardiac conditioning",
+    "props": {}
+  },
+  {
+    "id": "product:sf001",
+    "type": "product",
+    "label": "SF001",
+    "props": {
+      "category": "STAPLE_FOOD",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:sf002",
+    "type": "product",
+    "label": "Farmina Small Breed Adult Dog Food (Lamb Flavor)",
+    "props": {
+      "category": "STAPLE_FOOD",
+      "status": "sold_out"
+    }
+  },
+  {
+    "id": "product:sf003",
+    "type": "product",
+    "label": "Farmina Tropical Fruit Series Small Breed Adult Dog Food",
+    "props": {
+      "category": "STAPLE_FOOD",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:sf004",
+    "type": "product",
+    "label": "Royal Canin Digestive Care 2kg",
+    "props": {
+      "category": "STAPLE_FOOD",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr001",
+    "type": "product",
+    "label": "TR001",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr002",
+    "type": "product",
+    "label": "TR002",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr003",
+    "type": "product",
+    "label": "TR003",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr004",
+    "type": "product",
+    "label": "TR004",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr005",
+    "type": "product",
+    "label": "TR005",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr006",
+    "type": "product",
+    "label": "TR006",
+    "props": {
+      "category": "TREAT",
+      "status": "sold_out"
+    }
+  },
+  {
+    "id": "product:tr007",
+    "type": "product",
+    "label": "DW Meat & Vegetables 45g",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr008",
+    "type": "product",
+    "label": "DW Freeze-dried Fruits & Vegetables 160g",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr009",
+    "type": "product",
+    "label": "TR009",
+    "props": {
+      "category": "TREAT",
+      "status": "sold_out"
+    }
+  },
+  {
+    "id": "product:tr010",
+    "type": "product",
+    "label": "TR010",
+    "props": {
+      "category": "TREAT",
+      "status": "sold_out"
+    }
+  },
+  {
+    "id": "product:tr011",
+    "type": "product",
+    "label": "TR011",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "product:tr012",
+    "type": "product",
+    "label": "TR012",
+    "props": {
+      "category": "TREAT",
+      "status": "active"
+    }
+  },
+  {
+    "id": "ingredient:crude_protein",
+    "type": "ingredient",
+    "label": "Crude Protein",
+    "props": {}
+  },
+  {
+    "id": "ingredient:crude_fat",
+    "type": "ingredient",
+    "label": "Crude Fat",
+    "props": {}
+  },
+  {
+    "id": "ingredient:crude_fiber",
+    "type": "ingredient",
+    "label": "Crude Fiber",
+    "props": {}
+  },
+  {
+    "id": "ingredient:ash",
+    "type": "ingredient",
+    "label": "Ash",
+    "props": {}
+  },
+  {
+    "id": "ingredient:calcium",
+    "type": "ingredient",
+    "label": "Calcium",
+    "props": {}
+  },
+  {
+    "id": "ingredient:phosphorus",
+    "type": "ingredient",
+    "label": "Phosphorus",
+    "props": {}
+  },
+  {
+    "id": "ingredient:moisture",
+    "type": "ingredient",
+    "label": "Moisture",
+    "props": {}
+  },
+  {
+    "id": "ingredient:lysine",
+    "type": "ingredient",
+    "label": "Lysine",
+    "props": {}
+  },
+  {
+    "id": "ingredient:water-soluble_chloride",
+    "type": "ingredient",
+    "label": "Water-Soluble Chloride",
+    "props": {}
+  },
+  {
+    "id": "ingredient:energy",
+    "type": "ingredient",
+    "label": "Energy",
+    "props": {}
+  },
+  {
+    "id": "ingredient:chicken_breast",
+    "type": "ingredient",
+    "label": "Chicken Breast",
+    "props": {}
+  },
+  {
+    "id": "ingredient:sheep_milk_powder",
+    "type": "ingredient",
+    "label": "Sheep Milk Powder",
+    "props": {}
+  },
+  {
+    "id": "ingredient:natural_fruit_and_vegetable_powder",
+    "type": "ingredient",
+    "label": "Natural Fruit And Vegetable Powder",
+    "props": {}
+  },
+  {
+    "id": "ingredient:beetroot",
+    "type": "ingredient",
+    "label": "Beetroot",
+    "props": {}
+  },
+  {
+    "id": "ingredient:coconut_flakes",
+    "type": "ingredient",
+    "label": "Coconut Flakes",
+    "props": {}
+  },
+  {
+    "id": "ingredient:carrot",
+    "type": "ingredient",
+    "label": "Carrot",
+    "props": {}
+  },
+  {
+    "id": "ingredient:cheese",
+    "type": "ingredient",
+    "label": "Cheese",
+    "props": {}
+  },
+  {
+    "id": "ingredient:okra",
+    "type": "ingredient",
+    "label": "Okra",
+    "props": {}
+  },
+  {
+    "id": "ingredient:pumpkin",
+    "type": "ingredient",
+    "label": "Pumpkin",
+    "props": {}
+  },
+  {
+    "id": "ingredient:purple_sweet_potato",
+    "type": "ingredient",
+    "label": "Purple Sweet Potato",
+    "props": {}
+  },
+  {
+    "id": "ingredient:chicken",
+    "type": "ingredient",
+    "label": "Chicken",
+    "props": {}
+  },
+  {
+    "id": "ingredient:coconut_oil",
+    "type": "ingredient",
+    "label": "Coconut Oil",
+    "props": {}
+  },
+  {
+    "id": "ingredient:turmeric_powder",
+    "type": "ingredient",
+    "label": "Turmeric Powder",
+    "props": {}
+  },
+  {
+    "id": "ingredient:parsley",
+    "type": "ingredient",
+    "label": "Parsley",
+    "props": {}
+  },
+  {
+    "id": "ingredient:cheddar_cheese",
+    "type": "ingredient",
+    "label": "Cheddar Cheese",
+    "props": {}
+  },
+  {
+    "id": "ingredient:duck_breast",
+    "type": "ingredient",
+    "label": "Duck Breast",
+    "props": {}
+  },
+  {
+    "id": "ingredient:rosemary",
+    "type": "ingredient",
+    "label": "Rosemary",
+    "props": {}
+  },
+  {
+    "id": "ingredient:antibiotic-free_black_pork",
+    "type": "ingredient",
+    "label": "Antibiotic-Free Black Pork",
+    "props": {}
+  },
+  {
+    "id": "ingredient:roasted_flaxseed",
+    "type": "ingredient",
+    "label": "Roasted Flaxseed",
+    "props": {}
+  },
+  {
+    "id": "ingredient:pumpkin_seed_kernels",
+    "type": "ingredient",
+    "label": "Pumpkin Seed Kernels",
+    "props": {}
+  },
+  {
+    "id": "ingredient:sunflower_seed_kernels",
+    "type": "ingredient",
+    "label": "Sunflower Seed Kernels",
+    "props": {}
+  },
+  {
+    "id": "ingredient:marigold_petals",
+    "type": "ingredient",
+    "label": "Marigold Petals",
+    "props": {}
+  },
+  {
+    "id": "ingredient:honey",
+    "type": "ingredient",
+    "label": "Honey",
+    "props": {}
+  },
+  {
+    "id": "ingredient:natural_fruit_&_vegetable_powder",
+    "type": "ingredient",
+    "label": "Natural Fruit & Vegetable Powder",
+    "props": {}
+  },
+  {
+    "id": "ingredient:rabbit_loin",
+    "type": "ingredient",
+    "label": "Rabbit Loin",
+    "props": {}
+  },
+  {
+    "id": "ingredient:pet_cheese",
+    "type": "ingredient",
+    "label": "Pet Cheese",
+    "props": {}
+  },
+  {
+    "id": "ingredient:venison_ears",
+    "type": "ingredient",
+    "label": "Venison Ears",
+    "props": {}
+  },
+  {
+    "id": "ingredient:crude_ash",
+    "type": "ingredient",
+    "label": "Crude Ash",
+    "props": {}
+  },
+  {
+    "id": "ingredient:calf_wags_(veal_ribs)",
+    "type": "ingredient",
+    "label": "Calf Wags (Veal Ribs)",
+    "props": {}
+  },
+  {
+    "id": "ingredient:green_lipped_mussels",
+    "type": "ingredient",
+    "label": "Green Lipped Mussels",
+    "props": {}
+  }
+]

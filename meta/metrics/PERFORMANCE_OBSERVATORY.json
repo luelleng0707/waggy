@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-07-20T22:13:02.652113+00:00",
+  "scales": [
+    {
+      "requested_dogs": 1,
+      "executed_dogs": 1,
+      "runtime_seconds": 11.7496,
+      "avg_ms_per_dog": 11749.6,
+      "memory_peak_mb": 1.494,
+      "extrapolated": false
+    },
+    {
+      "requested_dogs": 10,
+      "executed_dogs": 10,
+      "runtime_seconds": 93.1697,
+      "avg_ms_per_dog": 9316.97,
+      "memory_peak_mb": 2.443,
+      "extrapolated": false
+    }
+  ],
+  "repository_probe_s": 2e-06,
+  "knowledge_graph_build_s": 0.0567,
+  "knowledge_graph_nodes": 353,
+  "formula_graph_nodes": 18,
+  "note": "Scales >50 execute a capped sample and mark extrapolated=true"
+}

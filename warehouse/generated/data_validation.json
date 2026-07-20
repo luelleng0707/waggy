@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "3 conditions lack supported_by paper edges"
+  ],
+  "stats": {
+    "nodes": 353,
+    "edges": 791,
+    "by_type": {
+      "breed": 48,
+      "trait": 49,
+      "condition": 37,
+      "paper": 128,
+      "ingredient": 50,
+      "food": 15,
+      "activity": 10,
+      "product": 16
+    },
+    "by_relation": {
+      "has_trait": 432,
+      "risk": 106,
+      "supported_by": 106,
+      "studies": 16,
+      "supports": 19,
+      "cites": 22,
+      "reduces": 6,
+      "contains": 74,
+      "prevents": 10
+    }
+  },
+  "evidence_count": 48,
+  "conditions_without_papers": [
+    "Gut Health",
+    "Joint Health",
+    "Skin Health"
+  ],
+  "duplicate_paper_ids": []
+}

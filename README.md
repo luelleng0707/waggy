@@ -58,6 +58,8 @@ py -3 -m pip install -r requirements.txt
 py -3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
+Railway production deploy: see [docs/RAILWAY_DEPLOYMENT.md](docs/RAILWAY_DEPLOYMENT.md).
+
 | URL | Purpose |
 |-----|---------|
 | http://127.0.0.1:8000/health | Engine status |

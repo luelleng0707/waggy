@@ -9,8 +9,23 @@ import pandas as pd
 from app.agent.utils import DataRepository
 
 
+def _native(value: Any) -> Any:
+    """Convert pandas/NumPy scalars to JSON-serializable Python builtins."""
+    if value is None:
+        return None
+    # NumPy scalars (e.g. int64 from DataFrame._csv_row) → Python int/float/bool
+    if hasattr(value, "item") and type(value).__module__ == "numpy":
+        value = value.item()
+    try:
+        if pd.isna(value):
+            return None
+    except (TypeError, ValueError):
+        pass
+    return value
+
+
 def _row_dict(row: pd.Series) -> dict[str, Any]:
-    return {k: (None if pd.isna(v) else v) for k, v in row.items()}
+    return {k: _native(v) for k, v in row.items()}
 
 
 def _split_pipe(value: Any) -> list[str]:

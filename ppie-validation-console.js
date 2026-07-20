@@ -1025,6 +1025,78 @@
        <h3>Observability coverage %</h3>${pre(consoleDoc.observability_coverage)}`
     );
 
+    const science = consoleDoc.science || {};
+    const kg = consoleDoc.knowledge_graph || science.knowledge_graph || {};
+    const recExpl = consoleDoc.recommendation_explanations || science.recommendation_explanations || [];
+    const formExpl = consoleDoc.formula_explanations || science.formula_explanations || [];
+    const evObjs = consoleDoc.evidence_objects || science.evidence_objects || [];
+    const sciVer = consoleDoc.science_versions || science.versions || {};
+
+    const s16 = section(
+      's16',
+      '16 · Knowledge Graph',
+      `<p class="vc-muted">Deterministic relationship graph (no AI). Nodes/edges from warehouse science tables.</p>
+       <div class="vc-report-grid">
+         <div><span class="vc-muted">Nodes</span><div>${esc(kg.nodes ?? NT)}</div></div>
+         <div><span class="vc-muted">Edges</span><div>${esc(kg.edges ?? NT)}</div></div>
+         <div><span class="vc-muted">Types</span><div>${esc(JSON.stringify(kg.by_type || {}))}</div></div>
+         <div><span class="vc-muted">Relations</span><div>${esc(JSON.stringify(kg.by_relation || {}))}</div></div>
+       </div>
+       <h3>Coverage snapshot</h3>${pre(science.coverage_snapshot || {})}
+       <h3>Why sample (reverse lookup)</h3>${pre(science.why_examples || {})}
+       <h3>Formula graph (execution)</h3>${pre(graph)}`
+    );
+
+    const s17 = section(
+      's17',
+      '17 · Evidence · Reasoning · Confidence',
+      `<h3>Recommendation chains</h3>
+       ${
+         recExpl.length
+           ? recExpl
+               .map(
+                 r => `<div class="vc-card">
+                   <strong>${esc((r.chain && r.chain.render) || r.condition || '')}</strong>
+                   ${pill(String(r.risk_percent ?? '') + '% risk')}
+                   <div class="vc-muted">${esc(JSON.stringify((r.confidence && r.confidence.recommendation) || {}))}</div>
+                   ${pre(r.chain || r)}
+                 </div>`
+               )
+               .join('')
+           : ntBlock('No recommendation_explanations on analyze.debug.science yet.')
+       }
+       <h3>Formula explanations</h3>
+       ${
+         formExpl.length
+           ? formExpl
+               .map(
+                 f => `<div class="vc-card">
+                   <strong>${esc(f.formula_id || '')}</strong>
+                   <div>${esc(f.human || '')}</div>
+                   <div class="vc-muted">dev · ${esc((f.developer && f.developer.expression) || '')}</div>
+                   <div class="vc-muted">science · ${esc((f.scientific && f.scientific.narrative) || '')}</div>
+                 </div>`
+               )
+               .join('')
+           : ntBlock('No formula_explanations')
+       }
+       <h3>Evidence objects (sample)</h3>${pre((evObjs || []).slice(0, 12))}`
+    );
+
+    const s18 = section(
+      's18',
+      '18 · Versioned Science',
+      `<div class="vc-report-grid">
+         <div><span class="vc-muted">Algorithm</span><div>${esc(sciVer.algorithm || et.algorithm_version || NT)}</div></div>
+         <div><span class="vc-muted">Warehouse</span><div>${esc(sciVer.warehouse || NT)}</div></div>
+         <div><span class="vc-muted">Evidence</span><div>${esc(sciVer.evidence || NT)}</div></div>
+         <div><span class="vc-muted">Papers</span><div>${esc(sciVer.papers || NT)}</div></div>
+         <div><span class="vc-muted">Formula graph</span><div>${esc(sciVer.formula_graph || NT)}</div></div>
+         <div><span class="vc-muted">Knowledge graph</span><div>${esc(sciVer.knowledge_graph || NT)}</div></div>
+       </div>
+       <p class="vc-muted">Clinical outputs remain Algorithm ${esc(et.algorithm_version || '2.1.0')}; science versions are provenance only.</p>`
+    );
+
     main.innerHTML = `<div class="vc-report vc-developer-report">
       <header class="vc-report-hero">
         <p class="vc-report-kicker">Full Assessment Developer Report</p>
@@ -1032,7 +1104,7 @@
         <p class="vc-report-sub">One page · execution order · every emitted value · no secondary tabs</p>
         <p class="vc-muted">Scroll the entire backend run. Gaps marked ${esc(NT)} are honest missing instrumentation — not hidden behind another page.</p>
       </header>
-      ${s0}${s1}${s2}${s3}${s4}${s5}${s6}${s7}${s8}${s9}${s10}${s11}${s12}${s13}${s14}${s15}
+      ${s0}${s1}${s2}${s3}${s4}${s5}${s6}${s7}${s8}${s9}${s10}${s11}${s12}${s13}${s14}${s15}${s16}${s17}${s18}
       <aside class="vc-prov-panel" id="vc-prov-panel" hidden>
         <h3>Value provenance</h3>
         <div id="vc-prov-body"></div>

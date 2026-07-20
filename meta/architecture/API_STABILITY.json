@@ -1,0 +1,718 @@
+{
+  "generated_at": "2026-07-20T22:13:35.720220+00:00",
+  "routes": [
+    {
+      "path": "/openapi.json",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/docs",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/docs/oauth2-redirect",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/redoc",
+      "methods": [
+        "GET",
+        "HEAD"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/health",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/catalog",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/store",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/store/{product_id}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v2/wellness/evaluate",
+      "methods": [
+        "POST"
+      ],
+      "version": "legacy",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/analyze",
+      "methods": [
+        "POST"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "legacy clients"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/clinical-report",
+      "methods": [
+        "POST"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "app.js",
+        "StandardReportRenderer"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/assess",
+      "methods": [
+        "POST"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "integrations",
+        "Validation Console"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/trace",
+      "methods": [
+        "POST"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/validation-console",
+      "methods": [
+        "POST"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/validation-console/markdown",
+      "methods": [
+        "POST"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/validation-console/compare",
+      "methods": [
+        "POST"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/debug/status",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/debug/presets",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/debug/repository",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/ppie/debug/repository/{table}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/graph/summary",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/graph/condition/{condition_id:path}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/graph/paper/{paper_id:path}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/graph/ingredient/{ingredient_id:path}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/graph/product/{product_id:path}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/graph/explanation/{recommendation_id:path}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/graph/why",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/science/audit",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/science/coverage",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/science/versions",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/status",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/runtime",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/dependencies",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/formulas",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/science",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/performance",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/coverage",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/release",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/platform/audit",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/recommendations",
+      "methods": [
+        "POST"
+      ],
+      "version": "legacy",
+      "deprecated": true,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/evidence/{condition}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/products/{condition}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/groomer/update",
+      "methods": [
+        "POST"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/v1/groomer/session/{pet_id}",
+      "methods": [
+        "GET"
+      ],
+      "version": "v1",
+      "deprecated": false,
+      "compatibility": "stable",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/groomer/submit",
+      "methods": [
+        "POST"
+      ],
+      "version": "legacy",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/api/breeds",
+      "methods": [
+        "GET"
+      ],
+      "version": "legacy",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/platform/dashboard",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [
+        "ops",
+        "developers"
+      ],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/app.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/report-renderer.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/catalog-service.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/ppie-ui.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/ppie-trace.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/ppie-validation-console.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/ppie-validation-console.css",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/ppie-dev-menu.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/debug/calculation",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/ppie-shell.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/ppie-sheets.js",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/styles.css",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    },
+    {
+      "path": "/theme.css",
+      "methods": [
+        "GET"
+      ],
+      "version": "static",
+      "deprecated": false,
+      "compatibility": "transitional",
+      "consumers": [],
+      "algorithm_version": "2.1.0"
+    }
+  ]
+}
