@@ -1,0 +1,7 @@
+canonical_key,alias_key,category,parent_key,_csv_row,_csv_file
+omega_3,omega_3,nutrient,,2,INGREDIENT_ALIASES.csv
+omega_3,epa_dha,nutrient,,3,INGREDIENT_ALIASES.csv
+glucosamine,glucosamine,nutrient,,4,INGREDIENT_ALIASES.csv
+glucosamine,joint_health_formula,nutrient,,5,INGREDIENT_ALIASES.csv
+probiotics,probiotics,nutrient,,6,INGREDIENT_ALIASES.csv
+probiotics,brady_yeast_probiotics,nutrient,,7,INGREDIENT_ALIASES.csv

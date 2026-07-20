@@ -1,0 +1,9 @@
+ingredient,canonical_ingredient,nutrient,amount_per_100g,unit,confidence,source,is_estimated,category,parent,property_tags,notes
+Chicken Heart,Chicken Heart,Taurine,160,mg,0.70,literature_estimate,true,organ_meat,Animal Protein,high_taurine,"Estimated typical values; verify against primary literature before clinical claims"
+Beef Heart,Beef Heart,Taurine,240,mg,0.70,literature_estimate,true,organ_meat,Animal Protein,high_taurine,
+Sardine,Sardine,Taurine,145,mg,0.70,literature_estimate,true,fish,Animal Protein,natural_omega_3|high_taurine,
+Pumpkin,Pumpkin,Fiber,6.5,g,0.70,literature_estimate,true,vegetable,Plant,high_fiber,
+Blueberry,Blueberry,Anthocyanins,210,mg,0.60,literature_estimate,true,fruit,Plant,high_antioxidant,
+Spinach,Spinach,Iron,2.7,mg,0.70,literature_estimate,true,vegetable,Plant,rich_in_zinc,
+Salmon,Salmon,Omega-3,2200,mg,0.70,literature_estimate,true,fish,Animal Protein,natural_omega_3,
+Green Lipped Mussel,Green Lipped Mussel,Glucosamine,900,mg,0.60,literature_estimate,true,shellfish,Animal Protein,natural_glucosamine|joint_support,

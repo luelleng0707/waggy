@@ -2,9 +2,16 @@
   "profile_id": "mixed_chow_x_rural",
   "golden": "mixed_chow.json",
   "mode": "golden_vs_python",
-  "diff_count": 0,
+  "diff_count": 1,
   "tolerance": 0.05,
-  "elapsed_ms": 1699.6,
-  "generated_at": "2026-07-17T14:04:56.747347+00:00",
-  "diffs": []
+  "elapsed_ms": 1139.8,
+  "generated_at": "2026-07-17T18:55:50.957251+00:00",
+  "diffs": [
+    {
+      "path": "wellness_summary.greeting",
+      "kind": "string",
+      "js": "Good evening",
+      "py": "Good morning"
+    }
+  ]
 }

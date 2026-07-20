@@ -10,7 +10,7 @@ import streamlit as st
 
 from app.agent.engine import PPIEWellnessAgent
 from app.agent.state import DogProfileInput
-from app.agent.utils import DataRepository
+from app.agent.utils import DataRepository, bootstrap
 from app.ui.renderer.journey import JourneyRenderer
 from app.ui.renderer.view_models import vm_to_dict
 from app.ui.renderer.template_engine import load_css, render_template
@@ -40,6 +40,7 @@ def get_agent() -> PPIEWellnessAgent:
 
 @st.cache_resource
 def get_repo() -> DataRepository:
+    bootstrap(DATA_DIR, strict=True)
     return DataRepository(DATA_DIR)
 
 

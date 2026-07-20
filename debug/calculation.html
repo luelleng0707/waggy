@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Assessment Developer Report</title>
+  <link rel="stylesheet" href="/theme.css?v=p22b">
+  <link rel="stylesheet" href="/ppie-validation-console.css?v=p10">
+</head>
+<body class="vc-body">
+  <div id="vc-gate" class="vc-gate" hidden>
+    <h1>Developer Report</h1>
+    <p>Requires debug. Open with <code>?debug=1</code> or set <code>PPIE_DEBUG=true</code>.</p>
+    <p><a href="/debug/calculation?debug=1">Retry with ?debug=1</a></p>
+  </div>
+
+  <div id="vc-app" class="vc-app" hidden>
+    <aside class="vc-side">
+      <p class="vc-brand">Full Assessment · Developer Report</p>
+      <p class="vc-sub" id="vc-meta">Loading…</p>
+
+      <label class="vc-label" for="vc-preset">Preset</label>
+      <select id="vc-preset" class="vc-select"></select>
+      <button type="button" class="vc-btn vc-btn-primary" id="vc-refresh">Refresh Assessment</button>
+      <p class="vc-live" id="vc-live">Live · waiting</p>
+
+      <p class="vc-nav-group">On this page</p>
+      <nav class="vc-nav" id="vc-nav"></nav>
+
+      <div class="vc-side-actions">
+        <button type="button" class="vc-btn" id="vc-export-json">Export JSON</button>
+        <button type="button" class="vc-btn" id="vc-export-md">Export Markdown</button>
+        <a class="vc-link" href="/?debug=1">Demo UI</a>
+      </div>
+    </aside>
+    <main class="vc-main" id="vc-main">
+      <p class="vc-muted">Waiting for assessment…</p>
+    </main>
+  </div>
+
+  <script>
+    window.__VC_BOOT_WATCHDOG__ = setTimeout(function () {
+      var meta = document.getElementById('vc-meta');
+      var live = document.getElementById('vc-live');
+      var main = document.getElementById('vc-main');
+      var app = document.getElementById('vc-app');
+      if (window.__VALIDATION_CONSOLE__) return;
+      if (app) app.hidden = false;
+      if (live) live.textContent = 'Failed · script did not boot';
+      if (meta) meta.textContent = 'Boot timeout';
+      if (main) {
+        main.innerHTML = '<div class="vc-card"><h1 class="vc-h1">Report did not start</h1>' +
+          '<p class="vc-nt">ppie-validation-console.js failed to load. Hard-refresh and check the console.</p></div>';
+      }
+    }, 8000);
+  </script>
+  <script src="/ppie-validation-console.js?v=p10"></script>
+</body>
+</html>

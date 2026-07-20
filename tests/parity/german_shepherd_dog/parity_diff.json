@@ -2,9 +2,16 @@
   "profile_id": "german_shepherd_dog",
   "golden": "german_shepherd.json",
   "mode": "golden_vs_python",
-  "diff_count": 0,
+  "diff_count": 1,
   "tolerance": 0.05,
-  "elapsed_ms": 1614.9,
-  "generated_at": "2026-07-17T14:04:50.840072+00:00",
-  "diffs": []
+  "elapsed_ms": 710.6,
+  "generated_at": "2026-07-17T18:55:47.666633+00:00",
+  "diffs": [
+    {
+      "path": "wellness_summary.greeting",
+      "kind": "string",
+      "js": "Good evening",
+      "py": "Good morning"
+    }
+  ]
 }

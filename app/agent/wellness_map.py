@@ -1,8 +1,13 @@
-"""Wellness goal grouping — mirrors src/engine/wellnessMap.js for JS contract parity."""
+"""Wellness goal grouping — mirrors src/engine/wellnessMap.js for JS contract parity.
+
+Seeded in data/inference/WELLNESS_GOAL_MAP.csv (identical defaults).
+"""
 
 from __future__ import annotations
 
-import re
+from typing import Any
+
+from app.inference.resolver import condition_key as _condition_key
 
 WELLNESS_GOALS: dict[str, dict] = {
     "joint_health": {
@@ -12,8 +17,13 @@ WELLNESS_GOALS: dict[str, dict] = {
             "and published veterinary prevalence studies"
         ),
         "conditions": [
-            "hip_dysplasia", "hip dysplasia", "ivdd", "cruciate_ligament_rupture",
-            "osteoarthritis", "luxating_patella", "elbow_dysplasia",
+            "hip_dysplasia",
+            "hip dysplasia",
+            "ivdd",
+            "cruciate_ligament_rupture",
+            "osteoarthritis",
+            "luxating_patella",
+            "elbow_dysplasia",
         ],
     },
     "skin_health": {
@@ -23,8 +33,13 @@ WELLNESS_GOALS: dict[str, dict] = {
             "based on coat biology and dermatology evidence"
         ),
         "conditions": [
-            "atopic_dermatitis", "atopic dermatitis", "dry_skin", "hot_spots",
-            "immune_mediated_dermatosis", "pyoderma", "skin_barrier",
+            "atopic_dermatitis",
+            "atopic dermatitis",
+            "dry_skin",
+            "hot_spots",
+            "immune_mediated_dermatosis",
+            "pyoderma",
+            "skin_barrier",
         ],
     },
     "dental_health": {
@@ -108,22 +123,29 @@ PRIORITY_LABELS: dict[str, str] = {
 }
 
 
-def _condition_key(name: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "_", str(name or "").lower()).strip("_")
+def get_wellness_goals() -> dict[str, dict[str, Any]]:
+    """Wellness goals are Python-owned (not CSV)."""
+    return WELLNESS_GOALS
 
 
-CONDITION_TO_GOAL: dict[str, str] = {}
-for goal_id, goal in WELLNESS_GOALS.items():
-    for condition in goal["conditions"]:
-        CONDITION_TO_GOAL[_condition_key(condition)] = goal_id
+def _priority_labels() -> dict[str, str]:
+    return dict(PRIORITY_LABELS)
+
+
+def _condition_to_goal_map() -> dict[str, str]:
+    out: dict[str, str] = {}
+    for goal_id, goal in get_wellness_goals().items():
+        for condition in goal.get("conditions") or []:
+            out[_condition_key(condition)] = goal_id
+    return out
 
 
 def goal_for_condition(condition_name: str) -> str:
-    return CONDITION_TO_GOAL.get(_condition_key(condition_name), "general_wellness")
+    return _condition_to_goal_map().get(_condition_key(condition_name), "general_wellness")
 
 
 def priority_label(goal_id: str, fallback_title: str | None = None) -> str:
-    return PRIORITY_LABELS.get(goal_id, fallback_title or "Wellness Support")
+    return _priority_labels().get(goal_id, fallback_title or "Wellness Support")
 
 
 def friendly_trait_label(category: str, value: str) -> str:

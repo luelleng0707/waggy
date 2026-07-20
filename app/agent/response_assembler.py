@@ -35,26 +35,24 @@ from app.agent.utils import (
 )
 from app.agent.wellness_map import (
     friendly_trait_label,
+    get_wellness_goals,
     goal_for_condition,
     priority_label,
-    WELLNESS_GOALS,
 )
 from app.agent.version import ALGORITHM_VERSION as ENGINE_VERSION
 
-LEGACY_MOCK_PATTERN = re.compile(r"^(SF00[1-5]|SP00[1-8]|TR00[1-2])$", re.I)
+def _is_verified_product(product_id: str, repo: DataRepository | None = None) -> bool:
+    """True when product_id exists in PRODUCT_CATALOG with active status."""
+    if not product_id:
+        return False
+    if repo is not None:
+        return repo.is_active_product_id(str(product_id))
+    try:
+        from app.data.runtime import get_platform
 
-VERIFIED_STAPLES = {
-    "essential": "FF001",
-    "balanced": "FF002_CHICKEN",
-    "optimal": "FF003",
-}
-DEFAULT_TREAT = "TR003"
-DEFAULT_SUPPLEMENT = "SP011"
-FALLBACK_SUPPLEMENTS = ["SP013", "SP014", "SP015"]
-
-
-def _is_verified_product(product_id: str) -> bool:
-    return bool(product_id) and not LEGACY_MOCK_PATTERN.match(str(product_id))
+        return get_platform().is_active_product_id(str(product_id))
+    except RuntimeError:
+        return True
 
 
 def _size_bracket(weight_kg: float) -> str:
@@ -99,7 +97,7 @@ def _catalog_row(catalog_df: pd.DataFrame, product_id: str) -> dict[str, Any]:
 
 
 def _product_type_from_catalog(row: dict[str, Any]) -> str:
-    """Mirror JS categoryToProductType for Fresh Food / Supplements / Treats."""
+    """Map PRODUCT_CATALOG.category → engine product_type (CSV-driven, no ID hardcoding)."""
     category = str(row.get("category", ""))
     if category == "Fresh Food":
         return "fresh_food"
@@ -109,6 +107,8 @@ def _product_type_from_catalog(row: dict[str, Any]) -> str:
         return "treat"
     category_l = category.lower()
     sub = str(row.get("subcategory", "")).lower()
+    if category_l in {"staple_food", "kibble"} or "staple" in category_l:
+        return "fresh_food"
     if "fresh" in sub or "fresh" in category_l:
         return "fresh_food"
     if "supplement" in category_l:
@@ -277,7 +277,7 @@ def build_health_insights(
 
     for r in risks:
         goal_id = goal_for_condition(r.get("condition_key") or r.get("condition_name") or "")
-        goal = WELLNESS_GOALS.get(
+        goal = get_wellness_goals().get(
             goal_id,
             {"title": "General Wellness", "why_template": "overall preventative nutrition may support long-term vitality"},
         )
@@ -327,7 +327,7 @@ def build_health_insights(
 
     insights = []
     for g in grouped.values():
-        goal = WELLNESS_GOALS.get(g["goal_id"], {})
+        goal = get_wellness_goals().get(g["goal_id"], {})
         observed = g["observed_prevalence_percent"]
         biological = g["biological_risk_percent"]
         difference = (
@@ -379,7 +379,7 @@ def build_wellness_coverage(
     ]
     dimensions: dict[str, dict[str, Any]] = {
         gid: {
-            "title": (WELLNESS_GOALS.get(gid) or {}).get("title", gid),
+            "title": (get_wellness_goals().get(gid) or {}).get("title", gid),
             "coverage_percent": 72,
         }
         for gid in default_goals
@@ -520,11 +520,23 @@ def build_product_recommendations(
 def _tier_product_ids(
     tier: str,
     product_recs: list[dict[str, Any]],
+    repo: DataRepository | None = None,
 ) -> list[str]:
     """Legacy helper retained for tests; package builder no longer forces defaults."""
-    staple = VERIFIED_STAPLES[tier]
+    staple = "FF001"
+    if repo is not None:
+        staple = str(repo.package_tier_map().get(tier, {}).get("staple_product_id") or staple)
+    else:
+        try:
+            from app.data.runtime import get_platform
+
+            staple = str(
+                get_platform().package_tier_map().get(tier, {}).get("staple_product_id") or staple
+            )
+        except RuntimeError:
+            pass
     ids = [staple]
-    rec_ids = [p["product_id"] for p in product_recs if _is_verified_product(p["product_id"])]
+    rec_ids = [p["product_id"] for p in product_recs if _is_verified_product(p["product_id"], repo)]
     if tier == "essential":
         if rec_ids:
             ids.append(rec_ids[0])
@@ -536,7 +548,7 @@ def _tier_product_ids(
         for pid in rec_ids[:3]:
             if pid not in ids:
                 ids.append(pid)
-    return [pid for pid in ids if _is_verified_product(pid)]
+    return [pid for pid in ids if _is_verified_product(pid, repo)]
 
 
 def _includes_summary_from_items(items: list[dict[str, Any]], tier: str) -> list[str]:
@@ -592,213 +604,20 @@ def build_wellness_packages(
     profile: DogProfileInput,
     wellness_coverage: dict[str, Any],
     repo: DataRepository,
+    ingredients: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
-    """Mirror src/engine/wellnessEngine.js buildWellnessPackages pricing and selection."""
-    catalog_df = repo.product_catalog()
-    pricing_df = repo.product_pricing()
-    rules_df = repo.product_feeding_rules()
-    pet_name = profile.name
-    top_goals = ", ".join(priority_label(h["goal_id"], h["title"]) for h in health_insights[:3])
+    """Phase 11: CSV-driven package optimization (no hardcoded product membership)."""
+    del wellness_coverage  # coverage comes from optimizer matrix / clinical functions
+    from app.agent.package_optimizer import build_optimized_packages
 
-    staples = _catalog_staples(catalog_df, pricing_df)
-    supps = [p for p in product_recs if p.get("product_type") == "supplement"][:3]
-    treats = [p for p in product_recs if p.get("product_type") == "treat"][:2]
-    dental = [
-        p for p in product_recs
-        if p.get("subcategory") == "dental_chew" or "Dental" in str(p.get("product_name", ""))
-    ][:1]
+    return build_optimized_packages(
+        repo=repo,
+        profile=profile,
+        health_insights=health_insights,
+        ingredients=ingredients or [],
+        product_recs=product_recs,
+    )
 
-    tier_meta = {
-        "essential": {
-            "title": "Essential Care",
-            "recommended": False,
-            "best_for": "Budget-conscious owners.",
-            "mult": 0.72,
-            "coverage_floor": 72,
-            "suppCount": 1,
-            "treatCount": 1,
-            "dental": True,
-            "description": (
-                f"Provides the minimum evidence-supported nutritional coverage for {pet_name}'s "
-                f"biological needs while keeping monthly cost as low as possible."
-            ),
-            "includes_extra": [],
-        },
-        "balanced": {
-            "title": "Balanced Care",
-            "recommended": True,
-            "best_for": None,
-            "mult": 1.0,
-            "coverage_floor": 88,
-            "suppCount": 2,
-            "treatCount": 2,
-            "dental": True,
-            "description": (
-                f"Our recommended balance between health coverage and affordability. Provides "
-                f"strong support for {pet_name}'s highest-priority health needs without unnecessary spending."
-            ),
-            "includes_extra": [],
-        },
-        "optimal": {
-            "title": "Optimal Care",
-            "recommended": False,
-            "best_for": None,
-            "mult": 1.08,
-            "coverage_floor": 97,
-            "suppCount": 3,
-            "treatCount": 2,
-            "dental": True,
-            "description": (
-                "Designed for owners who want the highest possible nutritional coverage with minimal compromises."
-            ),
-            "includes_extra": ["Skin support", "Joint support", "Digestive support"],
-        },
-    }
-
-    packages = []
-    for tier, meta in tier_meta.items():
-        items: list[dict[str, Any]] = []
-        staple = _pick_staple(staples, tier)
-        if staple:
-            pid = staple["product_id"]
-            items.append({
-                "type": "fresh_food",
-                "name": staple.get("product_name", pid),
-                "product_id": pid,
-                "brand": staple.get("brand", "Wagtopia"),
-                "category": staple.get("category"),
-                "monthly_cost": _staple_monthly_cost(pricing_df, pid),
-                "price": js_round(_list_price_rmb(pricing_df, pid)),
-            })
-
-        for s in supps[: meta["suppCount"]]:
-            items.append({
-                "type": "supplement",
-                "name": s.get("product_name"),
-                "product_id": s.get("product_id"),
-                "brand": s.get("brand", "Wagtopia"),
-                "category": s.get("product_type"),
-                "monthly_cost": js_round(float(s.get("price") or 0)),
-                "price": js_round(float(s.get("price") or 0)),
-            })
-        for t in treats[: meta["treatCount"]]:
-            items.append({
-                "type": "treat",
-                "name": t.get("product_name"),
-                "product_id": t.get("product_id"),
-                "brand": t.get("brand", "Wagtopia"),
-                "category": t.get("product_type"),
-                "monthly_cost": js_round(float(t.get("price") or 0)),
-                "price": js_round(float(t.get("price") or 0)),
-            })
-        if meta["dental"] and dental:
-            d0 = dental[0]
-            items.append({
-                "type": "dental",
-                "name": d0.get("product_name"),
-                "product_id": d0.get("product_id"),
-                "brand": d0.get("brand", "Wagtopia"),
-                "category": d0.get("product_type"),
-                "monthly_cost": js_round(float(d0.get("price") or 0)),
-                "price": js_round(float(d0.get("price") or 0)),
-            })
-
-        products_included = []
-        for item in items:
-            # enrichPackageProduct (wellnessEngine.js) — serving from rec, not feeding rule.
-            name = item.get("name")
-            rec = next((p for p in product_recs if p.get("product_name") == name), None)
-            cat_row = _catalog_row(catalog_df, str(item.get("product_id") or ""))
-            pid = (rec or {}).get("product_id") or item.get("product_id") or cat_row.get("product_id")
-            unit_type = "units"
-            if pid:
-                prow = pricing_df[pricing_df["product_id"] == pid] if not pricing_df.empty else None
-                if prow is not None and not prow.empty and "unit_label" in prow.columns:
-                    unit_type = str(prow.iloc[0].get("unit_label") or "units")
-            daily = (rec or {}).get("serving_size") or "1 serving/day"
-            units_daily = float((rec or {}).get("units_needed_daily") or 1)
-            monthly_qty = js_round(units_daily * 30)
-            products_included.append({
-                **item,
-                "product_id": pid,
-                "brand": (rec or {}).get("brand") or item.get("brand") or cat_row.get("brand") or "Wagtopia",
-                "category": item.get("type"),
-                "serving_size": daily,
-                "daily_amount": daily,
-                "monthly_quantity": f"{monthly_qty} {unit_type}/month",
-                "price": (rec or {}).get("price") if rec and rec.get("price") is not None else item.get("price"),
-                "coverage_percent": (rec or {}).get("coverage_percent") or 0,
-                "why_selected": (rec or {}).get("why_selected") or "",
-                "combined_coverage_note": (rec or {}).get("combined_coverage_note") or "",
-                "advantages": (rec or {}).get("advantages") or [],
-                "active_ingredients": (rec or {}).get("active_ingredients") or [],
-                "nutrition_contribution": (rec or {}).get("goal_coverage") or [],
-            })
-
-        monthly_raw = sum(float(i.get("monthly_cost") or 0) for i in products_included)
-        monthly_cost = js_round(monthly_raw * meta["mult"])
-        yearly_discount = 0.95 if tier == "essential" else (0.92 if tier == "balanced" else 0.88)
-        yearly_cost = js_round(monthly_cost * 12 * yearly_discount)
-
-        dims = wellness_coverage.get("dimensions", [])[:6]
-        cov_mult = 0.82 if tier == "essential" else (1.12 if tier == "optimal" else 1.0)
-        nutrition_coverage = [
-            {
-                "goal_id": d["goal_id"],
-                "title": priority_label(d["goal_id"], d.get("title")),
-                "coverage_percent": min(100, js_round(d["coverage_percent"] * cov_mult)),
-            }
-            for d in dims
-        ]
-        coverage_score = (
-            js_round(sum(n["coverage_percent"] for n in nutrition_coverage) / max(len(nutrition_coverage), 1))
-            if nutrition_coverage
-            else meta["coverage_floor"]
-        )
-        coverage_score = min(100, max(meta["coverage_floor"], coverage_score))
-
-        includes = _includes_summary_from_items(items, tier) + list(meta["includes_extra"])
-
-        activities_included: list[str] = []
-        for h in health_insights[:2]:
-            conds = h.get("supporting_conditions") or []
-            cond0 = conds[0] if conds else ""
-            acts = activities_for_condition(repo, str(cond0 or ""))
-            if acts:
-                activities_included.append(
-                    acts[0].get("activity_name") or acts[0].get("activity") or ""
-                )
-
-        packages.append({
-            "tier": tier,
-            "title": meta["title"],
-            "recommended": meta["recommended"],
-            "best_for": meta["best_for"],
-            "tagline": meta["description"].split(".")[0] + ".",
-            "description": meta["description"],
-            "coverage_score": coverage_score,
-            "monthly_cost": monthly_cost,
-            "yearly_cost": yearly_cost,
-            "includes_summary": includes,
-            "products_included": products_included,
-            "nutrition_coverage": nutrition_coverage,
-            "overview": (
-                f"Our biological model estimates that {pet_name} would benefit most from long-term "
-                f"{top_goals.lower() or 'preventative wellness'} support. This plan provides "
-                f"approximately {coverage_score}% nutritional coverage across those priority areas"
-                f"{' while remaining budget-friendly' if tier == 'essential' else ''}"
-                f"{' while remaining cost efficient' if tier == 'balanced' else ''}."
-            ),
-            "activities_included": [a for a in activities_included if a],
-            "why_fits": (
-                # JS: `Designed for ${weightKg}kg` — keep raw number (2.5 not Math.round)
-                f"Designed for {profile.weight_kg if float(profile.weight_kg) != int(profile.weight_kg) else int(profile.weight_kg)}kg biology with focus on "
-                f"{top_goals or 'core preventative wellness'}."
-            ),
-            "subscribe_cta": f"Subscribe to {meta['title'].replace(' Care', '')} Care",
-        })
-
-    return packages
 
 
 def build_package_details(
@@ -825,9 +644,9 @@ def build_nutritional_targets(ingredients: list[dict[str, Any]]) -> list[dict[st
         supports_goals = []
         for c in ing.get("for_conditions") or []:
             goal_id = goal_for_condition(str(c))
-            supports_goals.append((WELLNESS_GOALS.get(goal_id) or {}).get("title") or "General Wellness")
+            supports_goals.append((get_wellness_goals().get(goal_id) or {}).get("title") or "General Wellness")
         unit = ing.get("unit") or ""
-        targets.append({
+        row = {
             "ingredient": ing.get("ingredient_name"),
             "ingredient_key": ing.get("ingredient_key"),
             "daily_target": f"{_js_dose_str(ing.get('daily_dose'))}{unit}",
@@ -836,7 +655,10 @@ def build_nutritional_targets(ingredients: list[dict[str, Any]]) -> list[dict[st
             "evidence_quote": ing.get("evidence_quote"),
             "source_name": ing.get("source_name"),
             "source_url": ing.get("source_url"),
-        })
+        }
+        if ing.get("formula_execution"):
+            row["formula_execution"] = ing["formula_execution"]
+        targets.append(row)
     return targets
 
 
@@ -1353,6 +1175,7 @@ def assemble_frontend_response(
     pipeline_trace: list[dict[str, Any]],
     repo: DataRepository,
     health_risk: dict[str, Any] | None = None,
+    stage_timings_ms: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     """Top-level envelope matching FRONTEND_LAYOUT_SPEC.md / JS analyze()."""
     pet_name = profile.name
@@ -1372,7 +1195,12 @@ def assemble_frontend_response(
     )
     wellness_summary = build_wellness_summary(pet_name, biology_block, health_insights, wellness_coverage)
     wellness_packages = build_wellness_packages(
-        product_recommendations, health_insights, profile, wellness_coverage, repo
+        product_recommendations,
+        health_insights,
+        profile,
+        wellness_coverage,
+        repo,
+        ingredients=raw_ingredients,
     )
     wellness_packages = [
         enrich_package_for_detail(
@@ -1490,6 +1318,92 @@ def assemble_frontend_response(
     )
     yearly_plan = build_yearly_plan(monthly_plan, repo)
 
+    # Observatory payload — additive; does not alter clinical fields above
+    risk_traces = []
+    formula_executions = []
+    for r in risks:
+        if isinstance(r, dict) and r.get("observatory_trace"):
+            risk_traces.append(r["observatory_trace"])
+        if isinstance(r, dict) and r.get("formula_execution"):
+            formula_executions.append(r["formula_execution"])
+    if not risk_traces and isinstance((health_risk or {}).get("observatory"), dict):
+        risk_traces = list(((health_risk or {}).get("observatory") or {}).get("risk_traces") or [])
+    if not formula_executions and isinstance((health_risk or {}).get("observatory"), dict):
+        formula_executions = list(
+            ((health_risk or {}).get("observatory") or {}).get("formula_executions") or []
+        )
+
+    for t in nutritional_targets:
+        if isinstance(t, dict) and t.get("formula_execution"):
+            formula_executions.append(t["formula_execution"])
+    for pkg in wellness_packages:
+        if isinstance(pkg, dict) and pkg.get("formula_execution"):
+            formula_executions.append(pkg["formula_execution"])
+
+    package_rejects = []
+    decision_ledger = []
+    for pkg in wellness_packages:
+        if not isinstance(pkg, dict):
+            continue
+        for rej in pkg.get("products_rejected") or []:
+            if isinstance(rej, dict):
+                package_rejects.append({**rej, "tier": pkg.get("tier")})
+        fx = pkg.get("formula_execution") if isinstance(pkg.get("formula_execution"), dict) else {}
+        for d in fx.get("decisions") or []:
+            if isinstance(d, dict):
+                decision_ledger.append({**d, "tier": pkg.get("tier"), "formula_id": fx.get("formula_id")})
+
+    provenance_index = []
+    for fx in formula_executions:
+        if not isinstance(fx, dict):
+            continue
+        for p in fx.get("provenance") or []:
+            if isinstance(p, dict):
+                provenance_index.append(
+                    {
+                        **p,
+                        "formula_id": fx.get("formula_id"),
+                        "subject": fx.get("subject") or fx.get("condition"),
+                        "stage": fx.get("stage"),
+                    }
+                )
+
+    debug_block = {
+        "schema": "analyze_debug.v3",
+        "stage_timings_ms": stage_timings_ms or {},
+        "risk_traces": risk_traces,
+        "formula_executions": formula_executions,
+        "formula_execution_by_condition": {
+            str(fx.get("condition") or fx.get("subject")): fx
+            for fx in formula_executions
+            if isinstance(fx, dict) and (fx.get("condition") or fx.get("subject"))
+        },
+        "formula_execution_by_id": {},
+        "risk_by_condition": {
+            str(t.get("condition")): t for t in risk_traces if isinstance(t, dict) and t.get("condition")
+        },
+        "package_rejects": package_rejects,
+        "decision_ledger": decision_ledger,
+        "provenance_index": provenance_index[:500],
+        "health_risk_meta": (health_risk or {}).get("meta") or {},
+        "code": {
+            "health_risk": "app/agent/stages/health_risk.py",
+            "ingredient_engine": "app/agent/ingredient_engine.py",
+            "package_optimizer": "app/agent/package_optimizer.py",
+            "assembler": "app/agent/response_assembler.py",
+            "engine": "app/agent/engine.py",
+        },
+    }
+    # Index executions by formula_id
+    by_id: dict[str, list] = {}
+    for fx in formula_executions:
+        if not isinstance(fx, dict):
+            continue
+        fid = str(fx.get("formula_id") or "UNKNOWN")
+        by_id.setdefault(fid, []).append(fx)
+    debug_block["formula_execution_by_id"] = by_id
+
+
     return {
         "engine": "PPIE",
         "version": ENGINE_VERSION,
@@ -1516,6 +1430,7 @@ def assemble_frontend_response(
         "yearly_plan": yearly_plan,
         "wellness_score": wellness_coverage["overall_score"],
         "pipeline_trace": pipeline_trace,
+        "debug": debug_block,
         # Legacy JS aliases
         "pet": profile_block,
         "risks": legacy_risks,

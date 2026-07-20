@@ -8,7 +8,6 @@ from app.ui.renderer.template_engine import load_css, render_template
 from app.ui.renderer.wellness import WellnessRenderer
 from app.ui.renderer.home import HomeRenderer
 from app.ui.renderer.diary import DiaryRenderer
-from app.ui.renderer.shop import ShopRenderer
 
 __all__ = [
     "fmt_rmb",
@@ -22,6 +21,5 @@ __all__ = [
     "WellnessRenderer",
     "HomeRenderer",
     "DiaryRenderer",
-    "ShopRenderer",
     "vm_to_dict",
 ]

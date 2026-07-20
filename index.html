@@ -2,206 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wagtopia — Dolly's Wellness Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Wagtopia — Personalized Wellness Analysis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Serif:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css?v=p21t">
+  <link rel="stylesheet" href="styles.css?v=p21t">
 </head>
 <body>
 
 <div class="device-frame">
   <div class="device-notch"></div>
-  <div class="phone-app">
+  <div class="phone-app ppie-shell ppie-module">
 
-    <!-- ========== CONTINUOUS WELLNESS REPORT ========== -->
-    <section class="page active journey-scroll" id="page-home">
-      <header class="home-header">
-        <div class="header-top">
-          <span class="brand-mark">Wagtopia</span>
-          <span class="header-badge">Premium Care</span>
-        </div>
-        <h1 class="greeting">Hello, Dolly's Parent 👋</h1>
-        <p class="greeting-sub">Here's Dolly's latest wellness journey with Wagtopia.</p>
-      </header>
-
-      <div class="hero-dog">
-        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80" alt="Dolly">
-        <div class="hero-overlay">
-          <span class="hero-tag">Your companion, remembered</span>
+    <header class="module-header" id="shell-topbar">
+      <div class="module-header__row">
+        <button type="button" class="module-back" id="module-back">← Back to Wagtopia</button>
+        <div class="module-header__actions">
+          <button type="button" class="shell-search" id="shell-search-btn" aria-label="Search">Search</button>
+          <button type="button" class="module-ghost" id="module-share">Share</button>
+          <button type="button" class="module-ghost" id="module-pdf" disabled title="Coming soon">PDF</button>
         </div>
       </div>
-
-      <div class="profile-card">
-        <div class="profile-header">
-          <img class="profile-avatar" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=200&q=80" alt="Dolly">
-          <div class="profile-meta">
-            <h2>Dolly</h2>
-            <p class="breed">Golden Retriever × Labrador Mix</p>
-            <div class="profile-stats">
-              <span>3 yrs</span>
-              <span>28 kg</span>
-              <span>Female</span>
-            </div>
-          </div>
-        </div>
-        <div class="tag-row">
-          <span class="tag">Energetic</span>
-          <span class="tag">Friendly</span>
-          <span class="tag">Sensitive Skin</span>
-          <span class="tag">Loves Treats</span>
-          <span class="tag">Social</span>
-        </div>
-        <div class="detail-sections">
-          <div class="detail-block">
-            <h3>Personality</h3>
-            <p>Energetic, affectionate, highly social — loves attention from groomers and thrives in group play sessions.</p>
-          </div>
-          <div class="detail-block">
-            <h3>Behavior Notes</h3>
-            <p>Slightly skittish during blow drying. Responds well to treats and gentle handling. Prefers slow introductions to new tools.</p>
-          </div>
-          <div class="detail-block">
-            <h3>Sensitive Areas</h3>
-            <p>Sensitive around paws and eye area. Extra care taken during ear cleaning and paw pad trimming.</p>
-          </div>
-          <div class="detail-block">
-            <h3>Favorite Treats</h3>
-            <p>Frozen yogurt bites · Duck training treats · Wagtopia bakery salmon crisps</p>
-          </div>
-        </div>
+      <div class="module-header__title">
+        <p class="module-eyebrow">Wagtopia · Clinical intelligence</p>
+        <h1 class="module-title">Personalized Wellness Analysis</h1>
+        <p class="module-meta"><span id="module-generated">Generated today</span><span class="module-dot">·</span><span>Last updated with live clinical evidence</span></p>
       </div>
+      <nav class="shell-crumbs" id="shell-crumbs" hidden></nav>
+    </header>
 
-      <hr class="section-divider">
-      <div class="section-header"><h2>Wellness Analysis</h2></div>
-      <p class="section-intro">Based on breed epidemiology, environmental exposure, and published veterinary nutrition literature — every value is traceable to PPIE calculations and product data.</p>
+    <main class="shell-main" id="shell-main">
+      <section class="shell-page is-active" id="page-module" data-page="module" aria-label="Wellness analysis"></section>
+    </main>
 
-      <div class="section-header"><h2>Breed × Environment Matrix</h2></div>
-      <div class="voucher-card"><strong>Climate</strong><p class="muted">Shanghai Summer — elevated heat-stress and coat moisture retention demand.</p></div>
-      <div class="voucher-card"><strong>Activity</strong><p class="muted">High — increased caloric and joint-support nutrient requirements.</p></div>
+    <div id="ppie-sheet-host" class="ppie-sheet-host" aria-live="polite"></div>
 
-      <div class="section-header"><h2>Trait Analysis</h2></div>
-      <div class="tag-row" style="padding:0 16px 8px;">
-        <span class="tag">large</span><span class="tag">athletic</span><span class="tag">double-coat</span><span class="tag">high-energy</span>
+    <div class="shell-search-panel" id="shell-search-panel" hidden>
+      <div class="shell-search-panel__head">
+        <input type="search" id="shell-search-input" placeholder="Search conditions, nutrients, products…" autocomplete="off">
+        <button type="button" id="shell-search-close">Close</button>
       </div>
-
-      <div class="section-header"><h2>Trait Benefits</h2></div>
-      <div class="voucher-card"><strong>Joint Mobility Support</strong><p class="muted">Large athletic breeds benefit from structured glucosamine and omega-3 intake.</p></div>
-
-      <div class="section-header"><h2>Trait Weaknesses</h2></div>
-      <div class="voucher-card"><strong>Golden Retriever</strong> — Hip Dysplasia<p class="muted">Observed prevalence: <span class="trend-up">12.4%</span></p></div>
-
-      <div class="section-header"><h2>Preventative Wellness</h2></div>
-      <div class="voucher-card"><strong>Skin &amp; Coat</strong> · Observed prevalence <span class="trend-up">18.2%</span></div>
-
-      <div class="section-header"><h2>Nutrition Priorities</h2></div>
-      <div class="voucher-card"><strong>Glucosamine</strong><div class="measure-grid"><div class="measure-cell"><span class="label">Daily</span><span class="value">520 mg</span></div><div class="measure-cell"><span class="label">Monthly</span><span class="value">15.6 g</span></div><div class="measure-cell"><span class="label">Coverage</span><span class="value">87%</span></div></div></div>
-
-      <div class="section-header"><h2>Recommended Care Packages</h2></div>
-      <div class="voucher-card"><div class="package-title">Balanced Care</div><div class="package-price">Monthly: <strong>¥0</strong> · Yearly: <strong>¥0</strong></div></div>
-
-      <hr class="section-divider">
-      <div class="section-header"><h2>Grooming Diary</h2></div>
-        <div class="calendar-nav">
-          <button class="cal-btn" aria-label="Previous month">‹</button>
-          <span class="cal-month">July – August 2025</span>
-          <button class="cal-btn" aria-label="Next month">›</button>
-        </div>
-        <div class="calendar-weekdays">
-          <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
-        </div>
-        <div class="calendar-grid" id="calendar-grid">
-          <!-- July 2025 — starts Tuesday -->
-          <span class="cal-day empty"></span>
-          <span class="cal-day empty"></span>
-          <span class="cal-day">1</span>
-          <span class="cal-day">2</span>
-          <span class="cal-day">3</span>
-          <span class="cal-day">4</span>
-          <span class="cal-day">5</span>
-          <span class="cal-day">6</span>
-          <span class="cal-day">7</span>
-          <span class="cal-day">8</span>
-          <span class="cal-day">9</span>
-          <span class="cal-day">10</span>
-          <span class="cal-day">11</span>
-          <button class="cal-day has-session active" data-session="jul12">12</button>
-          <span class="cal-day">13</span>
-          <span class="cal-day">14</span>
-          <span class="cal-day">15</span>
-          <span class="cal-day">16</span>
-          <span class="cal-day">17</span>
-          <button class="cal-day has-session" data-session="jul18">18</button>
-          <span class="cal-day">19</span>
-          <span class="cal-day">20</span>
-          <span class="cal-day">21</span>
-          <span class="cal-day">22</span>
-          <span class="cal-day">23</span>
-          <span class="cal-day">24</span>
-          <span class="cal-day">25</span>
-          <span class="cal-day">26</span>
-          <span class="cal-day">27</span>
-          <span class="cal-day">28</span>
-          <span class="cal-day">29</span>
-          <span class="cal-day">30</span>
-          <span class="cal-day">31</span>
-          <!-- August 2025 -->
-          <span class="cal-day">1</span>
-          <button class="cal-day has-session" data-session="aug2">2</button>
-          <span class="cal-day">3</span>
-          <span class="cal-day">4</span>
-          <span class="cal-day">5</span>
-          <span class="cal-day">6</span>
-          <span class="cal-day">7</span>
-          <span class="cal-day">8</span>
-          <span class="cal-day">9</span>
-          <span class="cal-day">10</span>
-          <span class="cal-day">11</span>
-          <span class="cal-day">12</span>
-          <span class="cal-day">13</span>
-          <span class="cal-day">14</span>
-          <button class="cal-day has-session" data-session="aug15">15</button>
-        </div>
-        <p class="calendar-hint">Tap a highlighted date to view Dolly's grooming report</p>
-      </div>
-
-      <div class="grooming-report" id="grooming-report">
-        <!-- Filled by JS -->
-      </div>
-      <div class="page-spacer"></div>
-
-      <hr class="section-divider">
-      <div class="section-header"><h2>Wagtopia Shop</h2></div>
-      <p class="section-intro">Curated products from the PPIE product catalog — priced from published product data.</p>
-
-      <div class="shop-layout">
-        <aside class="shop-sidebar">
-          <button class="cat-btn active" data-cat="all">All</button>
-          <button class="cat-btn" data-cat="meals">Fresh Meals</button>
-          <button class="cat-btn" data-cat="supplements">Supplements</button>
-          <button class="cat-btn" data-cat="grooming">Grooming</button>
-          <button class="cat-btn" data-cat="bakery">Bakery</button>
-          <button class="cat-btn" data-cat="toys">Toys</button>
-          <button class="cat-btn" data-cat="wellness">Wellness</button>
-          <button class="cat-btn" data-cat="seasonal">Seasonal</button>
-        </aside>
-        <div class="shop-main">
-          <div class="shop-search">
-            <span>🔍</span>
-            <input type="text" placeholder="Search products for Dolly..." readonly>
-          </div>
-          <div class="product-grid" id="product-grid">
-            <!-- Filled by JS -->
-          </div>
-        </div>
-      </div>
-      <div class="page-spacer"></div>
-    </section>
+      <div id="shell-search-results" class="shell-search-results"></div>
+    </div>
 
   </div>
 </div>
 
-<script src="app.js?v=ppie-qa-1"></script>
+<div id="product-modal" class="product-modal" hidden>
+  <div class="product-modal-backdrop" data-close-modal></div>
+  <div class="product-modal-panel" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+    <button type="button" class="product-modal-close" data-close-modal aria-label="Close">×</button>
+    <div id="product-modal-body"></div>
+  </div>
+</div>
+
+<script src="catalog-service.js?v=p22b"></script>
+<script src="report-renderer.js?v=p22b"></script>
+<script src="ppie-ui.js?v=p22b"></script>
+<script src="ppie-sheets.js?v=p22b"></script>
+<script src="ppie-trace.js?v=p22b"></script>
+<script src="ppie-shell.js?v=p22b"></script>
+<script src="app.js?v=p22b"></script>
+<script src="ppie-dev-menu.js?v=p22b"></script>
 </body>
 </html>

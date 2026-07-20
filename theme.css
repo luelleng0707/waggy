@@ -1,0 +1,94 @@
+/* Wagtopia design tokens — single source for visual language.
+   Screens must reference these variables; avoid hardcoding colors/spacing. */
+
+:root {
+  /* Background (subtle, one app surface) */
+  --bg-1: #f7f2f5;
+  --bg-2: #f2e9ef;
+  --bg-3: #efe5eb;
+  --bg: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 48%, var(--bg-3) 100%);
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-muted: #faf6f8;
+
+  /* Accent — ONE brand pink */
+  --accent: #b3266a;
+  --accent-soft: rgba(179, 38, 106, 0.1);
+  --accent-border: rgba(179, 38, 106, 0.14);
+
+  /* Text */
+  --text: #2c2430;
+  --text-secondary: rgba(44, 36, 48, 0.72);
+  --text-caption: rgba(44, 36, 48, 0.65);
+  --text-on-accent: #ffffff;
+
+  /* Elevation */
+  --shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  /* Radius */
+  --radius: 24px;
+  --radius-media: 18px;
+  --radius-pill: 999px;
+  --radius-frame: 36px;
+
+  /* Spacing (8pt system) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+
+  /* Layout */
+  --page-max: 430px;
+  --page-pad: 20px;
+  --media-h: 140px;
+
+  /* Typography */
+  --font: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Noto Serif", Georgia, serif;
+  --text-heading: 700;
+  --text-section: 600;
+  --text-body: 400;
+  --text-caption-weight: 500;
+  --size-heading: 24px;
+  --size-section: 17px;
+  --size-body: 14px;
+  --size-caption: 12px;
+  --leading: 1.5;
+
+  /* Motion */
+  --ease: ease-out;
+  --duration: 200ms;
+
+  /* Status */
+  --status-ok-bg: #e8f3ea;
+  --status-ok: #3d7a4a;
+  --status-done-bg: #eef1f4;
+  --status-done: #4a5a6a;
+  --status-improve-bg: #f5ebe8;
+  --status-improve: #8a5a4a;
+
+  /* Legacy aliases (map old names → new tokens) */
+  --bg-start: var(--bg-1);
+  --bg-end: var(--bg-3);
+  --primary: var(--accent);
+  --button: var(--accent);
+  --card-bg: var(--surface);
+  --card-border: 1px solid var(--accent-border);
+  --cream: var(--bg-1);
+  --cream-dark: var(--bg-2);
+  --beige: var(--bg-2);
+  --brown: var(--accent);
+  --brown-dark: var(--accent);
+  --brown-light: var(--accent);
+  --gold: var(--accent);
+  --gold-light: #e8a0c0;
+  --text-muted: var(--text-secondary);
+  --white: var(--surface);
+  --shadow-lg: var(--shadow);
+  --radius-sm: var(--radius-media);
+  --radius-lg: var(--radius);
+  --font-serif: var(--font-display);
+}

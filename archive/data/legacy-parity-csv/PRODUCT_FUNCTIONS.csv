@@ -1,0 +1,24 @@
+product_id,function,confidence
+SF001,Activity Support,Medium
+SF001,Skin Support,Medium
+SF002,Digestive Support,High
+SF003,Joint Support,High
+SF003,Activity Support,Medium
+SF004,Weight Management,High
+SF005,Digestive Support,High
+SP001,Joint Support,High
+SP001,Activity Support,Medium
+SP002,Skin Support,High
+SP002,Immune Support,Medium
+SP003,Digestive Support,High
+SP003,Weight Management,Medium
+SP004,Cardiac Support,High
+SP005,Dental Care,High
+SP006,Joint Support,High
+SP007,Eye Health,High
+SP008,Respiratory Comfort,Medium
+SP008,Skin Support,Low
+TR001,Digestive Support,Medium
+TR001,Calming Support,Low
+TR002,Skin Support,Medium
+TR002,Omega Support,Medium

@@ -1,0 +1,11 @@
+trait_a,trait_b,condition,interaction,factor,reason,source
+Deep Chested,Giant,GDV,increase,1.42,Thoracic depth and gastric mobility amplify volvulus risk,Emergency GI Outcomes Group 2022
+Chondrodysplastic,Joint Heavy,IVDD,increase,1.36,Axial loading over shortened limbs raises disc degeneration expression,Canine Spine Consortium 2023
+Brachycephalic,Heat Sensitive,BOAS,increase,1.33,Heat stress exacerbates upper-airway obstruction,RVC Respiratory Heat Study 2022
+Athletic,High,Cruciate Ligament Rupture,increase,1.18,High torque movement increases cruciate stress events,Sport Dog Injury Network 2021
+Cold Tolerant,Double Coat,Atopic Dermatitis,decrease,0.89,Reduced barrier disruption under cold climate husbandry,Nordic Companion Animal Study 2021
+Mesocephalic,Athletic,BOAS,decrease,0.72,Skull geometry and fitness lower airway compromise burden,RVC Airway Morphology Program 2023
+Toy,Dental Heavy,Dental Disease,increase,1.27,Dense dentition and jaw crowding increase periodontal burden,Canine Craniofacial Dental Study 2020
+Hound,Dolichocephalic,GDV,increase,1.19,Deep thorax in hound lineages contributes to gastric torsion risk,Emergency GI Outcomes Group 2020
+Companion,Low,Obesity,increase,1.21,Sedentary indoor lifestyles increase chronic adiposity prevalence,Canine Lifestyle Outcomes Study 2022
+Athletic,Heat Tolerant,Heat Stress Syndrome,neutral,1.00,Fitness and climate adaptation produce balanced thermal risk,Canine Environmental Physiology Group 2022

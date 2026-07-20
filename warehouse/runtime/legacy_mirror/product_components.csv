@@ -1,0 +1,60 @@
+product_id,component_type,component_name,value,unit,evidence_level,notes,_csv_row,_csv_file
+SF001,macro_nutrient,Crude Protein,30,%,DeclaredLabel,Min value from Farmina guaranteed analysis,2,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Crude Fat,20,%,DeclaredLabel,Min value from Farmina guaranteed analysis,3,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Crude Fiber,2.7,%,DeclaredLabel,Max value from Farmina guaranteed analysis,4,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Ash,8.0,%,DeclaredLabel,Max value from Farmina guaranteed analysis,5,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Calcium,1.0,%,DeclaredLabel,Min value from Farmina guaranteed analysis,6,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Phosphorus,0.8,%,DeclaredLabel,Min value from Farmina guaranteed analysis,7,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Moisture,9.0,%,DeclaredLabel,Max value from Farmina guaranteed analysis,8,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Lysine,1.5,%,DeclaredLabel,Min value from Farmina guaranteed analysis,9,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Water-Soluble Chloride,0.45,%,DeclaredLabel,Min value calculated as Cl-,10,PRODUCT_COMPONENTS.csv
+SF001,macro_nutrient,Energy,4062,kcal/kg,DeclaredLabel,Metabolizable energy value,11,PRODUCT_COMPONENTS.csv
+TR001,raw_ingredient,Chicken Breast,,,DeclaredLabel,From image ingredient breakdown,12,PRODUCT_COMPONENTS.csv
+TR001,raw_ingredient,Sheep Milk Powder,,,DeclaredLabel,From image ingredient breakdown,13,PRODUCT_COMPONENTS.csv
+TR001,raw_ingredient,Natural Fruit And Vegetable Powder,,,DeclaredLabel,From image ingredient breakdown,14,PRODUCT_COMPONENTS.csv
+TR001,raw_ingredient,Beetroot,,,DeclaredLabel,From image ingredient breakdown,15,PRODUCT_COMPONENTS.csv
+TR001,raw_ingredient,Coconut Flakes,,,DeclaredLabel,From image ingredient breakdown,16,PRODUCT_COMPONENTS.csv
+TR001,raw_ingredient,Carrot,,,DeclaredLabel,From image ingredient breakdown,17,PRODUCT_COMPONENTS.csv
+TR002,raw_ingredient,Chicken Breast,,,DeclaredLabel,From image ingredient breakdown,18,PRODUCT_COMPONENTS.csv
+TR002,raw_ingredient,Cheese,,,DeclaredLabel,From image ingredient breakdown,19,PRODUCT_COMPONENTS.csv
+TR002,raw_ingredient,Natural Fruit And Vegetable Powder,,,DeclaredLabel,From image ingredient breakdown,20,PRODUCT_COMPONENTS.csv
+TR002,raw_ingredient,Okra,,,DeclaredLabel,From image ingredient breakdown,21,PRODUCT_COMPONENTS.csv
+TR002,raw_ingredient,Pumpkin,,,DeclaredLabel,From image ingredient breakdown,22,PRODUCT_COMPONENTS.csv
+TR002,raw_ingredient,Purple Sweet Potato,,,DeclaredLabel,From image ingredient breakdown,23,PRODUCT_COMPONENTS.csv
+TR003,raw_ingredient,Chicken,,,DeclaredLabel,From image ingredient breakdown,24,PRODUCT_COMPONENTS.csv
+TR003,raw_ingredient,Coconut Oil,,,DeclaredLabel,From image ingredient breakdown,25,PRODUCT_COMPONENTS.csv
+TR003,raw_ingredient,Turmeric Powder,,,DeclaredLabel,From image ingredient breakdown,26,PRODUCT_COMPONENTS.csv
+TR003,raw_ingredient,Parsley,,,DeclaredLabel,From image ingredient breakdown,27,PRODUCT_COMPONENTS.csv
+TR004,raw_ingredient,Cheddar Cheese,,,DeclaredLabel,From image ingredient breakdown,28,PRODUCT_COMPONENTS.csv
+TR004,raw_ingredient,Duck Breast,,,DeclaredLabel,From image ingredient breakdown,29,PRODUCT_COMPONENTS.csv
+TR004,raw_ingredient,Rosemary,,,DeclaredLabel,From image ingredient breakdown,30,PRODUCT_COMPONENTS.csv
+TR005,raw_ingredient,Antibiotic-Free Black Pork,,,DeclaredLabel,From image ingredient breakdown,31,PRODUCT_COMPONENTS.csv
+TR005,raw_ingredient,Roasted Flaxseed,,,DeclaredLabel,From image ingredient breakdown,32,PRODUCT_COMPONENTS.csv
+TR005,raw_ingredient,Pumpkin Seed Kernels,,,DeclaredLabel,From image ingredient breakdown,33,PRODUCT_COMPONENTS.csv
+TR005,raw_ingredient,Sunflower Seed Kernels,,,DeclaredLabel,From image ingredient breakdown,34,PRODUCT_COMPONENTS.csv
+TR005,raw_ingredient,Marigold Petals,,,DeclaredLabel,From image ingredient breakdown,35,PRODUCT_COMPONENTS.csv
+TR005,raw_ingredient,Honey,,,DeclaredLabel,From image ingredient breakdown,36,PRODUCT_COMPONENTS.csv
+TR005,raw_ingredient,Natural Fruit & Vegetable Powder,,,DeclaredLabel,From image ingredient breakdown,37,PRODUCT_COMPONENTS.csv
+TR006,raw_ingredient,Rabbit Loin,,,DeclaredLabel,From image ingredient breakdown,38,PRODUCT_COMPONENTS.csv
+TR006,raw_ingredient,Pet Cheese,,,DeclaredLabel,From image ingredient breakdown,39,PRODUCT_COMPONENTS.csv
+TR006,raw_ingredient,Parsley,,,DeclaredLabel,From image ingredient breakdown,40,PRODUCT_COMPONENTS.csv
+TR009,raw_ingredient,Venison Ears,100,%,DeclaredLabel,100% Pure New Zealand Deer Ears,41,PRODUCT_COMPONENTS.csv
+TR009,macro_nutrient,Crude Protein,50.0,%,DeclaredLabel,Guaranteed Analysis min value,42,PRODUCT_COMPONENTS.csv
+TR009,macro_nutrient,Crude Fat,20.0,%,DeclaredLabel,Guaranteed Analysis min value,43,PRODUCT_COMPONENTS.csv
+TR009,macro_nutrient,Moisture,12.0,%,DeclaredLabel,Guaranteed Analysis max value,44,PRODUCT_COMPONENTS.csv
+TR009,macro_nutrient,Crude Ash,6.0,%,DeclaredLabel,Guaranteed Analysis max value,45,PRODUCT_COMPONENTS.csv
+TR009,macro_nutrient,Crude Fiber,5.0,%,DeclaredLabel,Guaranteed Analysis max value,46,PRODUCT_COMPONENTS.csv
+TR010,raw_ingredient,Calf Wags (Veal Ribs),100,%,DeclaredLabel,100% Natural NZ Calf Wags,47,PRODUCT_COMPONENTS.csv
+TR010,macro_nutrient,Crude Protein,60.0,%,DeclaredLabel,Typical Analysis min value,48,PRODUCT_COMPONENTS.csv
+TR010,macro_nutrient,Crude Fat,6.0,%,DeclaredLabel,Typical Analysis min value,49,PRODUCT_COMPONENTS.csv
+TR010,macro_nutrient,Moisture,10.0,%,DeclaredLabel,Typical Analysis max value,50,PRODUCT_COMPONENTS.csv
+TR010,macro_nutrient,Crude Ash,18.0,%,DeclaredLabel,Typical Analysis max value,51,PRODUCT_COMPONENTS.csv
+TR010,macro_nutrient,Crude Fiber,5.0,%,DeclaredLabel,Typical Analysis max value,52,PRODUCT_COMPONENTS.csv
+TR011,raw_ingredient,Green Lipped Mussels,100,%,DeclaredLabel,100% NZ Green Lipped Mussels,53,PRODUCT_COMPONENTS.csv
+TR011,macro_nutrient,Crude Protein,60.0,%,DeclaredLabel,Typical Analysis min value,54,PRODUCT_COMPONENTS.csv
+TR011,macro_nutrient,Crude Fat,8.0,%,DeclaredLabel,Typical Analysis min value,55,PRODUCT_COMPONENTS.csv
+TR011,macro_nutrient,Moisture,6.0,%,DeclaredLabel,Typical Analysis max value,56,PRODUCT_COMPONENTS.csv
+TR011,macro_nutrient,Crude Ash,12.0,%,DeclaredLabel,Typical Analysis max value,57,PRODUCT_COMPONENTS.csv
+TR011,macro_nutrient,Crude Fiber,2.0,%,DeclaredLabel,Typical Analysis max value,58,PRODUCT_COMPONENTS.csv
+TR012,raw_ingredient,Calf Wags (Veal Ribs),100,%,DeclaredLabel,100% Natural NZ Calf Wags,59,PRODUCT_COMPONENTS.csv
+TR012,macro_nutrient,Crude Protein,60.0,%,DeclaredLabel,Typical Analysis identical to TR010,60,PRODUCT_COMPONENTS.csv

@@ -12,3 +12,5 @@ venv/
 parity_output/
 *.pyc
 .streamlit/secrets.toml
+data_csv/
+data_csv.zip

@@ -2,9 +2,16 @@
   "profile_id": "chihuahua",
   "golden": "chihuahua.json",
   "mode": "golden_vs_python",
-  "diff_count": 0,
+  "diff_count": 1,
   "tolerance": 0.05,
-  "elapsed_ms": 1509.0,
-  "generated_at": "2026-07-17T14:04:49.216049+00:00",
-  "diffs": []
+  "elapsed_ms": 681.8,
+  "generated_at": "2026-07-17T18:55:46.949808+00:00",
+  "diffs": [
+    {
+      "path": "wellness_summary.greeting",
+      "kind": "string",
+      "js": "Good evening",
+      "py": "Good morning"
+    }
+  ]
 }

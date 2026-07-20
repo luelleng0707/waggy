@@ -2,9 +2,16 @@
   "profile_id": "puppy_golden",
   "golden": "puppy_golden.json",
   "mode": "golden_vs_python",
-  "diff_count": 0,
+  "diff_count": 1,
   "tolerance": 0.05,
-  "elapsed_ms": 889.7,
-  "generated_at": "2026-07-17T14:04:58.911753+00:00",
-  "diffs": []
+  "elapsed_ms": 839.7,
+  "generated_at": "2026-07-17T18:55:52.732145+00:00",
+  "diffs": [
+    {
+      "path": "wellness_summary.greeting",
+      "kind": "string",
+      "js": "Good evening",
+      "py": "Good morning"
+    }
+  ]
 }

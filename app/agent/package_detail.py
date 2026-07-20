@@ -11,6 +11,7 @@ import pandas as pd
 
 from app.agent.condition_lookup import condition_candidates, condition_matches, ingredient_key
 from app.agent.utils import DataRepository, feeding_rule_for_product, js_round
+from app.inference.config import DEFAULT_NUTRIENT_CATALOG, nutrient_catalog
 
 
 def js_round1(value: Any) -> int | float:
@@ -24,18 +25,8 @@ def js_round1(value: Any) -> int | float:
     return n
 
 
-NUTRIENT_CATALOG = [
-    {"key": "glucosamine", "label": "Glucosamine", "unit": "mg", "aliases": []},
-    {"key": "omega_3", "label": "EPA+DHA", "unit": "mg", "aliases": ["omega-3", "epa", "dha"]},
-    {"key": "msm", "label": "MSM", "unit": "mg", "aliases": []},
-    {"key": "chondroitin_sulfate", "label": "Chondroitin", "unit": "mg", "aliases": ["chondroitin"]},
-    {"key": "l_carnitine", "label": "L-Carnitine", "unit": "mg", "aliases": []},
-    {"key": "taurine", "label": "Taurine", "unit": "mg", "aliases": []},
-    {"key": "lutein", "label": "Lutein", "unit": "mg", "aliases": []},
-    {"key": "probiotics", "label": "Probiotics", "unit": "billion CFU", "aliases": []},
-    {"key": "seaweed_blend", "label": "Seaweed Bioactives", "unit": "mg", "aliases": ["seaweed"]},
-    {"key": "zinc", "label": "Zinc", "unit": "mg", "aliases": []},
-]
+# Parity defaults — display catalog owned by app.inference.config (Python)
+NUTRIENT_CATALOG = DEFAULT_NUTRIENT_CATALOG
 
 
 def parse_num(value: Any) -> float:
@@ -45,7 +36,7 @@ def parse_num(value: Any) -> float:
 
 def match_nutrient_key(name: str) -> dict[str, Any]:
     n = ingredient_key(name)
-    for cat in NUTRIENT_CATALOG:
+    for cat in nutrient_catalog():
         if cat["key"] == n:
             return cat
         if any(a in n for a in (cat.get("aliases") or [])):
@@ -100,11 +91,7 @@ def _product_by_name(repo: DataRepository, name: str) -> dict[str, Any] | None:
     shelf = row.get("shelf_life_days")
     if shelf is None or (isinstance(shelf, float) and pd.isna(shelf)):
         shelf = None
-        for ext_path in (
-            "product_portfolio/EXT_SUPPLEMENTS.csv",
-            "product_portfolio/EXT_TREATS_BAKERY.csv",
-        ):
-            ext = repo.load_csv(ext_path)
+        for ext in (repo.ext_supplements(), repo.ext_treats_bakery()):
             if ext.empty or "product_id" not in ext.columns:
                 continue
             hit_ext = ext[ext["product_id"] == pid]
@@ -125,11 +112,7 @@ def _product_by_name(repo: DataRepository, name: str) -> dict[str, Any] | None:
     row["shelf_life_days"] = shelf
     storage = row.get("storage_method")
     if storage is None or (isinstance(storage, float) and pd.isna(storage)):
-        for ext_path in (
-            "product_portfolio/EXT_SUPPLEMENTS.csv",
-            "product_portfolio/EXT_TREATS_BAKERY.csv",
-        ):
-            ext = repo.load_csv(ext_path)
+        for ext in (repo.ext_supplements(), repo.ext_treats_bakery()):
             if ext.empty or "product_id" not in ext.columns or "storage_method" not in ext.columns:
                 continue
             hit_ext = ext[ext["product_id"] == pid]
@@ -375,7 +358,7 @@ def build_daily_nutrition_intake(
         nutrient_label = (
             (t or {}).get("nutrient")
             or (p or {}).get("label")
-            or next((c["label"] for c in NUTRIENT_CATALOG if c["key"] == key), None)
+            or next((c["label"] for c in nutrient_catalog() if c["key"] == key), None)
             or key
         )
         rows.append({
@@ -602,7 +585,13 @@ def build_cost_breakdown(pkg: dict[str, Any]) -> dict[str, Any]:
         monthly_total = sum(float(r.get("monthly_cost") or 0) for r in rows)
     yearly_total = pkg.get("yearly_cost")
     if yearly_total is None:
-        yearly_total = js_round(float(monthly_total) * 12 * 0.92)
+        discount = 0.92
+        try:
+            balanced = repo.package_tier_map().get("balanced", {})
+            discount = float(balanced.get("yearly_discount_factor") or 0.92)
+        except Exception:  # noqa: BLE001
+            pass
+        yearly_total = js_round(float(monthly_total) * 12 * discount)
     monthly_total = float(monthly_total)
     yearly_total = float(yearly_total)
     mt = int(monthly_total) if monthly_total == int(monthly_total) else monthly_total
@@ -649,30 +638,34 @@ def enrich_package_for_detail(
         package_summary = (
             f"This package balances {pet_name}'s highest-priority nutritional targets using staple "
             f"nutrition, targeted supplementation, and functional treats. PPIE selected this "
-            f"combination to maximize nutrient coverage while controlling daily calories."
+            f"combination to maximize nutrient coverage while controlling yearly cost."
         )
     elif pkg.get("tier") == "essential":
         package_summary = (
             "This package prioritizes daily nutritional adequacy at the lowest long-term cost "
-            "using essential staple nutrition and core supplementation."
+            "using essential staple nutrition and core functional products."
         )
     else:
         package_summary = (
             f"This package maximizes nutrient coverage across {pet_name}'s biological profile "
-            f"with complete supplementation and functional nutrition."
+            f"with complete functional nutrition selected from the active catalog."
         )
 
+    plan_365 = pkg.get("plan_365") or {}
+    n_products = len(pkg.get("products_included") or [])
     return {
         **pkg,
-        "package_summary": package_summary,
+        "package_summary": pkg.get("package_summary") or package_summary,
         "estimated_monthly_supply": (
-            f"{len(pkg.get('products_included') or [])} products · 30-day supply"
+            f"{n_products} products · 365-day plan (monthly = yearly ÷ 12)"
         ),
+        "estimated_yearly_supply": f"{n_products} products · 365-day inventory plan",
         "product_cards": product_cards,
         "daily_nutrition_intake": daily_nutrition_intake,
         "full_nutrition_report": full_nutrition_report,
         "feeding_strategies": feeding_strategies,
         "cost_breakdown": cost_breakdown,
+        "plan_365": plan_365,
         "research_notes": [
             {"nutrient": r["nutrient"], **r["evidence"]}
             for r in full_nutrition_report
@@ -778,7 +771,11 @@ def build_product_analysis(
 
     cost: dict[str, Any] = {
         "unit_price": unit_price,
-        "yearly_cost": js_round(rec_price * 12 * 0.92),
+        "yearly_cost": js_round(
+            rec_price
+            * 12
+            * float(repo.package_tier_map().get("balanced", {}).get("yearly_discount_factor") or 0.92)
+        ),
     }
     # JS: monthly_cost: rec?.monthly_cost_estimate || rec?.price — undefined is omitted in JSON
     if monthly_cost is not None:

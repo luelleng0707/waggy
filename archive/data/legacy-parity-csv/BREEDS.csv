@@ -1,0 +1,49 @@
+breed,size,body_type,coat_type,energy,weakness_group,skull_type,climate,lifespan,function_group
+Alaskan Malamute,Giant,Athletic,Double Coat,High,Joint Heavy,Mesocephalic,Cold Tolerant,Medium,Working
+Afghan Hound,Large,Athletic,Single Coat,High,Eye Heavy,Dolichocephalic,Heat Tolerant,Long,Hound
+Border Collie,Medium,Athletic,Double Coat,Extreme,Neurological Heavy,Mesocephalic,Cold Tolerant,Long,Herding
+Bernese Mountain Dog,Giant,Heavy Sporting,Double Coat,Medium,Joint Heavy,Mesocephalic,Cold Tolerant,Medium,Working
+Pomeranian,Toy,Compact,Double Coat,Medium,Dental Heavy,Brachycephalic,Cold Tolerant,Long,Toy
+Pekingese,Toy,Compact,Single Coat,Low,Respiratory Heavy,Brachycephalic,Heat Sensitive,Long,Toy
+Pug,Small,Compact,Single Coat,Low,Respiratory Heavy,Brachycephalic,Heat Sensitive,Medium,Toy
+Boston Terrier,Small,Compact,Single Coat,Medium,Respiratory Heavy,Brachycephalic,Heat Sensitive,Medium,Companion
+Basset Hound,Medium,Chondrodysplastic,Single Coat,Low,Joint Heavy,Mesocephalic,Temperate,Medium,Hound
+Beagle,Small,Athletic,Single Coat,High,Digestive Heavy,Mesocephalic,Temperate,Long,Hound
+Bichon Frise,Small,Compact,Curly Coat,Medium,Skin Heavy,Mesocephalic,Temperate,Long,Companion
+Bedlington Terrier,Small,Athletic,Curly Coat,Medium,Urinary Heavy,Mesocephalic,Temperate,Long,Terrier
+Shiba Inu,Small,Athletic,Double Coat,High,Immune Heavy,Mesocephalic,Cold Tolerant,Long,Spitz
+Cavalier King Charles Spaniel,Small,Compact,Single Coat,Medium,Cardiac Heavy,Brachycephalic,Temperate,Medium,Companion
+German Shepherd Dog,Large,Athletic,Double Coat,High,Joint Heavy,Mesocephalic,Cold Tolerant,Medium,Working
+Great Pyrenees,Giant,Heavy Sporting,Double Coat,Medium,Joint Heavy,Mesocephalic,Cold Tolerant,Medium,Guardian
+Doberman Pinscher,Large,Athletic,Single Coat,High,Cardiac Heavy,Mesocephalic,Temperate,Medium,Working
+Dalmatian,Medium,Athletic,Single Coat,High,Urinary Heavy,Mesocephalic,Temperate,Medium,Sporting
+French Bulldog,Small,Compact,Single Coat,Low,Respiratory Heavy,Brachycephalic,Heat Sensitive,Medium,Companion
+Old English Sheepdog,Large,Heavy Sporting,Double Coat,Medium,Skin Heavy,Mesocephalic,Cold Tolerant,Medium,Herding
+Wirehaired Dachshund,Small,Chondrodysplastic,Wire Coat,Medium,Neurological Heavy,Dolichocephalic,Temperate,Long,Hound
+Poodle,Medium,Athletic,Curly Coat,High,Eye Heavy,Mesocephalic,Temperate,Long,Sporting
+Siberian Husky,Medium,Athletic,Double Coat,Extreme,Immune Heavy,Mesocephalic,Cold Tolerant,Medium,Working
+Golden Retriever,Large,Athletic,Double Coat,High,Joint Heavy,Mesocephalic,Temperate,Long,Sporting
+Chihuahua,Toy,Compact,Single Coat,Medium,Cardiac Heavy,Brachycephalic,Heat Tolerant,Long,Toy
+Jack Russell Terrier,Small,Athletic,Wire Coat,Extreme,Neurological Heavy,Mesocephalic,Temperate,Long,Terrier
+Pembroke Welsh Corgi,Medium,Chondrodysplastic,Double Coat,High,Joint Heavy,Mesocephalic,Temperate,Long,Herding
+Kerry Blue Terrier,Medium,Athletic,Curly Coat,High,Skin Heavy,Mesocephalic,Temperate,Long,Terrier
+Foxhound,Large,Athletic,Single Coat,Extreme,Digestive Heavy,Dolichocephalic,Temperate,Medium,Hound
+Labrador Retriever,Large,Athletic,Double Coat,High,Joint Heavy,Mesocephalic,Temperate,Long,Sporting
+Greyhound,Large,Athletic,Single Coat,Medium,Cardiac Heavy,Dolichocephalic,Heat Tolerant,Medium,Hound
+Smooth Dachshund,Small,Chondrodysplastic,Single Coat,Medium,Neurological Heavy,Dolichocephalic,Temperate,Long,Hound
+American Cocker Spaniel,Small,Compact,Single Coat,Medium,Eye Heavy,Brachycephalic,Temperate,Long,Sporting
+Maltese,Toy,Compact,Single Coat,Medium,Dental Heavy,Brachycephalic,Temperate,Long,Toy
+Bull Terrier,Medium,Athletic,Single Coat,High,Immune Heavy,Mesocephalic,Temperate,Medium,Terrier
+Akita Inu,Large,Heavy Sporting,Double Coat,Medium,Immune Heavy,Mesocephalic,Cold Tolerant,Medium,Working
+Samoyed,Large,Athletic,Double Coat,High,Skin Heavy,Mesocephalic,Cold Tolerant,Long,Working
+Rough Collie,Large,Athletic,Double Coat,High,Eye Heavy,Dolichocephalic,Cold Tolerant,Long,Herding
+Chow Chow,Large,Heavy Sporting,Double Coat,Low,Immune Heavy,Brachycephalic,Cold Tolerant,Medium,Spitz
+English Springer Spaniel,Medium,Athletic,Single Coat,High,Eye Heavy,Mesocephalic,Temperate,Long,Sporting
+Chinese Rural Dog,Medium,Athletic,Single Coat,Medium,Digestive Heavy,Mesocephalic,Temperate,Long,Landrace
+West Highland White Terrier,Small,Compact,Wire Coat,High,Skin Heavy,Mesocephalic,Temperate,Long,Terrier
+Shetland Sheepdog,Small,Athletic,Double Coat,High,Eye Heavy,Dolichocephalic,Cold Tolerant,Long,Herding
+Miniature Pinscher,Small,Athletic,Single Coat,High,Cardiac Heavy,Mesocephalic,Heat Tolerant,Long,Toy
+Shih Tzu,Small,Compact,Single Coat,Low,Eye Heavy,Brachycephalic,Heat Sensitive,Long,Companion
+English Cocker Spaniel,Medium,Athletic,Single Coat,High,Eye Heavy,Mesocephalic,Temperate,Long,Sporting
+Yorkshire Terrier,Toy,Compact,Single Coat,Medium,Dental Heavy,Brachycephalic,Temperate,Long,Toy
+Longhaired Dachshund,Small,Chondrodysplastic,Single Coat,Medium,Neurological Heavy,Dolichocephalic,Temperate,Long,Hound

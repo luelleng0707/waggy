@@ -1,0 +1,6 @@
+key,product_id,_csv_row,_csv_file
+default_treat,TR001,2,PRODUCT_DEFAULTS.csv
+default_supplement,TR011,3,PRODUCT_DEFAULTS.csv
+fallback_supplement_1,TR003,4,PRODUCT_DEFAULTS.csv
+fallback_supplement_2,TR007,5,PRODUCT_DEFAULTS.csv
+fallback_supplement_3,TR008,6,PRODUCT_DEFAULTS.csv

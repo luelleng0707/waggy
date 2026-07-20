@@ -155,8 +155,8 @@ def build_calculation_trace(
                     ),
                     None,
                 )
-                amount = float(ai.get("amount") or ai.get("amount_per_serving") or 0)
-                target_val = float((target or {}).get("target_daily_value") or 0)
+                amount = _parse_dose_value(ai.get("amount") or ai.get("amount_per_serving") or 0)
+                target_val = _parse_dose_value((target or {}).get("target_daily_value") or 0)
                 pct = js_round((amount / target_val) * 100) if target and target_val > 0 else 0
                 nutrient_lines.append({
                     "nutrient": ai.get("name"),

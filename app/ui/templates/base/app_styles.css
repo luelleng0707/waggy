@@ -1,27 +1,30 @@
-/* Wagtopia — Premium Deterministic Wellness Report */
+/* Wagtopia Streamlit journey — aligned to theme.css tokens */
 
 :root {
-  --bg-start: #FBF9F6;
-  --bg-end: #FFF0F5;
-  --primary: #7A1C4B;
-  --accent: #A12568;
-  --button: #E53A7F;
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --card-border: 1px solid rgba(229, 58, 127, 0.15);
-  --text: #3D3429;
-  --text-muted: rgba(61, 52, 41, 0.72);
-  --white: #FFFFFF;
-  --shadow-sm: 0 4px 16px rgba(122, 28, 75, 0.06);
-  --shadow: 0 8px 32px rgba(122, 28, 75, 0.08);
-  --shadow-lg: 0 16px 48px rgba(122, 28, 75, 0.1);
-  --radius-sm: 16px;
-  --radius-md: 22px;
-  --radius-lg: 28px;
+  --bg-1: #f7f2f5;
+  --bg-2: #f2e9ef;
+  --bg-3: #efe5eb;
+  --bg-start: var(--bg-1);
+  --bg-end: var(--bg-3);
+  --primary: #b3266a;
+  --accent: #b3266a;
+  --button: #b3266a;
+  --card-bg: #ffffff;
+  --card-border: 1px solid rgba(179, 38, 106, 0.14);
+  --text: #2c2430;
+  --text-muted: rgba(44, 36, 48, 0.72);
+  --white: #ffffff;
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  --shadow-lg: var(--shadow);
+  --radius-sm: 18px;
+  --radius-md: 24px;
+  --radius-lg: 24px;
   --font-serif: 'Noto Serif', Georgia, serif;
 }
 
 .stApp {
-  background: linear-gradient(165deg, var(--bg-start) 0%, var(--bg-end) 100%) !important;
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 48%, var(--bg-3) 100%) !important;
 }
 div.block-container {
   padding-top: 1rem;
@@ -29,28 +32,30 @@ div.block-container {
 }
 
 .device-frame {
-  width: 390px;
+  width: 430px;
   max-width: 100%;
   margin: 0 auto 24px;
-  background: linear-gradient(145deg, #2a1520 0%, #4a2035 100%);
+  background: #ffffff;
   border-radius: 44px;
-  padding: 12px;
-  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(179, 38, 106, 0.14);
   position: relative;
 }
 .device-notch {
-  width: 120px;
-  height: 28px;
-  background: #2a1520;
-  border-radius: 0 0 18px 18px;
+  width: 112px;
+  height: 24px;
+  background: #2c2430;
+  border-radius: 0 0 16px 16px;
   position: absolute;
-  top: 12px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+  opacity: 0.88;
 }
 .phone-app {
-  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 48%, var(--bg-3) 100%);
   border-radius: 36px;
   overflow-x: hidden;
   overflow-y: visible;
@@ -62,9 +67,9 @@ div.block-container {
 }
 
 .home-header {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 55%, var(--button) 100%);
-  padding: 48px 20px 28px;
-  color: var(--white);
+  background: transparent;
+  padding: 40px 20px 24px;
+  color: var(--text);
 }
 .header-top {
   display: flex;
@@ -74,14 +79,16 @@ div.block-container {
 }
 .brand-mark {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
+  color: var(--accent);
 }
 .header-badge {
   font-size: 11px;
-  background: rgba(255, 255, 255, 0.22);
-  padding: 4px 10px;
-  border-radius: 20px;
+  background: rgba(179, 38, 106, 0.1);
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: 999px;
 }
 .greeting {
   font-family: var(--font-serif);

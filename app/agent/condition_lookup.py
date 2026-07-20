@@ -1,13 +1,17 @@
 """
 Condition sibling/goal lookup — ports src/api/db/queries.js:
 GOAL_CONDITION_MAP, conditionCandidates, conditionMatches, canonicalJoinKey.
+
+Maps are seeded in data/inference/GOAL_CONDITION_MAP.csv (identical defaults).
 """
 
 from __future__ import annotations
 
-import re
 from typing import Iterable
 
+from app.inference.resolver import canonical_join_key, condition_key, ingredient_key
+
+# Embedded parity defaults (mirrored in CSV)
 GOAL_CONDITION_MAP: dict[str, list[str]] = {
     "joint_health": [
         "hip_dysplasia",
@@ -48,27 +52,27 @@ GOAL_CONDITION_MAP: dict[str, list[str]] = {
     ],
 }
 
-# Last write wins — mirrors JS Object.entries reduce order.
-CONDITION_TO_GOAL: dict[str, str] = {}
-for goal, conditions in GOAL_CONDITION_MAP.items():
-    for condition in conditions:
-        CONDITION_TO_GOAL[condition] = goal
+
+def _active_goal_map() -> dict[str, list[str]]:
+    return GOAL_CONDITION_MAP
 
 
-def canonical_join_key(value: str | None) -> str:
-    return re.sub(r"[^a-z0-9]+", "", str(value or "").lower())
-
-
-def condition_key(name: str | None) -> str:
-    return re.sub(r"[^a-z0-9]+", "_", str(name or "").lower()).strip("_")
+def _condition_to_goal() -> dict[str, str]:
+    # Last write wins — mirrors JS Object.entries reduce order.
+    out: dict[str, str] = {}
+    for goal, conditions in _active_goal_map().items():
+        for condition in conditions:
+            out[condition] = goal
+    return out
 
 
 def condition_candidates(condition_name: str | None) -> list[str]:
     """Mirror queries.js conditionCandidates — include goal siblings."""
     normalized = condition_key(condition_name)
-    direct_mapped = GOAL_CONDITION_MAP.get(normalized) or []
-    goal = CONDITION_TO_GOAL.get(normalized)
-    sibling_mapped = GOAL_CONDITION_MAP.get(goal, []) if goal else []
+    gmap = _active_goal_map()
+    direct_mapped = gmap.get(normalized) or []
+    goal = _condition_to_goal().get(normalized)
+    sibling_mapped = gmap.get(goal, []) if goal else []
     return [normalized, *direct_mapped, *sibling_mapped]
 
 
@@ -86,5 +90,11 @@ def condition_matches(
     return False
 
 
-def ingredient_key(name: str | None) -> str:
-    return re.sub(r"[^a-z0-9]+", "_", str(name or "").lower()).strip("_")
+__all__ = [
+    "GOAL_CONDITION_MAP",
+    "canonical_join_key",
+    "condition_key",
+    "condition_candidates",
+    "condition_matches",
+    "ingredient_key",
+]

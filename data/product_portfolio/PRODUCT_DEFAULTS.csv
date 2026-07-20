@@ -1,0 +1,6 @@
+key,product_id
+default_treat,TR001
+default_supplement,TR011
+fallback_supplement_1,TR003
+fallback_supplement_2,TR007
+fallback_supplement_3,TR008

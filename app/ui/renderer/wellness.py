@@ -2,23 +2,12 @@
 
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass, field
 from typing import Any
 
 from app.agent.state import DogProfileInput
 from app.agent.utils import DataRepository, feeding_rule_for_product
 from app.ui.renderer.formatters import fmt_mass_monthly, fmt_rmb
-
-LEGACY_MOCK_PATTERN = re.compile(r"^(SF00[1-5]|SP00[1-8]|TR00[1-2])$", re.I)
-TIER_BY_TITLE = {
-    "Essential Care": "essential",
-    "Balanced Care": "balanced",
-    "Optimal Care": "optimal",
-}
-TITLE_BY_TIER = {v: k for k, v in TIER_BY_TITLE.items()}
-YEARLY_DISCOUNT = {"essential": 0.95, "balanced": 0.92, "optimal": 0.88}
-STAPLE_BY_TIER = {"essential": "FF001", "balanced": "FF002_CHICKEN", "optimal": "FF003"}
 
 
 @dataclass
@@ -139,6 +128,18 @@ class WellnessRenderer:
     def __init__(self, repo: DataRepository):
         self.repo = repo
 
+    def _tier_maps(self) -> tuple[dict[str, str], dict[str, str], dict[str, float], dict[str, str]]:
+        tiers = self.repo.package_tier_map()
+        title_by_tier = {t: str(v["title"]) for t, v in tiers.items()}
+        tier_by_title = {title: t for t, title in title_by_tier.items()}
+        discounts = {t: float(v["yearly_discount_factor"]) for t, v in tiers.items()}
+        staples = {t: str(v["staple_product_id"]) for t, v in tiers.items()}
+        return tier_by_title, title_by_tier, discounts, staples
+
+    def _tier_from_title(self, package_title: str) -> str:
+        tier_by_title, _, _, _ = self._tier_maps()
+        return tier_by_title.get(package_title, "essential")
+
     def build_home(self, report: dict[str, Any]) -> WellnessHomeVM:
         packages = []
         for pkg in report.get("wellnessPackages", []):
@@ -165,7 +166,7 @@ class WellnessRenderer:
         profile: DogProfileInput,
         package_title: str,
     ) -> PackageDetailVM:
-        tier = TIER_BY_TITLE.get(package_title, "essential")
+        tier = self._tier_from_title(package_title)
         pkg = self._package_by_title(report, package_title) or {}
         detail = report.get("packageDetails", {}).get(tier, {})
         monthly = int(detail.get("monthly_cost", pkg.get("monthly_cost", 0)))
@@ -180,6 +181,9 @@ class WellnessRenderer:
         else:
             summary = str(detail.get("package_summary", pkg.get("description", "")))
 
+        _, _, _, staples = self._tier_maps()
+        staple_id = staples.get(tier, "FF001")
+
         return PackageDetailVM(
             title=package_title,
             tier=tier,
@@ -190,7 +194,7 @@ class WellnessRenderer:
             summary=summary,
             products=self._product_rows(report, profile, package_title),
             nutrients=self._daily_nutrients(report, profile, tier),
-            feeding_options=self._feeding_options(profile, STAPLE_BY_TIER[tier]),
+            feeding_options=self._feeding_options(profile, staple_id),
             feeding_footer=(
                 "This feeding option maintains the same nutritional targets while redistributing calories "
                 "from staple food to functional treats."
@@ -203,7 +207,7 @@ class WellnessRenderer:
         profile: DogProfileInput,
         package_title: str,
     ) -> FullNutritionReportVM:
-        tier = TIER_BY_TITLE.get(package_title, "essential")
+        tier = self._tier_from_title(package_title)
         traces = []
         for row in self._nutrition_traces(report, profile, tier):
             name_lower = row["name"].lower()
@@ -233,7 +237,7 @@ class WellnessRenderer:
         package_title: str,
         product_name: str,
     ) -> ProductAnalysisVM | None:
-        tier = TIER_BY_TITLE.get(package_title, "essential")
+        tier = self._tier_from_title(package_title)
         products = self._product_rows(report, profile, package_title)
         product = next((p for p in products if p.name == product_name), products[0] if products else None)
         if not product:
@@ -279,7 +283,7 @@ class WellnessRenderer:
 
         detail = report.get("packageDetails", {}).get(tier, {})
         monthly = int(detail.get("monthly_cost", 0))
-        discount = YEARLY_DISCOUNT[tier]
+        discount = self._tier_maps()[2].get(tier, 0.92)
         annual = int(round(monthly * 12 * discount))
 
         return ProductAnalysisVM(
@@ -303,7 +307,7 @@ class WellnessRenderer:
         )
 
     def _package_by_title(self, report: dict[str, Any], title: str) -> dict[str, Any] | None:
-        tier = TIER_BY_TITLE.get(title)
+        tier = self._tier_from_title(title)
         if not tier:
             return None
         return next((p for p in report.get("wellnessPackages", []) if p.get("tier") == tier), None)
@@ -377,12 +381,12 @@ class WellnessRenderer:
         profile: DogProfileInput,
         title: str,
     ) -> list[ProductRowVM]:
-        tier = TIER_BY_TITLE.get(title, "essential")
+        tier = self._tier_from_title(title)
         detail = report.get("packageDetails", {}).get(tier, {})
         rows: list[ProductRowVM] = []
         for card in detail.get("product_cards", []):
             pid = str(card.get("product_id", ""))
-            if LEGACY_MOCK_PATTERN.match(pid):
+            if not self.repo.is_active_product_id(pid):
                 continue
             feeding = feeding_rule_for_product(self.repo.product_feeding_rules(), pid, profile.weight_kg)
             if feeding:
@@ -499,7 +503,7 @@ class WellnessRenderer:
         ]
 
     def _ingredient_evidence(self, ingredient_name: str) -> dict[str, Any]:
-        evidence_df = self.repo.load_csv("breed_analysis/5_scientific_nutrition/INGREDIENT_EVIDENCE.csv")
+        evidence_df = self.repo.ingredient_evidence()
         if evidence_df.empty:
             return {}
         hits = evidence_df[evidence_df["ingredient_name"].str.lower() == ingredient_name.lower()]

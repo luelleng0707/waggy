@@ -1,0 +1,6 @@
+breed_a,breed_b,condition,factor,source_name,source_quote,source_url
+Siberian Husky,Pembroke Welsh Corgi,Hip Dysplasia,1.07,Canine Mixed-Breed Orthopedic Study,"Husky × Corgi crosses showed modestly elevated hip dysplasia versus medium-breed baseline.",https://pubmed.ncbi.nlm.nih.gov/30123701
+Siberian Husky,Pembroke Welsh Corgi,IVDD,1.09,Canine Spine Consortium,"Husky × Corgi crosses retained elevated IVDD expression relative to athletic medium breeds.",https://pubmed.ncbi.nlm.nih.gov/30123702
+Golden Retriever,Labrador Retriever,Hip Dysplasia,1.05,OFA Retriever Cross Study,"Goldador lineages maintained retriever-level hip dysplasia burden.",https://pubmed.ncbi.nlm.nih.gov/30123703
+Pug,French Bulldog,BOAS,1.12,RVC Brachycephalic Crossbreed Audit,"Pug × French Bulldog crosses showed compounded upper-airway morbidity.",https://pubmed.ncbi.nlm.nih.gov/30123704
+Beagle,Cavalier King Charles Spaniel,Degenerative Valve Disease,1.06,Canine Cardiology Crossbreed Review,"Small companion crosses showed additive cardiac valve degeneration prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123705

@@ -12,7 +12,6 @@ from app.ui.renderer.home import HomeRenderer
 from app.ui.renderer.journey import JourneyRenderer
 from app.ui.renderer.view_models import vm_to_dict
 from app.ui.renderer.navigation import NavigationRouter
-from app.ui.renderer.shop import ShopRenderer
 from app.ui.renderer.template_engine import load_css, render_template
 from app.ui.renderer.wellness import WellnessRenderer
 
@@ -20,7 +19,7 @@ from app.ui.renderer.wellness import WellnessRenderer
 @pytest.fixture
 def dolly_profile() -> DogProfileInput:
     return DogProfileInput(
-        name="dolly",
+        name="Dolly",
         primary_breed="Golden Retriever",
         secondary_breed="Labrador Retriever",
         breed_split_pct=50.0,
@@ -69,6 +68,7 @@ def test_journey_template_renders(engine_report, dolly_profile):
     assert "Recommended Care Packages" in html
     assert "Grooming Diary" in html
     assert "Frozen yogurt bites" in html
+    assert "Wagtopia Shop" not in html
 
 
 def test_wellness_component_templates_render(engine_report, dolly_profile):
@@ -83,12 +83,7 @@ def test_wellness_component_templates_render(engine_report, dolly_profile):
     assert "Full Nutrition Report" in html
 
 
-def test_shop_and_diary_templates_render(engine_report):
-    repo = DataRepository("data")
-    shop_vm = ShopRenderer().build(engine_report, repo.product_catalog(), repo.product_pricing())
-    html = render_template("shop/page.html", **asdict(shop_vm))
-    assert "Wagtopia Shop" in html
-
+def test_diary_template_renders():
     diary_vm = DiaryRenderer().build("jul12")
     html = render_template("diary/page.html", **asdict(diary_vm))
     assert "Grooming Diary" in html

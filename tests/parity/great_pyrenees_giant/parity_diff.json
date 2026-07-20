@@ -2,9 +2,16 @@
   "profile_id": "great_pyrenees_giant",
   "golden": "great_pyrenees.json",
   "mode": "golden_vs_python",
-  "diff_count": 0,
+  "diff_count": 1,
   "tolerance": 0.05,
-  "elapsed_ms": 1142.2,
-  "generated_at": "2026-07-17T14:04:55.020822+00:00",
-  "diffs": []
+  "elapsed_ms": 667.0,
+  "generated_at": "2026-07-17T18:55:49.803922+00:00",
+  "diffs": [
+    {
+      "path": "wellness_summary.greeting",
+      "kind": "string",
+      "js": "Good evening",
+      "py": "Good morning"
+    }
+  ]
 }

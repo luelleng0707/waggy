@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import logging
-import re
 from typing import Any
 
 import pandas as pd
@@ -26,28 +25,37 @@ from app.agent.utils import (
 
 logger = logging.getLogger(__name__)
 
-LEGACY_MOCK_PATTERN = re.compile(r"^(SF00[1-5]|SP00[1-8]|TR00[1-2])$", re.I)
+def _is_production_product_id(product_id: str, repo: DataRepository | None = None) -> bool:
+    if not product_id:
+        return False
+    if repo is not None:
+        return repo.is_active_product_id(str(product_id))
+    try:
+        from app.data.runtime import get_platform
+
+        return get_platform().is_active_product_id(str(product_id))
+    except RuntimeError:
+        return True
 
 
-def _is_production_product_id(product_id: str) -> bool:
-    return bool(product_id) and not LEGACY_MOCK_PATTERN.match(str(product_id))
+def _ingredient_alias_groups(repo: DataRepository | None = None) -> dict[str, set[str]]:
+    if repo is not None:
+        return repo.ingredient_alias_groups()
+    try:
+        from app.data.runtime import get_platform
+
+        return get_platform().ingredient_alias_groups()
+    except RuntimeError:
+        return {}
 
 
-INGREDIENT_ALIASES = {
-    "omega_3": {"omega_3", "epa_dha"},
-    "glucosamine": {"glucosamine", "joint_health_formula"},
-    "probiotics": {"probiotics", "brady_yeast_probiotics"},
-}
-
-
-def _keys_match(target_key: str, component_key: str) -> bool:
+def _keys_match(target_key: str, component_key: str, repo: DataRepository | None = None) -> bool:
     if target_key == component_key:
         return True
-    for canonical, aliases in INGREDIENT_ALIASES.items():
+    for aliases in _ingredient_alias_groups(repo).values():
         if target_key in aliases and component_key in aliases:
             return True
     return False
-
 
 def _component_to_ingredient_key(name: str) -> str:
     key = ingredient_key(name.replace("+", "_").replace("EPA+DHA", "omega_3"))

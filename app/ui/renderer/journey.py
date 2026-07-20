@@ -9,7 +9,6 @@ from app.agent.state import DogProfileInput
 from app.agent.utils import DataRepository
 from app.ui.renderer.diary import DiaryRenderer
 from app.ui.renderer.home import HomeRenderer, HomePageVM
-from app.ui.renderer.shop import ShopRenderer
 from app.ui.renderer.wellness import (
     NutritionTraceVM,
     PackageCardVM,
@@ -66,7 +65,6 @@ class JourneyPageVM:
     package_detail: PackageDetailVM
     nutrition_traces: list[NutritionTraceVM]
     product_analysis: ProductAnalysisVM | None
-    shop_items: list[dict[str, str]]
     diary_selected_label: str
     diary_logs: list[dict[str, str]]
 
@@ -78,7 +76,6 @@ class JourneyRenderer:
         self.repo = repo
         self.home_renderer = HomeRenderer()
         self.wellness_renderer = WellnessRenderer(repo)
-        self.shop_renderer = ShopRenderer()
         self.diary_renderer = DiaryRenderer()
 
     def build(
@@ -102,9 +99,6 @@ class JourneyRenderer:
                 report, profile, package_title, product_name
             )
 
-        shop_vm = self.shop_renderer.build(
-            report, self.repo.product_catalog(), self.repo.product_pricing()
-        )
         diary_vm = self.diary_renderer.build(diary_day)
 
         traits = report.get("biology", {}).get("trait_summary", [])[:8]
@@ -185,15 +179,6 @@ class JourneyRenderer:
             package_detail=package_detail,
             nutrition_traces=nutrition.traces,
             product_analysis=product_analysis,
-            shop_items=[
-                {
-                    "name": i.name,
-                    "category": i.category,
-                    "product_id": i.product_id,
-                    "price_display": i.price_display,
-                }
-                for i in shop_vm.items
-            ],
             diary_selected_label=diary_vm.selected_label,
             diary_logs=diary_vm.selected_logs,
         )

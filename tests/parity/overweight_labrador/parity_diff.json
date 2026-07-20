@@ -2,9 +2,16 @@
   "profile_id": "overweight_labrador",
   "golden": "overweight_labrador.json",
   "mode": "golden_vs_python",
-  "diff_count": 0,
+  "diff_count": 1,
   "tolerance": 0.05,
-  "elapsed_ms": 876.0,
-  "generated_at": "2026-07-17T14:04:59.798414+00:00",
-  "diffs": []
+  "elapsed_ms": 748.6,
+  "generated_at": "2026-07-17T18:55:53.486726+00:00",
+  "diffs": [
+    {
+      "path": "wellness_summary.greeting",
+      "kind": "string",
+      "js": "Good evening",
+      "py": "Good morning"
+    }
+  ]
 }

@@ -1,0 +1,49 @@
+# Waggy Scientific Data Warehouse - Phase 1
+version: "0.1.0-phase1"
+status: scaffolding_only
+production_data_root: data/
+warehouse_root: warehouse/
+engine_reads: data/   # unchanged
+notes: |
+  Phase 1 creates schema, metadata, and generated audits only.
+  No CSV rows have been migrated from data/ into science/reference tables
+  except runtime/unit_conversion.csv seed rows.
+  Do not point the engine at warehouse/ until a later phase.
+
+layers:
+  reference: dimension / identity tables (headers only)
+  science: fact tables for risk, nutrition, products (headers only)
+  runtime: units, aliases, defaults, lookup maps
+  generated: audits produced from data/ scan
+
+tables:
+  reference:
+    - breeds.csv
+    - traits.csv
+    - conditions.csv
+    - ingredients.csv
+    - foods.csv
+    - nutrients.csv
+    - activities.csv
+    - climates.csv
+    - body_sizes.csv
+    - body_types.csv
+    - coat_types.csv
+    - skull_types.csv
+    - prevention_methods.csv
+    - papers.csv
+  science:
+    - breed_condition_risk.csv
+    - trait_condition_risk.csv
+    - mixed_trait_interactions.csv
+    - prevention_effectiveness.csv
+    - ingredient_evidence.csv
+    - food_nutrients.csv
+    - nutrient_targets.csv
+    - ingredient_food_sources.csv
+    - product_composition.csv
+  runtime:
+    - unit_conversion.csv
+    - aliases.csv
+    - parameter_defaults.csv
+    - lookup_maps.csv

@@ -4,19 +4,35 @@ from __future__ import annotations
 
 import logging
 import os
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 
 from app.agent.version import ALGORITHM_VERSION
 from app.agent.engine import PPIEWellnessAgent
 from app.agent.state import DogProfileInput
 from app.api.evidence import get_evidence_for_condition, get_products_for_condition
 from app.api.payload_adapter import map_legacy_response, profile_from_analyze_body
+from app.data.assessment_diff import compare_analyses
+from app.data.clinical_assessment import MODULE_IDS, build_clinical_assessment, get_assessment_module
+from app.data.clinical_report_builder import build_clinical_report
+from app.data.debug_boot import (
+    debug_status_payload,
+    is_local_dev_boot,
+    maybe_open_validation_console,
+    print_developer_banner,
+)
+from app.data.debug_presets import DEFAULT_PRESET_ID, get_preset_body, list_presets
+from app.data.debug_repository_browser import list_repository_tables, preview_table
+from app.data.engine_trace import build_engine_trace, is_engine_debug
+from app.data.report_generator import build_standard_report
+from app.data.report_models import build_all_report_models
+from app.data.validation_console import build_validation_console, console_to_markdown
 
 logging.basicConfig(
     level=logging.INFO,
@@ -38,9 +54,42 @@ VALID_KEYS = {
     if k.strip()
 }
 
-app = FastAPI(title="Wagtopia PPIE Wellness Agent API", version=ALGORITHM_VERSION)
+
+def _request_wants_debug(request: Request) -> bool:
+    debug_q = request.query_params.get("debug")
+    return str(debug_q or "").strip().lower() in ("1", "true", "yes", "on")
+
+
+def _require_debug(request: Request) -> None:
+    if not is_engine_debug(request_debug=_request_wants_debug(request)):
+        raise HTTPException(
+            status_code=403,
+            detail="Developer tools disabled. Set PPIE_DEBUG=true or pass ?debug=1.",
+        )
+
+
+@asynccontextmanager
+async def _lifespan(_app: FastAPI):
+    print_developer_banner()
+    maybe_open_validation_console()
+    yield
+
+
+app = FastAPI(
+    title="Wagtopia PPIE Wellness Agent API",
+    version=ALGORITHM_VERSION,
+    lifespan=_lifespan,
+)
 agent = PPIEWellnessAgent(data_dir=DATA_DIR)
 _groomer_sessions: dict[str, dict[str, Any]] = {}
+
+# Hot-reload CSVs under data/ without restarting the API process.
+try:
+    from app.data.watcher import start_data_watcher
+
+    start_data_watcher(DATA_DIR)
+except Exception:  # noqa: BLE001
+    logger.exception("Failed to start data watcher — hot reload disabled")
 
 app.add_middleware(
     CORSMiddleware,
@@ -63,6 +112,11 @@ async def request_timing(request: Request, call_next):
     elapsed_ms = round((datetime.now(timezone.utc).timestamp() - t0) * 1000, 1)
     response.headers["X-PPIE-Elapsed-Ms"] = str(elapsed_ms)
     response.headers["X-PPIE-Algorithm-Version"] = ALGORITHM_VERSION
+    try:
+        response.headers["X-PPIE-Data-Version"] = str(agent.repo.version)
+        response.headers["X-PPIE-Csv-Hash"] = str(agent.repo.csv_hash)
+    except Exception:  # noqa: BLE001
+        pass
     if request.url.path.startswith("/api") or request.url.path == "/health":
         logger.info(
             "request method=%s path=%s status=%s elapsed_ms=%s",
@@ -84,7 +138,22 @@ async def require_api_key(x_api_key: str | None = Header(default=None)) -> str:
 async def health() -> dict[str, Any]:
     csv_ok = True
     csv_detail = "ok"
+    meta = {
+        "data_version": None,
+        "csv_hash": None,
+        "loaded_files": 0,
+        "loaded_at": None,
+    }
     try:
+        from app.data.runtime import platform_meta
+
+        pm = platform_meta()
+        meta = {
+            "data_version": pm.version,
+            "csv_hash": pm.csv_hash,
+            "loaded_files": pm.file_count,
+            "loaded_at": pm.loaded_at,
+        }
         breeds = agent.repo.breeds()
         if breeds.empty:
             csv_ok = False
@@ -101,6 +170,99 @@ async def health() -> dict[str, Any]:
         "algorithm_version": ALGORITHM_VERSION,
         "runtime": "python",
         "csv": {"ok": csv_ok, "detail": csv_detail},
+        "data_version": meta["data_version"],
+        "csv_hash": meta["csv_hash"],
+        "loaded_files": meta["loaded_files"],
+        "loaded_at": meta["loaded_at"],
+    }
+
+
+@app.get("/api/v1/catalog")
+async def product_catalog(
+    _: str = Depends(require_api_key),
+    category: str | None = Query(default=None),
+    q: str | None = Query(default=None),
+) -> dict[str, Any]:
+    """Full product catalog from PRODUCT_* CSVs — no hardcoded products."""
+    rows = agent.repo.catalog_api_rows()
+    if category:
+        cat = category.lower()
+        rows = [
+            r for r in rows
+            if cat in str(r.get("category", "")).lower()
+            or cat in str(r.get("subcategory", "")).lower()
+        ]
+    if q:
+        query = q.lower()
+        rows = [
+            r for r in rows
+            if query in str(r.get("product_name") or r.get("name") or "").lower()
+            or query in str(r.get("product_id", "")).lower()
+            or query in str(r.get("brand", "")).lower()
+            or query in str(r.get("category", "")).lower()
+            or query in str(r.get("subcategory", "")).lower()
+        ]
+    return {
+        "products": rows,
+        "count": len(rows),
+        "data_version": agent.repo.version,
+        "csv_hash": agent.repo.csv_hash,
+    }
+
+
+@app.get("/api/v1/store")
+async def product_store(
+    _: str = Depends(require_api_key),
+    category: str | None = Query(default=None),
+    q: str | None = Query(default=None),
+    weight_kg: float | None = Query(default=None),
+) -> dict[str, Any]:
+    """
+    Joined storefront payload — catalog + pricing + components + feeding
+    + supplement/bakery extensions. Frontend should render this, not join CSVs.
+    """
+    rows = agent.repo.store_api_rows(weight_kg=weight_kg)
+    if category:
+        cat = category.lower()
+        rows = [
+            r for r in rows
+            if cat in str(r.get("category", "")).lower()
+            or cat in str(r.get("subcategory", "")).lower()
+        ]
+    if q:
+        query = q.lower()
+        rows = [
+            r for r in rows
+            if query in str(r.get("product_name") or r.get("name") or "").lower()
+            or query in str(r.get("product_id", "")).lower()
+            or query in str(r.get("brand", "")).lower()
+            or query in str(r.get("category", "")).lower()
+            or query in str(r.get("subcategory", "")).lower()
+        ]
+    return {
+        "products": rows,
+        "count": len(rows),
+        "weight_kg": weight_kg,
+        "data_version": agent.repo.version,
+        "csv_hash": agent.repo.csv_hash,
+        "loaded_at": agent.repo.loaded_at,
+    }
+
+
+@app.get("/api/v1/store/{product_id}")
+async def product_store_detail(
+    product_id: str,
+    _: str = Depends(require_api_key),
+    weight_kg: float | None = Query(default=None),
+) -> dict[str, Any]:
+    rows = agent.repo.store_api_rows(weight_kg=weight_kg)
+    match = next((r for r in rows if str(r.get("product_id")) == product_id), None)
+    if not match:
+        raise HTTPException(status_code=404, detail=f"Product not found: {product_id}")
+    return {
+        "product": match,
+        "data_version": agent.repo.version,
+        "csv_hash": agent.repo.csv_hash,
     }
 
 
@@ -136,6 +298,284 @@ async def analyze_v1(
     except Exception as exc:
         logger.exception("analyze failure")
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/v1/clinical-report")
+async def clinical_report_v1(
+    request: Request,
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    """Standardized clinical report over frozen PPIE analyze output.
+
+    Returns JSON only — never HTML.
+    `assessment` is the Phase 17.5 modular ClinicalAssessment contract.
+    `report` remains schema-v4 widgets for transitional clients.
+    """
+    body = await request.json()
+    pet_key = str(body.get("pet_name") or body.get("petName") or "").lower()
+    session = _groomer_sessions.get(pet_key) if pet_key else None
+    observed = list(body.get("observed_conditions") or [])
+    if session:
+        observed = list({*observed, *(session.get("observed_conditions") or [])})
+    body = {**body, "observed_conditions": observed}
+    try:
+        profile = profile_from_analyze_body(body)
+        analyze = await agent.generate_reproducible_report(profile)
+        report = build_standard_report(agent.repo, analyze)
+        clinical_v3 = build_clinical_report(agent.repo, analyze)
+        models = build_all_report_models(agent.repo, analyze)
+        assessment = build_clinical_assessment(agent.repo, analyze)
+        payload = {
+            "analyze": analyze,
+            "assessment": assessment,
+            "report": report,
+            "reportModels": models,
+            "clinicalReport": clinical_v3,
+        }
+        debug_q = request.query_params.get("debug")
+        request_debug = str(debug_q or "").strip().lower() in ("1", "true", "yes", "on")
+        if is_engine_debug(request_debug=request_debug):
+            payload["trace"] = build_engine_trace(agent.repo, analyze, assessment)
+        return payload
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("clinical-report failure")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/v1/ppie/assess")
+async def ppie_assess(
+    request: Request,
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    """Stable integration contract: DogProfile-like body → ClinicalAssessment.
+
+    Runs the clinical pipeline once, then projects modular report objects.
+    Optional query `module` returns a single module envelope for independent cache.
+    When PPIE_DEBUG / DEBUG_ENGINE is true, or `?debug=1`, attaches `trace` (EngineTrace).
+    """
+    body = await request.json()
+    module = request.query_params.get("module")
+    debug_q = request.query_params.get("debug")
+    request_debug = str(debug_q or "").strip().lower() in ("1", "true", "yes", "on")
+    try:
+        profile = profile_from_analyze_body(body)
+        t0 = datetime.now(timezone.utc).timestamp()
+        analyze = await agent.generate_reproducible_report(profile)
+        analyze_ms = round((datetime.now(timezone.utc).timestamp() - t0) * 1000, 2)
+        t1 = datetime.now(timezone.utc).timestamp()
+        assessment = build_clinical_assessment(agent.repo, analyze)
+        assess_ms = round((datetime.now(timezone.utc).timestamp() - t1) * 1000, 2)
+        if module:
+            if module not in MODULE_IDS:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Unknown module '{module}'. Expected one of: {', '.join(MODULE_IDS)}",
+                )
+            mod = get_assessment_module(assessment, module)
+            out: dict[str, Any] = {
+                "meta": assessment["meta"],
+                "module": mod,
+            }
+            if is_engine_debug(request_debug=request_debug):
+                out["trace"] = build_engine_trace(
+                    agent.repo,
+                    analyze,
+                    assessment,
+                    timings={"analyze": analyze_ms, "assessment": assess_ms},
+                )
+            return out
+        if is_engine_debug(request_debug=request_debug):
+            assessment = {
+                **assessment,
+                "trace": build_engine_trace(
+                    agent.repo,
+                    analyze,
+                    assessment,
+                    timings={"analyze": analyze_ms, "assessment": assess_ms},
+                ),
+            }
+        return assessment
+    except HTTPException:
+        raise
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("ppie assess failure")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/v1/ppie/trace")
+async def ppie_trace(
+    request: Request,
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    """Developer-only EngineTrace. Requires PPIE_DEBUG / DEBUG_ENGINE or ?debug=1."""
+    body = await request.json()
+    debug_q = request.query_params.get("debug")
+    request_debug = str(debug_q or "").strip().lower() in ("1", "true", "yes", "on")
+    if not is_engine_debug(request_debug=request_debug):
+        raise HTTPException(
+            status_code=403,
+            detail="Engine trace disabled. Set PPIE_DEBUG=true or pass ?debug=1.",
+        )
+    try:
+        profile = profile_from_analyze_body(body)
+        t0 = datetime.now(timezone.utc).timestamp()
+        analyze = await agent.generate_reproducible_report(profile)
+        analyze_ms = round((datetime.now(timezone.utc).timestamp() - t0) * 1000, 2)
+        assessment = build_clinical_assessment(agent.repo, analyze)
+        return build_engine_trace(
+            agent.repo,
+            analyze,
+            assessment,
+            timings={"analyze": analyze_ms},
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("ppie trace failure")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/v1/ppie/validation-console")
+async def ppie_validation_console(
+    request: Request,
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    """Developer Validation Console document. Requires debug."""
+    _require_debug(request)
+    body = await request.json()
+    try:
+        profile = profile_from_analyze_body(body)
+        t0 = datetime.now(timezone.utc).timestamp()
+        analyze = await agent.generate_reproducible_report(profile)
+        analyze_ms = round((datetime.now(timezone.utc).timestamp() - t0) * 1000, 2)
+        t1 = datetime.now(timezone.utc).timestamp()
+        assessment = build_clinical_assessment(agent.repo, analyze)
+        assess_ms = round((datetime.now(timezone.utc).timestamp() - t1) * 1000, 2)
+        return build_validation_console(
+            agent.repo,
+            analyze,
+            assessment,
+            timings={"analyze": analyze_ms, "assessment": assess_ms},
+            raw_request=body,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("validation console failure")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/v1/ppie/validation-console/markdown")
+async def ppie_validation_console_md(
+    request: Request,
+    _: str = Depends(require_api_key),
+):
+    """Markdown export of Validation Console (debug only)."""
+    from fastapi.responses import PlainTextResponse
+
+    _require_debug(request)
+    body = await request.json()
+    try:
+        profile = profile_from_analyze_body(body)
+        analyze = await agent.generate_reproducible_report(profile)
+        assessment = build_clinical_assessment(agent.repo, analyze)
+        doc = build_validation_console(agent.repo, analyze, assessment, raw_request=body)
+        return PlainTextResponse(console_to_markdown(doc), media_type="text/markdown")
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("validation console markdown failure")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/v1/ppie/validation-console/compare")
+async def ppie_validation_console_compare(
+    request: Request,
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    """Side-by-side assessment diff (debug only). Body: {left, right, left_label?, right_label?}."""
+    _require_debug(request)
+    body = await request.json()
+    left_body = body.get("left") or {}
+    right_body = body.get("right") or {}
+    if not left_body or not right_body:
+        raise HTTPException(status_code=400, detail="Body must include left and right profile objects")
+    try:
+        left_profile = profile_from_analyze_body(left_body)
+        right_profile = profile_from_analyze_body(right_body)
+        t0 = datetime.now(timezone.utc).timestamp()
+        left_analyze = await agent.generate_reproducible_report(left_profile)
+        left_ms = round((datetime.now(timezone.utc).timestamp() - t0) * 1000, 2)
+        t1 = datetime.now(timezone.utc).timestamp()
+        right_analyze = await agent.generate_reproducible_report(right_profile)
+        right_ms = round((datetime.now(timezone.utc).timestamp() - t1) * 1000, 2)
+        left_assessment = build_clinical_assessment(agent.repo, left_analyze)
+        right_assessment = build_clinical_assessment(agent.repo, right_analyze)
+        diff = compare_analyses(
+            left_analyze,
+            right_analyze,
+            left_raw=left_body,
+            right_raw=right_body,
+            left_label=str(body.get("left_label") or left_body.get("name") or "Left"),
+            right_label=str(body.get("right_label") or right_body.get("name") or "Right"),
+            left_timings={"analyze": left_ms},
+            right_timings={"analyze": right_ms},
+        )
+        return {
+            "diff": diff,
+            "left_console": build_validation_console(
+                agent.repo, left_analyze, left_assessment, raw_request=left_body, timings={"analyze": left_ms}
+            ),
+            "right_console": build_validation_console(
+                agent.repo, right_analyze, right_assessment, raw_request=right_body, timings={"analyze": right_ms}
+            ),
+        }
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("validation console compare failure")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/v1/ppie/debug/status")
+async def ppie_debug_status(request: Request) -> dict[str, Any]:
+    """Boot id / csv hash for live refresh. Requires debug."""
+    _require_debug(request)
+    return debug_status_payload(agent.repo)
+
+
+@app.get("/api/v1/ppie/debug/presets")
+async def ppie_debug_presets(request: Request) -> dict[str, Any]:
+    _require_debug(request)
+    return {"schema": "debug_presets.v1", "default": DEFAULT_PRESET_ID, "presets": list_presets()}
+
+
+@app.get("/api/v1/ppie/debug/repository")
+async def ppie_debug_repository(request: Request, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    """Read-only manifest table catalog."""
+    _require_debug(request)
+    return list_repository_tables(agent.repo)
+
+
+@app.get("/api/v1/ppie/debug/repository/{table}")
+async def ppie_debug_repository_table(
+    table: str,
+    request: Request,
+    _: str = Depends(require_api_key),
+    limit: int = Query(default=25, ge=1, le=200),
+    offset: int = Query(default=0, ge=0),
+    q: str | None = Query(default=None),
+) -> dict[str, Any]:
+    """Read-only table preview."""
+    _require_debug(request)
+    try:
+        return preview_table(agent.repo, table, limit=limit, offset=offset, q=q)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
 
 
 @app.post("/api/recommendations")
@@ -289,10 +729,107 @@ if (_static_root / "index.html").exists():
             headers={"Cache-Control": "no-cache"},
         )
 
+    @app.get("/report-renderer.js")
+    async def serve_report_renderer_js() -> FileResponse:
+        return FileResponse(
+            _static_root / "report-renderer.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/catalog-service.js")
+    async def serve_catalog_service() -> FileResponse:
+        return FileResponse(
+            _static_root / "catalog-service.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/ppie-ui.js")
+    async def serve_ppie_ui() -> FileResponse:
+        return FileResponse(
+            _static_root / "ppie-ui.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/ppie-trace.js")
+    async def serve_ppie_trace() -> FileResponse:
+        return FileResponse(
+            _static_root / "ppie-trace.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/ppie-validation-console.js")
+    async def serve_ppie_validation_console_js() -> FileResponse:
+        return FileResponse(
+            _static_root / "ppie-validation-console.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/ppie-validation-console.css")
+    async def serve_ppie_validation_console_css() -> FileResponse:
+        return FileResponse(
+            _static_root / "ppie-validation-console.css",
+            media_type="text/css",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/ppie-dev-menu.js")
+    async def serve_ppie_dev_menu() -> FileResponse:
+        return FileResponse(
+            _static_root / "ppie-dev-menu.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/debug/calculation")
+    async def debug_calculation_page(request: Request):
+        """Internal Validation Console HTML. Requires debug env or ?debug=1."""
+        wants = _request_wants_debug(request)
+        if not is_engine_debug(request_debug=wants):
+            # Local uvicorn --reload: soft-redirect into debug=1 once
+            if is_local_dev_boot() and not wants:
+                return RedirectResponse(url="/debug/calculation?debug=1", status_code=302)
+            raise HTTPException(
+                status_code=403,
+                detail="Validation Console disabled. Set PPIE_DEBUG=true or open with ?debug=1.",
+            )
+        page = _static_root / "debug" / "calculation.html"
+        if not page.exists():
+            raise HTTPException(status_code=404, detail="Validation console page missing")
+        return FileResponse(page, media_type="text/html", headers={"Cache-Control": "no-cache"})
+
+    @app.get("/ppie-shell.js")
+    async def serve_ppie_shell() -> FileResponse:
+        return FileResponse(
+            _static_root / "ppie-shell.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/ppie-sheets.js")
+    async def serve_ppie_sheets() -> FileResponse:
+        return FileResponse(
+            _static_root / "ppie-sheets.js",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache"},
+        )
+
     @app.get("/styles.css")
     async def serve_styles() -> FileResponse:
         return FileResponse(
             _static_root / "styles.css",
+            media_type="text/css",
+            headers={"Cache-Control": "no-cache"},
+        )
+
+    @app.get("/theme.css")
+    async def serve_theme() -> FileResponse:
+        return FileResponse(
+            _static_root / "theme.css",
             media_type="text/css",
             headers={"Cache-Control": "no-cache"},
         )

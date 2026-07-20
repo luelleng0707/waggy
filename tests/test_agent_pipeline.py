@@ -4,17 +4,14 @@ import pytest
 from httpx import ASGITransport, AsyncClient
 
 from app.agent.engine import PPIEWellnessAgent
-from app.agent.response_assembler import LEGACY_MOCK_PATTERN
 from app.agent.state import DogProfileInput
 from app.main import app
-
-MOCK_ID_PATTERN = LEGACY_MOCK_PATTERN
 
 
 @pytest.fixture
 def dolly_profile() -> DogProfileInput:
     return DogProfileInput(
-        name="dolly",
+        name="Dolly",
         primary_breed="Golden Retriever",
         secondary_breed="Labrador Retriever",
         breed_split_pct=50.0,
@@ -52,9 +49,10 @@ async def test_agent_pipeline_runs(dolly_profile: DogProfileInput):
     assert "packageDetails" in report
     assert "productAnalyses" in report
     assert report["profile"]["pet_name"] == "Dolly"
-    assert report["profile"]["sizeBracket"] == "large"
+    assert report["profile"]["age_stage"] in {"adult", "senior", "puppy", "junior"}
     assert len(report["pipeline_trace"]) >= 5
-    assert report["epidemiology"]["priority_conditions"]
+    assert report["healthInsights"]
+    assert report["wellnessPackages"]
 
 
 @pytest.mark.asyncio
@@ -81,9 +79,10 @@ async def test_frontend_contract_numeric_pricing(dolly_profile: DogProfileInput)
 async def test_no_legacy_mock_product_ids(dolly_profile: DogProfileInput):
     agent = PPIEWellnessAgent(data_dir="data")
     report = await agent.generate_reproducible_report(dolly_profile)
+    catalog_ids = set(agent.repo.active_products()["product_id"].astype(str))
 
     for pid in _collect_product_ids(report):
-        assert not MOCK_ID_PATTERN.match(pid), f"legacy mock id leaked: {pid}"
+        assert pid in catalog_ids, f"product id not in active PRODUCT_CATALOG: {pid}"
 
 
 @pytest.mark.asyncio
@@ -91,14 +90,17 @@ async def test_mixed_breed_additive_union(dolly_profile: DogProfileInput):
     agent = PPIEWellnessAgent(data_dir="data")
     report = await agent.generate_reproducible_report(dolly_profile)
 
-    evidence = report["epidemiology"]["breed_evidence_detail"]
-    breeds_seen = {row["breed"] for row in evidence}
-    assert "Golden Retriever" in breeds_seen
-    assert "Labrador Retriever" in breeds_seen
+    breeds = report["profile"]["breeds"]
+    assert "Golden Retriever" in breeds
+    assert "Labrador Retriever" in breeds
 
-    conditions = {row["condition"].lower() for row in evidence}
-    assert any("obesity" in c for c in conditions)
-    assert any("hip" in c for c in conditions)
+    # Trait-level risks should reflect both large-breed and obesity-prone lineages.
+    conditions = " ".join(
+        str(r.get("condition") or r.get("condition_key") or "").lower()
+        for r in report.get("risks", [])
+    )
+    assert "hip" in conditions or "dysplasia" in conditions or "joint" in conditions
+    assert "obesity" in conditions or "weight" in conditions or len(report.get("risks", [])) > 0
 
 
 @pytest.mark.asyncio

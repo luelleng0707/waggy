@@ -2,9 +2,16 @@
   "profile_id": "dolly_golden_x_labrador",
   "golden": "dolly.json",
   "mode": "golden_vs_python",
-  "diff_count": 0,
+  "diff_count": 1,
   "tolerance": 0.05,
-  "elapsed_ms": 1912.1,
-  "generated_at": "2026-07-17T14:04:47.692247+00:00",
-  "diffs": []
+  "elapsed_ms": 967.1,
+  "generated_at": "2026-07-17T18:55:46.263146+00:00",
+  "diffs": [
+    {
+      "path": "wellness_summary.greeting",
+      "kind": "string",
+      "js": "Good evening",
+      "py": "Good morning"
+    }
+  ]
 }
