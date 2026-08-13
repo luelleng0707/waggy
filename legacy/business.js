@@ -1,8 +1,7 @@
 (function () {
   'use strict';
 
-  var API_KEY = window.WAGTOPIA_API_KEY || 'wagtopia-demo-key';
-  var ACCESS_KEY = new URLSearchParams(window.location.search).get('access_key') || '';
+  var API_KEY = window.WAGTOPIA_API_KEY || '';
   var DOLLY = {
     name: 'Dolly',
     pet_name: 'Dolly',
@@ -32,10 +31,9 @@
   async function run() {
     var headers = {
       'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'x-api-key': API_KEY
+      Accept: 'application/json'
     };
-    if (ACCESS_KEY) headers['x-wagtopia-access-key'] = ACCESS_KEY;
+    if (API_KEY) headers['x-api-key'] = API_KEY;
     var res = await fetch('/api/v1/presentation/three-surfaces', {
       method: 'POST',
       headers: headers,

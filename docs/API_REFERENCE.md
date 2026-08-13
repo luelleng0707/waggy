@@ -1,6 +1,6 @@
 # API_REFERENCE.md
 
-Auth: header `x-api-key` (default demo: `wagtopia-demo-key`).
+Auth: optional header `x-api-key` when `API_KEYS` is configured server-side.
 
 ## Clinical
 

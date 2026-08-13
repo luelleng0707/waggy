@@ -99,7 +99,7 @@
         <h1>EngineTrace</h1>
         <p class="tr-muted">${esc(trace.engine)} · alg ${esc(trace.algorithm_version)} · data ${esc(trace.data_version)} · ${esc(trace.equation_policy)}</p>
         <p class="tr-muted">Formula identifiers only — proprietary equations are never shown.</p>
-        <p class="tr-muted"><a href="/debug/calculation?debug=1">Open Clinical Execution Explorer</a> (formulas · evidence · full audit)</p>
+        <p class="tr-muted"><a href="/developer">Open Clinical Execution Explorer</a> (formulas · evidence · full audit)</p>
       </header>
       <nav class="tr-tabs">${tabs.map((t, i) => tabBtn(t[0], t[1], i === 0)).join('')}</nav>
       ${sectionPanel('profile', 'Profile', stageMeta(secs.profile))}

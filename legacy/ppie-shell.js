@@ -804,7 +804,7 @@
     if (!document.getElementById('ppie-vc-link')) {
       const a = document.createElement('a');
       a.id = 'ppie-vc-link';
-      a.href = '/debug/calculation?debug=1';
+      a.href = '/developer';
       a.textContent = 'Console';
       a.className = 'module-ghost';
       a.style.marginLeft = '0.5rem';

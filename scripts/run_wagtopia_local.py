@@ -74,7 +74,7 @@ class _LegacyGatewayHandler(SimpleHTTPRequestHandler):
             length = int(self.headers.get("Content-Length", "0") or "0")
             body = self.rfile.read(length) if length > 0 else None
         headers = {}
-        for key in ("Content-Type", "Accept", "x-api-key"):
+        for key in ("Content-Type", "Accept", "x-api-key", "x-wagtopia-access-key", "Cookie"):
             value = self.headers.get(key)
             if value:
                 headers[key] = value
@@ -133,7 +133,7 @@ class _LegacyGatewayHandler(SimpleHTTPRequestHandler):
             self.send_response(204)
             self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
-            self.send_header("Access-Control-Allow-Headers", "Content-Type,x-api-key,Accept")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type,x-api-key,x-wagtopia-access-key,Accept")
             self.end_headers()
             return
         self.send_error(HTTPStatus.NOT_FOUND)
@@ -281,7 +281,8 @@ class LocalInterfaceSuite:
         env = os.environ.copy()
         env.setdefault("PYTHONUNBUFFERED", "1")
         env["WAGTOPIA_API_BASE_URL"] = self.api_base_url
-        env["WAGTOPIA_API_KEY"] = self.args.api_key
+        if self.args.api_key:
+            env["WAGTOPIA_API_KEY"] = self.args.api_key
         env["WAGTOPIA_DEMO_MODE"] = "true" if self.args.demo_mode else "false"
         cmd = [sys.executable, "-m", "app.ui.cstc"]
         print(f"[CSTC_DESKTOP] Starting: {' '.join(cmd)}")
@@ -301,28 +302,26 @@ class LocalInterfaceSuite:
             raise RuntimeError("CSTC desktop process exited immediately.")
 
     def _print_status(self):
-        demo_key, demo_profile = default_demo_profile()
+        _demo_key, demo_profile = default_demo_profile()
         print("")
-        print("---------------------------------------------------------------")
-        print("WAGTOPIA LOCAL INTERFACE SUITE")
-        print("---------------------------------------------------------------")
-        print(f"API          {self.api_base_url}")
-        print("STATUS: RUNNING")
+        print("WAGTOPIA LOCAL DEMO")
         print("")
-        print(f"CUSTOMER UI  {self.customer_url}")
-        print("STATUS: RUNNING")
+        print("Customer:")
+        print(self.customer_url)
         print("")
-        print(f"BUSINESS UI  {self.business_url}")
-        print("STATUS: RUNNING")
+        print("Business:")
+        print(self.business_url)
         print("")
-        print(f"DEVELOPER UI {self.developer_url}")
-        print("STATUS: RUNNING")
+        print("Developer:")
+        print(self.developer_url)
         print("")
-        print("CSTC DESKTOP Native PySide6 window")
-        print(f"STATUS: {'RUNNING' if self.desktop_process is not None else 'SKIPPED'}")
+        print("API:")
+        print(f"{self.api_base_url}/docs")
         print("")
-        print(f"DEMO PROFILE {demo_key} ({demo_profile.name})")
-        print("---------------------------------------------------------------")
+        print("Health:")
+        print(f"{self.api_base_url}/health")
+        print("")
+        print(f"Demo profile: {demo_profile.name} (DEMO DATA)")
         print("")
 
     def _wait_forever(self):
@@ -390,7 +389,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--api-host", default="127.0.0.1")
     parser.add_argument("--api-port", type=int, default=8000)
     parser.add_argument("--ui-port", type=int, default=8080)
-    parser.add_argument("--api-key", default="wagtopia-demo-key")
+    parser.add_argument("--api-key", default="")
     parser.add_argument("--no-browser", action="store_true")
     parser.add_argument("--no-desktop", action="store_true")
     parser.add_argument("--demo-mode", dest="demo_mode", action="store_true", default=True)

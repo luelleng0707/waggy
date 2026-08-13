@@ -117,11 +117,13 @@ def build_three_surface_presentations(
     analyze: dict[str, Any],
     assessment: dict[str, Any] | None = None,
     validation_console: dict[str, Any] | None = None,
+    correlation_id: str | None = None,
 ) -> dict[str, Any]:
     signature = analysis_signature(analyze)
     return {
         "schema": "three_surface_presentation.v1",
         "analysis_signature": signature,
+        "presentation_correlation_id": correlation_id or "NOT AVAILABLE",
         "customer": build_customer_presentation(analyze, assessment),
         "business": build_business_presentation(analyze, assessment),
         "developer": build_developer_presentation(validation_console),

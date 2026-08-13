@@ -6,7 +6,7 @@
   const Catalog = window.CatalogService;
   const { API_BASE, API_KEY } = window.WagtopiaAPI || {
     API_BASE: window.location.origin,
-    API_KEY: 'wagtopia-demo-key'
+    API_KEY: ''
   };
   const esc = Catalog.escapeHtml;
   const CANONICAL_DEMO_PROFILE = Object.freeze({
@@ -492,13 +492,14 @@
         : []
     };
     const url = `${API_BASE}/api/v1/clinical-report${debugOn ? '?debug=1' : ''}`;
+    const headers = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    };
+    if (API_KEY) headers['x-api-key'] = API_KEY;
     const res = await fetch(url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'x-api-key': API_KEY
-      },
+      headers,
       body: JSON.stringify(requestBody)
     });
     if (!res.ok) throw new Error(`clinical-report HTTP ${res.status}`);

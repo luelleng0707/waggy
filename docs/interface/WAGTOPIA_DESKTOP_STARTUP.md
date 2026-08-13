@@ -25,7 +25,7 @@ py -3 -m app.ui.cstc
 
 ## Connection defaults
 - Base URL: `http://127.0.0.1:8000`
-- API key: `wagtopia-demo-key`
+- API key: empty by default unless `API_KEYS` is configured server-side
 
 Override with env vars if desired:
 - `WAGTOPIA_API_BASE_URL`

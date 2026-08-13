@@ -23,7 +23,7 @@
   - `/debug/calculation`
 - Result:
   - **No project source contains `calculavtion` typo.**
-  - Canonical route references consistently point to `/debug/calculation?debug=1`.
+  - Canonical developer route is `/developer`; `/debug/calculation` is compatibility-only.
 
 ### Most likely source of `calculavtion?debug=1` request
 - User/browser-side typo entry, stale non-project script, or extension-side navigation.

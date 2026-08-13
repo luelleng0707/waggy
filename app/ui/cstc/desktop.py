@@ -66,7 +66,7 @@ class LoginWindow(QWidget):
 
         form = QFormLayout()
         self.url_input = QLineEdit(os.getenv("WAGTOPIA_API_BASE_URL", "http://127.0.0.1:8000"))
-        self.key_input = QLineEdit(os.getenv("WAGTOPIA_API_KEY", "wagtopia-demo-key"))
+        self.key_input = QLineEdit(os.getenv("WAGTOPIA_API_KEY", ""))
         self.key_input.setEchoMode(QLineEdit.Password)
         self.trace_checkbox = QCheckBox("Request debug trace when available")
         self.trace_checkbox.setChecked(True)

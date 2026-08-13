@@ -5,9 +5,8 @@
 (function () {
   'use strict';
 
-  const API_KEY = 'wagtopia-demo-key';
+  const API_KEY = (window.WagtopiaAPI && window.WagtopiaAPI.API_KEY) || '';
   const NT = 'NOT CURRENTLY TRACEABLE';
-  const ACCESS_KEY = new URLSearchParams(location.search).get('access_key') || '';
 
   const PRESET_BODIES = {
     golden_retriever: {
@@ -117,8 +116,7 @@
       ...opts,
       headers: {
         Accept: 'application/json',
-        'x-api-key': API_KEY,
-        ...(ACCESS_KEY ? { 'x-wagtopia-access-key': ACCESS_KEY } : {}),
+        ...(API_KEY ? { 'x-api-key': API_KEY } : {}),
         ...(opts && opts.body ? { 'Content-Type': 'application/json' } : {}),
         ...(opts && opts.headers)
       }

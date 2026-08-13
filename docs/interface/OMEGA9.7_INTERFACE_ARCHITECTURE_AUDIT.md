@@ -23,10 +23,10 @@
 ## Current static/customer/developer interfaces
 
 - Customer page: `GET /` -> `legacy/index.html`
-- Developer page (legacy path): `GET /debug/calculation` -> `legacy/debug/calculation.html`
+- Developer compatibility page: `GET /debug/calculation` -> `legacy/debug/calculation.html`
 - New Ω9.7 routes added:
   - `GET /business` -> `legacy/business.html`
-  - `GET /developer` -> `legacy/debug/calculation.html`
+  - `GET /developer` -> `legacy/debug/calculation.html` (canonical)
 
 ## Current CSTC/PySide6 interface
 

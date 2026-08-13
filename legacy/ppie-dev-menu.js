@@ -28,14 +28,14 @@
         <a href="/?debug=1">Dashboard</a>
         <a href="/?debug=1#assessment">Clinical Assessment</a>
         <a href="/?debug=1" data-trace>Engine Trace</a>
-        <a href="/debug/calculation?debug=1">Clinical Execution Explorer</a>
-        <a href="/debug/calculation?debug=1#repository">Repository Retrieval</a>
-        <a href="/debug/calculation?debug=1#packages">Package Optimization</a>
+        <a href="/developer">Clinical Execution Explorer</a>
+        <a href="/developer#repository">Repository Retrieval</a>
+        <a href="/developer#packages">Package Optimization</a>
         <a href="/docs" target="_blank" rel="noopener">API Explorer</a>
-        <a href="/debug/calculation?debug=1#performance">Performance</a>
-        <a href="/debug/calculation?debug=1#validation">Validation</a>
-        <a href="/debug/calculation?debug=1#formulas">Formula Details</a>
-        <a href="/debug/calculation?debug=1#json">Export JSON</a>
+        <a href="/developer#performance">Performance</a>
+        <a href="/developer#validation">Validation</a>
+        <a href="/developer#formulas">Formula Details</a>
+        <a href="/developer#json">Export JSON</a>
       </div>
     `;
     document.body.appendChild(root);

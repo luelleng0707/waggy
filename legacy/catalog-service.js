@@ -6,7 +6,7 @@
   'use strict';
 
   const API_BASE = global.location.origin;
-  const API_KEY = 'wagtopia-demo-key';
+  const API_KEY = (global.WagtopiaAPI && global.WagtopiaAPI.API_KEY) || '';
 
   const CatalogService = {
     products: [],
@@ -31,8 +31,10 @@
       if (this.weightKg != null && !Number.isNaN(this.weightKg)) {
         url.searchParams.set('weight_kg', String(this.weightKg));
       }
+      const headers = { Accept: 'application/json' };
+      if (API_KEY) headers['x-api-key'] = API_KEY;
       const res = await fetch(url.toString(), {
-        headers: { Accept: 'application/json', 'x-api-key': API_KEY },
+        headers,
         cache: 'no-store'
       });
       if (!res.ok) throw new Error(`store HTTP ${res.status}`);

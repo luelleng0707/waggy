@@ -33,7 +33,7 @@ Optional environment-key gates:
 When set, supply value via:
 
 - HTTP header: `x-wagtopia-access-key`
-- or query parameter: `?access_key=<value>`
+- Optional compatibility path: query parameter `?access_key=<value>` (avoid for production links)
 
 Developer debug APIs also enforce `PPIE_DEBUG`/`?debug=1` semantics plus optional developer access key.
 

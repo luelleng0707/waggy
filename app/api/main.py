@@ -11,7 +11,7 @@ from typing import Any
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.responses import FileResponse, Response
 
 from app.agent.version import ALGORITHM_VERSION
 from app.agent.engine import PPIEWellnessAgent
@@ -52,7 +52,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = clinical_root_str()
 VALID_KEYS = {
     k.strip()
-    for k in os.getenv("API_KEYS", "wagtopia-demo-key,ppie-dev-key").split(",")
+    for k in os.getenv("API_KEYS", "").split(",")
     if k.strip()
 }
 
@@ -155,9 +155,34 @@ async def request_timing(request: Request, call_next):
 
 
 async def require_api_key(x_api_key: str | None = Header(default=None)) -> str:
+    if not VALID_KEYS:
+        return ""
     if not x_api_key or x_api_key not in VALID_KEYS:
         raise HTTPException(status_code=401, detail="Invalid or missing x-api-key")
     return x_api_key
+
+
+def _apply_surface_cookie(
+    *,
+    response: Response,
+    request: Request,
+    env_var: str,
+) -> None:
+    expected = str(os.getenv(env_var, "")).strip()
+    if not expected:
+        return
+    provided = _provided_surface_key(request).strip()
+    if provided != expected:
+        return
+    if request.cookies.get("wagtopia_access_key", "").strip() == expected:
+        return
+    response.set_cookie(
+        key="wagtopia_access_key",
+        value=expected,
+        httponly=True,
+        samesite="lax",
+        secure=False,
+    )
 
 
 @app.get("/health")
@@ -342,7 +367,13 @@ async def presentation_three_surfaces(
         if _request_wants_debug(request):
             _require_debug(request)
             console = build_validation_console(agent.repo, analyze, assessment, raw_request=body)
-        return build_three_surface_presentations(analyze, assessment, console)
+        corr = request.headers.get("x-wagtopia-correlation-id") or f"presentation-{int(datetime.now(timezone.utc).timestamp() * 1000)}"
+        return build_three_surface_presentations(
+            analyze,
+            assessment,
+            console,
+            correlation_id=corr,
+        )
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
@@ -1020,13 +1051,28 @@ async def index_page() -> FileResponse:
 @app.get("/business")
 async def business_page(request: Request) -> FileResponse:
     _require_surface_access(request, env_var="WAGTOPIA_BUSINESS_ACCESS_KEY", surface="business")
-    return _static_file_response("business.html", "text/html")
+    response = _static_file_response("business.html", "text/html")
+    _apply_surface_cookie(response=response, request=request, env_var="WAGTOPIA_BUSINESS_ACCESS_KEY")
+    return response
 
 
 @app.get("/developer")
 async def developer_page(request: Request) -> FileResponse:
     _require_surface_access(request, env_var="WAGTOPIA_DEVELOPER_ACCESS_KEY", surface="developer")
-    return _static_file_response("debug/calculation.html", "text/html")
+    response = _static_file_response("debug/calculation.html", "text/html")
+    _apply_surface_cookie(response=response, request=request, env_var="WAGTOPIA_DEVELOPER_ACCESS_KEY")
+    return response
+
+
+@app.get("/favicon.ico")
+async def favicon() -> Response:
+    svg = (
+        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>"
+        "<rect width='32' height='32' rx='6' fill='#1a237e'/>"
+        "<text x='16' y='21' text-anchor='middle' font-size='16' fill='white'>W</text>"
+        "</svg>"
+    )
+    return Response(content=svg, media_type="image/svg+xml")
 
 
 @app.get("/authoring/explorer")
@@ -1090,7 +1136,10 @@ async def serve_ppie_dev_menu() -> FileResponse:
 @app.get("/debug/calculation")
 async def debug_calculation_page(request: Request):
     """Internal Validation Console HTML shell (developer route)."""
-    return _static_file_response("debug/calculation.html", "text/html")
+    _require_surface_access(request, env_var="WAGTOPIA_DEVELOPER_ACCESS_KEY", surface="developer")
+    response = _static_file_response("debug/calculation.html", "text/html")
+    _apply_surface_cookie(response=response, request=request, env_var="WAGTOPIA_DEVELOPER_ACCESS_KEY")
+    return response
 
 
 @app.get("/ppie-shell.js")

@@ -12,7 +12,8 @@
           +------------+------------+
           |                         |
    Legacy static gateway      CSTC desktop shell
-   (customer + developer)     (PySide6 operator shell)
+  (customer + business +      (PySide6 operator shell)
+        developer)
           |                         |
           +------------+------------+
                        |

@@ -42,7 +42,7 @@ def main() -> int:
     print(f"http://{HOST}:{PORT}/health", flush=True)
     print("", flush=True)
     print("Developer debugger:", flush=True)
-    print(f"http://{HOST}:{PORT}/debug/calculation?debug=1", flush=True)
+    print(f"http://{HOST}:{PORT}/developer", flush=True)
     print("", flush=True)
     print("OpenAPI:", flush=True)
     print(f"http://{HOST}:{PORT}/openapi.json", flush=True)

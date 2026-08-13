@@ -78,7 +78,7 @@ class _CustomerGatewayHandler(SimpleHTTPRequestHandler):
             length = int(self.headers.get("Content-Length", "0") or "0")
             body = self.rfile.read(length) if length > 0 else None
         headers = {}
-        for key in ("Content-Type", "Accept", "x-api-key"):
+        for key in ("Content-Type", "Accept", "x-api-key", "x-wagtopia-access-key", "Cookie"):
             value = self.headers.get(key)
             if value:
                 headers[key] = value
@@ -160,7 +160,7 @@ class _CustomerGatewayHandler(SimpleHTTPRequestHandler):
             self.send_response(204)
             self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
-            self.send_header("Access-Control-Allow-Headers", "Content-Type,x-api-key,Accept")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type,x-api-key,x-wagtopia-access-key,Accept")
             self.end_headers()
             return
         self.send_error(HTTPStatus.NOT_FOUND)
@@ -191,7 +191,7 @@ class RemoteInterfaceSuite:
 
     @property
     def developer_url(self) -> str:
-        return f"http://127.0.0.1:{self.ui_port}/debug/calculation?debug=1"
+        return f"http://127.0.0.1:{self.ui_port}/developer"
 
     def run(self) -> int:
         self._register_signal_handlers()
@@ -265,9 +265,12 @@ class RemoteInterfaceSuite:
     def _verify_customer_surface(self):
         self._wait_url(self.customer_url)
         self._wait_url(f"http://127.0.0.1:{self.ui_port}/health")
+        headers = {"Accept": "application/json"}
+        if self.args.api_key:
+            headers["x-api-key"] = self.args.api_key
         req = urllib.request.Request(
             f"http://127.0.0.1:{self.ui_port}/api/v1/store?weight_kg=30",
-            headers={"Accept": "application/json", "x-api-key": self.args.api_key},
+            headers=headers,
         )
         with urllib.request.urlopen(req, timeout=5) as response:
             if response.status != 200:
@@ -395,7 +398,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--api-host", default="127.0.0.1")
     parser.add_argument("--api-port", type=int, default=8000)
     parser.add_argument("--ui-port", type=int, default=8080)
-    parser.add_argument("--api-key", default="wagtopia-demo-key")
+    parser.add_argument("--api-key", default="")
     parser.add_argument("--api-debug", dest="api_debug", action="store_true", default=True)
     parser.add_argument("--no-api-debug", dest="api_debug", action="store_false")
     parser.add_argument("--no-tunnel", action="store_true", help="Skip ngrok startup.")
