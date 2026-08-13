@@ -537,14 +537,44 @@
     }
   }
 
+  function classifyError(err) {
+    const text = String(err && (err.message || err) || '').toLowerCase();
+    if (text.includes('401') || text.includes('403')) return 'authentication/configuration failure';
+    if (text.includes('failed to fetch') || text.includes('networkerror') || text.includes('network')) return 'network failure';
+    if (text.includes('http 5')) return 'service unavailable';
+    return 'unavailable';
+  }
+
+  function showBootState(kind, detail) {
+    const root = document.getElementById('page-module');
+    if (!root) return;
+    const message = detail ? `${kind}: ${detail}` : kind;
+    root.innerHTML = `<div class="empty-state" role="status">
+      <p><strong>${esc(message)}</strong></p>
+      <p>Retry the analysis when the service is available.</p>
+      <button type="button" id="wagtopia-retry-boot" class="module-ghost">Retry</button>
+    </div>`;
+    const retry = document.getElementById('wagtopia-retry-boot');
+    retry?.addEventListener('click', () => {
+      boot(true).catch((bootErr) => console.error('[Wagtopia] retry failed', bootErr));
+    });
+  }
+
   async function boot(forceReload) {
     if (bootPromise && !forceReload) return bootPromise;
     bootPromise = (async () => {
       const weight = Number(activeProfile.weight || 30) || 30;
-      await Catalog.load(weight);
+      showBootState('loading');
+      try {
+        await Catalog.load(weight);
+      } catch (err) {
+        showBootState(classifyError(err), String(err && err.message || err));
+        throw err;
+      }
       try {
         await loadClinicalReport(activeProfile);
       } catch (err) {
+        showBootState(classifyError(err), String(err && err.message || err));
         showAnalyzeError(err);
       }
     })();

@@ -354,7 +354,6 @@ async def analyze_v1(
 @app.post("/api/v1/presentation/three-surfaces")
 async def presentation_three_surfaces(
     request: Request,
-    _: str = Depends(require_api_key),
 ) -> dict[str, Any]:
     """Single-analysis projection for customer/business/developer surfaces."""
     _require_surface_access(request, env_var="WAGTOPIA_BUSINESS_ACCESS_KEY", surface="business")
@@ -384,7 +383,6 @@ async def presentation_three_surfaces(
 @app.post("/api/v1/clinical-report")
 async def clinical_report_v1(
     request: Request,
-    _: str = Depends(require_api_key),
 ) -> dict[str, Any]:
     """Standardized clinical report over frozen PPIE analyze output.
 
@@ -490,7 +488,6 @@ async def ppie_assess(
 @app.post("/api/v1/ppie/trace")
 async def ppie_trace(
     request: Request,
-    _: str = Depends(require_api_key),
 ) -> dict[str, Any]:
     """Developer-only EngineTrace. Requires PPIE_DEBUG / DEBUG_ENGINE or ?debug=1."""
     body = await request.json()
@@ -523,7 +520,6 @@ async def ppie_trace(
 @app.post("/api/v1/ppie/validation-console")
 async def ppie_validation_console(
     request: Request,
-    _: str = Depends(require_api_key),
 ) -> dict[str, Any]:
     """Developer Validation Console document. Requires debug."""
     _require_debug(request)
@@ -561,7 +557,6 @@ async def ppie_validation_console(
 @app.post("/api/v1/ppie/validation-console/markdown")
 async def ppie_validation_console_md(
     request: Request,
-    _: str = Depends(require_api_key),
 ):
     """Markdown export of Validation Console (debug only)."""
     from fastapi.responses import PlainTextResponse
@@ -584,7 +579,6 @@ async def ppie_validation_console_md(
 @app.post("/api/v1/ppie/validation-console/compare")
 async def ppie_validation_console_compare(
     request: Request,
-    _: str = Depends(require_api_key),
 ) -> dict[str, Any]:
     """Side-by-side assessment diff (debug only). Body: {left, right, left_label?, right_label?}."""
     _require_debug(request)
@@ -634,7 +628,6 @@ async def ppie_validation_console_compare(
 async def ppie_validation_console_execution(
     execution_id: str,
     request: Request,
-    _: str = Depends(require_api_key),
 ) -> dict[str, Any]:
     """Read-only execution provenance record from last validation-console run."""
     _require_debug(request)
@@ -660,7 +653,7 @@ async def ppie_debug_presets(request: Request) -> dict[str, Any]:
 
 
 @app.get("/api/v1/ppie/debug/repository")
-async def ppie_debug_repository(request: Request, _: str = Depends(require_api_key)) -> dict[str, Any]:
+async def ppie_debug_repository(request: Request) -> dict[str, Any]:
     """Read-only manifest table catalog."""
     _require_debug(request)
     return list_repository_tables(agent.repo)
@@ -670,7 +663,6 @@ async def ppie_debug_repository(request: Request, _: str = Depends(require_api_k
 async def ppie_debug_repository_table(
     table: str,
     request: Request,
-    _: str = Depends(require_api_key),
     limit: int = Query(default=25, ge=1, le=200),
     offset: int = Query(default=0, ge=0),
     q: str | None = Query(default=None),
