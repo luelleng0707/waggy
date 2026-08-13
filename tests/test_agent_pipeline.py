@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Smoke tests for PPIE Python agent pipeline and JS frontend contract."""
 
 import pytest
@@ -39,7 +40,7 @@ def _collect_product_ids(payload: dict) -> list[str]:
 
 @pytest.mark.asyncio
 async def test_agent_pipeline_runs(dolly_profile: DogProfileInput):
-    agent = PPIEWellnessAgent(data_dir="data")
+    agent = PPIEWellnessAgent(data_dir=clinical_root_str())
     report = await agent.generate_reproducible_report(dolly_profile)
 
     assert report["engine"] == "PPIE"
@@ -57,7 +58,7 @@ async def test_agent_pipeline_runs(dolly_profile: DogProfileInput):
 
 @pytest.mark.asyncio
 async def test_frontend_contract_numeric_pricing(dolly_profile: DogProfileInput):
-    agent = PPIEWellnessAgent(data_dir="data")
+    agent = PPIEWellnessAgent(data_dir=clinical_root_str())
     report = await agent.generate_reproducible_report(dolly_profile)
 
     for pkg in report["wellnessPackages"]:
@@ -77,7 +78,7 @@ async def test_frontend_contract_numeric_pricing(dolly_profile: DogProfileInput)
 
 @pytest.mark.asyncio
 async def test_no_legacy_mock_product_ids(dolly_profile: DogProfileInput):
-    agent = PPIEWellnessAgent(data_dir="data")
+    agent = PPIEWellnessAgent(data_dir=clinical_root_str())
     report = await agent.generate_reproducible_report(dolly_profile)
     catalog_ids = set(agent.repo.active_products()["product_id"].astype(str))
 
@@ -87,7 +88,7 @@ async def test_no_legacy_mock_product_ids(dolly_profile: DogProfileInput):
 
 @pytest.mark.asyncio
 async def test_mixed_breed_additive_union(dolly_profile: DogProfileInput):
-    agent = PPIEWellnessAgent(data_dir="data")
+    agent = PPIEWellnessAgent(data_dir=clinical_root_str())
     report = await agent.generate_reproducible_report(dolly_profile)
 
     breeds = report["profile"]["breeds"]

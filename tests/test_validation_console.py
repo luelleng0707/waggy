@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Phase 5 Validation Console — observatory payload tests."""
 
 import asyncio
@@ -8,7 +9,11 @@ from app.agent.engine import PPIEWellnessAgent
 from app.agent.state import DogProfileInput
 from app.agent.utils import DataRepository
 from app.data.clinical_assessment import build_clinical_assessment
-from app.data.validation_console import NOT_TRACEABLE, build_validation_console, console_to_markdown
+from app.debug.clinical_execution_debug import (
+    NOT_TRACEABLE,
+    build_validation_console,
+    console_to_markdown,
+)
 from app.inference.formula_registry import FORMULA_REGISTRY, FORMULA_RISK
 
 
@@ -24,8 +29,8 @@ def dolly():
         current_environment="Shanghai Summer",
         activity_level="High",
     )
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(profile))
-    repo = DataRepository("data")
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(profile))
+    repo = DataRepository(clinical_root_str())
     assessment = build_clinical_assessment(repo, analyze)
     return repo, analyze, assessment
 
@@ -65,10 +70,21 @@ def test_analyze_debug_observatory(dolly):
 def test_validation_console_v5_schema(dolly):
     repo, analyze, assessment = dolly
     doc = build_validation_console(repo, analyze, assessment, raw_request={"name": "Dolly"})
-    assert doc["schema"] == "validation_console.v7"
+    assert doc["schema"] == "validation_console.v8"
     assert doc.get("single_page") is True
-    assert doc.get("primary_view") == "developer_report"
-    assert doc["nav"][0]["id"] == "s0"
+    assert doc.get("primary_view") == "clinical_execution_explorer"
+    assert doc["nav"][0]["id"] == "input"
+    assert {n["id"] for n in doc["nav"]} >= {
+        "input",
+        "validation",
+        "repository",
+        "timeline",
+        "formulas",
+        "evidence",
+        "risks",
+        "nutrition",
+        "performance",
+    }
     assert doc["formula_executions"]
     assert len(doc["formula_registry"]) == len(FORMULA_REGISTRY)
     first_fx = next(fx for fx in doc["formula_executions"] if fx.get("formula_id") == FORMULA_RISK)

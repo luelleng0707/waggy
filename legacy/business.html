@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wagtopia Business Dashboard</title>
+  <link rel="stylesheet" href="/business.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Wagtopia Business Dashboard</h1>
+    <div class="topbar-links">
+      <a href="/">Customer</a>
+      <a href="/developer">Developer</a>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>Navigation</h2>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#health">Health Opportunities</a>
+        <a href="#financial">Financial Model</a>
+        <a href="#evidence">Evidence</a>
+      </nav>
+      <div class="badge">DEMO DATA</div>
+      <button id="run-analysis" type="button">Run Demo Analysis</button>
+    </aside>
+
+    <section class="content" id="dashboard">
+      <section id="overview" class="card">
+        <h2>Overview</h2>
+        <div id="overview-grid" class="grid"></div>
+      </section>
+      <section id="portfolio" class="card">
+        <h2>Portfolio</h2>
+        <div id="portfolio-grid"></div>
+      </section>
+      <section id="health" class="card">
+        <h2>Health Opportunities</h2>
+        <div id="health-grid"></div>
+      </section>
+      <section id="financial" class="card">
+        <h2>Financial Model</h2>
+        <div id="financial-grid"></div>
+      </section>
+      <section id="evidence" class="card">
+        <h2>Evidence</h2>
+        <div id="evidence-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/business.js"></script>
+</body>
+</html>

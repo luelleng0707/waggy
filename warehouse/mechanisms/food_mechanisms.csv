@@ -1,0 +1,6 @@
+food_id,ingredient_id,amount,unit,basis,scientific_quote,paper_name,paper_link
+FOOD_SALMON,ING_EPA,450,mg,per_100g,Cold-water fish matrices provide concentrated EPA and DHA per serving mass.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8850985/
+FOOD_SARDINE,ING_DHA,520,mg,per_100g,Sardine intake contributes substantial long-chain omega-3 levels in whole-food form.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8850985/
+FOOD_BONE_BROTH,ING_COLLAGEN,950,mg,per_100g,Collagen peptides are detectable in connective tissue-rich broth preparations.,Foods,https://pmc.ncbi.nlm.nih.gov/articles/PMC8069621/
+FOOD_CITRUS,ING_VITAMIN_C,48,mg,per_100g,Citrus tissues provide bioavailable ascorbic acid in standardized serving ranges.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8778270/
+FOOD_PUMPKIN_SEEDS,ING_ZINC,7.8,mg,per_100g,Pumpkin seeds provide high mineral density including zinc.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8839889/

@@ -1,0 +1,29 @@
+app/
+  api/              # application transport/runtime entrypoint
+  ui/               # native presentation (CSTC shell + renderers)
+  agent/            # transitional until cutover approval
+legacy/             # browser presentation surfaces (customer + developer)
+scripts/
+  run_wagtopia_local.py   # local multi-interface gateway
+  run_wagtopia_remote.py  # customer-only remote gateway + tunnel
+repository/
+  models/
+  pipeline/
+  warehouse/
+  science_graph/
+  formulas/
+  mathematics/
+  math_debugger/
+  reasoning/        # transitional consolidation candidate
+  optimization/
+  validation/
+  warehouse_qa/
+  benchmarks/
+warehouse/
+docs/
+  mathematics/
+  architecture/
+  interface/
+tests/
+  interface/
+  architecture/

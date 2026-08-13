@@ -1,6 +1,0 @@
-condition,nutrient_name,target_dose,target_unit,priority_rank,evidence_level,source_name,source_quote,source_url,_csv_row,_csv_file
-Hip Dysplasia,Glucosamine,520,mg,1,high,Canine Rehabilitation Outcomes Review,Glucosamine supports chondrocyte metabolism in loaded joints.,https://pubmed.ncbi.nlm.nih.gov/30123641,2,NUTRIENT_PRIORITIES.csv
-Hip Dysplasia,Omega-3,1200,mg,2,high,European Veterinary Dermatology Consortium,EPA+DHA modulate inflammatory pathways.,https://pubmed.ncbi.nlm.nih.gov/30123504,3,NUTRIENT_PRIORITIES.csv
-Atopic Dermatitis,Omega-3,1200,mg,1,high,European Veterinary Dermatology Consortium,Omega-3 reduces pruritus in atopic dermatitis.,https://pubmed.ncbi.nlm.nih.gov/30123504,4,NUTRIENT_PRIORITIES.csv
-Obesity,Calories,0,kcal,1,high,Canine Lifestyle Outcomes Study,Caloric targets derived from body weight and activity.,https://pubmed.ncbi.nlm.nih.gov/30123647,5,NUTRIENT_PRIORITIES.csv
-Hip Dysplasia,Chondroitin,400,mg,3,medium,Canine Rehabilitation Outcomes Review,Chondroitin complements glucosamine in joint support.,https://pubmed.ncbi.nlm.nih.gov/30123641,6,NUTRIENT_PRIORITIES.csv

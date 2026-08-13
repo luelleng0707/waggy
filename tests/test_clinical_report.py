@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Clinical Report V3 builder smoke tests."""
 
 import asyncio
@@ -25,8 +26,8 @@ def dolly_profile() -> DogProfileInput:
 
 
 def test_clinical_report_has_fourteen_sections(dolly_profile):
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly_profile))
-    report = build_clinical_report(DataRepository("data"), analyze)
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly_profile))
+    report = build_clinical_report(DataRepository(clinical_root_str()), analyze)
     assert report["version"] == "3.0.0"
     assert len(report["sections"]) == 14
     ids = {s["id"] for s in report["sections"]}
@@ -34,8 +35,8 @@ def test_clinical_report_has_fourteen_sections(dolly_profile):
 
 
 def test_biological_profile_from_csv(dolly_profile):
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly_profile))
-    report = build_clinical_report(DataRepository("data"), analyze)
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly_profile))
+    report = build_clinical_report(DataRepository(clinical_root_str()), analyze)
     s1 = next(s for s in report["sections"] if s["id"] == "s1")
     assert len(s1["cards"]) >= 1
     card = s1["cards"][0]
@@ -44,8 +45,8 @@ def test_biological_profile_from_csv(dolly_profile):
 
 
 def test_evidence_placeholder_when_no_url(dolly_profile):
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly_profile))
-    report = build_clinical_report(DataRepository("data"), analyze)
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly_profile))
+    report = build_clinical_report(DataRepository(clinical_root_str()), analyze)
     s7 = next(s for s in report["sections"] if s["id"] == "s7")
     placeholders = [i for i in s7["items"] if i["citation"]["status"] == "placeholder"]
     published = [i for i in s7["items"] if i["citation"]["status"] == "published"]

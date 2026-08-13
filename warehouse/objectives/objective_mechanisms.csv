@@ -1,0 +1,9 @@
+objective_id,mechanism_id,importance,quote,paper,link
+OBJ_001,MEC_001,0.95,Anti-inflammatory mechanisms are a direct implementation path for inflammation-reduction objectives.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+OBJ_002,MEC_002,0.96,Cartilage-preservation objectives are implemented through cartilage matrix support mechanisms.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+OBJ_003,MEC_003,0.90,Synovial lubrication goals are operationalized through joint lubrication pathways.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+OBJ_004,MEC_004,0.97,Skin barrier objectives map directly to epidermal support mechanisms.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+OBJ_005,MEC_006,0.89,Oxidative reduction objectives map to antioxidant defense mechanisms.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/
+OBJ_006,MEC_006,0.71,Tear stability objectives are partially implemented by oxidative load reduction pathways.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/
+OBJ_007,MEC_005,0.98,Gut microbiome objectives map to microbiome-support mechanisms.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+OBJ_008,MEC_007,0.94,Lean mass maintenance objectives map to muscle recovery and adaptation mechanisms.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/

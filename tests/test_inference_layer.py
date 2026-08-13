@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Unit tests for app.inference — no production scoring wiring required."""
 
 from app.inference.confidence import confidence_for_source
@@ -22,7 +23,7 @@ def test_confidence_ladder():
 
 
 def test_csv_weights_match_defaults():
-    bootstrap("data", strict=True)
+    bootstrap(clinical_root_str(), strict=True)
     assert category_weights() == DEFAULT_CATEGORY_WEIGHTS
     assert score_weights() == DEFAULT_SCORE_WEIGHTS
     assert package_score_weights() == DEFAULT_SCORE_WEIGHTS

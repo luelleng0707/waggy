@@ -1,0 +1,40 @@
+condition_id,condition_name,mechanism_id,mechanism_name,status
+COND_653473C1,Hip Dysplasia,MEC_001,Anti-inflammatory,active
+COND_653473C1,Hip Dysplasia,MEC_002,Cartilage Support,active
+COND_E1F6DDA1,Osteoarthritis,MEC_001,Anti-inflammatory,active
+COND_E1F6DDA1,Osteoarthritis,MEC_008,Joint Lubrication,active
+COND_CA469F7C,Cruciate Ligament Rupture,MEC_003,Collagen Synthesis,active
+COND_CA469F7C,Cruciate Ligament Rupture,MEC_010,Muscle Recovery,active
+COND_FC3E8CF9,Luxating Patella,MEC_003,Collagen Synthesis,active
+COND_89E108D0,IVDD,MEC_014,Neurologic Stability,active
+COND_89E108D0,IVDD,MEC_001,Anti-inflammatory,active
+COND_2D00FDEA,Atopic Dermatitis,MEC_006,Skin Barrier,active
+COND_2D00FDEA,Atopic Dermatitis,MEC_004,Immune Regulation,active
+COND_C68251C6,Hot Spots,MEC_006,Skin Barrier,active
+COND_019683D7,Dry Skin,MEC_006,Skin Barrier,active
+COND_7423EC0D,Interdigital Dermatitis,MEC_006,Skin Barrier,active
+COND_70DF255A,Sun Dermatitis,MEC_009,Antioxidant,active
+COND_75509D3A,Folliculitis,MEC_004,Immune Regulation,active
+COND_57895A7D,Otitis Externa,MEC_004,Immune Regulation,active
+COND_61757286,Cataracts,MEC_009,Antioxidant,active
+COND_8FA11C7E,Corneal Ulceration,MEC_003,Collagen Synthesis,active
+COND_B29665CF,Retinal Degeneration,MEC_009,Antioxidant,active
+COND_F368F785,Tear Staining,MEC_006,Skin Barrier,active
+COND_FEC01BF6,Degenerative Valve Disease,MEC_012,Cardiac Contractility,active
+COND_3AD02C00,Dilated Cardiomyopathy,MEC_012,Cardiac Contractility,active
+COND_B8FD748C,BOAS,MEC_011,Airway Tone,active
+COND_38A10892,Tracheal Collapse,MEC_011,Airway Tone,active
+COND_B3D23301,GDV,MEC_013,Gastric Motility,active
+COND_BAE0364B,Chronic Enteropathy,MEC_007,Microbiome,active
+COND_1AB37637,GI Upset,MEC_013,Gastric Motility,active
+COND_948362BB,GI Parasite Burden,MEC_004,Immune Regulation,active
+COND_72E08501,Immune-Mediated Dermatosis,MEC_004,Immune Regulation,active
+COND_CC459E28,Periodontal Disease,MEC_016,Oral Biofilm Control,active
+COND_693FEDB9,Dental Disease,MEC_016,Oral Biofilm Control,active
+COND_4F31B412,Obesity,MEC_010,Muscle Recovery,active
+COND_9E547E27,Heat Stress Syndrome,MEC_011,Airway Tone,active
+COND_CA191581,Exercise Induced Collapse,MEC_010,Muscle Recovery,active
+COND_C63E0FD0,Epilepsy,MEC_014,Neurologic Stability,active
+COND_DFB273E2,Chronic Kidney Disease,MEC_015,Renal Protection,active
+COND_394892E6,Degenerative Myelopathy,MEC_014,Neurologic Stability,active
+COND_62E742E7,Leishmaniasis Exposure Syndrome,MEC_004,Immune Regulation,active

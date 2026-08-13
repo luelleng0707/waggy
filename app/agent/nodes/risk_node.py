@@ -3,7 +3,7 @@ from __future__ import annotations
 from app.agent.execution_context import ExecutionContext
 from app.agent.formula_node import FormulaNode
 from app.agent.state import PipelineTraceEntry
-from app.agent.stages.health_risk import compute_risks
+from app.formulas.stages.health_risk import compute_risks
 
 
 class RiskNode(FormulaNode):

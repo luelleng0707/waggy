@@ -1,0 +1,5 @@
+calorie_id,product_id,kcal_per_serving,scientific_quote,paper_name,paper_link
+CAL_0001,PROD_JOINT_ALPHA,18,Calorie density declarations are standardized per serving units.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/
+CAL_0002,PROD_SKIN_BETA,22,Measured caloric density is represented as kcal per serving.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8839889/
+CAL_0003,PROD_METAB_GAMMA,28,Metabolic-support products report bounded kcal-per-serving values.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+CAL_0004,PROD_OCULAR_DELTA,15,Ocular-support capsules include declared serving energy values.,Veterinary Ophthalmology,https://pmc.ncbi.nlm.nih.gov/articles/PMC11234560/

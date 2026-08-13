@@ -81,7 +81,7 @@ FORMULA_REGISTRY: dict[str, dict[str, Any]] = {
     FORMULA_BREED: _entry(
         FORMULA_BREED,
         purpose="Resolve breed names via aliases and load breed rows",
-        owner_module="app.agent.stages.biological",
+        owner_module="app.formulas.stages.biological",
         inputs=["breeds", "breed_split"],
         outputs=["resolved_breeds"],
         csv_tables=["breeds", "breed_aliases"],
@@ -89,7 +89,7 @@ FORMULA_REGISTRY: dict[str, dict[str, Any]] = {
     FORMULA_TRAIT: _entry(
         FORMULA_TRAIT,
         purpose="Blend trait fields across resolved breeds",
-        owner_module="app.agent.stages.biological",
+        owner_module="app.formulas.stages.biological",
         inputs=["resolved_breeds"],
         outputs=["trait_summary"],
         depends_on=[FORMULA_BREED],
@@ -99,8 +99,8 @@ FORMULA_REGISTRY: dict[str, dict[str, Any]] = {
         FORMULA_RISK,
         purpose="Rank condition risks (locked parity path)",
         display_name="Condition Risk Ranking",
-        owner_module="app.agent.stages.health_risk",
-        callable_path="app.agent.stages.health_risk.compute_risks",
+        owner_module="app.formulas.stages.health_risk",
+        callable_path="app.formulas.stages.health_risk.compute_risks",
         inputs=["traits", "profile", "observed_conditions"],
         outputs=["healthInsights", "risk_percent", "confidence_percent"],
         depends_on=[FORMULA_TRAIT, FORMULA_BREED],
@@ -164,7 +164,7 @@ FORMULA_REGISTRY: dict[str, dict[str, Any]] = {
     FORMULA_PRODUCT: _entry(
         FORMULA_PRODUCT,
         purpose="Match catalog products to nutrient targets",
-        owner_module="app.agent.stages.optimization / package_optimizer",
+        owner_module="app.formulas.stages.optimization / package_optimizer",
         inputs=["targets", "catalog"],
         outputs=["productRecommendations"],
         depends_on=[FORMULA_NUTRIENT],

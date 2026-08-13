@@ -1,0 +1,13 @@
+condition_id,objective_id,importance,scientific_quote,paper_name,paper_link
+COND_653473C1,OBJ_001,0.92,Joint inflammation control is central to mobility-preserving hip dysplasia management.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COND_653473C1,OBJ_002,0.97,Cartilage preservation is a high-priority biological objective in hip dysplasia trajectories.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COND_653473C1,OBJ_003,0.81,Synovial support contributes to comfort and motion quality in structural hip instability.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COND_E1F6DDA1,OBJ_001,0.95,Inflammation is a key progression axis in osteoarthritis burden.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COND_E1F6DDA1,OBJ_002,0.93,Cartilage matrix support remains a core degenerative joint objective.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COND_2D00FDEA,OBJ_001,0.73,Systemic inflammatory load contributes to canine atopic dermatitis severity.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+COND_2D00FDEA,OBJ_004,0.98,Skin barrier restoration is a first-line biological objective in atopic disease.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+COND_2D00FDEA,OBJ_007,0.62,Gut microbiome support may improve skin inflammation through gut-skin crosstalk.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+COND_4F31B412,OBJ_001,0.64,Obesity-associated inflammatory signaling contributes to multi-system risk escalation.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+COND_4F31B412,OBJ_007,0.84,Microbiome modulation influences satiety and metabolic regulation in obesity interventions.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+COND_4F31B412,OBJ_008,0.91,Lean mass preservation is essential in effective obesity reduction protocols.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/
+COND_F368F785,OBJ_006,0.88,Tear-film supportive nutrients are associated with improved ocular comfort metrics.,Veterinary Ophthalmology,https://pmc.ncbi.nlm.nih.gov/articles/PMC11234560/

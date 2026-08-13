@@ -1,5 +1,0 @@
-product_id,food_type,life_stage,size_support,protein_source,package_weight_g,daily_feeding_chart,energy_kcal_per_kg,protein_pct,fat_pct,fiber_pct,ash_pct,calcium_pct,phosphorus_pct,ingredient_list,storage_method,shelf_life_days
-SF001,kibble,all_life_stages,small_breed,chicken,1500,See PRODUCT_FEEDING_RULES by weight bracket,4062,30,20,2.7,8.0,1.0,0.8,"Farmina N&D Tropical Selection Chicken — declared label macros",cool_dry,540
-SF002,kibble,adult,small_breed,lamb,1500,See PRODUCT_FEEDING_RULES by weight bracket,,,,,,,"Farmina N&D Tropical Selection Lamb",cool_dry,540
-SF003,kibble,adult,small_breed,tropical_fruit,1500,See PRODUCT_FEEDING_RULES by weight bracket,,,,,,,"Farmina N&D Tropical Selection Series",cool_dry,540
-SF004,kibble,adult,all_sizes,digestive,2000,See PRODUCT_FEEDING_RULES by weight bracket,,,,,,,"Royal Canin Digestive Care",cool_dry,540

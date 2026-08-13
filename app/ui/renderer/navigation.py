@@ -11,11 +11,12 @@ import streamlit as st
 from app.agent.engine import PPIEWellnessAgent
 from app.agent.state import DogProfileInput
 from app.agent.utils import DataRepository, bootstrap
+from app.core.paths import clinical_root_str
 from app.ui.renderer.journey import JourneyRenderer
-from app.ui.renderer.view_models import vm_to_dict
+from app.ui.renderer.formatters import vm_to_dict
 from app.ui.renderer.template_engine import load_css, render_template
 
-DATA_DIR = os.getenv("PPIE_DATA_DIR", "data")
+DATA_DIR = clinical_root_str()
 DEFAULT_PACKAGE = "Balanced Care"
 
 

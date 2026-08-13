@@ -1,0 +1,13 @@
+formula_id,parameter,value,unit,source,paper,paper_link,scientific_quote,classification,justification,status
+MAT-1002,min_strength,0.20,ratio,warehouse/formulas/coefficients.csv,,,,ENGINEERING_PARAMETER,Configured runtime coefficient; no direct numeric support linked in warehouse.,REVIEW_REQUIRED
+MAT-1002,max_strength,0.90,ratio,warehouse/formulas/coefficients.csv,,,,ENGINEERING_PARAMETER,Configured runtime coefficient; no direct numeric support linked in warehouse.,REVIEW_REQUIRED
+MAT-1002,strength_divisor,10.0,count_divisor,warehouse/formulas/coefficients.csv,,,,ENGINEERING_PARAMETER,Configured runtime coefficient; no direct numeric support linked in warehouse.,REVIEW_REQUIRED
+MAT-1002,weight_observed,1.00,ratio,repository/mathematics/weights.py,,,,ENGINEERING_PARAMETER,Hardcoded evidence weighting map.,REVIEW_REQUIRED
+MAT-1002,weight_trait,0.90,ratio,repository/mathematics/weights.py,,,,ENGINEERING_PARAMETER,Hardcoded evidence weighting map.,REVIEW_REQUIRED
+MAT-1002,weight_environment,0.70,ratio,repository/mathematics/weights.py,,,,ENGINEERING_PARAMETER,Hardcoded evidence weighting map.,REVIEW_REQUIRED
+MAT-1002,weight_interaction,0.80,ratio,repository/mathematics/weights.py,,,,ENGINEERING_PARAMETER,Hardcoded evidence weighting map.,REVIEW_REQUIRED
+MAT-1002,weight_life_stage,0.75,ratio,repository/mathematics/weights.py,,,,ENGINEERING_PARAMETER,Hardcoded evidence weighting map.,REVIEW_REQUIRED
+MAT-1002,weight_activity,0.65,ratio,repository/mathematics/weights.py,,,,ENGINEERING_PARAMETER,Hardcoded evidence weighting map.,REVIEW_REQUIRED
+MAT-1002,weight_ingredient,0.55,ratio,repository/mathematics/weights.py,,,,ENGINEERING_PARAMETER,Hardcoded evidence weighting map.,REVIEW_REQUIRED
+MAT-1002,weight_default,0.50,ratio,repository/mathematics/weights.py,,,,ENGINEERING_PARAMETER,Hardcoded evidence weighting map.,REVIEW_REQUIRED
+MAT-1002,probability_clamp_bounds,1e-6..1-1e-6,probability,repository/mathematics/normalization.py,,,,MATHEMATICAL_CONSTANT,Numerical stabilization for logit/logistic operations.,VALID

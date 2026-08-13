@@ -1,0 +1,9 @@
+component,reference_path,reference_role,reuse_directly,reuse_with_adapter,rebuild,do_not_reuse,reason,risk
+MainWindow shell,CSTC_1524/.../PetCarePro/ui/main_window.py,desktop app shell + sidebar + stacked content,no,yes,no,no,Useful shell/navigation pattern; data layer must be replaced,MEDIUM
+LoginWindow UX,CSTC_1524/.../PetCarePro/ui/login_window.py,login form + validation UX,no,yes,no,no,"UI reusable, auth semantics differ",MEDIUM
+Dashboard stat card helpers,CSTC_1524/.../PetCarePro/ui/dashboard.py,reusable card widgets,yes,no,no,no,Pure presentational helper,LOW
+Direct ORM query pattern,CSTC_1524/.../PetCarePro/ui/*.py,inline data access from UI,no,no,yes,yes,Conflicts with Wagtopia agent/API boundary,HIGH
+Qt message modal patterns,CSTC_1524/.../PetCarePro/ui/*.py,error/confirm/info dialogs,yes,no,no,no,Reusable interaction pattern,LOW
+Wagtopia FastAPI routes,app/api/main.py,canonical backend interface to agent,yes,no,no,no,Already production runtime boundary,LOW
+Wagtopia payload adapter,app/api/payload_adapter.py,legacy input normalization,yes,no,no,no,Ideal adapter building block,LOW
+Wagtopia app formula graph output,app/agent/*,current production intelligence output,yes,no,no,no,Must remain source of analysis until future cutover approved,LOW

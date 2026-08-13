@@ -1,0 +1,6 @@
+ingredient_id,required_factor,interaction_type,effect_size,quote,paper,link
+ING_VITAMIN_D,dietary_fat,requires,0.80,Vitamin D uptake improves when consumed with dietary fat.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8706228/
+ING_IRON,calcium,competes_with,0.53,Calcium can inhibit concurrent non-heme iron absorption.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC9219084/
+ING_CURCUMIN,piperine,enhanced_by,0.88,Piperine enhances curcumin bioavailability through reduced glucuronidation.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC3535097/
+ING_EPA,meal_context,better_with_meals,0.42,Omega-3 uptake improves with meals that contain dietary fat.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8850985/
+ING_ZINC,high_fiber,inhibited_by,0.49,High-phytate and fiber-heavy meals can reduce zinc bioavailability.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC7277698/

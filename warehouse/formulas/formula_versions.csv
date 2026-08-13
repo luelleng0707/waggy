@@ -1,0 +1,10 @@
+formula_id,version,status,publication_date,description,parameter_set_id
+MAT-1001,v1.0,active,2026-08-11,Initial published observed aggregation formula,PS_MAT1001_V1
+MAT-1002,v1.0,active,2026-08-11,Initial published trait aggregation formula,PS_MAT1002_V1
+MAT-1003,v1.0,active,2026-08-11,Initial published bayesian update formula,PS_MAT1003_V1
+MAT-1004,v1.0,active,2026-08-11,Initial published agreement formula,PS_MAT1004_V1
+MAT-1005,v1.0,active,2026-08-11,Initial published confidence formula,PS_MAT1005_V1
+MAT-1006,v1.0,active,2026-08-11,Initial published novelty formula,PS_MAT1006_V1
+MAT-1007,v1.0,active,2026-08-11,Initial published priority formula,PS_MAT1007_V1
+MAT-1008,v1.0,active,2026-08-11,Initial published uncertainty formula,PS_MAT1008_V1
+MAT-1005,v2.0,experimental,2027-01-15,Experimental confidence reweighting for evaluation,PS_MAT1005_V2

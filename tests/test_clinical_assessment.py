@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Phase 17.5 ClinicalAssessment contract — modular projection of frozen analyze."""
 
 import asyncio
@@ -31,8 +32,8 @@ def dolly_profile() -> DogProfileInput:
 
 @pytest.fixture
 def dolly_assessment(dolly_profile):
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly_profile))
-    return build_clinical_assessment(DataRepository("data"), analyze), analyze
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly_profile))
+    return build_clinical_assessment(DataRepository(clinical_root_str()), analyze), analyze
 
 
 def test_assessment_has_all_modules(dolly_assessment):

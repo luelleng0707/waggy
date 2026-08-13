@@ -1,0 +1,9 @@
+source_dataset,source_row,foreign_key,target_dataset,target_key,error_type,dependent_runtime,scientific_impact,safe_action,status
+warehouse/mechanisms/condition_mechanisms.csv,line 2,condition_id,warehouse/biology/conditions.csv,condition_id,BROKEN_FOREIGN_KEY,pipeline->mathematics,condition mechanism linkage unavailable for legacy id,REFERENCE_REPAIR_REQUIRED,OPEN
+warehouse/mechanisms/condition_mechanisms.csv,line 6,condition_id,warehouse/biology/conditions.csv,condition_id,BROKEN_FOREIGN_KEY,pipeline->mathematics,condition mechanism linkage unavailable for legacy id,REFERENCE_REPAIR_REQUIRED,OPEN
+warehouse/mechanisms/condition_mechanisms.csv,line 9,condition_id,warehouse/biology/conditions.csv,condition_id,BROKEN_FOREIGN_KEY,pipeline->mathematics,condition mechanism linkage unavailable for legacy id,REFERENCE_REPAIR_REQUIRED,OPEN
+warehouse/mechanisms/food_mechanisms.csv,line 2,ingredient_id,warehouse/nutrition/ingredients.csv,ingredient_id,BROKEN_FOREIGN_KEY,nutrition/mechanisms,ingredient mechanism linkage unavailable,REFERENCE_REPAIR_REQUIRED,OPEN
+warehouse/mechanisms/food_mechanisms.csv,line 3,ingredient_id,warehouse/nutrition/ingredients.csv,ingredient_id,BROKEN_FOREIGN_KEY,nutrition/mechanisms,ingredient mechanism linkage unavailable,REFERENCE_REPAIR_REQUIRED,OPEN
+warehouse/mechanisms/food_mechanisms.csv,line 4,ingredient_id,warehouse/nutrition/ingredients.csv,ingredient_id,BROKEN_FOREIGN_KEY,nutrition/mechanisms,ingredient mechanism linkage unavailable,REFERENCE_REPAIR_REQUIRED,OPEN
+warehouse/mechanisms/food_mechanisms.csv,line 5,ingredient_id,warehouse/nutrition/ingredients.csv,ingredient_id,BROKEN_FOREIGN_KEY,nutrition/mechanisms,ingredient mechanism linkage unavailable,REFERENCE_REPAIR_REQUIRED,OPEN
+warehouse/mechanisms/food_mechanisms.csv,line 6,ingredient_id,warehouse/nutrition/ingredients.csv,ingredient_id,BROKEN_FOREIGN_KEY,nutrition/mechanisms,namespace mismatch for zinc id,SCHEMA_FIX,OPEN

@@ -1,0 +1,10 @@
+recipe_id,component,percentage,scientific_basis,manufacturer_source
+RCP_001,SRC_001,38,Omega-3 coverage of anti-inflammatory objectives,internal_reference_v1
+RCP_001,SRC_003,32,Cartilage objective support through glucosamine composition,internal_reference_v1
+RCP_001,SRC_004,30,Synovial and connective support via sulfur pathways,internal_reference_v1
+RCP_002,SRC_005,44,Skin barrier mineral support composition,internal_reference_v1
+RCP_002,SRC_007,31,Gut-skin axis microbiome composition,internal_reference_v1
+RCP_002,SRC_006,25,Oxidative stress support composition,internal_reference_v1
+RCP_003,SRC_007,36,Microbiome support for metabolic objective architecture,internal_reference_v1
+RCP_003,SRC_001,34,Omega-3 anti-inflammatory baseline in metabolic context,internal_reference_v1
+RCP_003,SRC_008,30,Lean muscle and cardiometabolic amino support composition,internal_reference_v1

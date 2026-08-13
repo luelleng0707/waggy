@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from app.agent.execution_context import ExecutionContext
 from app.agent.formula_node import FormulaNode
-from app.agent.stages.optimization import run_optimization_stage
+from app.formulas.stages.optimization import run_optimization_stage
 
 
 class ProductNode(FormulaNode):

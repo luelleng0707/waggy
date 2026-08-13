@@ -1,7 +1,0 @@
-age_stage,trait_or_breed,condition,risk_level,monitoring,prevention,evidence_id
-Puppy,Large,Hip Dysplasia,monitor,Growth plate radiographs at 12–18 months,Controlled calorie growth diet|Avoid high-impact jumping,EVD-ORTHO-001
-Adult,Sporting,Obesity,elevated,Monthly body condition score,Structured daily exercise|Portion-controlled feeding,EVD-LIFE-001
-Adult,Joint Heavy,Hip Dysplasia,elevated,Gait and mobility checks every 6 months,Joint-support nutrition|Low-impact conditioning,EVD-ORTHO-001
-Senior,Large,Arthritis,high,Orthopedic exam every 6 months|Pain behavior tracking,Weight management|Supplement continuity|Hydrotherapy,EVD-ORTHO-001
-Senior,Double Coat,Atopic Dermatitis,moderate,Skin and coat checks monthly,Regular grooming|Omega-3 support,EVD-DERM-001
-Adult,High energy,Heat Stress Syndrome,moderate,Respiratory rate during summer walks,Cool-hour exercise|Hydration breaks,EVD-ENV-001

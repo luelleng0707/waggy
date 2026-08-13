@@ -1,0 +1,9 @@
+formula_id,implementation_path,current_behavior,scientific_status,publication_status,keep_current,revise,replace,double_counting_risk,warehouse_dependencies,debugger_dependencies,future_model
+MAT-1001,repository/mathematics/epidemiology.py,observed mean aggregation,REVISE,MEDIUM,yes,yes,no,low,biology.observed_breed_conditions,repository/math_debugger,weighted observed aggregator
+MAT-1002,repository/mathematics/aggregation.py,weighted log-odds aggregation,REPLACE,HIGH,yes,no,yes,high,trait/environment/mixed/life/activity/ingredient,repository/math_debugger,calibrated estimator
+MAT-1003,"repository/mathematics/aggregation.py,repository/mathematics/bayesian.py",bayesian-style blend + interaction delta,REPLACE,BLOCKED,yes,no,yes,high,interaction + upstream prevalence,repository/math_debugger,formal Bayesian or relabeled deterministic combiner
+MAT-1004,repository/mathematics/agreement.py,relative-error agreement,KEEP,MEDIUM,yes,no,no,medium,upstream outputs,repository/math_debugger,retain as agreement metric
+MAT-1005,repository/mathematics/confidence.py,composite confidence score,REVISE,HIGH,yes,yes,no,high,edge counts + citations + agreement,repository/math_debugger,decomposed quality channels
+MAT-1006,repository/mathematics/novelty.py,novelty threshold heuristic,REPLACE,HIGH,yes,no,yes,high,upstream outputs,repository/math_debugger,evidence-gap state model
+MAT-1007,repository/mathematics/priority.py,multiplicative priority,REPLACE,HIGH,yes,no,yes,high,upstream outputs,repository/math_debugger,component priority architecture
+MAT-1008,repository/mathematics/uncertainty.py,dispersion heuristic,REPLACE,HIGH,yes,no,yes,medium,non-observed edges + confidence,repository/math_debugger,multi-channel uncertainty

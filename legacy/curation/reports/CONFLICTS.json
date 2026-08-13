@@ -1,0 +1,62 @@
+[
+  {
+    "type": "graph_relation_conflict",
+    "ingredient": "glucosamine",
+    "condition": "hip dysplasia",
+    "relations": [
+      "reduces",
+      "supports"
+    ],
+    "recommendation": "Scientific review required \u2014 opposing graph relations"
+  },
+  {
+    "type": "graph_relation_conflict",
+    "ingredient": "omega-3",
+    "condition": "hip dysplasia",
+    "relations": [
+      "reduces",
+      "supports"
+    ],
+    "recommendation": "Scientific review required \u2014 opposing graph relations"
+  },
+  {
+    "type": "graph_relation_conflict",
+    "ingredient": "msm",
+    "condition": "ivdd",
+    "relations": [
+      "reduces",
+      "supports"
+    ],
+    "recommendation": "Scientific review required \u2014 opposing graph relations"
+  },
+  {
+    "type": "graph_relation_conflict",
+    "ingredient": "glucosamine",
+    "condition": "ivdd",
+    "relations": [
+      "reduces",
+      "supports"
+    ],
+    "recommendation": "Scientific review required \u2014 opposing graph relations"
+  },
+  {
+    "type": "graph_relation_conflict",
+    "ingredient": "omega-3",
+    "condition": "boas",
+    "relations": [
+      "reduces",
+      "supports"
+    ],
+    "recommendation": "Scientific review required \u2014 opposing graph relations"
+  },
+  {
+    "type": "graph_relation_conflict",
+    "ingredient": "omega-3",
+    "condition": "atopic dermatitis",
+    "relations": [
+      "reduces",
+      "supports"
+    ],
+    "recommendation": "Scientific review required \u2014 opposing graph relations"
+  }
+]

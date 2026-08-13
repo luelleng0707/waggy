@@ -1,18 +1,13 @@
 {
   "name": "wagtopia-ppie",
   "version": "2.1.0",
-  "description": "Wagtopia Portable Pet Intelligence Engine — Python runtime",
+  "description": "Waggy v2 runtime foundation",
   "private": true,
   "scripts": {
-    "start": "py -3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000",
-    "demo": "powershell -File run_demo.ps1",
-    "test:parity": "py -3 tools/parity_suite.py --repeat 3",
-    "test:parity:freeze": "py -3 tools/parity_suite.py --freeze"
+    "validate:warehouse": "py -3 scripts/validate_warehouse.py",
+    "test:architecture": "py -3 -m pytest -q tests/warehouse tests/engine tests/api tests/pipeline"
   },
   "engines": {
     "node": ">=18"
-  },
-  "comments": {
-    "node": "Node.js is no longer required for PPIE runtime. npm scripts delegate to Python."
   }
 }

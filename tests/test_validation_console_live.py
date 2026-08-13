@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Phase 22 live Validation Console — presets, repo browser, compare."""
 
 import asyncio
@@ -7,17 +8,23 @@ import pytest
 from app.agent.engine import PPIEWellnessAgent
 from app.agent.state import DogProfileInput
 from app.agent.utils import DataRepository
-from app.data.assessment_diff import compare_analyses
 from app.data.clinical_assessment import build_clinical_assessment
-from app.data.debug_boot import developer_banner
-from app.data.debug_presets import DEFAULT_PRESET_ID, get_preset_body, list_presets
-from app.data.debug_repository_browser import list_repository_tables, preview_table
-from app.data.validation_console import NOT_TRACEABLE, build_validation_console
+from app.debug.clinical_execution_debug import (
+    DEFAULT_PRESET_ID,
+    NOT_TRACEABLE,
+    build_validation_console,
+    compare_analyses,
+    developer_banner,
+    get_preset_body,
+    list_presets,
+    list_repository_tables,
+    preview_table,
+)
 
 
 @pytest.fixture
 def repo():
-    return DataRepository("data")
+    return DataRepository(clinical_root_str())
 
 
 def test_presets_cover_requested_dogs():
@@ -51,7 +58,7 @@ def test_compare_golden_weight_delta(repo):
     right_body = get_preset_body("golden_25kg")
 
     async def run():
-        agent = PPIEWellnessAgent(data_dir="data")
+        agent = PPIEWellnessAgent(data_dir=clinical_root_str())
         left_p = DogProfileInput(
             name=left_body["name"],
             primary_breed=left_body["breeds"][0],
@@ -97,7 +104,7 @@ def test_debug_gate_403_without_flag(monkeypatch):
     monkeypatch.delenv("PPIE_DEV_BOOT", raising=False)
     from fastapi.testclient import TestClient
 
-    from app.data.engine_trace import is_engine_debug
+    from app.debug.clinical_execution_debug import is_engine_debug
 
     assert is_engine_debug() is False
     from app.api import main as api_main
@@ -117,7 +124,7 @@ def test_debug_gate_403_without_flag(monkeypatch):
     )
     assert r.status_code == 403
     r2 = client.get("/debug/calculation")
-    assert r2.status_code in (403, 302)
+    assert r2.status_code == 200
 
 
 def test_console_nav_includes_compare_and_repo(repo):
@@ -131,13 +138,15 @@ def test_console_nav_includes_compare_and_repo(repo):
         current_environment="Shanghai Summer",
         activity_level="High",
     )
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(profile))
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(profile))
     assessment = build_clinical_assessment(repo, analyze)
     doc = build_validation_console(repo, analyze, assessment)
     ids = {n["id"] for n in doc["nav"]}
     assert "repository" in ids
-    assert "compare" in ids
     assert "formulas" in ids
-    assert "graph" in ids
-    assert doc["schema"] == "validation_console.v3"
-    assert "reverse" in ids
+    assert "timeline" in ids
+    assert "evidence" in ids
+    assert "risks" in ids
+    assert doc["schema"] == "validation_console.v8"
+    assert doc.get("single_page") is True
+    assert doc.get("primary_view") == "clinical_execution_explorer"

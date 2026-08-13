@@ -1,9 +1,0 @@
-# Graph Reference
-
-Generated: `2026-07-20T22:13:36.015855+00:00`
-
-- Nodes: 353
-- Edges: 791
-- Summary: `{"nodes": 353, "edges": 791, "by_type": {"breed": 48, "trait": 49, "condition": 37, "paper": 128, "ingredient": 50, "food": 15, "activity": 10, "product": 16}, "by_relation": {"has_trait": 432, "risk": 106, "supported_by": 106, "studies": 16, "supports": 19, "cites": 22, "reduces": 6, "contains": 74, "prevents": 10}}`
-
-Build: `py -3 warehouse/tools/build_science_graph.py`

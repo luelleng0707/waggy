@@ -1,0 +1,12 @@
+system_id,body_system,description,status
+SYS_001,Joint,Musculoskeletal joint integrity and mobility,active
+SYS_002,Skin,Dermatologic and barrier function,active
+SYS_003,Eye,Ophthalmic function and visual integrity,active
+SYS_004,Cardiac,Cardiovascular and hemodynamic function,active
+SYS_005,Respiratory,Airway and pulmonary function,active
+SYS_006,Digestive,Gastrointestinal and digestive function,active
+SYS_007,Neurological,Neurologic and spinal function,active
+SYS_008,Urinary,Renal and urinary function,active
+SYS_009,Immune,Immune-mediated regulation and response,active
+SYS_010,Dental,Oral and dental health,active
+SYS_011,Metabolic,Weight and metabolic regulation,active

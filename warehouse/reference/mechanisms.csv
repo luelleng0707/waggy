@@ -1,0 +1,17 @@
+mechanism_id,mechanism_name,description,status
+MEC_001,Anti-inflammatory,Reduces inflammatory cascades and tissue irritation,active
+MEC_002,Cartilage Support,Supports cartilage integrity and remodeling,active
+MEC_003,Collagen Synthesis,Supports connective tissue synthesis,active
+MEC_004,Immune Regulation,Modulates immune hyper-reactivity and response,active
+MEC_005,Oxidative Stress,Mitigates oxidative injury pathways,active
+MEC_006,Skin Barrier,Supports epidermal barrier structure and hydration,active
+MEC_007,Microbiome,Supports gut microbial balance and fermentation,active
+MEC_008,Joint Lubrication,Supports synovial function and movement efficiency,active
+MEC_009,Antioxidant,Supports antioxidant protection pathways,active
+MEC_010,Muscle Recovery,Supports muscular recovery and adaptation,active
+MEC_011,Airway Tone,Supports airway patency and respiratory mechanics,active
+MEC_012,Cardiac Contractility,Supports myocardial contractile function,active
+MEC_013,Gastric Motility,Supports digestive transit and gastric function,active
+MEC_014,Neurologic Stability,Supports neural signaling and spinal function,active
+MEC_015,Renal Protection,Supports renal tissue resilience and filtration,active
+MEC_016,Oral Biofilm Control,Supports oral plaque and periodontal control,active

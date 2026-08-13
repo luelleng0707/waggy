@@ -1,0 +1,21 @@
+{
+  "Hip": [
+    "Hip Dysplasia"
+  ],
+  "Coxofemoral joint": [
+    "Hip Dysplasia"
+  ],
+  "Joint": [
+    "Osteoarthritis"
+  ],
+  "Skin": [
+    "Atopic Dermatitis"
+  ],
+  "Systemic": [
+    "Obesity",
+    "Heat Stress Syndrome"
+  ],
+  "CNS": [
+    "Anxiety"
+  ]
+}

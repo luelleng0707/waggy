@@ -1,0 +1,4 @@
+benchmark_id,dataset_path,target_component,description,status
+BM_001,warehouse/benchmarks/golden_retriever.json,mathematics,Golden Retriever benchmark case with deterministic expected outputs,active
+BM_002,warehouse/benchmarks/husky.json,mathematics,Siberian Husky benchmark case with deterministic expected outputs,active
+BM_003,warehouse/benchmarks/mixed_lab_golden.json,mathematics,Mixed Labrador-Golden benchmark case with deterministic expected outputs,active

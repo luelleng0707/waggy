@@ -1,0 +1,16 @@
+{
+  "version": "5.0.0-science",
+  "schema": "science_only",
+  "formula_views": "in_memory",
+  "root": "warehouse/science",
+  "domains": [
+    "breed",
+    "condition",
+    "ingredient",
+    "nutrition",
+    "product",
+    "physiology",
+    "evidence",
+    "runtime"
+  ]
+}

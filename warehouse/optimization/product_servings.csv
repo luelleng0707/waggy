@@ -1,0 +1,5 @@
+product_id,product_name,serving_unit,min_servings_per_day,max_servings_per_day,life_stage_min,life_stage_max,weight_min_kg,weight_max_kg,availability,scientific_quote,paper_name,paper_link
+PROD_JOINT_ALPHA,Joint Alpha,tablet,0,3,adult,senior,8,60,available,Serving limits align with declared safe daily administration windows.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+PROD_SKIN_BETA,Skin Beta,scoop,0,2,adult,senior,6,55,available,Dermatology-support formulations apply bounded daily serving ranges.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+PROD_METAB_GAMMA,Metab Gamma,sachet,0,2,adult,senior,10,70,available,Metabolic-support products define strict serving windows by body mass context.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/
+PROD_OCULAR_DELTA,Ocular Delta,capsule,0,2,adult,senior,5,50,available,Ocular-support formulas are delivered in bounded daily capsule limits.,Veterinary Ophthalmology,https://pmc.ncbi.nlm.nih.gov/articles/PMC11234560/

@@ -1,0 +1,30 @@
+{
+  "case_id": "golden_retriever",
+  "dog_id": "DOG_BM_001",
+  "evidence_graph": {
+    "dog_id": "DOG_BM_001",
+    "nodes": [
+      {"node_id": "COND_NODE_1", "node_type": "condition", "condition_id": "COND_HIP", "condition_name": "Hip Dysplasia"},
+      {"node_id": "SRC_1", "node_type": "observed"},
+      {"node_id": "SRC_2", "node_type": "trait"},
+      {"node_id": "SRC_3", "node_type": "environment"},
+      {"node_id": "SRC_4", "node_type": "interaction"}
+    ],
+    "edges": [
+      {"edge_id": "E1", "from_node_id": "SRC_1", "to_node_id": "COND_NODE_1", "evidence_type": "observed", "value_number": "0.18", "observed_value": "0.18", "citation_id": "C1"},
+      {"edge_id": "E2", "from_node_id": "SRC_2", "to_node_id": "COND_NODE_1", "evidence_type": "trait", "value_number": "0.06", "citation_id": "C2"},
+      {"edge_id": "E3", "from_node_id": "SRC_3", "to_node_id": "COND_NODE_1", "evidence_type": "environment", "value_number": "0.05", "citation_id": "C3"},
+      {"edge_id": "E4", "from_node_id": "SRC_4", "to_node_id": "COND_NODE_1", "evidence_type": "interaction", "value_number": "0.04", "factor": "1.15", "citation_id": "C4"}
+    ],
+    "citations": [
+      {"citation_id": "C1", "paper_name": "Hip Paper", "paper_link": "https://example.org/hip", "scientific_quote": "Observed hip prevalence quote."},
+      {"citation_id": "C2", "paper_name": "Trait Paper", "paper_link": "https://example.org/trait", "scientific_quote": "Large trait association quote."},
+      {"citation_id": "C3", "paper_name": "Env Paper", "paper_link": "https://example.org/env", "scientific_quote": "Cold climate association quote."},
+      {"citation_id": "C4", "paper_name": "Interaction Paper", "paper_link": "https://example.org/int", "scientific_quote": "Interaction factor quote."}
+    ]
+  },
+  "expected": {
+    "condition_id": "COND_HIP",
+    "condition_name": "Hip Dysplasia"
+  }
+}

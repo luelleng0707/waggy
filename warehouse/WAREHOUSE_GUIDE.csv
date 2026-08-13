@@ -1,0 +1,17 @@
+dataset_path,research_task,one_row_means,required_evidence_or_declaration,never_store
+biology/breeds.csv,Record a recognized breed identity,One source-defined breed identity,Scientific quote plus paper/source name and link,Risk or inferred traits
+biology/conditions.csv,Record a recognized condition identity,One source-defined condition identity,Scientific quote plus paper/source name and link,Diagnosis or severity for an animal
+biology/breed_traits.csv,Extract one breed trait fact from a source,One breed has one trait value,Scientific quote plus paper/source name and link,Condition risk or trait weight
+biology/observed_breed_conditions.csv,Extract one measured epidemiology result,One study population observed one condition measure,Scientific quote plus paper/source name and link,Estimated prevalence or risk score
+biology/trait_condition_associations.csv,Extract one trait-condition study association,One trait or trait pair has one reported association with one condition,Scientific quote plus paper/source name and link,Engine factor or recommendation
+biology/environment_facts.csv,Record one measured environmental observation,One environment had one measured metric in one period,Scientific quote plus paper/source name and link,Causal health conclusion or care advice
+prevention/condition_activities.csv,Extract one observed activity outcome,One activity exposure had one measured outcome for one condition/population,Scientific quote plus paper/source name and link,Schedule or activity recommendation
+prevention/condition_ingredients.csv,Extract one ingredient-condition study finding,One ingredient exposure had one observed effect for one condition/population,Scientific quote plus paper/source name and link,Recommended dose or priority
+nutrition/ingredients.csv,Record one reusable ingredient identity,One source-defined ingredient/nutrient identity,Scientific quote plus paper/source name and link,Effect or product assignment
+nutrition/ingredient_composition.csv,Extract one ingredient compound measurement,One ingredient contains one compound at one analysed amount/basis,Scientific quote plus paper/source name and link,Estimated content or calculated active amount
+nutrition/food_composition.csv,Extract one food nutrient measurement,One food contains one compound at one analysed amount/basis,Scientific quote plus paper/source name and link,Meal plan or calculated intake
+nutrition/units.csv,Maintain one measurement-unit definition,One canonical unit definition,Scientific quote plus paper/source name and link,Converted calculation result
+commercial/product_master.csv,Record one manufacturer product identity,One declared product or recipe version,Manufacturer declaration source and link,Recommendation price rating or score
+commercial/product_recipe.csv,Transcribe one declared recipe ingredient,One product declares one ingredient in one recipe version,Manufacturer declaration source and link,Estimated active amount or efficacy
+commercial/product_declared_nutrition.csv,Transcribe one declared nutrition value,One product declares one nutrient amount on one basis,Manufacturer declaration source and link,Calculated coverage or target
+commercial/product_feeding_guide.csv,Transcribe one declared feeding instruction,One product declares one feeding range/serving,Manufacturer declaration source and link,Personalized feeding plan

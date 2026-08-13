@@ -1,0 +1,12 @@
+composition_id,product_id,ingredient_id,amount_per_serving,unit,scientific_quote,paper_name,paper_link
+COMP_0001,PROD_JOINT_ALPHA,ING_F9E1B8CF,220,mg,Omega-3 content declarations are measured per serving in standardized assays.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8850985/
+COMP_0002,PROD_JOINT_ALPHA,ING_41BF6A84,320,mg,Glucosamine quantities are reported per serving for mobility-support formulations.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COMP_0003,PROD_JOINT_ALPHA,ING_996AE66D,180,mg,MSM dosage declarations are represented per discrete serving unit.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COMP_0004,PROD_SKIN_BETA,ING_723DBC80,2.3,mg,Zinc contributions are quantified analytically in dermatology-support blends.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8839889/
+COMP_0005,PROD_SKIN_BETA,ING_C873A4B5,0.18,mg,Lutein contributions are measured per serving in antioxidant-support products.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/
+COMP_0006,PROD_SKIN_BETA,ING_5030A666,0.6,cfu_billions,Probiotic viability is measured as live counts per serving.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+COMP_0007,PROD_METAB_GAMMA,ING_5030A666,0.9,cfu_billions,Daily probiotic dosing ranges are represented by serving-based organism counts.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+COMP_0008,PROD_METAB_GAMMA,ING_8A38C944,45,mg,Taurine concentrations are expressed per serving in cardiometabolic support products.,PLOS ONE,https://pmc.ncbi.nlm.nih.gov/articles/PMC6292607/
+COMP_0009,PROD_METAB_GAMMA,ING_F9E1B8CF,140,mg,Omega-3 levels are quantified per serving for metabolic-support products.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+COMP_0010,PROD_OCULAR_DELTA,ING_C873A4B5,0.26,mg,Ocular-support carotenoid products report lutein amount per serving unit.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/
+COMP_0011,PROD_OCULAR_DELTA,ING_F9E1B8CF,120,mg,Omega-3 inputs for tear-film stability are listed per serving amount.,Veterinary Ophthalmology,https://pmc.ncbi.nlm.nih.gov/articles/PMC11234560/

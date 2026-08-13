@@ -1,0 +1,24 @@
+formula_id,version,parameter_set_id,parameter_name,value,unit,description
+MAT-1001,v1.0,PS_MAT1001_V1,observed_mean_scale,1.0,ratio,Observed prevalence scaling factor.
+MAT-1002,v1.0,PS_MAT1002_V1,min_strength,0.20,ratio,Minimum evidence strength bound.
+MAT-1002,v1.0,PS_MAT1002_V1,max_strength,0.90,ratio,Maximum evidence strength bound.
+MAT-1002,v1.0,PS_MAT1002_V1,strength_divisor,10.0,count_divisor,Evidence count normalization divisor.
+MAT-1003,v1.0,PS_MAT1003_V1,bayesian_scale,1.0,ratio,Bayesian posterior scaling factor.
+MAT-1004,v1.0,PS_MAT1004_V1,agreement_floor,0.0,percent,Agreement floor value.
+MAT-1005,v1.0,PS_MAT1005_V1,evidence_weight,0.45,ratio,Confidence evidence component weight.
+MAT-1005,v1.0,PS_MAT1005_V1,study_weight,0.25,ratio,Confidence study component weight.
+MAT-1005,v1.0,PS_MAT1005_V1,agreement_weight,0.30,ratio,Confidence agreement component weight.
+MAT-1005,v1.0,PS_MAT1005_V1,observed_multiplier,1.5,ratio,Observed evidence multiplier.
+MAT-1005,v1.0,PS_MAT1005_V1,evidence_denominator,20.0,count_divisor,Evidence normalization denominator.
+MAT-1005,v1.0,PS_MAT1005_V1,study_denominator,10.0,count_divisor,Study normalization denominator.
+MAT-1005,v2.0,PS_MAT1005_V2,evidence_weight,0.43,ratio,Experimental evidence component weight.
+MAT-1005,v2.0,PS_MAT1005_V2,study_weight,0.31,ratio,Experimental study component weight.
+MAT-1005,v2.0,PS_MAT1005_V2,agreement_weight,0.26,ratio,Experimental agreement component weight.
+MAT-1005,v2.0,PS_MAT1005_V2,observed_multiplier,1.5,ratio,Observed evidence multiplier.
+MAT-1005,v2.0,PS_MAT1005_V2,evidence_denominator,20.0,count_divisor,Evidence normalization denominator.
+MAT-1005,v2.0,PS_MAT1005_V2,study_denominator,10.0,count_divisor,Study normalization denominator.
+MAT-1006,v1.0,PS_MAT1006_V1,emerging_observed_max,0.5,percent,Observed prevalence threshold.
+MAT-1006,v1.0,PS_MAT1006_V1,emerging_estimated_min,10.0,percent,Estimated prevalence threshold.
+MAT-1006,v1.0,PS_MAT1006_V1,emerging_confidence_min,70.0,percent,Confidence threshold.
+MAT-1007,v1.0,PS_MAT1007_V1,min_agreement_scale,0.10,ratio,Lower bound for agreement scaling.
+MAT-1008,v1.0,PS_MAT1008_V1,min_uncertainty_factor,0.20,ratio,Lower bound on uncertainty factor.

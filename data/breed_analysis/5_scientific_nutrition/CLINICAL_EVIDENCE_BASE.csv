@@ -1,8 +1,0 @@
-evidence_id,domain,condition,nutrient_or_activity,mechanism,evidence_level,source_name,source_quote,source_url,year
-EVD-ORTHO-001,orthopedic,Hip Dysplasia,Glucosamine,Chondroprotective support in loaded joints,high,OFA Breed Registry,"Large and sporting breeds show elevated hip dysplasia prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123501,2022
-EVD-DERM-001,dermatology,Atopic Dermatitis,Omega-3,Inflammatory modulation of skin barrier,high,European Veterinary Dermatology Consortium,"Omega-3 fatty acids reduce pruritus severity in atopic dogs.",https://pubmed.ncbi.nlm.nih.gov/30123504,2021
-EVD-LIFE-001,metabolic,Obesity,Caloric management,Energy balance and body condition scoring,high,Canine Lifestyle Outcomes Study,"Structured feeding reduces obesity expression in retriever breeds.",https://pubmed.ncbi.nlm.nih.gov/30123647,2021
-EVD-ACT-001,activity,Hip Dysplasia,Hydrotherapy,Low-impact joint loading,medium,Canine Rehabilitation Outcomes Review,"Hydrotherapy improved gait symmetry in hip-dysplastic dogs.",https://pubmed.ncbi.nlm.nih.gov/30123641,2022
-EVD-ENV-001,environment,Heat Stress Syndrome,Cool-hour exercise,Thermal load reduction,medium,RVC Respiratory Heat Study,"Cool-hour walks reduce heat distress in humid climates.",https://pubmed.ncbi.nlm.nih.gov/30123644,2023
-EVD-SPORT-001,behavior,Anxiety,Mental enrichment,Cognitive load and stress reduction,medium,Working Dog Performance Review,"Enrichment reduces anxiety in under-stimulated sporting breeds.",https://pubmed.ncbi.nlm.nih.gov/30123641,2022
-EVD-GEN-001,general,General Wellness,Multivitamin baseline,Deficiency prevention when diet incomplete,low,Awaiting evidence entry,"Placeholder — populate when peer-reviewed citation is confirmed.",, 

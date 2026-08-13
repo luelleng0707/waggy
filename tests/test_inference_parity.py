@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Regression: CSV extraction must not change locked pipeline outputs."""
 
 import asyncio
@@ -22,7 +23,7 @@ def dolly_report():
         current_environment="Shanghai Summer",
         activity_level="High",
     )
-    return asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(profile))
+    return asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(profile))
 
 
 def test_csv_defaults_identical_to_embedded():

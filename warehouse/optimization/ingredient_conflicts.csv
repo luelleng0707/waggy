@@ -1,0 +1,3 @@
+conflict_id,ingredient_A,ingredient_B,penalty_strength,scientific_quote,paper_name,paper_link
+CON_0001,ING_723DBC80,ING_8A38C944,0.21,Concurrent administration may create mild competition in uptake pathways.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC7277698/
+CON_0002,ING_41BF6A84,ING_996AE66D,0.08,Combined administration can require dose calibration to avoid unnecessary overlap.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/

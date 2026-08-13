@@ -1,0 +1,17 @@
+claim,runtime_source,ui_section,status,evidence_source,missing_reason,implementation_required
+AI-enabled recommendation workflow,/api/v1/clinical-report and /api/v1/analyze via app.api.main,Customer dashboard + Analyze action,VERIFIED,"app/api/main.py, legacy/app.js",,No
+dog and breed scope,DogProfileInput mapping + breed list and profile payload,Dog profile editor,VERIFIED,"app/agent/state.py, legacy/index.html, legacy/app.js",,No
+structured dog product health pricing inputs,Analyze payload fields and report modules,Dog profile editor + package/product sections,VERIFIED,"legacy/app.js, legacy/ppie-shell.js",,No
+synthetic profiles,mixed_lab_golden deterministic demo profile,Load Demo Dog button,VERIFIED,"app/ui/cstc/demo_profiles.py, app/ui/cstc/suite_utils.py",,No
+personalized recommendations,productRecommendations and wellnessPackages runtime output,Top health priorities + package pages,VERIFIED,"app/agent/response_assembler.py, legacy/ppie-shell.js",,No
+care packages,wellnessPackages and package detail payloads,Recommended care package + package detail,VERIFIED,"/api/v1/clinical-report payload modules",,No
+financial modeling,monthly_plan yearly_plan package economics from runtime,Annual plan and package metrics,VERIFIED,"app/agent/bundle_engine.py, legacy/ppie-shell.js",,No
+product costs,store/catalog pricing and recommendation payloads,Product cards and detail views,VERIFIED,"/api/v1/store, legacy/catalog-service.js",,No
+package pricing and recurring economics,package monthly yearly savings fields,Package metrics and annual plan,VERIFIED,"app/agent/response_assembler.py",,No
+observed vs estimated prevalence,validation + risk outputs where benchmark exists,Health sheets and risk cards,PARTIAL,"legacy/ppie-shell.js validationFor()",Observed prevalence is unavailable for some conditions in runtime outputs,Enhance assessment mapping to expose explicit observed prevalence field when present
+evidence with clickable provenance,scientificEvidence and report evidence objects,Evidence cards and supporting evidence blocks,PARTIAL,"legacy/ppie-ui.js, legacy/ppie-shell.js",Some evidence rows have no URL and are marked curated/pending,No fabricated links; retain explicit unavailable text
+mechanism chain (condition to objective to mechanism to ingredient),risk nutrition ingredient product modules in report models,Understand why sheets and product detail,PARTIAL,"legacy/ppie-sheets.js, legacy/ppie-shell.js",Not every condition returns full mechanism chain in current payload,Add non-computational adapter projection when source fields exist
+nutrition target amount source bioavailability interaction,nutrition targets and product components,Nutrition summary and product detail,PARTIAL,"legacy/ppie-shell.js, legacy/catalog-service.js",Bioavailability and interaction are not consistently present,Show "Not currently available from the validated data."
+commercial gap analysis or product gaps,dedicated gaps endpoint only (/api/v1/research/gaps),Not shown in customer flow,NOT_IMPLEMENTED,"app/api/main.py:/api/v1/research/gaps",Not part of customer report contract,Out of scope for Ω9.6F customer runtime
+experimental products,No validated runtime contract,Not shown in customer flow,NOT_IMPLEMENTED,Runtime contract scan,No trustworthy output fields,Do not add fabricated feature
+rapid scaling KPI,No validated runtime contract,Not shown in customer flow,NOT_IMPLEMENTED,Runtime contract scan,No runtime metric,Do not add fabricated feature

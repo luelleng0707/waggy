@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from app.core.paths import clinical_root_str, resolve_clinical_root
+
 import asyncio
 
 import pytest
@@ -18,8 +20,8 @@ from app.data.warehouse.parity import stable_hash
 
 @pytest.fixture(scope="module")
 def repo() -> DataRepository:
-    bootstrap("data", strict=True)
-    return DataRepository("data")
+    bootstrap(clinical_root_str(), strict=True)
+    return DataRepository(clinical_root_str())
 
 
 @pytest.fixture
@@ -64,7 +66,7 @@ def test_assessment_agent_returns_typed_result(repo: DataRepository, dolly: DogP
 
 @pytest.mark.asyncio
 async def test_engine_delegates_to_formula_graph(dolly: DogProfileInput):
-    agent = PPIEWellnessAgent("data")
+    agent = PPIEWellnessAgent(clinical_root_str())
     analyze = await agent.generate_reproducible_report(dolly)
     assert analyze.get("healthInsights")
     assert analyze.get("wellnessPackages")
@@ -75,7 +77,7 @@ async def test_engine_delegates_to_formula_graph(dolly: DogProfileInput):
 
 @pytest.mark.asyncio
 async def test_assess_matches_generate_hash(dolly: DogProfileInput):
-    agent = PPIEWellnessAgent("data")
+    agent = PPIEWellnessAgent(clinical_root_str())
     via_assess = agent.assess(dolly).to_analyze_dict()
     via_gen = await agent.generate_reproducible_report(dolly)
 

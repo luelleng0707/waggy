@@ -1,0 +1,56 @@
+{
+  "Musculoskeletal": [
+    "Hip Dysplasia",
+    "Osteoarthritis"
+  ],
+  "Mobility": [
+    "Hip Dysplasia",
+    "Osteoarthritis"
+  ],
+  "Pain": [
+    "Hip Dysplasia",
+    "Osteoarthritis"
+  ],
+  "Inflammation": [
+    "Hip Dysplasia",
+    "Osteoarthritis",
+    "Atopic Dermatitis",
+    "Obesity"
+  ],
+  "Cartilage": [
+    "Osteoarthritis"
+  ],
+  "Integumentary": [
+    "Atopic Dermatitis"
+  ],
+  "Pruritus": [
+    "Atopic Dermatitis"
+  ],
+  "Barrier": [
+    "Atopic Dermatitis"
+  ],
+  "Metabolic": [
+    "Obesity"
+  ],
+  "Adiposity": [
+    "Obesity"
+  ],
+  "Nervous": [
+    "Anxiety"
+  ],
+  "Stress": [
+    "Anxiety"
+  ],
+  "Cognition": [
+    "Anxiety"
+  ],
+  "Thermoregulatory": [
+    "Heat Stress Syndrome"
+  ],
+  "Heat": [
+    "Heat Stress Syndrome"
+  ],
+  "Respiration": [
+    "Heat Stress Syndrome"
+  ]
+}

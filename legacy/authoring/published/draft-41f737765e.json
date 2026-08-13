@@ -1,0 +1,112 @@
+{
+  "draft": {
+    "paper_title": "Phase6 Example: EPA and canine joint inflammation",
+    "paper_url": "https://example.org/epa-joint",
+    "doi": "",
+    "year": 2024,
+    "study_type": "rct",
+    "conditions": [
+      "Hip Dysplasia"
+    ],
+    "ingredients": [
+      "Omega-3",
+      "EPA"
+    ],
+    "dose": "100",
+    "dose_unit": "mg/kg",
+    "mechanism": "Eicosanoid modulation reduces inflammation",
+    "population": "Adult large-breed dogs",
+    "effect": "Lower inflammatory cytokines",
+    "effect_direction": "supports",
+    "effect_size": "",
+    "evidence_level": "high",
+    "quote": "EPA reduced inflammatory markers in OA dogs.",
+    "author": "phase6-pipeline",
+    "change_reason": "evidence builder submit",
+    "draft_id": "draft-41f737765e",
+    "created_at": "2026-07-20T22:22:37.395612+00:00",
+    "review_status": "validation"
+  },
+  "rows": {
+    "papers": [
+      {
+        "paper_id": "PAPER-F737765E",
+        "title": "Phase6 Example: EPA and canine joint inflammation",
+        "doi": "",
+        "url": "https://example.org/epa-joint",
+        "year": 2024,
+        "study_type": "rct",
+        "created_by": "phase6-pipeline",
+        "created_date": "2026-07-20",
+        "modified_by": "phase6-pipeline",
+        "modified_date": "2026-07-20",
+        "review_status": "draft",
+        "approval_date": "",
+        "change_reason": "evidence builder submit",
+        "evidence_level": "high"
+      }
+    ],
+    "ingredient_evidence": [
+      {
+        "evidence_id": "EVD-37765E-HIP-DYSP",
+        "paper_id": "PAPER-F737765E",
+        "condition": "Hip Dysplasia",
+        "ingredient_name": "Omega-3",
+        "dose": "100",
+        "dose_unit": "mg/kg",
+        "mechanism": "Eicosanoid modulation reduces inflammation",
+        "population": "Adult large-breed dogs",
+        "effect": "Lower inflammatory cytokines",
+        "effect_direction": "supports",
+        "effect_size": "",
+        "evidence_level": "high",
+        "source_name": "Phase6 Example: EPA and canine joint inflammation",
+        "source_quote": "EPA reduced inflammatory markers in OA dogs.",
+        "source_url": "https://example.org/epa-joint",
+        "year": 2024,
+        "study_type": "rct",
+        "created_by": "phase6-pipeline",
+        "created_date": "2026-07-20",
+        "modified_by": "phase6-pipeline",
+        "modified_date": "2026-07-20",
+        "review_status": "draft",
+        "approval_date": "",
+        "change_reason": "evidence builder submit"
+      },
+      {
+        "evidence_id": "EVD-37765E-HIP-DYSP",
+        "paper_id": "PAPER-F737765E",
+        "condition": "Hip Dysplasia",
+        "ingredient_name": "EPA",
+        "dose": "100",
+        "dose_unit": "mg/kg",
+        "mechanism": "Eicosanoid modulation reduces inflammation",
+        "population": "Adult large-breed dogs",
+        "effect": "Lower inflammatory cytokines",
+        "effect_direction": "supports",
+        "effect_size": "",
+        "evidence_level": "high",
+        "source_name": "Phase6 Example: EPA and canine joint inflammation",
+        "source_quote": "EPA reduced inflammatory markers in OA dogs.",
+        "source_url": "https://example.org/epa-joint",
+        "year": 2024,
+        "study_type": "rct",
+        "created_by": "phase6-pipeline",
+        "created_date": "2026-07-20",
+        "modified_by": "phase6-pipeline",
+        "modified_date": "2026-07-20",
+        "review_status": "draft",
+        "approval_date": "",
+        "change_reason": "evidence builder submit"
+      }
+    ]
+  },
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "evidence_quality_score": 90,
+    "evidence_quality_label": "Randomized controlled trial",
+    "draft_id": "draft-41f737765e"
+  }
+}

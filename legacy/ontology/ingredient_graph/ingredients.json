@@ -1,0 +1,38 @@
+{
+  "EPA": {
+    "parent": "Omega-3",
+    "class": "Fatty Acid",
+    "superclass": "Lipid",
+    "domain": "Nutrient"
+  },
+  "DHA": {
+    "parent": "Omega-3",
+    "class": "Fatty Acid",
+    "superclass": "Lipid",
+    "domain": "Nutrient"
+  },
+  "Omega-3": {
+    "parent": "Fatty Acid",
+    "class": "Fatty Acid",
+    "superclass": "Lipid",
+    "domain": "Nutrient"
+  },
+  "Glucosamine": {
+    "parent": "Aminosugar",
+    "class": "Joint Nutraceutical",
+    "superclass": "Nutraceutical",
+    "domain": "Nutrient"
+  },
+  "Chondroitin Sulfate": {
+    "parent": "Glycosaminoglycan",
+    "class": "Joint Nutraceutical",
+    "superclass": "Nutraceutical",
+    "domain": "Nutrient"
+  },
+  "Probiotics": {
+    "parent": "Microbiome Support",
+    "class": "Live Microorganism",
+    "superclass": "Biologic",
+    "domain": "Nutrient"
+  }
+}

@@ -1,0 +1,9 @@
+source_id,ingredient_id,natural_amount,unit,bioavailability,scientific_quote,paper_name,paper_link
+SRC_001,ING_F9E1B8CF,820,mg_per_100g,0.82,Marine fish oil sources provide concentrated long-chain omega-3 fractions with favorable absorption.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8850985/
+SRC_002,ING_F9E1B8CF,620,mg_per_100g,0.86,Krill phospholipid-bound omega-3 forms can show strong bioavailability characteristics.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8240965/
+SRC_003,ING_41BF6A84,1100,mg_per_100g,0.63,Shell-derived matrices contain glucosamine with measurable bioactive contribution.,Marine Drugs,https://pmc.ncbi.nlm.nih.gov/articles/PMC3583874/
+SRC_004,ING_996AE66D,900,mg_per_100g,0.68,MSM-containing sulfur sources contribute to connective tissue support pathways.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+SRC_005,ING_723DBC80,9.2,mg_per_100g,0.58,Seed-derived zinc sources offer meaningful mineral contribution with matrix-dependent absorption.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8839889/
+SRC_006,ING_C873A4B5,0.34,mg_per_100g,0.71,Lutein-rich botanical sources provide antioxidant-active carotenoid fractions.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/
+SRC_007,ING_5030A666,1.2,cfu_billions_per_serving,0.77,Fermented probiotic matrices maintain viable organisms and improve microbiome outcomes.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+SRC_008,ING_8A38C944,75,mg_per_100g,0.74,Taurine-rich fish matrices provide functional sulfur amino acid support.,PLOS ONE,https://pmc.ncbi.nlm.nih.gov/articles/PMC6292607/

@@ -522,12 +522,20 @@ class DataRepository:
         return resolve_csv_path(self.data_root, relative)
 
     def load_csv(self, relative_path: str) -> pd.DataFrame:
-        """Legacy path-based load — prefer typed accessors. Reads via platform tables when known."""
+        """Legacy path-based load — prefer typed accessors. Resolves via platform tables."""
         rel = relative_path.replace("\\", "/")
+        base = Path(rel).name
+        # Prefer exact path, then exact basename (Phase Σ ops keep legacy basenames).
         for spec in self.platform.manifest.files:
             if spec.path == rel:
                 return self.platform.table(spec.table)
-        # Fallback for unexpected paths (should not happen if manifest is complete)
+        for spec in self.platform.manifest.files:
+            if Path(spec.path).name == base:
+                return self.platform.table(spec.table)
+        for spec in self.platform.manifest.files:
+            # Disambiguated ops files: table__BASENAME.csv
+            if base and Path(spec.path).name.endswith("__" + base):
+                return self.platform.table(spec.table)
         path = self.resolve_path(rel)
         if not path.exists():
             logger.warning("Missing CSV: %s", path)
@@ -649,6 +657,40 @@ class DataRepository:
 
     def store_api_rows(self, weight_kg: float | None = None) -> list[dict[str, Any]]:
         return self.platform.store_api_rows(weight_kg=weight_kg)
+
+    # ── Phase Σ entity-first accessors ─────────────────────────
+    def scientific(self):
+        """Canonical entity repository (IDs + relationships)."""
+        from warehouse.repository.scientific import ScientificRepository
+        from app.core.paths import WAREHOUSE
+        from app.data.native_loader import is_native_warehouse
+
+        root = self.data_root if is_native_warehouse(self.data_root) else WAREHOUSE
+        return ScientificRepository(root)
+
+    def get_breed(self, breed_id_or_name: str):
+        return self.scientific().get_breed(breed_id_or_name)
+
+    def get_condition(self, condition_id_or_name: str):
+        return self.scientific().get_condition(condition_id_or_name)
+
+    def get_trait(self, trait_id: str):
+        return self.scientific().get_trait(trait_id)
+
+    def get_ingredient(self, ingredient_id_or_name: str):
+        return self.scientific().get_ingredient(ingredient_id_or_name)
+
+    def get_product(self, product_id: str):
+        return self.scientific().get_product(product_id)
+
+    def get_condition_relationship(self, **filters: str):
+        return self.scientific().get_condition_relationship(**filters)
+
+    def get_relationship(self, kind: str, **filters: str):
+        return self.scientific().get_relationship(kind, **filters)
+
+    def get_parameter(self, key: str, default: str = "") -> str:
+        return self.scientific().get_parameter(key, default)
 
 
 def feeding_rule_for_product(

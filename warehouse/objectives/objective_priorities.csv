@@ -1,0 +1,8 @@
+objective_id,life_stage,activity_level,environment_context,priority_multiplier,scientific_quote,paper_name,paper_link
+OBJ_001,adult,medium,temperate,1.00,Inflammation reduction remains a stable priority across typical adult populations.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+OBJ_001,senior,low,temperate,1.08,Senior cohorts often require stronger anti-inflammatory objective weighting.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+OBJ_002,adult,medium,temperate,1.00,Cartilage preservation is consistently prioritized in chronic mobility care.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+OBJ_002,senior,low,temperate,1.10,Degenerative progression in seniors increases cartilage objective priority.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+OBJ_004,adult,medium,hot,1.07,High heat and barrier stress contexts can increase skin barrier objective pressure.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+OBJ_007,adult,low,urban,1.05,Urban stressors and dietary instability can increase microbiome objective urgency.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+OBJ_008,adult,high,temperate,1.06,Higher activity states increase lean-muscle maintenance requirements.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/

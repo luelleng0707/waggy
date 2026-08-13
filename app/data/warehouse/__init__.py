@@ -1,7 +1,6 @@
-"""Warehouse adapter layer — Phase 2.
+"""Warehouse helpers retained after Phase Σ (parity hashing, units, parameters).
 
-Formulas still run against legacy-shaped DataFrames.
-This package only changes *where* those frames come from.
+Canonical loading: app.data.native_loader + warehouse/repository.
 """
 
 from __future__ import annotations
@@ -9,31 +8,18 @@ from __future__ import annotations
 from typing import Any
 
 __all__ = [
-    "LegacyCompatibilityLayer",
-    "WarehouseDataPlatform",
-    "WarehouseRepository",
     "UnitNormalizer",
     "ParameterRepository",
     "IngredientRecord",
     "IngredientRepository",
     "PaperAdapter",
-    "TraitConditionAdapter",
+    "stable_hash",
+    "deep_diff",
+    "canonicalize",
 ]
 
 
 def __getattr__(name: str) -> Any:
-    if name == "LegacyCompatibilityLayer":
-        from app.data.warehouse.legacy import LegacyCompatibilityLayer
-
-        return LegacyCompatibilityLayer
-    if name == "WarehouseDataPlatform":
-        from app.data.warehouse.platform import WarehouseDataPlatform
-
-        return WarehouseDataPlatform
-    if name == "WarehouseRepository":
-        from app.data.warehouse.repository import WarehouseRepository
-
-        return WarehouseRepository
     if name == "UnitNormalizer":
         from app.data.warehouse.units import UnitNormalizer
 
@@ -50,8 +36,13 @@ def __getattr__(name: str) -> Any:
         from app.data.warehouse.papers import PaperAdapter
 
         return PaperAdapter
-    if name == "TraitConditionAdapter":
-        from app.data.warehouse.traits import TraitConditionAdapter
+    if name in ("stable_hash", "deep_diff", "canonicalize"):
+        from app.data.warehouse.parity import canonicalize, deep_diff, stable_hash
 
-        return TraitConditionAdapter
-    raise AttributeError(name)
+        return {"stable_hash": stable_hash, "deep_diff": deep_diff, "canonicalize": canonicalize}[
+            name
+        ]
+    raise AttributeError(
+        f"app.data.warehouse.{name} was removed in Phase Σ "
+        "(no LegacyCompatibilityLayer / WarehouseDataPlatform / adapters)."
+    )

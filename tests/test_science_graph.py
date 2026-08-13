@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from app.core.paths import clinical_root_str, resolve_clinical_root
+
 import asyncio
 
 import pytest
@@ -23,7 +25,7 @@ from app.science.versioning import current_science_versions
 
 @pytest.fixture(scope="module")
 def platform() -> DataPlatform:
-    return DataPlatform("data", strict=True)
+    return DataPlatform(clinical_root_str(), strict=True)
 
 
 @pytest.fixture(scope="module")
@@ -124,7 +126,7 @@ async def test_analyze_includes_science_additive():
         current_environment="Shanghai Summer",
         activity_level="High",
     )
-    analyze = await PPIEWellnessAgent("data").generate_reproducible_report(profile)
+    analyze = await PPIEWellnessAgent(clinical_root_str()).generate_reproducible_report(profile)
     assert analyze.get("healthInsights")
     assert (analyze.get("debug") or {}).get("science")
     assert analyze.get("scientificExplainability")

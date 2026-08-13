@@ -1,0 +1,9 @@
+formula_id,formula_name,latest_version,description
+MAT-1001,Observed Aggregation,v1.0,Observed prevalence aggregation from direct observed evidence.
+MAT-1002,Trait Aggregation,v1.0,Weighted log-odds aggregation for trait and environment evidence.
+MAT-1003,Bayesian Update,v1.0,Posterior prevalence update from prior and evidence aggregate.
+MAT-1004,Agreement,v1.0,Agreement mathematics including normalized agreement and prediction error.
+MAT-1005,Confidence,v1.0,Confidence score from evidence depth and study breadth with agreement.
+MAT-1006,Novelty,v1.0,Novelty and emerging concern mathematics.
+MAT-1007,Priority,v1.0,Priority ranking score from prevalence confidence agreement and novelty.
+MAT-1008,Uncertainty,v1.0,Uncertainty and confidence interval bounds.

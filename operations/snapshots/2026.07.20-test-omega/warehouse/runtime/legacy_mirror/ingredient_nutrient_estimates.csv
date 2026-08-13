@@ -1,9 +1,0 @@
-ingredient,canonical_ingredient,nutrient,amount_per_100g,unit,confidence,source,is_estimated,category,parent,property_tags,notes,_csv_row,_csv_file
-Chicken Heart,Chicken Heart,Taurine,160,mg,0.70,literature_estimate,true,organ_meat,Animal Protein,high_taurine,Estimated typical values; verify against primary literature before clinical claims,2,INGREDIENT_NUTRIENT_ESTIMATES.csv
-Beef Heart,Beef Heart,Taurine,240,mg,0.70,literature_estimate,true,organ_meat,Animal Protein,high_taurine,,3,INGREDIENT_NUTRIENT_ESTIMATES.csv
-Sardine,Sardine,Taurine,145,mg,0.70,literature_estimate,true,fish,Animal Protein,natural_omega_3|high_taurine,,4,INGREDIENT_NUTRIENT_ESTIMATES.csv
-Pumpkin,Pumpkin,Fiber,6.5,g,0.70,literature_estimate,true,vegetable,Plant,high_fiber,,5,INGREDIENT_NUTRIENT_ESTIMATES.csv
-Blueberry,Blueberry,Anthocyanins,210,mg,0.60,literature_estimate,true,fruit,Plant,high_antioxidant,,6,INGREDIENT_NUTRIENT_ESTIMATES.csv
-Spinach,Spinach,Iron,2.7,mg,0.70,literature_estimate,true,vegetable,Plant,rich_in_zinc,,7,INGREDIENT_NUTRIENT_ESTIMATES.csv
-Salmon,Salmon,Omega-3,2200,mg,0.70,literature_estimate,true,fish,Animal Protein,natural_omega_3,,8,INGREDIENT_NUTRIENT_ESTIMATES.csv
-Green Lipped Mussel,Green Lipped Mussel,Glucosamine,900,mg,0.60,literature_estimate,true,shellfish,Animal Protein,natural_glucosamine|joint_support,,9,INGREDIENT_NUTRIENT_ESTIMATES.csv

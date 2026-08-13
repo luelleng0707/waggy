@@ -1,0 +1,5 @@
+recipe_id,product_id,scientific_quote,paper_name,paper_link
+RCP_001,PROD_JOINT_ALPHA,Joint mobility recipes are translated into product forms with serving-bound dose delivery.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+RCP_002,PROD_SKIN_BETA,Skin barrier recipes are materialized as product formats for daily administration.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+RCP_003,PROD_METAB_GAMMA,Metabolic recipes are packaged into serving units for consistent supplementation.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/
+RCP_002,PROD_OCULAR_DELTA,Barrier and antioxidant recipe components can be composed into ocular-support formulations.,Veterinary Ophthalmology,https://pmc.ncbi.nlm.nih.gov/articles/PMC11234560/

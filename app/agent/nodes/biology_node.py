@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from app.agent.execution_context import ExecutionContext
 from app.agent.formula_node import FormulaNode
-from app.agent.stages.biological import run_biological_stage
+from app.formulas.stages.biological import run_biological_stage
 
 
 class BiologyNode(FormulaNode):

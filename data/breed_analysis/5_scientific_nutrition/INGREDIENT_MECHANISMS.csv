@@ -1,9 +1,0 @@
-nutrient_name,ingredient_name,source_product_id,amount_per_serving,unit,mechanism_summary,evidence_level
-Omega-3,EPA+DHA,FF002_BEEF,0.2,%,Declared label guaranteed analysis for combo fresh food.
-Omega-3,EPA+DHA,FF002_PORK,0.2,%,Declared label guaranteed analysis for combo fresh food.
-Omega-3,EPA+DHA,FF002_CHICKEN,0.44,%,Declared label guaranteed analysis for combo fresh food.
-Omega-3,EPA+DHA,FF002_FISH,0.6,%,Declared label guaranteed analysis for combo fresh food.
-Probiotics,Brady Yeast Probiotics,SP011,30,g,Pack-weight probiotic payload from declared label.
-Goat Milk,Goat Milk Powder,SP012,400,g,Pack-weight milk powder payload from declared label.
-Joint Support,Joint Health Formula,SP013,120,g,Pack-weight joint formula payload from declared label.
-Immunity,LF-MAG 300,SP015,60,capsules,Pack capsule count from declared label.

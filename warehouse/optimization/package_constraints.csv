@@ -1,0 +1,5 @@
+package_constraint_id,product_id,max_packages_per_day,min_packages_per_day,availability,scientific_quote,paper_name,paper_link
+PCON_0001,PROD_JOINT_ALPHA,3,0,available,Daily package limits are derived from labeled administration boundaries.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+PCON_0002,PROD_SKIN_BETA,2,0,available,Serving package ceilings are specified for safety and compliance.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+PCON_0003,PROD_METAB_GAMMA,2,0,available,Metabolic-support packages are bounded by fixed daily administration limits.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+PCON_0004,PROD_OCULAR_DELTA,2,0,available,Ocular-support package frequencies remain constrained by label dosage recommendations.,Veterinary Ophthalmology,https://pmc.ncbi.nlm.nih.gov/articles/PMC11234560/

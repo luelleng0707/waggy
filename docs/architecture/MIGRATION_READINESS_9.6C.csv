@@ -1,0 +1,7 @@
+concept,readiness,notes
+DogProfile,READY_WITH_ADAPTER,app/repository field gaps (breed_split_pct + sex/gender + optional biometric fields)
+EvidenceGraph,READY_WITH_ADAPTER,app summary evidence vs repository provenance graph contract
+FormulaRegistry,READY_FOR_MIGRATION,repository/formulas deterministic resolver + explicit error behavior verified
+WarehouseInterface,NOT_READY,known direct CSV readers outside canonical interface still active
+Validation,NOT_READY,semantically separate validators; interface unification contract not complete
+Trace,READY_WITH_ADAPTER,typed trace contracts exist but app narrative traces require adapters

@@ -1,0 +1,2 @@
+validation_set_id,dataset_path,description,status
+VAL_001,warehouse/validation/actual_clinical_cases.csv,Initial clinical validation cohort for future precision-recall evaluation,active

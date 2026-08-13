@@ -1,0 +1,10 @@
+parameter_set_id,formula_id,version,status,description
+PS_MAT1001_V1,MAT-1001,v1.0,active,Default observed aggregation parameters.
+PS_MAT1002_V1,MAT-1002,v1.0,active,Default trait aggregation parameters.
+PS_MAT1003_V1,MAT-1003,v1.0,active,Default bayesian update parameters.
+PS_MAT1004_V1,MAT-1004,v1.0,active,Default agreement parameters.
+PS_MAT1005_V1,MAT-1005,v1.0,active,Default confidence parameters.
+PS_MAT1005_V2,MAT-1005,v2.0,experimental,Experimental confidence parameters.
+PS_MAT1006_V1,MAT-1006,v1.0,active,Default novelty parameters.
+PS_MAT1007_V1,MAT-1007,v1.0,active,Default priority parameters.
+PS_MAT1008_V1,MAT-1008,v1.0,active,Default uncertainty parameters.

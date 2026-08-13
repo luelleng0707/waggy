@@ -1,0 +1,29 @@
+{
+  "case_id": "mixed_lab_golden",
+  "dog_id": "DOG_BM_003",
+  "evidence_graph": {
+    "dog_id": "DOG_BM_003",
+    "nodes": [
+      {"node_id": "COND_NODE_1", "node_type": "condition", "condition_id": "COND_HIP", "condition_name": "Hip Dysplasia"},
+      {"node_id": "COND_NODE_2", "node_type": "condition", "condition_id": "COND_OA", "condition_name": "Osteoarthritis"},
+      {"node_id": "SRC_1", "node_type": "observed"},
+      {"node_id": "SRC_2", "node_type": "trait"},
+      {"node_id": "SRC_3", "node_type": "environment"}
+    ],
+    "edges": [
+      {"edge_id": "E1", "from_node_id": "SRC_1", "to_node_id": "COND_NODE_1", "evidence_type": "observed", "value_number": "0.16", "observed_value": "0.16", "citation_id": "C1"},
+      {"edge_id": "E2", "from_node_id": "SRC_2", "to_node_id": "COND_NODE_1", "evidence_type": "trait", "value_number": "0.08", "citation_id": "C2"},
+      {"edge_id": "E3", "from_node_id": "SRC_3", "to_node_id": "COND_NODE_1", "evidence_type": "environment", "value_number": "0.04", "citation_id": "C3"},
+      {"edge_id": "E4", "from_node_id": "SRC_1", "to_node_id": "COND_NODE_2", "evidence_type": "observed", "value_number": "0.07", "observed_value": "0.07", "citation_id": "C1"},
+      {"edge_id": "E5", "from_node_id": "SRC_2", "to_node_id": "COND_NODE_2", "evidence_type": "trait", "value_number": "0.05", "citation_id": "C2"}
+    ],
+    "citations": [
+      {"citation_id": "C1", "paper_name": "Joint Paper", "paper_link": "https://example.org/joint", "scientific_quote": "Observed prevalence quote."},
+      {"citation_id": "C2", "paper_name": "Trait Paper", "paper_link": "https://example.org/trait", "scientific_quote": "Trait-level prevalence contribution quote."},
+      {"citation_id": "C3", "paper_name": "Env Paper", "paper_link": "https://example.org/env", "scientific_quote": "Environment-level prevalence contribution quote."}
+    ]
+  },
+  "expected": {
+    "condition_ids": ["COND_HIP", "COND_OA"]
+  }
+}

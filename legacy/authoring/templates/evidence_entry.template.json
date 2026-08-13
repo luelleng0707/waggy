@@ -1,0 +1,29 @@
+{
+  "paper_title": "Example: EPA in canine osteoarthritis",
+  "paper_url": "https://example.org/paper",
+  "doi": "",
+  "year": 2024,
+  "study_type": "rct",
+  "conditions": [
+    "Hip Dysplasia",
+    "Osteoarthritis"
+  ],
+  "ingredients": [
+    "Omega-3",
+    "EPA"
+  ],
+  "dose": "100",
+  "dose_unit": "mg/kg",
+  "mechanism": "Anti-inflammatory eicosanoid modulation",
+  "population": "Adult large-breed dogs with OA",
+  "effect": "Reduced inflammatory markers",
+  "effect_direction": "supports",
+  "effect_size": "",
+  "evidence_level": "high",
+  "quote": "EPA supplementation reduced cytokine expression\u2026",
+  "author": "curator",
+  "change_reason": "Initial curated entry",
+  "draft_id": "draft-f4dd73854d",
+  "created_at": "2026-07-21T01:41:29.833068+00:00",
+  "review_status": "draft"
+}

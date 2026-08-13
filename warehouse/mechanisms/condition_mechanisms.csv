@@ -1,0 +1,12 @@
+condition_id,mechanism_id,importance_weight,scientific_quote,paper_name,paper_link
+COND_HIP_DYSPLASIA,MEC_001,0.36,Inflammatory modulation is a central target in hip dysplasia pain management.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COND_HIP_DYSPLASIA,MEC_002,0.28,Chondroprotective pathways are core targets for maintaining hip joint structure.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COND_HIP_DYSPLASIA,MEC_003,0.22,Synovial comfort support contributes to functional mobility in dysplastic joints.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+COND_HIP_DYSPLASIA,MEC_007,0.14,Muscle support around unstable joints improves mobility resilience.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/
+COND_ATOPIC_DERMATITIS,MEC_001,0.30,Systemic inflammatory signaling contributes to atopic lesion severity.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+COND_ATOPIC_DERMATITIS,MEC_004,0.45,Skin barrier restoration is a primary biological objective in atopic dermatitis.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+COND_ATOPIC_DERMATITIS,MEC_005,0.25,Gut-skin axis modulation can improve inflammatory skin outcomes.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+COND_OBESITY,MEC_001,0.22,Adiposity-associated inflammation contributes to obesity complications.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+COND_OBESITY,MEC_005,0.33,Microbiome modulation is linked with metabolic and satiety outcomes.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+COND_OBESITY,MEC_007,0.30,Preserving lean mass is an essential objective in obesity intervention plans.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/
+COND_OBESITY,MEC_006,0.15,Oxidative stress increases with obesity and contributes to downstream pathology.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/

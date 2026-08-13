@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Standardized Clinical Report (schema v4) smoke tests."""
 
 import asyncio
@@ -41,9 +42,9 @@ def dolly_profile() -> DogProfileInput:
 @pytest.fixture
 def standard_report(dolly_profile):
     analyze = asyncio.run(
-        PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly_profile)
+        PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly_profile)
     )
-    return analyze, build_standard_report(DataRepository("data"), analyze)
+    return analyze, build_standard_report(DataRepository(clinical_root_str()), analyze)
 
 
 def test_standard_report_schema_and_sections(standard_report):

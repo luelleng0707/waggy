@@ -1,0 +1,8 @@
+validation_dataset,rows,reason,recommended_manual_action
+biology/mixed_breed_NEEDS_VALIDATION.csv,10,Mixed-breed inference data should not be auto-merged,Vet review + canonical schema mapping
+biology/life_stage_health_NEEDS_VALIDATION.csv,10,Life-stage text table does not match locked canonical biological facts schema,Normalize into condition/evidence facts if needed
+biology/size_risk_NEEDS_VALIDATION.csv,4,Size risk matrix is aggregate descriptive guidance,Convert to fact rows with condition IDs and evidence links
+nutrition/ingredient_composition_NEEDS_VALIDATION.csv,12,Dose recommendations are not nutrient composition measurements,Add lab/composition evidence before canonical composition migration
+commercial/product_pricing_NEEDS_VALIDATION.csv,0,Pricing preserved outside canonical scientific engine,Business team decides integration policy
+commercial/product_functions_NEEDS_VALIDATION.csv,0,Legacy product functions require replacement policy,Define controlled function ontology
+commercial/product_recipe_NEEDS_VALIDATION.csv,0,Unstructured legacy product components pending mapping,Map to product_recipe declarations with manufacturer source evidence

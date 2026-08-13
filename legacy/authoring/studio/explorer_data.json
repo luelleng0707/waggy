@@ -1,0 +1,974 @@
+{
+  "breeds": [
+    "Alaskan Malamute",
+    "Afghan Hound",
+    "Border Collie",
+    "Bernese Mountain Dog",
+    "Pomeranian",
+    "Pekingese",
+    "Pug",
+    "Boston Terrier",
+    "Basset Hound",
+    "Beagle",
+    "Bichon Frise",
+    "Bedlington Terrier",
+    "Shiba Inu",
+    "Cavalier King Charles Spaniel",
+    "German Shepherd Dog",
+    "Great Pyrenees",
+    "Doberman Pinscher",
+    "Dalmatian",
+    "French Bulldog",
+    "Old English Sheepdog",
+    "Wirehaired Dachshund",
+    "Poodle",
+    "Siberian Husky",
+    "Golden Retriever",
+    "Chihuahua",
+    "Jack Russell Terrier",
+    "Pembroke Welsh Corgi",
+    "Kerry Blue Terrier",
+    "Foxhound",
+    "Labrador Retriever",
+    "Greyhound",
+    "Smooth Dachshund",
+    "American Cocker Spaniel",
+    "Maltese",
+    "Bull Terrier",
+    "Akita Inu",
+    "Samoyed",
+    "Rough Collie",
+    "Chow Chow",
+    "English Springer Spaniel",
+    "Chinese Rural Dog",
+    "West Highland White Terrier",
+    "Shetland Sheepdog",
+    "Miniature Pinscher",
+    "Shih Tzu",
+    "English Cocker Spaniel",
+    "Yorkshire Terrier",
+    "Longhaired Dachshund"
+  ],
+  "breed_conditions": {
+    "Labrador Retriever": [
+      "Hip Dysplasia",
+      "Obesity"
+    ],
+    "Golden Retriever": [
+      "Hip Dysplasia",
+      "Atopic Dermatitis"
+    ],
+    "Siberian Husky": [
+      "Cataracts",
+      "Immune-Mediated Dermatosis"
+    ],
+    "Pembroke Welsh Corgi": [
+      "IVDD",
+      "Hip Dysplasia"
+    ],
+    "French Bulldog": [
+      "BOAS",
+      "Corneal Ulceration"
+    ],
+    "Pug": [
+      "BOAS",
+      "Dental Disease"
+    ],
+    "German Shepherd Dog": [
+      "Hip Dysplasia",
+      "Degenerative Myelopathy"
+    ],
+    "Beagle": [
+      "Chronic Enteropathy"
+    ],
+    "Miniature Pinscher": [
+      "Degenerative Valve Disease"
+    ]
+  },
+  "conditions": {
+    "Hip Dysplasia": {
+      "ontology": [
+        "Musculoskeletal",
+        "Joint Disease",
+        "Hip Dysplasia",
+        "Mobility",
+        "Pain",
+        "Inflammation"
+      ],
+      "papers": [
+        "Animals",
+        "BMC Genomics",
+        "BMC Veterinary Research",
+        "Journal of Veterinary Medicine",
+        "OFA Cross-Section Review",
+        "OFA Functional Group Analysis",
+        "OFA Longitudinal Registry"
+      ],
+      "ingredients": [
+        "Glucosamine",
+        "Omega-3"
+      ],
+      "products": [],
+      "meta": {
+        "system": "Musculoskeletal",
+        "class": "Joint Disease",
+        "facets": [
+          "Mobility",
+          "Pain",
+          "Inflammation"
+        ],
+        "anatomy": [
+          "Hip",
+          "Coxofemoral joint"
+        ]
+      }
+    },
+    "Obesity": {
+      "ontology": [
+        "Metabolic",
+        "Energy Balance Disorder",
+        "Obesity",
+        "Adiposity",
+        "Inflammation"
+      ],
+      "papers": [
+        "Cell Metabolism",
+        "Frontiers in Veterinary Science"
+      ],
+      "ingredients": [
+        "L-Carnitine"
+      ],
+      "products": [],
+      "meta": {
+        "system": "Metabolic",
+        "class": "Energy Balance Disorder",
+        "facets": [
+          "Adiposity",
+          "Inflammation"
+        ],
+        "anatomy": [
+          "Systemic"
+        ]
+      }
+    },
+    "Atopic Dermatitis": {
+      "ontology": [
+        "Integumentary",
+        "Inflammatory Skin Disease",
+        "Atopic Dermatitis",
+        "Pruritus",
+        "Barrier",
+        "Inflammation"
+      ],
+      "papers": [
+        "Animals",
+        "Dermatology Referral Database",
+        "Dermatology Surveillance Program",
+        "European Veterinary Dermatology Consortium",
+        "Frontiers in Veterinary Science",
+        "VetCompass Dermatology Study"
+      ],
+      "ingredients": [
+        "Omega-3",
+        "Zinc"
+      ],
+      "products": [],
+      "meta": {
+        "system": "Integumentary",
+        "class": "Inflammatory Skin Disease",
+        "facets": [
+          "Pruritus",
+          "Barrier",
+          "Inflammation"
+        ],
+        "anatomy": [
+          "Skin"
+        ]
+      }
+    },
+    "Cataracts": {
+      "ontology": [
+        "Cataracts"
+      ],
+      "papers": [
+        "ACVO Ocular Morbidity Review",
+        "Veterinary Ophthalmology"
+      ],
+      "ingredients": [
+        "Lutein"
+      ],
+      "products": [],
+      "meta": null
+    },
+    "Immune-Mediated Dermatosis": {
+      "ontology": [
+        "Immune-Mediated Dermatosis"
+      ],
+      "papers": [
+        "Frontiers in Veterinary Science"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "IVDD": {
+      "ontology": [
+        "IVDD"
+      ],
+      "papers": [
+        "Canine Spine Consortium",
+        "PNAS"
+      ],
+      "ingredients": [
+        "Glucosamine",
+        "MSM"
+      ],
+      "products": [],
+      "meta": null
+    },
+    "BOAS": {
+      "ontology": [
+        "BOAS"
+      ],
+      "papers": [
+        "PLOS ONE",
+        "Royal Veterinary College BOAS Program"
+      ],
+      "ingredients": [
+        "Omega-3"
+      ],
+      "products": [],
+      "meta": null
+    },
+    "Corneal Ulceration": {
+      "ontology": [
+        "Corneal Ulceration"
+      ],
+      "papers": [
+        "ACVO Ocular Morbidity Review",
+        "PLOS ONE"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Dental Disease": {
+      "ontology": [
+        "Dental Disease"
+      ],
+      "papers": [
+        "Canine Craniofacial Dental Study",
+        "Journal of Small Animal Practice",
+        "Smith et al. Journal of Small Animal Dentistry"
+      ],
+      "ingredients": [
+        "Seaweed Blend"
+      ],
+      "products": [],
+      "meta": null
+    },
+    "Degenerative Myelopathy": {
+      "ontology": [
+        "Degenerative Myelopathy"
+      ],
+      "papers": [
+        "Veterinary Sciences"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Chronic Enteropathy": {
+      "ontology": [
+        "Chronic Enteropathy"
+      ],
+      "papers": [
+        "GI Outcomes in Companion Dogs",
+        "Veterinary Medicine"
+      ],
+      "ingredients": [
+        "Probiotics"
+      ],
+      "products": [],
+      "meta": null
+    },
+    "Degenerative Valve Disease": {
+      "ontology": [
+        "Degenerative Valve Disease"
+      ],
+      "papers": [
+        "Journal of Small Animal Practice"
+      ],
+      "ingredients": [
+        "Taurine"
+      ],
+      "products": [],
+      "meta": null
+    },
+    "Luxating Patella": {
+      "ontology": [
+        "Luxating Patella"
+      ],
+      "papers": [
+        "Canine Genetics and Epidemiology",
+        "Canine Orthopedic Registry"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Tracheal Collapse": {
+      "ontology": [
+        "Tracheal Collapse"
+      ],
+      "papers": [
+        "RVC Respiratory Audit"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Otitis Externa": {
+      "ontology": [
+        "Otitis Externa"
+      ],
+      "papers": [
+        "Antibiotics",
+        "Companion Animal Ear Health Program",
+        "RVC Ear and Skin Review",
+        "Vet Ear Canal Morphology Study",
+        "VetCompass Morbidity Report"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Cruciate Ligament Rupture": {
+      "ontology": [
+        "Cruciate Ligament Rupture"
+      ],
+      "papers": [
+        "Acta Veterinaria Scandinavica",
+        "Canine Cruciate Consortium"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "GDV": {
+      "ontology": [
+        "GDV"
+      ],
+      "papers": [
+        "Emergency GI Outcomes Group",
+        "Large Breed Emergency Study",
+        "Veterinary Sciences"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Osteoarthritis": {
+      "ontology": [
+        "Musculoskeletal",
+        "Joint Disease",
+        "Osteoarthritis",
+        "Mobility",
+        "Pain",
+        "Inflammation",
+        "Cartilage"
+      ],
+      "papers": [
+        "Frontiers in Veterinary Science",
+        "International Working Dog Foundation"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": {
+        "system": "Musculoskeletal",
+        "class": "Joint Disease",
+        "facets": [
+          "Mobility",
+          "Pain",
+          "Inflammation",
+          "Cartilage"
+        ],
+        "anatomy": [
+          "Joint"
+        ]
+      }
+    },
+    "Dilated Cardiomyopathy": {
+      "ontology": [
+        "Dilated Cardiomyopathy"
+      ],
+      "papers": [
+        "Canine Cardiology Registry",
+        "Frontiers in Veterinary Science"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Hot Spots": {
+      "ontology": [
+        "Hot Spots"
+      ],
+      "papers": [
+        "Companion Skin Network"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Dry Skin": {
+      "ontology": [
+        "Dry Skin"
+      ],
+      "papers": [
+        "Canine Barrier Function Audit",
+        "Small Breed Skin Registry"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Interdigital Dermatitis": {
+      "ontology": [
+        "Interdigital Dermatitis"
+      ],
+      "papers": [
+        "Terrier Health Registry"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Sun Dermatitis": {
+      "ontology": [
+        "Sun Dermatitis"
+      ],
+      "papers": [
+        "Canine Photodermatosis Study"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Folliculitis": {
+      "ontology": [
+        "Folliculitis"
+      ],
+      "papers": [
+        "Canine Photodermatosis Study"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Exercise Induced Collapse": {
+      "ontology": [
+        "Exercise Induced Collapse"
+      ],
+      "papers": [
+        "Frontiers in Genetics"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Heat Stress Syndrome": {
+      "ontology": [
+        "Thermoregulatory",
+        "Environmental Stress",
+        "Heat Stress Syndrome",
+        "Heat",
+        "Respiration"
+      ],
+      "papers": [
+        "Canine Environmental Physiology Group",
+        "Scientific Reports"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": {
+        "system": "Thermoregulatory",
+        "class": "Environmental Stress",
+        "facets": [
+          "Heat",
+          "Respiration"
+        ],
+        "anatomy": [
+          "Systemic"
+        ]
+      }
+    },
+    "GI Upset": {
+      "ontology": [
+        "GI Upset"
+      ],
+      "papers": [
+        "Veterinary Medicine"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Retinal Degeneration": {
+      "ontology": [
+        "Retinal Degeneration"
+      ],
+      "papers": [
+        "Inherited Ocular Disease Working Group"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Leishmaniasis Exposure Syndrome": {
+      "ontology": [
+        "Leishmaniasis Exposure Syndrome"
+      ],
+      "papers": [
+        "Pathogens"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "GI Parasite Burden": {
+      "ontology": [
+        "GI Parasite Burden"
+      ],
+      "papers": [
+        "Parasites & Vectors"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Chronic Kidney Disease": {
+      "ontology": [
+        "Chronic Kidney Disease"
+      ],
+      "papers": [
+        "BMC Veterinary Research"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Tear Staining": {
+      "ontology": [
+        "Tear Staining"
+      ],
+      "papers": [
+        "Companion Ophthalmic Survey"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Periodontal Disease": {
+      "ontology": [
+        "Periodontal Disease"
+      ],
+      "papers": [
+        "Canine Oral Health Network"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Epilepsy": {
+      "ontology": [
+        "Epilepsy"
+      ],
+      "papers": [
+        "Frontiers in Veterinary Science"
+      ],
+      "ingredients": [],
+      "products": [],
+      "meta": null
+    },
+    "Joint Health": {
+      "ontology": [
+        "Joint Health"
+      ],
+      "papers": [],
+      "ingredients": [
+        "Chondroitin Sulfate",
+        "Glucosamine",
+        "MSM",
+        "Omega-3"
+      ],
+      "products": [],
+      "meta": null
+    },
+    "Skin Health": {
+      "ontology": [
+        "Skin Health"
+      ],
+      "papers": [],
+      "ingredients": [
+        "Omega-3",
+        "Zinc"
+      ],
+      "products": [],
+      "meta": null
+    },
+    "Gut Health": {
+      "ontology": [
+        "Gut Health"
+      ],
+      "papers": [],
+      "ingredients": [
+        "Probiotics"
+      ],
+      "products": [],
+      "meta": null
+    }
+  },
+  "ingredients": {
+    "Glucosamine": {
+      "ontology": [
+        "Nutrient",
+        "Nutraceutical",
+        "Joint Nutraceutical",
+        "Aminosugar",
+        "Glucosamine"
+      ],
+      "meta": {
+        "parent": "Aminosugar",
+        "class": "Joint Nutraceutical",
+        "superclass": "Nutraceutical",
+        "domain": "Nutrient"
+      }
+    },
+    "Omega-3": {
+      "ontology": [
+        "Nutrient",
+        "Lipid",
+        "Fatty Acid",
+        "Fatty Acid",
+        "Omega-3"
+      ],
+      "meta": {
+        "parent": "Fatty Acid",
+        "class": "Fatty Acid",
+        "superclass": "Lipid",
+        "domain": "Nutrient"
+      }
+    },
+    "MSM": {
+      "ontology": [
+        "MSM"
+      ],
+      "meta": null
+    },
+    "Zinc": {
+      "ontology": [
+        "Zinc"
+      ],
+      "meta": null
+    },
+    "Seaweed Blend": {
+      "ontology": [
+        "Seaweed Blend"
+      ],
+      "meta": null
+    },
+    "Taurine": {
+      "ontology": [
+        "Taurine"
+      ],
+      "meta": null
+    },
+    "Probiotics": {
+      "ontology": [
+        "Nutrient",
+        "Biologic",
+        "Live Microorganism",
+        "Microbiome Support",
+        "Probiotics"
+      ],
+      "meta": {
+        "parent": "Microbiome Support",
+        "class": "Live Microorganism",
+        "superclass": "Biologic",
+        "domain": "Nutrient"
+      }
+    },
+    "L-Carnitine": {
+      "ontology": [
+        "L-Carnitine"
+      ],
+      "meta": null
+    },
+    "Lutein": {
+      "ontology": [
+        "Lutein"
+      ],
+      "meta": null
+    },
+    "Chondroitin Sulfate": {
+      "ontology": [
+        "Nutrient",
+        "Nutraceutical",
+        "Joint Nutraceutical",
+        "Glycosaminoglycan",
+        "Chondroitin Sulfate"
+      ],
+      "meta": {
+        "parent": "Glycosaminoglycan",
+        "class": "Joint Nutraceutical",
+        "superclass": "Nutraceutical",
+        "domain": "Nutrient"
+      }
+    },
+    "Crude Protein": {
+      "ontology": [
+        "Crude Protein"
+      ],
+      "meta": null
+    },
+    "Crude Fat": {
+      "ontology": [
+        "Crude Fat"
+      ],
+      "meta": null
+    },
+    "Crude Fiber": {
+      "ontology": [
+        "Crude Fiber"
+      ],
+      "meta": null
+    },
+    "Ash": {
+      "ontology": [
+        "Ash"
+      ],
+      "meta": null
+    },
+    "Calcium": {
+      "ontology": [
+        "Calcium"
+      ],
+      "meta": null
+    },
+    "Phosphorus": {
+      "ontology": [
+        "Phosphorus"
+      ],
+      "meta": null
+    },
+    "Moisture": {
+      "ontology": [
+        "Moisture"
+      ],
+      "meta": null
+    },
+    "Lysine": {
+      "ontology": [
+        "Lysine"
+      ],
+      "meta": null
+    },
+    "Water-Soluble Chloride": {
+      "ontology": [
+        "Water-Soluble Chloride"
+      ],
+      "meta": null
+    },
+    "Energy": {
+      "ontology": [
+        "Energy"
+      ],
+      "meta": null
+    },
+    "Chicken Breast": {
+      "ontology": [
+        "Chicken Breast"
+      ],
+      "meta": null
+    },
+    "Sheep Milk Powder": {
+      "ontology": [
+        "Sheep Milk Powder"
+      ],
+      "meta": null
+    },
+    "Natural Fruit And Vegetable Powder": {
+      "ontology": [
+        "Natural Fruit And Vegetable Powder"
+      ],
+      "meta": null
+    },
+    "Beetroot": {
+      "ontology": [
+        "Beetroot"
+      ],
+      "meta": null
+    },
+    "Coconut Flakes": {
+      "ontology": [
+        "Coconut Flakes"
+      ],
+      "meta": null
+    },
+    "Carrot": {
+      "ontology": [
+        "Carrot"
+      ],
+      "meta": null
+    },
+    "Cheese": {
+      "ontology": [
+        "Cheese"
+      ],
+      "meta": null
+    },
+    "Okra": {
+      "ontology": [
+        "Okra"
+      ],
+      "meta": null
+    },
+    "Pumpkin": {
+      "ontology": [
+        "Pumpkin"
+      ],
+      "meta": null
+    },
+    "Purple Sweet Potato": {
+      "ontology": [
+        "Purple Sweet Potato"
+      ],
+      "meta": null
+    },
+    "Chicken": {
+      "ontology": [
+        "Chicken"
+      ],
+      "meta": null
+    },
+    "Coconut Oil": {
+      "ontology": [
+        "Coconut Oil"
+      ],
+      "meta": null
+    },
+    "Turmeric Powder": {
+      "ontology": [
+        "Turmeric Powder"
+      ],
+      "meta": null
+    },
+    "Parsley": {
+      "ontology": [
+        "Parsley"
+      ],
+      "meta": null
+    },
+    "Cheddar Cheese": {
+      "ontology": [
+        "Cheddar Cheese"
+      ],
+      "meta": null
+    },
+    "Duck Breast": {
+      "ontology": [
+        "Duck Breast"
+      ],
+      "meta": null
+    },
+    "Rosemary": {
+      "ontology": [
+        "Rosemary"
+      ],
+      "meta": null
+    },
+    "Antibiotic-Free Black Pork": {
+      "ontology": [
+        "Antibiotic-Free Black Pork"
+      ],
+      "meta": null
+    },
+    "Roasted Flaxseed": {
+      "ontology": [
+        "Roasted Flaxseed"
+      ],
+      "meta": null
+    },
+    "Pumpkin Seed Kernels": {
+      "ontology": [
+        "Pumpkin Seed Kernels"
+      ],
+      "meta": null
+    },
+    "Sunflower Seed Kernels": {
+      "ontology": [
+        "Sunflower Seed Kernels"
+      ],
+      "meta": null
+    },
+    "Marigold Petals": {
+      "ontology": [
+        "Marigold Petals"
+      ],
+      "meta": null
+    },
+    "Honey": {
+      "ontology": [
+        "Honey"
+      ],
+      "meta": null
+    },
+    "Natural Fruit & Vegetable Powder": {
+      "ontology": [
+        "Natural Fruit & Vegetable Powder"
+      ],
+      "meta": null
+    },
+    "Rabbit Loin": {
+      "ontology": [
+        "Rabbit Loin"
+      ],
+      "meta": null
+    },
+    "Pet Cheese": {
+      "ontology": [
+        "Pet Cheese"
+      ],
+      "meta": null
+    },
+    "Venison Ears": {
+      "ontology": [
+        "Venison Ears"
+      ],
+      "meta": null
+    },
+    "Crude Ash": {
+      "ontology": [
+        "Crude Ash"
+      ],
+      "meta": null
+    },
+    "Calf Wags (Veal Ribs)": {
+      "ontology": [
+        "Calf Wags (Veal Ribs)"
+      ],
+      "meta": null
+    },
+    "Green Lipped Mussels": {
+      "ontology": [
+        "Green Lipped Mussels"
+      ],
+      "meta": null
+    }
+  },
+  "summary": {
+    "nodes": 353,
+    "edges": 791
+  }
+}

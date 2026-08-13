@@ -1,0 +1,66 @@
+path,why_unknown,imported_by,referenced_by,executable,generated,scientific_data,documentation,unique_logic,duplicate_of,final_status,recommended_action,evidence
+.streamlit/config.toml,no strong static runtime classification in initial audit,,,no,no,no,no,no,,ACTIVE,KEEP_REVIEW,runtime configuration
+CANONICAL_SCIENTIFIC_FACT_WAREHOUSE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+DEPENDENCY_REPORT.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+docs/API_REFERENCE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/ARCHITECTURE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/CHANGELOG.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/CONTRIBUTING.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/DATA_PIPELINE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/DEVELOPER_GUIDE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/FILES_DELETED.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/FILES_MERGED.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/FINAL_DOCUMENTATION.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/FINAL_RUNTIME.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/FOLDER_USAGE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/LEGACY_MANIFEST.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/ABSORPTION.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/AGREEMENT.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/BODY_SYSTEM_MAPPING.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/BUNDLE_OPTIMIZATION.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/CALORIE_CALCULATION.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/CONDITION_MECHANISM_MAPPING.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/CONFIDENCE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/CONFLICT.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/CONSTRAINTS.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/COVERAGE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/DOSE_TARGET.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/ENGINEERING_ASSUMPTIONS.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/ESTIMATED_PREVALENCE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/FORMULA_DEPENDENCY_GRAPH.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/FORMULA_INVENTORY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/HARMONY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/MATHEMATICAL_DEPENDENCY_GRAPH.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/MECHANISM_OBJECTIVE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/NOVELTY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/OBSERVED_PREVALENCE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/OMEGA9_CURRENT_MODEL.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/PRIORITY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/PROPOSED_ESTIMATION_MODEL.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/PROPOSED_FORMULA_REGISTRY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/REASONING_AGREEMENT.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/REASONING_ESTIMATION.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/replays/MAT-1004_REPLAY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/SCIENTIFIC_ENGINEERING_BOUNDARY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/SYNERGY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/TRAIT_AGGREGATION.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/UNCERTAINTY.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/mathematics/WAREHOUSE_BLOCKERS.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/MINIMAL_PROJECT_TREE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/PROJECT_SIZE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/PROJECT_STRUCTURE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/README.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/RUNTIME_DEPENDENCIES.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/RUNTIME_PIPELINE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/SCIENCE_MODEL.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/SYSTEM_ARCHITECTURE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+docs/validation_report.md,no strong static runtime classification in initial audit,,,no,yes,no,yes,no,,GENERATED,KEEP_REVIEW,documentation artifact
+docs/WAREHOUSE_GUIDE.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,documentation artifact
+nixpacks.toml,no strong static runtime classification in initial audit,,,no,no,no,no,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+package.json,no strong static runtime classification in initial audit,,,no,no,no,no,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+railway.json,no strong static runtime classification in initial audit,,,no,no,no,no,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+README.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+requirements.txt,no strong static runtime classification in initial audit,,,no,no,no,no,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+run_demo.ps1,no strong static runtime classification in initial audit,,,yes,no,no,no,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+run_demo.sh,no strong static runtime classification in initial audit,,,yes,no,no,no,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact
+SCIENTIFIC_DISCOVERY_REPORT.md,no strong static runtime classification in initial audit,,,no,no,no,yes,no,,ACTIVE,KEEP_REVIEW,root config/deployment artifact

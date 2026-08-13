@@ -9,7 +9,7 @@ import pandas as pd
 
 from app.agent.condition_lookup import condition_key, condition_matches
 from app.agent.ingredient_engine import map_ingredients
-from app.agent.stages.optimization import _keys_match
+from app.formulas.stages.optimization import _keys_match
 from app.agent.utils import DataRepository, feeding_rule_for_product, ingredient_key, units_compatible
 
 INGREDIENT_PRODUCT_TYPES = {

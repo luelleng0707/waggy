@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Phase 21 EngineTrace — debug-gated calculation audit (no formula changes)."""
 
 import asyncio
@@ -9,7 +10,11 @@ from app.agent.engine import PPIEWellnessAgent
 from app.agent.state import DogProfileInput
 from app.agent.utils import DataRepository
 from app.data.clinical_assessment import build_clinical_assessment
-from app.data.engine_trace import build_engine_trace, is_engine_debug, run_consistency_checks
+from app.debug.clinical_execution_debug import (
+    build_engine_trace,
+    is_engine_debug,
+    run_consistency_checks,
+)
 
 
 @pytest.fixture
@@ -24,7 +29,7 @@ def dolly_analyze():
         current_environment="Shanghai Summer",
         activity_level="High",
     )
-    return asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(profile))
+    return asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(profile))
 
 
 def test_debug_flag_env(monkeypatch):
@@ -38,7 +43,7 @@ def test_debug_flag_env(monkeypatch):
 
 
 def test_engine_trace_sections(dolly_analyze):
-    repo = DataRepository("data")
+    repo = DataRepository(clinical_root_str())
     assessment = build_clinical_assessment(repo, dolly_analyze)
     trace = build_engine_trace(repo, dolly_analyze, assessment, timings={"analyze": 1.0})
     assert trace["schema"] == "engine_trace.v1"

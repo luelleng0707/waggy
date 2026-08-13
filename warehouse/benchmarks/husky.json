@@ -1,0 +1,24 @@
+{
+  "case_id": "husky",
+  "dog_id": "DOG_BM_002",
+  "evidence_graph": {
+    "dog_id": "DOG_BM_002",
+    "nodes": [
+      {"node_id": "COND_NODE_1", "node_type": "condition", "condition_id": "COND_DIA", "condition_name": "Diabetes"},
+      {"node_id": "SRC_1", "node_type": "observed"},
+      {"node_id": "SRC_2", "node_type": "trait"}
+    ],
+    "edges": [
+      {"edge_id": "E1", "from_node_id": "SRC_1", "to_node_id": "COND_NODE_1", "evidence_type": "observed", "value_number": "0.05", "observed_value": "0.05", "citation_id": "C1"},
+      {"edge_id": "E2", "from_node_id": "SRC_2", "to_node_id": "COND_NODE_1", "evidence_type": "trait", "value_number": "0.22", "citation_id": "C2"}
+    ],
+    "citations": [
+      {"citation_id": "C1", "paper_name": "Diabetes Paper", "paper_link": "https://example.org/diabetes", "scientific_quote": "Observed diabetes prevalence quote."},
+      {"citation_id": "C2", "paper_name": "Metabolic Trait Paper", "paper_link": "https://example.org/metabolic", "scientific_quote": "Trait signal for glucose dysregulation."}
+    ]
+  },
+  "expected": {
+    "condition_id": "COND_DIA",
+    "condition_name": "Diabetes"
+  }
+}

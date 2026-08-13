@@ -1,0 +1,7 @@
+concept,current_owner,duplicate_owner,canonical_owner,canonical_reason,production_dependency,repository_dependency,adapter_required,migration_required,migration_risk,contract_test,status
+DogProfile,app + repository,app/agent/state.py,repository/models/runtime.py,domain model belongs in repository; app DTO remains boundary,yes,yes,yes,yes,MEDIUM,tests/architecture/test_dog_profile_contract.py,REQUIRES_ADAPTER
+EvidenceGraph,app + repository,app evidence bundle nodes,repository/models/runtime.py,repository graph is provenance-oriented and typed,yes,yes,yes,yes,HIGH,tests/architecture/test_evidence_graph_contract.py,REQUIRES_ADAPTER
+FormulaRegistry,multiple,app/*formula_registry.py,repository/formulas,repository/formulas is deterministic runtime config resolver,yes,yes,yes,yes,HIGH,tests/architecture/test_formula_registry_contract.py,CANONICAL_CANDIDATE
+WarehouseInterface,multiple,app/data/* loaders,repository/warehouse/warehouse_interface.py,single immutable warehouse contract already used by repository runtime,yes,yes,yes,yes,HIGH,tests/architecture/test_warehouse_interface_contract.py,CANONICAL_CANDIDATE
+Validation,app + repository,app runtime validation node,separated by purpose,validation responsibilities are semantically distinct,yes,yes,partial,yes,MEDIUM,tests/architecture/test_validation_boundaries.py,CANONICAL_CANDIDATE
+Trace,multiple,app narrative traces,layered typed traces (repository + app adapters),trace domains differ and require typed composition,yes,yes,yes,yes,HIGH,tests/architecture/test_trace_contract.py,REQUIRES_ADAPTER

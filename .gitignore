@@ -14,3 +14,12 @@ parity_output/
 .streamlit/secrets.toml
 data_csv/
 data_csv.zip
+
+# Reproducible warehouse / ops artifacts (regenerate via CLI)
+warehouse/draft/
+warehouse/staging/
+warehouse/releases/
+warehouse/production/
+warehouse/generated/
+operations/snapshots/
+meta/

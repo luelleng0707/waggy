@@ -1,8 +1,7 @@
-"""Unit normalization — Phase 2.
+"""Unit conversion helpers for warehouse tooling.
 
-Formulas must not change. Adapters may attach canonical_* columns but
-LegacyCompatibilityLayer always returns original dose_unit / amount strings
-so calculate_dose() and friends see identical inputs.
+Formulas continue to see original dose_unit / amount strings via Repository
+formula views; this normalizer is for tooling / observatories only.
 """
 
 from __future__ import annotations

@@ -1,0 +1,46 @@
+{
+  "conditions": [
+    {
+      "canonical": "Hip Dysplasia",
+      "candidates": [
+        "Hip Dysplasia"
+      ],
+      "reason": "alias_group",
+      "same_condition": false
+    },
+    {
+      "canonical": "Atopic Dermatitis",
+      "candidates": [
+        "Atopic Dermatitis"
+      ],
+      "reason": "alias_group",
+      "same_condition": false
+    },
+    {
+      "canonical": "Obesity",
+      "candidates": [
+        "Obesity"
+      ],
+      "reason": "alias_group",
+      "same_condition": false
+    }
+  ],
+  "ingredients": [
+    {
+      "canonical": "omega-3",
+      "candidates": [
+        "Omega-3"
+      ],
+      "reason": "alias_group",
+      "same_ingredient": false
+    },
+    {
+      "canonical": "glucosamine",
+      "candidates": [
+        "Glucosamine"
+      ],
+      "reason": "alias_group",
+      "same_ingredient": false
+    }
+  ]
+}

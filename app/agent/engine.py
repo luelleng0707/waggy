@@ -2,8 +2,7 @@
 Master PPIE wellness agent orchestrator.
 
 Phase 3: delegates to AssessmentAgent / FormulaGraph.
-Legacy stage orchestration removed from the hot path; formulas remain wrapped
-inside nodes (health_risk, ingredient_engine, package path via assembler).
+Phase Σ: Repository loads the canonical warehouse only (no adapters).
 """
 
 from __future__ import annotations
@@ -14,6 +13,7 @@ from typing import Any
 from app.agent.assessment_agent import AssessmentAgent
 from app.agent.state import DogProfileInput
 from app.agent.utils import DataRepository, bootstrap
+from app.core.paths import clinical_root_str
 
 logger = logging.getLogger(__name__)
 
@@ -29,28 +29,24 @@ class PPIEWellnessAgent:
 
     def __init__(
         self,
-        data_dir: str = "data",
+        data_dir: str | None = None,
         *,
-        backend: str = "legacy",
+        backend: str = "canonical",
         warehouse_root: str | None = None,
         repo: DataRepository | None = None,
     ):
         """
-        backend: "legacy" (default) reads data/ via DataPlatform.
-                 "warehouse" reads via WarehouseRepository adapters (Phase 2).
-        repo: optional pre-built repository (tests). Formulas unchanged either way.
+        data_dir: defaults to resolve_clinical_root() (Phase Σ warehouse).
+        backend: ignored (kept for API compatibility). Always uses DataRepository.
+        warehouse_root: unused (Phase Σ adapters removed).
+        repo: optional pre-built repository (tests).
         """
+        root = data_dir if data_dir is not None else clinical_root_str()
         if repo is not None:
             self.repo = repo
-        elif backend == "warehouse":
-            from app.data.warehouse import WarehouseRepository
-
-            self.repo = WarehouseRepository(
-                data_dir, warehouse_root=warehouse_root, strict=True
-            )
         else:
-            bootstrap(data_dir, strict=True)
-            self.repo = DataRepository(data_dir)
+            bootstrap(root, strict=True)
+            self.repo = DataRepository(root)
         self.assessment_agent = AssessmentAgent(self.repo)
 
     def generate_reproducible_report_sync(

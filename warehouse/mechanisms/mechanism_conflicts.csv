@@ -1,0 +1,4 @@
+ingredient_A,ingredient_B,interaction_type,effect_strength,scientific_quote,paper_name,paper_link
+ING_CALCIUM,ING_MAGNESIUM,negative_interaction,0.55,Calcium-dominant mineral dosing can reduce magnesium uptake efficiency.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC4712861/
+ING_FIBER,ING_ZINC,absorption_inhibitor,0.49,Fiber-associated binding can lower zinc absorption in high-phytate diets.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC7277698/
+ING_IRON,ING_CALCIUM,negative_interaction,0.53,Concurrent calcium intake can inhibit non-heme iron absorption.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC9219084/

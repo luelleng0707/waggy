@@ -1,0 +1,34 @@
+# TEST_ARCHITECTURE
+
+- `tests/api/test_api_architecture_placeholder.py` -> `repository/api` -> unit/integration
+- `tests/benchmarks/test_benchmark_runner.py` -> `repository/benchmarks` -> unit/integration
+- `tests/engine/test_engine_layer_boundaries.py` -> `repository/engine` -> unit/integration
+- `tests/formulas/test_formula_runtime.py` -> `repository/formulas` -> unit/integration
+- `tests/math_debugger/test_math_debugger_runtime.py` -> `repository/math_debugger` -> unit/integration
+- `tests/math_debugger/test_mathematical_integrity.py` -> `repository/math_debugger` -> unit/integration
+- `tests/mathematics/test_mathematics_runtime.py` -> `repository/mathematics` -> unit/integration
+- `tests/mathematics/test_methodology_audit.py` -> `repository/mathematics` -> unit/integration
+- `tests/mechanisms/test_mechanism_runtime.py` -> `repository/mechanisms` -> unit/integration
+- `tests/objectives/test_objective_runtime.py` -> `repository/objectives` -> unit/integration
+- `tests/optimization/test_optimization_runtime.py` -> `repository/optimization` -> unit/integration
+- `tests/pipeline/test_biological_runtime.py` -> `repository/pipeline` -> unit/integration
+- `tests/pipeline/test_pipeline_architecture.py` -> `repository/pipeline` -> unit/integration
+- `tests/reasoning/test_reasoning_runtime.py` -> `repository/reasoning` -> unit/integration
+- `tests/science_graph/test_science_graph_runtime.py` -> `repository/science_graph` -> unit/integration
+- `tests/test_agent_pipeline.py` -> `repository/` -> unit/integration
+- `tests/test_clinical_assessment.py` -> `repository/` -> unit/integration
+- `tests/test_clinical_report.py` -> `repository/` -> unit/integration
+- `tests/test_engine_trace.py` -> `repository/` -> unit/integration
+- `tests/test_formula_graph.py` -> `repository/` -> unit/integration
+- `tests/test_inference_layer.py` -> `repository/` -> unit/integration
+- `tests/test_inference_parity.py` -> `repository/` -> unit/integration
+- `tests/test_package_optimizer.py` -> `repository/` -> unit/integration
+- `tests/test_phase6_authoring.py` -> `repository/` -> unit/integration
+- `tests/test_science_graph.py` -> `repository/` -> unit/integration
+- `tests/test_standard_report.py` -> `repository/` -> unit/integration
+- `tests/test_ui_templates.py` -> `repository/` -> unit/integration
+- `tests/test_validation_console.py` -> `repository/` -> unit/integration
+- `tests/test_validation_console_live.py` -> `repository/` -> unit/integration
+- `tests/test_warehouse_parity.py` -> `repository/` -> unit/integration
+- `tests/warehouse/test_warehouse_interface.py` -> `repository/warehouse` -> unit/integration
+- `tests/warehouse_qa/test_warehouse_qa_runtime.py` -> `repository/warehouse_qa` -> unit/integration

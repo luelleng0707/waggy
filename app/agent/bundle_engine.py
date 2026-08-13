@@ -57,11 +57,7 @@ def _all_products(repo: DataRepository) -> list[dict[str, Any]]:
         category = str(rec.get("category") or "")
         subcategory = str(rec.get("subcategory") or "")
         shelf_life_days = 365
-        for ext_path in (
-            "product_portfolio/EXT_SUPPLEMENTS.csv",
-            "product_portfolio/EXT_TREATS_BAKERY.csv",
-        ):
-            ext = repo.load_csv(ext_path)
+        for ext in (repo.ext_supplements(), repo.ext_treats_bakery()):
             if ext.empty or "product_id" not in ext.columns:
                 continue
             hit = ext[ext["product_id"] == pid]

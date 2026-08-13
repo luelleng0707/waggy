@@ -1,0 +1,13 @@
+directory,files,executable_files,imported_files,authoritative_docs,duplicate_docs,unique_information,target_location,action,reason
+repository/engine,41,25,11,repository/engine/README.md|repository/engine/biology/README.md|repository/engine/epidemiology/README.md|repository/engine/estimation/README.md|repository/engine/explainability/README.md|repository/engine/nutrition/README.md|repository/engine/optimization/README.md|repository/engine/prevention/README.md|repository/engine/products/README.md,,yes,,REVIEW,contains executable/imported content
+repository/engine/biology,6,3,2,repository/engine/biology/README.md,,yes,,REVIEW,contains executable/imported content
+repository/engine/epidemiology,6,3,2,repository/engine/epidemiology/README.md,,yes,,REVIEW,contains executable/imported content
+repository/engine/estimation,6,3,2,repository/engine/estimation/README.md,,yes,,REVIEW,contains executable/imported content
+repository/engine/explainability,4,3,1,repository/engine/explainability/README.md,,yes,,REVIEW,contains executable/imported content
+repository/engine/nutrition,4,3,1,repository/engine/nutrition/README.md,,yes,,REVIEW,contains executable/imported content
+repository/engine/optimization,4,3,1,repository/engine/optimization/README.md,,yes,,REVIEW,contains executable/imported content
+repository/engine/prevention,4,3,1,repository/engine/prevention/README.md,,yes,,REVIEW,contains executable/imported content
+repository/engine/products,4,3,1,repository/engine/products/README.md,,yes,,REVIEW,contains executable/imported content
+repository/api,1,0,0,repository/api/README.md,,no,docs/architecture or legacy/,ARCHIVE_CANDIDATE,README/scaffold only
+repository/frontend,1,0,0,repository/frontend/README.md,,no,docs/architecture or legacy/,ARCHIVE_CANDIDATE,README/scaffold only
+repository/docs,1,0,0,repository/docs/README.md,,no,docs/architecture or legacy/,ARCHIVE_CANDIDATE,README/scaffold only

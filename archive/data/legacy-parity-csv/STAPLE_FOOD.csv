@@ -1,6 +1,0 @@
-product_id,food_type,life_stage,size_support,protein_source,package_weight_g,daily_feeding_chart,energy_kcal_per_kg,protein_pct,fat_pct,fiber_pct,ash_pct,calcium_pct,phosphorus_pct,ingredient_list,storage_method,shelf_life_days
-SF001,kibble,all_life_stages,large_athletic,chicken_fish,12000,See PRODUCT_FEEDING_RULES by weight bracket,3600,26,14,3.5,7.5,1.1,0.9,"Chicken meal; brown rice; fish oil; glucosamine precursor blend",cool_dry,540
-SF002,kibble,adult,small_medium_sensitive,salmon_rice,12000,See PRODUCT_FEEDING_RULES by weight bracket,3450,24,12,4.0,7.0,1.0,0.8,"Salmon meal; rice; probiotics; gentle fiber blend",cool_dry,540
-SF003,kibble,senior,large_joint_support,chicken,12000,See PRODUCT_FEEDING_RULES by weight bracket,3400,25,11,4.2,7.2,1.2,0.9,"Chicken meal; oats; joint support blend; omega oils",cool_dry,540
-SF004,kibble,adult,all_sizes,lean_poultry,10000,See PRODUCT_FEEDING_RULES by weight bracket,3300,28,10,4.5,6.8,1.0,0.8,"Lean poultry meal; quinoa; L-carnitine support blend",cool_dry,540
-SF005,kibble,adult,all_sizes,chicken_pumpkin,10000,See PRODUCT_FEEDING_RULES by weight bracket,3350,24,11,5.0,6.5,1.0,0.8,"Chicken meal; pumpkin; probiotics; digestive fiber",cool_dry,540

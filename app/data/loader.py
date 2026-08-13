@@ -43,6 +43,13 @@ def _read_csv(path: Path) -> pd.DataFrame:
 
 def load_all_tables(data_root: str | Path) -> tuple[Manifest, dict[str, pd.DataFrame], list[Path]]:
     root = Path(data_root)
+
+    # Repository-native: in-memory formula views (no disk projections)
+    from app.data.native_loader import is_native_warehouse, load_native_warehouse
+
+    if is_native_warehouse(root):
+        return load_native_warehouse(root)
+
     if (root / "breed_analysis").exists():
         base = root
     elif root.name == "breed_analysis":

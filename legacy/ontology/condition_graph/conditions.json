@@ -1,0 +1,73 @@
+{
+  "Hip Dysplasia": {
+    "system": "Musculoskeletal",
+    "class": "Joint Disease",
+    "facets": [
+      "Mobility",
+      "Pain",
+      "Inflammation"
+    ],
+    "anatomy": [
+      "Hip",
+      "Coxofemoral joint"
+    ]
+  },
+  "Osteoarthritis": {
+    "system": "Musculoskeletal",
+    "class": "Joint Disease",
+    "facets": [
+      "Mobility",
+      "Pain",
+      "Inflammation",
+      "Cartilage"
+    ],
+    "anatomy": [
+      "Joint"
+    ]
+  },
+  "Atopic Dermatitis": {
+    "system": "Integumentary",
+    "class": "Inflammatory Skin Disease",
+    "facets": [
+      "Pruritus",
+      "Barrier",
+      "Inflammation"
+    ],
+    "anatomy": [
+      "Skin"
+    ]
+  },
+  "Obesity": {
+    "system": "Metabolic",
+    "class": "Energy Balance Disorder",
+    "facets": [
+      "Adiposity",
+      "Inflammation"
+    ],
+    "anatomy": [
+      "Systemic"
+    ]
+  },
+  "Anxiety": {
+    "system": "Nervous",
+    "class": "Behavioral Disorder",
+    "facets": [
+      "Stress",
+      "Cognition"
+    ],
+    "anatomy": [
+      "CNS"
+    ]
+  },
+  "Heat Stress Syndrome": {
+    "system": "Thermoregulatory",
+    "class": "Environmental Stress",
+    "facets": [
+      "Heat",
+      "Respiration"
+    ],
+    "anatomy": [
+      "Systemic"
+    ]
+  }
+}

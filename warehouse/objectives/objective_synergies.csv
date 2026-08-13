@@ -1,0 +1,4 @@
+objective_A,objective_B,relationship,effect,quote,paper,link
+OBJ_001,OBJ_005,positive_synergy,0.78,Inflammation and oxidative stress objectives reinforce each other in chronic disease control.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/
+OBJ_002,OBJ_008,positive_synergy,0.64,Cartilage preservation and lean-muscle maintenance jointly improve functional outcomes.,Journal of Animal Science and Biotechnology,https://pmc.ncbi.nlm.nih.gov/articles/PMC8846339/
+OBJ_004,OBJ_007,positive_synergy,0.69,Gut microbiome stability can improve skin barrier outcomes through gut-skin mechanisms.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/

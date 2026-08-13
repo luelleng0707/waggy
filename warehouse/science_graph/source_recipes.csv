@@ -1,0 +1,10 @@
+source_id,recipe_id,scientific_quote,paper_name,paper_link
+SRC_001,RCP_001,Omega-3 rich marine source inclusion supports anti-inflammatory recipe objectives.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+SRC_003,RCP_001,Glucosamine-containing sources are central to cartilage support formulations.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+SRC_004,RCP_001,MSM sources contribute sulfur pathways for connective support recipe design.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+SRC_005,RCP_002,Zinc-rich sources are used in evidence-backed skin-barrier recipe composition.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+SRC_007,RCP_002,Probiotic sources support gut-skin axis recipe architecture.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+SRC_006,RCP_002,Antioxidant carotenoid sources support oxidative burden reduction in skin-focused recipes.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/
+SRC_007,RCP_003,Probiotic source inclusion supports metabolic and microbiome objectives.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+SRC_001,RCP_003,Omega-3 sources provide anti-inflammatory structure for metabolic recipes.,Animals,https://pmc.ncbi.nlm.nih.gov/articles/PMC12067799/
+SRC_008,RCP_003,Taurine-rich sources support lean-muscle and cardiometabolic components.,PLOS ONE,https://pmc.ncbi.nlm.nih.gov/articles/PMC6292607/

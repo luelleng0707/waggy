@@ -1,0 +1,15 @@
+formula_id,version,parameter_name,parameter_type,description
+MAT-1002,v1.0,min_strength,float,Minimum evidence strength bound.
+MAT-1002,v1.0,max_strength,float,Maximum evidence strength bound.
+MAT-1002,v1.0,strength_divisor,float,Evidence count divisor for strength.
+MAT-1005,v1.0,evidence_weight,float,Confidence weight for evidence component.
+MAT-1005,v1.0,study_weight,float,Confidence weight for study component.
+MAT-1005,v1.0,agreement_weight,float,Confidence weight for agreement component.
+MAT-1005,v1.0,observed_multiplier,float,Observed evidence multiplier.
+MAT-1005,v1.0,evidence_denominator,float,Evidence normalization denominator.
+MAT-1005,v1.0,study_denominator,float,Study normalization denominator.
+MAT-1006,v1.0,emerging_observed_max,float,Max observed prevalence to flag emerging concern.
+MAT-1006,v1.0,emerging_estimated_min,float,Min estimated prevalence to flag emerging concern.
+MAT-1006,v1.0,emerging_confidence_min,float,Min confidence to flag emerging concern.
+MAT-1007,v1.0,min_agreement_scale,float,Minimum agreement scale in priority scoring.
+MAT-1008,v1.0,min_uncertainty_factor,float,Minimum uncertainty factor floor.

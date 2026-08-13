@@ -1,0 +1,7 @@
+source_id,ingredient_id,bioavailability_factor,context,scientific_quote,paper_name,paper_link
+SRC_001,ING_F9E1B8CF,0.82,with_meal,Meal context improves uptake of long-chain omega-3 in lipid matrices.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8850985/
+SRC_002,ING_F9E1B8CF,0.86,with_meal,Phospholipid omega-3 forms can improve utilization efficiency.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8240965/
+SRC_003,ING_41BF6A84,0.63,fasted_or_fed,Glucosamine uptake is measurable across dosing contexts with modest variability.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+SRC_004,ING_996AE66D,0.68,with_meal,MSM oral utilization improves in complete meal context.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+SRC_005,ING_723DBC80,0.58,low_phytate_meal,Zinc utilization declines in high-phytate contexts and improves with lower inhibitory load.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC7277698/
+SRC_007,ING_5030A666,0.77,daily_consistency,Consistent daily intake improves probiotic survival and functional persistence.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/

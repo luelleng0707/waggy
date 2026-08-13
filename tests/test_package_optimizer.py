@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Phase 11 package optimizer smoke tests."""
 
 import asyncio
@@ -26,7 +27,7 @@ def dolly() -> DogProfileInput:
 
 
 def test_candidates_are_active_catalog_only():
-    repo = DataRepository("data")
+    repo = DataRepository(clinical_root_str())
     cands = load_candidate_products(repo, 10.0)
     assert cands
     assert all(c["status"].lower() == "active" or c["product_id"] for c in cands)
@@ -38,7 +39,7 @@ def test_candidates_are_active_catalog_only():
 
 
 def test_packages_computed_not_empty(dolly):
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly))
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly))
     pkgs = analyze["wellnessPackages"]
     assert len(pkgs) == 3
     for pkg in pkgs:
@@ -50,15 +51,15 @@ def test_packages_computed_not_empty(dolly):
 
 
 def test_no_hardcoded_sp_products(dolly):
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly))
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly))
     for pkg in analyze["wellnessPackages"]:
         for p in pkg["products_included"]:
             assert not str(p.get("product_id", "")).startswith("SP")
 
 
 def test_report_models_envelope(dolly):
-    analyze = asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly))
-    models = build_all_report_models(DataRepository("data"), analyze)
+    analyze = asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly))
+    models = build_all_report_models(DataRepository(clinical_root_str()), analyze)
     assert "standard_report" in models
     assert models["package_details"]["balanced"]
     assert models["annual_plan"]["widgets"]

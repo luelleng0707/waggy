@@ -1,0 +1,6 @@
+source_id,component_id,component_name,percentage,unit,scientific_quote,paper_name,paper_link
+SRC_001,COMP_001,EPA_DHA_fraction,62,percent,Fish oil concentrates standardize EPA and DHA fractions for reproducible dosing.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8850985/
+SRC_002,COMP_002,phospholipid_omega3,48,percent,Krill-derived omega-3 composition contains phospholipid-bound fatty acids.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC8240965/
+SRC_003,COMP_003,glucosamine_sulfate,37,percent,Shell matrices concentrate glucosamine-associated compounds.,Marine Drugs,https://pmc.ncbi.nlm.nih.gov/articles/PMC3583874/
+SRC_004,COMP_004,methyl_sulfonyl_methane,41,percent,MSM source composition contains sulfur-active fractions relevant to connective support.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9499673/
+SRC_007,COMP_005,lactic_acid_bacteria,84,percent,Fermented probiotic formulations preserve high relative viable culture composition.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/

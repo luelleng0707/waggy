@@ -1,0 +1,11 @@
+fact_id,stage,core_health_problems,brief_explanation,scientific_quote,paper_name,paper_link,publication_year,study_type,species,status
+FACT_434CB0,Puppy,"Infectious diseases, congenital defects, GI distress, growth orthopedic issues",Highest risk of viral/parasitic infections; conditions are tied to immature immunity and rapid skeletal development,,,,,,Canis lupus familiaris,needs_validation
+FACT_B3599D,Young Adult,"Allergic dermatitis/otitis, trauma, early dental disease, orthopedic onset","Peak physical health; allergies, injuries and early joint issues are the most common new diagnoses",,,,,,Canis lupus familiaris,needs_validation
+FACT_013329,Mature Adult,"Obesity, periodontitis, early organ decline, osteoarthritis onset","Metabolic rate slows; chronic, subclinical conditions first become detectable with routine screening",,,,,,Canis lupus familiaris,needs_validation
+FACT_5259F4,Senior,"Cardiac disease, chronic kidney disease, cancer, sensory/cognitive decline",Age-related disease prevalence rises sharply; leading causes of mortality begin to manifest clinically,,,,,,Canis lupus familiaris,needs_validation
+FACT_33F426,End of Life,"Organ failure, advanced cancer, severe mobility loss, cachexia",Defined by progression of pre-existing chronic disease; care priority shifts to palliative comfort and quality of life,,,,,,Canis lupus familiaris,needs_validation
+FACT_64FB47,Puppy,"Small breed 0-1 year (~7% EL), Giant breed 0-9 months (~9% EL)",STANDARD OF AGES mapping by expected lifespan,,,,,,Canis lupus familiaris,needs_validation
+FACT_672EC7,Young Adult,"Small breed 1-3.5 years (~23%), Giant breed 9 months-2.5 years (~31%)",STANDARD OF AGES mapping by expected lifespan,,,,,,Canis lupus familiaris,needs_validation
+FACT_115C52,Mature Adult,"Small breed 3.5-11.25 years, Giant breed 2.5-6 years",STANDARD OF AGES mapping by expected lifespan,,,,,,Canis lupus familiaris,needs_validation
+FACT_C83A96,Senior,"Small breed 11.25-14 years, Giant breed 6-7 years",STANDARD OF AGES mapping by expected lifespan,,,,,,Canis lupus familiaris,needs_validation
+FACT_06EF14,End of Life,"Small breed 14-15 years, Giant breed 7-8 years",STANDARD OF AGES mapping by expected lifespan,,,,,,Canis lupus familiaris,needs_validation

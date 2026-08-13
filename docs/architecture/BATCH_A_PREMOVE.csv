@@ -1,0 +1,4 @@
+path,file_count,executable_files,importers,runtime_references,test_references,config_references,unique_information,archive_decision,verification_evidence
+repository/api/,1,,,,tests/pipeline/test_pipeline_architecture.py,,low (layer description; duplicated by root/docs architecture docs),APPROVED,files=1; py=0; exec=0; importers=0; config_refs=0; script_refs=0; test_refs=1; app_refs=0; repo_refs=1; doc_refs=6
+repository/frontend/,1,,,,tests/pipeline/test_pipeline_architecture.py,,low (layer description; duplicated by root/docs architecture docs),APPROVED,files=1; py=0; exec=0; importers=0; config_refs=0; script_refs=0; test_refs=1; app_refs=0; repo_refs=1; doc_refs=6
+repository/docs/,1,,,,,,low (layer description; duplicated by root/docs architecture docs),APPROVED,files=1; py=0; exec=0; importers=0; config_refs=0; script_refs=0; test_refs=0; app_refs=0; repo_refs=0; doc_refs=4

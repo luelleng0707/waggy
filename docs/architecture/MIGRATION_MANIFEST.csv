@@ -1,0 +1,634 @@
+current_path,target_path,action,reason,phase_origin,dependency_count,risk,requires_import_change,requires_test_change,requires_data_change,safe_to_execute,dependency_verified,runtime_verified,scientific_data_verified,test_verified,migration_confidence
+.streamlit/config.toml,.streamlit/config.toml,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+app/agent/__init__.py,app/agent/__init__.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/assessment_agent.py,app/agent/assessment_agent.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/agent/assessment_result.py,app/agent/assessment_result.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/bundle_engine.py,app/agent/bundle_engine.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/calculation_trace.py,app/agent/calculation_trace.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/condition_lookup.py,app/agent/condition_lookup.py,REVIEW,insufficient evidence,UNKNOWN,7,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/engine.py,app/agent/engine.py,REVIEW,insufficient evidence,UNKNOWN,17,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/agent/execution_context.py,app/agent/execution_context.py,REVIEW,insufficient evidence,UNKNOWN,22,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/formula_graph.py,app/agent/formula_graph.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/agent/formula_node.py,app/agent/formula_node.py,REVIEW,insufficient evidence,UNKNOWN,19,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/formula_registry.py,app/agent/formula_registry.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/agent/formula_trace.py,app/agent/formula_trace.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/ingredient_engine.py,app/agent/ingredient_engine.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/__init__.py,app/agent/nodes/__init__.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/agent/nodes/activity_node.py,app/agent/nodes/activity_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/assessment_node.py,app/agent/nodes/assessment_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/biology_node.py,app/agent/nodes/biology_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/breed_node.py,app/agent/nodes/breed_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/confidence_node.py,app/agent/nodes/confidence_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/epidemiology_node.py,app/agent/nodes/epidemiology_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/evidence_node.py,app/agent/nodes/evidence_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/export_node.py,app/agent/nodes/export_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/grooming_node.py,app/agent/nodes/grooming_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/ingredient_node.py,app/agent/nodes/ingredient_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/nutrition_node.py,app/agent/nodes/nutrition_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/package_node.py,app/agent/nodes/package_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/product_node.py,app/agent/nodes/product_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/profile_node.py,app/agent/nodes/profile_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/report_node.py,app/agent/nodes/report_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/risk_node.py,app/agent/nodes/risk_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/trace_node.py,app/agent/nodes/trace_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/nodes/validation_node.py,app/agent/nodes/validation_node.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/package_detail.py,app/agent/package_detail.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/package_optimizer.py,app/agent/package_optimizer.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/agent/pipeline_trace.py,app/agent/pipeline_trace.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/response_assembler.py,app/agent/response_assembler.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/state.py,app/agent/state.py,REVIEW,insufficient evidence,UNKNOWN,32,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/agent/utils.py,app/agent/utils.py,REVIEW,insufficient evidence,UNKNOWN,31,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/agent/variable_map.py,app/agent/variable_map.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/version.py,app/agent/version.py,REVIEW,insufficient evidence,UNKNOWN,6,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/agent/wellness_map.py,app/agent/wellness_map.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/api/evidence.py,app/api/evidence.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/api/main.py,app/api/main.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,yes,n/a,yes,MEDIUM
+app/api/payload_adapter.py,app/api/payload_adapter.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/core/__init__.py,app/core/__init__.py,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/core/paths.py,app/core/paths.py,REVIEW,insufficient evidence,UNKNOWN,29,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/__init__.py,app/data/__init__.py,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/data/cache.py,app/data/cache.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/data/clinical_assessment.py,app/data/clinical_assessment.py,REVIEW,insufficient evidence,UNKNOWN,5,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/clinical_report_builder.py,app/data/clinical_report_builder.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/loader.py,app/data/loader.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/data/native_loader.py,app/data/native_loader.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/data/report_generator.py,app/data/report_generator.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/report_models.py,app/data/report_models.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/report_schema.py,app/data/report_schema.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/repository.py,app/data/repository.py,REVIEW,insufficient evidence,UNKNOWN,21,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/runtime.py,app/data/runtime.py,REVIEW,insufficient evidence,UNKNOWN,9,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/schemas.py,app/data/schemas.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/data/validators.py,app/data/validators.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/data/warehouse/__init__.py,app/data/warehouse/__init__.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/data/warehouse/ingredients.py,app/data/warehouse/ingredients.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/warehouse/papers.py,app/data/warehouse/papers.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/data/warehouse/parameters.py,app/data/warehouse/parameters.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/warehouse/parity.py,app/data/warehouse/parity.py,REVIEW,insufficient evidence,UNKNOWN,5,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/warehouse/units.py,app/data/warehouse/units.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/data/watcher.py,app/data/watcher.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/debug/__init__.py,app/debug/__init__.py,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/debug/clinical_execution_debug.py,app/debug/clinical_execution_debug.py,REVIEW,insufficient evidence,UNKNOWN,5,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/formulas/__init__.py,app/formulas/__init__.py,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/formulas/stages/__init__.py,app/formulas/stages/__init__.py,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/formulas/stages/biological.py,app/formulas/stages/biological.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/formulas/stages/epidemiology.py,app/formulas/stages/epidemiology.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/formulas/stages/health_risk.py,app/formulas/stages/health_risk.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/formulas/stages/nutrition.py,app/formulas/stages/nutrition.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/formulas/stages/optimization.py,app/formulas/stages/optimization.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/inference/__init__.py,app/inference/__init__.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/inference/confidence.py,app/inference/confidence.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/inference/config.py,app/inference/config.py,REVIEW,insufficient evidence,UNKNOWN,8,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/inference/formula_registry.py,app/inference/formula_registry.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/inference/ingredient.py,app/inference/ingredient.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/inference/models.py,app/inference/models.py,REVIEW,insufficient evidence,UNKNOWN,6,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/inference/nutrition.py,app/inference/nutrition.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/inference/resolver.py,app/inference/resolver.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/inference/risk.py,app/inference/risk.py,REVIEW,insufficient evidence,UNKNOWN,2,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/inference/score.py,app/inference/score.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/main.py,app/main.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,yes,n/a,yes,MEDIUM
+app/science/__init__.py,app/science/__init__.py,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/science/attach.py,app/science/attach.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/science/audit.py,app/science/audit.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/science/builder.py,app/science/builder.py,REVIEW,insufficient evidence,UNKNOWN,13,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/science/confidence.py,app/science/confidence.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/science/coverage.py,app/science/coverage.py,REVIEW,insufficient evidence,UNKNOWN,7,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/science/diff_engine.py,app/science/diff_engine.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/science/explanations.py,app/science/explanations.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/science/graph.py,app/science/graph.py,REVIEW,insufficient evidence,UNKNOWN,5,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/science/models.py,app/science/models.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/science/repository.py,app/science/repository.py,REVIEW,insufficient evidence,UNKNOWN,5,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/science/validator.py,app/science/validator.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/science/versioning.py,app/science/versioning.py,REVIEW,insufficient evidence,UNKNOWN,5,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/ui/demo_app.py,app/ui/demo_app.py,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/renderer/__init__.py,app/ui/renderer/__init__.py,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/renderer/diary.py,app/ui/renderer/diary.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/ui/renderer/formatters.py,app/ui/renderer/formatters.py,REVIEW,insufficient evidence,UNKNOWN,4,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/ui/renderer/home.py,app/ui/renderer/home.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/ui/renderer/journey.py,app/ui/renderer/journey.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/ui/renderer/navigation.py,app/ui/renderer/navigation.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/ui/renderer/template_engine.py,app/ui/renderer/template_engine.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/ui/renderer/wellness.py,app/ui/renderer/wellness.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,partial,n/a,yes,MEDIUM
+app/ui/templates/base/app_styles.css,app/ui/templates/base/app_styles.css,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/diary_section.html,app/ui/templates/components/diary_section.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/dog_profile_card.html,app/ui/templates/components/dog_profile_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/evidence_card.html,app/ui/templates/components/evidence_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/feeding_option.html,app/ui/templates/components/feeding_option.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/ingredient_card.html,app/ui/templates/components/ingredient_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/macros.html,app/ui/templates/components/macros.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/nutrition_priority_card.html,app/ui/templates/components/nutrition_priority_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/nutrition_row.html,app/ui/templates/components/nutrition_row.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/package_card.html,app/ui/templates/components/package_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/product_row.html,app/ui/templates/components/product_row.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/trait_benefit_card.html,app/ui/templates/components/trait_benefit_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/trait_card.html,app/ui/templates/components/trait_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/trait_weakness_card.html,app/ui/templates/components/trait_weakness_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/components/wellness_recommendation_card.html,app/ui/templates/components/wellness_recommendation_card.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/diary/page.html,app/ui/templates/diary/page.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/home/journey.html,app/ui/templates/home/journey.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/wellness/nutrition_report.html,app/ui/templates/wellness/nutrition_report.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/wellness/package_detail.html,app/ui/templates/wellness/package_detail.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+app/ui/templates/wellness/product_analysis.html,app/ui/templates/wellness/product_analysis.html,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+CANONICAL_SCIENTIFIC_FACT_WAREHOUSE.md,CANONICAL_SCIENTIFIC_FACT_WAREHOUSE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+config/__init__.py,config/__init__.py,REVIEW,insufficient evidence,UNKNOWN,3,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+config/settings.py,config/settings.py,REVIEW,insufficient evidence,UNKNOWN,1,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+DEPENDENCY_REPORT.md,DEPENDENCY_REPORT.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/API_REFERENCE.md,docs/API_REFERENCE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/ARCHITECTURE.md,docs/ARCHITECTURE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/CHANGELOG.md,docs/CHANGELOG.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/CONTRIBUTING.md,docs/CONTRIBUTING.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/DATA_PIPELINE.md,docs/DATA_PIPELINE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/DEVELOPER_GUIDE.md,docs/DEVELOPER_GUIDE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/FILES_DELETED.md,docs/FILES_DELETED.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/FILES_MERGED.md,docs/FILES_MERGED.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/FINAL_DOCUMENTATION.md,docs/FINAL_DOCUMENTATION.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/FINAL_RUNTIME.md,docs/FINAL_RUNTIME.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/FOLDER_USAGE.md,docs/FOLDER_USAGE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/LEGACY_MANIFEST.md,docs/LEGACY_MANIFEST.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/ABSORPTION.md,docs/mathematics/ABSORPTION.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/AGREEMENT.md,docs/mathematics/AGREEMENT.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/BODY_SYSTEM_MAPPING.md,docs/mathematics/BODY_SYSTEM_MAPPING.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/BUNDLE_OPTIMIZATION.md,docs/mathematics/BUNDLE_OPTIMIZATION.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/CALORIE_CALCULATION.md,docs/mathematics/CALORIE_CALCULATION.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/CONDITION_MECHANISM_MAPPING.md,docs/mathematics/CONDITION_MECHANISM_MAPPING.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/CONFIDENCE.md,docs/mathematics/CONFIDENCE.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/CONFLICT.md,docs/mathematics/CONFLICT.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/CONSTRAINTS.md,docs/mathematics/CONSTRAINTS.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/COVERAGE.md,docs/mathematics/COVERAGE.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/DOSE_TARGET.md,docs/mathematics/DOSE_TARGET.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/ENGINEERING_ASSUMPTIONS.md,docs/mathematics/ENGINEERING_ASSUMPTIONS.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/ENVIRONMENT_MODEL_AUDIT.md,docs/mathematics/ENVIRONMENT_MODEL_AUDIT.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/ESTIMATED_PREVALENCE.md,docs/mathematics/ESTIMATED_PREVALENCE.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/FORMULA_DEPENDENCIES.csv,docs/mathematics/FORMULA_DEPENDENCIES.csv,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/FORMULA_DEPENDENCY_GRAPH.md,docs/mathematics/FORMULA_DEPENDENCY_GRAPH.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/FORMULA_INVENTORY.md,docs/mathematics/FORMULA_INVENTORY.md,KEEP,generated artifact for audit traceability,O9,0,LOW,no,no,no,yes,yes,no,n/a,partial,HIGH
+docs/mathematics/FORMULA_REGISTRY.csv,docs/mathematics/FORMULA_REGISTRY.csv,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/FORMULA_REPLAY.csv,docs/mathematics/FORMULA_REPLAY.csv,KEEP,generated artifact for audit traceability,O9,0,LOW,no,no,no,yes,yes,no,n/a,partial,HIGH
+docs/mathematics/HARMONY.md,docs/mathematics/HARMONY.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/MAT1002_PARAMETER_AUDIT.csv,docs/mathematics/MAT1002_PARAMETER_AUDIT.csv,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/MAT1007_DEPENDENCY_AUDIT.csv,docs/mathematics/MAT1007_DEPENDENCY_AUDIT.csv,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/MATHEMATICAL_AUDIT.md,docs/mathematics/MATHEMATICAL_AUDIT.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/MATHEMATICAL_AUDIT_GUIDE.md,docs/mathematics/MATHEMATICAL_AUDIT_GUIDE.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/MATHEMATICAL_DEPENDENCY_GRAPH.md,docs/mathematics/MATHEMATICAL_DEPENDENCY_GRAPH.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/MATHEMATICAL_PUBLICATION_AUDIT.md,docs/mathematics/MATHEMATICAL_PUBLICATION_AUDIT.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/MECHANISM_OBJECTIVE.md,docs/mathematics/MECHANISM_OBJECTIVE.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/NOVELTY.md,docs/mathematics/NOVELTY.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/NUMERICAL_PROVENANCE.csv,docs/mathematics/NUMERICAL_PROVENANCE.csv,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/OBSERVED_PREVALENCE.md,docs/mathematics/OBSERVED_PREVALENCE.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/OMEGA9_CURRENT_MODEL.md,docs/mathematics/OMEGA9_CURRENT_MODEL.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/PRIORITY.md,docs/mathematics/PRIORITY.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/PROPOSED_ESTIMATION_MODEL.md,docs/mathematics/PROPOSED_ESTIMATION_MODEL.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/PROPOSED_FORMULA_REGISTRY.md,docs/mathematics/PROPOSED_FORMULA_REGISTRY.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/REASONING_AGREEMENT.md,docs/mathematics/REASONING_AGREEMENT.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/REASONING_ESTIMATION.md,docs/mathematics/REASONING_ESTIMATION.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/replays/MAT-1004_REPLAY.md,docs/mathematics/replays/MAT-1004_REPLAY.md,KEEP,generated artifact for audit traceability,O9,0,LOW,no,no,no,yes,yes,no,n/a,partial,HIGH
+docs/mathematics/SCIENTIFIC_ENGINEERING_BOUNDARY.md,docs/mathematics/SCIENTIFIC_ENGINEERING_BOUNDARY.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/SYNERGY.md,docs/mathematics/SYNERGY.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/TRAIT_AGGREGATION.md,docs/mathematics/TRAIT_AGGREGATION.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/UNCERTAINTY.md,docs/mathematics/UNCERTAINTY.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/mathematics/WAREHOUSE_BLOCKERS.md,docs/mathematics/WAREHOUSE_BLOCKERS.md,REVIEW,insufficient evidence,O9,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/MINIMAL_PROJECT_TREE.md,docs/MINIMAL_PROJECT_TREE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/PROJECT_SIZE.md,docs/PROJECT_SIZE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/PROJECT_STRUCTURE.md,docs/PROJECT_STRUCTURE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/README.md,docs/README.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/RUNTIME_DEPENDENCIES.md,docs/RUNTIME_DEPENDENCIES.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/RUNTIME_PIPELINE.md,docs/RUNTIME_PIPELINE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/SCIENCE_MODEL.md,docs/SCIENCE_MODEL.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/SYSTEM_ARCHITECTURE.md,docs/SYSTEM_ARCHITECTURE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+docs/validation_report.md,docs/validation_report.md,KEEP,generated artifact for audit traceability,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,HIGH
+docs/WAREHOUSE_GUIDE.md,docs/WAREHOUSE_GUIDE.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+legacy/app.js,legacy/app.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/__init__.py,legacy/authoring/__init__.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/__main__.py,legacy/authoring/__main__.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/builder.py,legacy/authoring/builder.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-0140bb7711.json,legacy/authoring/drafts/draft-0140bb7711.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-0dae669195.json,legacy/authoring/drafts/draft-0dae669195.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-1028ed62b8.json,legacy/authoring/drafts/draft-1028ed62b8.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-1094c418bd.json,legacy/authoring/drafts/draft-1094c418bd.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-129bd9c068.json,legacy/authoring/drafts/draft-129bd9c068.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-1b25c581a2.json,legacy/authoring/drafts/draft-1b25c581a2.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-1f7cbdc5c9.json,legacy/authoring/drafts/draft-1f7cbdc5c9.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-24d0388dff.json,legacy/authoring/drafts/draft-24d0388dff.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-29ab489b53.json,legacy/authoring/drafts/draft-29ab489b53.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-2f2735093a.json,legacy/authoring/drafts/draft-2f2735093a.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-3a65ff44bb.json,legacy/authoring/drafts/draft-3a65ff44bb.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-41f737765e.json,legacy/authoring/drafts/draft-41f737765e.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-5ab71769bd.json,legacy/authoring/drafts/draft-5ab71769bd.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-5ff1fea851.json,legacy/authoring/drafts/draft-5ff1fea851.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-63a2f44caf.json,legacy/authoring/drafts/draft-63a2f44caf.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-7436284cb8.json,legacy/authoring/drafts/draft-7436284cb8.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-823e66ef7f.json,legacy/authoring/drafts/draft-823e66ef7f.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-8640919d10.json,legacy/authoring/drafts/draft-8640919d10.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-9eb5049221.json,legacy/authoring/drafts/draft-9eb5049221.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-a630246c9b.json,legacy/authoring/drafts/draft-a630246c9b.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-b2a2364c5a.json,legacy/authoring/drafts/draft-b2a2364c5a.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-c872f02df6.json,legacy/authoring/drafts/draft-c872f02df6.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-d559816c1e.json,legacy/authoring/drafts/draft-d559816c1e.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-dc6f6260da.json,legacy/authoring/drafts/draft-dc6f6260da.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-ea89aed9d4.json,legacy/authoring/drafts/draft-ea89aed9d4.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-f6c5feaf0c.json,legacy/authoring/drafts/draft-f6c5feaf0c.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/drafts/draft-f95c717002.json,legacy/authoring/drafts/draft-f95c717002.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/explorer.py,legacy/authoring/explorer.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/ml_sandbox.py,legacy/authoring/ml_sandbox.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/models.py,legacy/authoring/models.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/pipeline.py,legacy/authoring/pipeline.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/portal.py,legacy/authoring/portal.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-0dae669195.json,legacy/authoring/published/draft-0dae669195.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-1028ed62b8.json,legacy/authoring/published/draft-1028ed62b8.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-1b25c581a2.json,legacy/authoring/published/draft-1b25c581a2.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-1f7cbdc5c9.json,legacy/authoring/published/draft-1f7cbdc5c9.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-2f2735093a.json,legacy/authoring/published/draft-2f2735093a.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-41f737765e.json,legacy/authoring/published/draft-41f737765e.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-5ab71769bd.json,legacy/authoring/published/draft-5ab71769bd.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-5ff1fea851.json,legacy/authoring/published/draft-5ff1fea851.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-823e66ef7f.json,legacy/authoring/published/draft-823e66ef7f.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-8640919d10.json,legacy/authoring/published/draft-8640919d10.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-9eb5049221.json,legacy/authoring/published/draft-9eb5049221.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-d559816c1e.json,legacy/authoring/published/draft-d559816c1e.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-dc6f6260da.json,legacy/authoring/published/draft-dc6f6260da.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/published/draft-f95c717002.json,legacy/authoring/published/draft-f95c717002.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/research.py,legacy/authoring/research.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/studio/explorer.html,legacy/authoring/studio/explorer.html,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/studio/explorer_data.json,legacy/authoring/studio/explorer_data.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/studio/ml_sandbox/README.md,legacy/authoring/studio/ml_sandbox/README.md,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/studio/ml_sandbox/SUGGESTIONS.json,legacy/authoring/studio/ml_sandbox/SUGGESTIONS.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/authoring/templates/evidence_entry.template.json,legacy/authoring/templates/evidence_entry.template.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/catalog-service.js,legacy/catalog-service.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/curation/conflict_resolution.py,legacy/curation/conflict_resolution.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/curation/duplicate_detection.py,legacy/curation/duplicate_detection.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/curation/evidence_ranking.py,legacy/curation/evidence_ranking.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/curation/reports/CONFLICTS.json,legacy/curation/reports/CONFLICTS.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/curation/reports/DUPLICATES.json,legacy/curation/reports/DUPLICATES.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/curation/reports/EVIDENCE_RANKING.md,legacy/curation/reports/EVIDENCE_RANKING.md,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/debug/calculation.html,legacy/debug/calculation.html,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/index.html,legacy/index.html,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ontology/__init__.py,legacy/ontology/__init__.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ontology/anatomy/anatomy_index.json,legacy/ontology/anatomy/anatomy_index.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ontology/condition_graph/CONDITION_ONTOLOGY.md,legacy/ontology/condition_graph/CONDITION_ONTOLOGY.md,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ontology/condition_graph/conditions.json,legacy/ontology/condition_graph/conditions.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ontology/ingredient_graph/ingredients.json,legacy/ontology/ingredient_graph/ingredients.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ontology/physiology/physiology_index.json,legacy/ontology/physiology/physiology_index.json,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ppie-dev-menu.js,legacy/ppie-dev-menu.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ppie-sheets.js,legacy/ppie-sheets.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ppie-shell.js,legacy/ppie-shell.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ppie-trace.js,legacy/ppie-trace.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ppie-ui.js,legacy/ppie-ui.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ppie-validation-console.css,legacy/ppie-validation-console.css,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/ppie-validation-console.js,legacy/ppie-validation-console.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/README.md,legacy/README.md,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/report-renderer.js,legacy/report-renderer.js,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/science_pipeline/__main__.py,legacy/science_pipeline/__main__.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/science_pipeline/provenance.py,legacy/science_pipeline/provenance.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/science_pipeline/release.py,legacy/science_pipeline/release.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/science_pipeline/release_ops.py,legacy/science_pipeline/release_ops.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/science_pipeline/validation_extended.py,legacy/science_pipeline/validation_extended.py,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/styles.css,legacy/styles.css,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+legacy/theme.css,legacy/theme.css,ARCHIVE,legacy not in active import graph,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,partial,MEDIUM
+nixpacks.toml,nixpacks.toml,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+package.json,package.json,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+railway.json,railway.json,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,yes,n/a,partial,MEDIUM
+README.md,README.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+legacy/archive/omega9.6b/repository/api/README.md,legacy/archive/omega9.6b/repository/api/README.md,ARCHIVED_OMEGA9.6B,Executed Batch A archive move (approved scaffolding),OMEGA9.6B,0,MEDIUM,no,no,no,yes,yes,yes,n/a,yes,HIGH
+repository/benchmarks/__init__.py,repository/benchmarks/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/benchmarks/comparator.py,repository/benchmarks/comparator.py,KEEP,active or potentially active runtime asset,UNKNOWN,3,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/benchmarks/metrics.py,repository/benchmarks/metrics.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/benchmarks/reports.py,repository/benchmarks/reports.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/benchmarks/runner.py,repository/benchmarks/runner.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+legacy/archive/omega9.6b/repository/docs/README.md,legacy/archive/omega9.6b/repository/docs/README.md,ARCHIVED_OMEGA9.6B,Executed Batch A archive move (approved scaffolding),OMEGA9.6B,0,MEDIUM,no,no,no,yes,yes,yes,n/a,yes,HIGH
+repository/engine/__init__.py,repository/engine/__init__.py,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/biology/interfaces.py,repository/engine/biology/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/biology/models.py,repository/engine/biology/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/biology/README.md,repository/engine/biology/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/biology/service.py,repository/engine/biology/service.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/engine/epidemiology/interfaces.py,repository/engine/epidemiology/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/epidemiology/models.py,repository/engine/epidemiology/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/epidemiology/README.md,repository/engine/epidemiology/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/epidemiology/service.py,repository/engine/epidemiology/service.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/engine/estimation/interfaces.py,repository/engine/estimation/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/estimation/models.py,repository/engine/estimation/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/estimation/README.md,repository/engine/estimation/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/estimation/service.py,repository/engine/estimation/service.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/engine/explainability/interfaces.py,repository/engine/explainability/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/explainability/models.py,repository/engine/explainability/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/explainability/README.md,repository/engine/explainability/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/explainability/service.py,repository/engine/explainability/service.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/nutrition/interfaces.py,repository/engine/nutrition/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/nutrition/models.py,repository/engine/nutrition/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/nutrition/README.md,repository/engine/nutrition/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/nutrition/service.py,repository/engine/nutrition/service.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/optimization/interfaces.py,repository/engine/optimization/interfaces.py,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/optimization/models.py,repository/engine/optimization/models.py,KEEP,active or potentially active runtime asset,O6,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/optimization/README.md,repository/engine/optimization/README.md,REVIEW,possible orphan in runtime package,O6,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/optimization/service.py,repository/engine/optimization/service.py,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/prevention/interfaces.py,repository/engine/prevention/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/prevention/models.py,repository/engine/prevention/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/prevention/README.md,repository/engine/prevention/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/prevention/service.py,repository/engine/prevention/service.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/products/interfaces.py,repository/engine/products/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/products/models.py,repository/engine/products/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/products/README.md,repository/engine/products/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/engine/products/service.py,repository/engine/products/service.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/engine/README.md,repository/engine/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/formulas/__init__.py,repository/formulas/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/formulas/FORMULA_REGISTRY.md,repository/formulas/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/formulas/loader.py,repository/formulas/loader.py,KEEP,active or potentially active runtime asset,UNKNOWN,5,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/formulas/models.py,repository/formulas/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,5,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/formulas/registry.py,repository/formulas/registry.py,KEEP,active or potentially active runtime asset,UNKNOWN,5,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/formulas/resolver.py,repository/formulas/resolver.py,KEEP,active or potentially active runtime asset,UNKNOWN,3,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/formulas/runtime.py,repository/formulas/runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,4,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/formulas/validator.py,repository/formulas/validator.py,KEEP,active or potentially active runtime asset,UNKNOWN,3,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+legacy/archive/omega9.6b/repository/frontend/README.md,legacy/archive/omega9.6b/repository/frontend/README.md,ARCHIVED_OMEGA9.6B,Executed Batch A archive move (approved scaffolding),OMEGA9.6B,0,MEDIUM,no,no,no,yes,yes,yes,n/a,yes,HIGH
+repository/math_debugger/__init__.py,repository/math_debugger/__init__.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/math_debugger/code_reference.py,repository/math_debugger/code_reference.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/execution_tree.py,repository/math_debugger/execution_tree.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/FORMULA_REGISTRY.md,repository/math_debugger/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,O9,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/math_debugger/formula_trace.py,repository/math_debugger/formula_trace.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/formula_validator.py,repository/math_debugger/formula_validator.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/html_report.py,repository/math_debugger/html_report.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/independent_replay.py,repository/math_debugger/independent_replay.py,KEEP,active or potentially active runtime asset,O9,3,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/math_debugger/interfaces.py,repository/math_debugger/interfaces.py,KEEP,active or potentially active runtime asset,O9,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/models.py,repository/math_debugger/models.py,KEEP,active or potentially active runtime asset,O9,14,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/numerical_inventory.py,repository/math_debugger/numerical_inventory.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/math_debugger/pipeline_trace.py,repository/math_debugger/pipeline_trace.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/replay.py,repository/math_debugger/replay.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/reports.py,repository/math_debugger/reports.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/runtime.py,repository/math_debugger/runtime.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/sensitivity.py,repository/math_debugger/sensitivity.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/math_debugger/variable_trace.py,repository/math_debugger/variable_trace.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/math_debugger/warehouse_trace.py,repository/math_debugger/warehouse_trace.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/__init__.py,repository/mathematics/__init__.py,KEEP,active or potentially active runtime asset,O9,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/aggregation.py,repository/mathematics/aggregation.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/agreement.py,repository/mathematics/agreement.py,KEEP,active or potentially active runtime asset,O9,3,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/mathematics/bayesian.py,repository/mathematics/bayesian.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/mathematics/confidence.py,repository/mathematics/confidence.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/epidemiology.py,repository/mathematics/epidemiology.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/formula_access.py,repository/mathematics/formula_access.py,KEEP,active or potentially active runtime asset,O9,5,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/FORMULA_REGISTRY.md,repository/mathematics/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,O9,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/mathematics/formulas.py,repository/mathematics/formulas.py,KEEP,active or potentially active runtime asset,O9,8,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/mathematics/interaction.py,repository/mathematics/interaction.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/interfaces.py,repository/mathematics/interfaces.py,KEEP,active or potentially active runtime asset,O9,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/models.py,repository/mathematics/models.py,KEEP,active or potentially active runtime asset,O9,13,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/mathematics/normalization.py,repository/mathematics/normalization.py,KEEP,active or potentially active runtime asset,O9,5,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/novelty.py,repository/mathematics/novelty.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/priority.py,repository/mathematics/priority.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/runtime.py,repository/mathematics/runtime.py,KEEP,active or potentially active runtime asset,O9,6,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/mathematics/uncertainty.py,repository/mathematics/uncertainty.py,KEEP,active or potentially active runtime asset,O9,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mathematics/weights.py,repository/mathematics/weights.py,KEEP,active or potentially active runtime asset,O9,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mechanisms/__init__.py,repository/mechanisms/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/mechanisms/FORMULA_REGISTRY.md,repository/mechanisms/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/mechanisms/formulas.py,repository/mechanisms/formulas.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mechanisms/interfaces.py,repository/mechanisms/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mechanisms/models.py,repository/mechanisms/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,7,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/mechanisms/runtime.py,repository/mechanisms/runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/models/__init__.py,repository/models/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/models/explainability.py,repository/models/explainability.py,KEEP,active or potentially active runtime asset,UNKNOWN,10,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/models/runtime.py,repository/models/runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,21,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/models/trace.py,repository/models/trace.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/objectives/__init__.py,repository/objectives/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/objectives/FORMULA_REGISTRY.md,repository/objectives/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/objectives/formulas.py,repository/objectives/formulas.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/objectives/interfaces.py,repository/objectives/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/objectives/models.py,repository/objectives/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,9,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/objectives/runtime.py,repository/objectives/runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/__init__.py,repository/optimization/__init__.py,KEEP,active or potentially active runtime asset,O6,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/optimization/absorption.py,repository/optimization/absorption.py,KEEP,active or potentially active runtime asset,O6,4,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/calories.py,repository/optimization/calories.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/candidate_generator.py,repository/optimization/candidate_generator.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/conflict.py,repository/optimization/conflict.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/constraints.py,repository/optimization/constraints.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/coverage.py,repository/optimization/coverage.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/FORMULA_REGISTRY.md,repository/optimization/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,O6,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/optimization/formulas.py,repository/optimization/formulas.py,KEEP,active or potentially active runtime asset,O6,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/harmony.py,repository/optimization/harmony.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/interfaces.py,repository/optimization/interfaces.py,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/models.py,repository/optimization/models.py,KEEP,active or potentially active runtime asset,O6,15,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/optimization/optimizer.py,repository/optimization/optimizer.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/runtime.py,repository/optimization/runtime.py,KEEP,active or potentially active runtime asset,O6,3,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/optimization/synergy.py,repository/optimization/synergy.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/optimization/trace.py,repository/optimization/trace.py,KEEP,active or potentially active runtime asset,O6,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/pipeline/__init__.py,repository/pipeline/__init__.py,KEEP,active or potentially active runtime asset,O3,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/pipeline/biological_runtime.py,repository/pipeline/biological_runtime.py,KEEP,active or potentially active runtime asset,O3,5,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/pipeline/interfaces.py,repository/pipeline/interfaces.py,KEEP,active or potentially active runtime asset,O3,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/pipeline/orchestrator.py,repository/pipeline/orchestrator.py,KEEP,active or potentially active runtime asset,O3,2,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/pipeline/README.md,repository/pipeline/README.md,REVIEW,possible orphan in runtime package,O3,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/pipeline/stage_order.py,repository/pipeline/stage_order.py,KEEP,active or potentially active runtime asset,O3,2,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/README.md,repository/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/__init__.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,0,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/agreement/__init__.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,2,MEDIUM,yes,yes,no,no,yes,partial,n/a,yes,MEDIUM
+repository/reasoning/agreement/engine.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/estimation/__init__.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,2,MEDIUM,yes,yes,no,no,yes,partial,n/a,yes,MEDIUM
+repository/reasoning/estimation/engine.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/explainability/__init__.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/explainability/builder.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/interfaces.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/mathematics/__init__.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O9,3,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/mathematics/FORMULA_REGISTRY.md,repository/reasoning/mathematics/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,O9,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/mathematics/formulas.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O9,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/mechanisms/__init__.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/mechanisms/mapper.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/models.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,19,MEDIUM,yes,yes,no,no,yes,partial,n/a,yes,MEDIUM
+repository/reasoning/observed/__init__.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,2,MEDIUM,yes,yes,no,no,yes,partial,n/a,yes,MEDIUM
+repository/reasoning/observed/engine.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/runtime.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,2,MEDIUM,yes,yes,no,no,yes,partial,n/a,yes,MEDIUM
+repository/reasoning/systems/__init__.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/reasoning/systems/aggregator.py,repository/mathematics/,REVIEW,parallel inference stack with mathematics,O4,1,MEDIUM,yes,yes,no,no,yes,partial,n/a,partial,MEDIUM
+repository/science_graph/__init__.py,repository/science_graph/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/science_graph/builder.py,repository/science_graph/builder.py,KEEP,active or potentially active runtime asset,UNKNOWN,3,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/science_graph/explainability.py,repository/science_graph/explainability.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/science_graph/FORMULA_REGISTRY.md,repository/science_graph/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/science_graph/interfaces.py,repository/science_graph/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/science_graph/models.py,repository/science_graph/models.py,KEEP,active or potentially active runtime asset,UNKNOWN,7,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/science_graph/runtime.py,repository/science_graph/runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/science_graph/traversal.py,repository/science_graph/traversal.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/science_graph/validator.py,repository/science_graph/validator.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/scripts/README.md,repository/scripts/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/sources/__init__.py,repository/sources/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/sources/interfaces.py,repository/sources/interfaces.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/sources/runtime.py,repository/sources/runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/tests/README.md,repository/tests/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/validation/__init__.py,repository/validation/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/validation/runtime.py,repository/validation/runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse/__init__.py,repository/warehouse/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,35,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/warehouse/commercial/README.md,repository/warehouse/commercial/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/warehouse/reference/README.md,repository/warehouse/reference/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/warehouse/science/README.md,repository/warehouse/science/README.md,REVIEW,possible orphan in runtime package,UNKNOWN,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/warehouse/warehouse_interface.py,repository/warehouse/warehouse_interface.py,KEEP,active or potentially active runtime asset,UNKNOWN,5,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/__init__.py,repository/warehouse_qa/__init__.py,KEEP,active or potentially active runtime asset,O8,1,LOW,no,no,no,yes,yes,partial,n/a,yes,HIGH
+repository/warehouse_qa/citations.py,repository/warehouse_qa/citations.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/consistency.py,repository/warehouse_qa/consistency.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/coverage.py,repository/warehouse_qa/coverage.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/dashboard.py,repository/warehouse_qa/dashboard.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/duplicates.py,repository/warehouse_qa/duplicates.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/foreign_keys.py,repository/warehouse_qa/foreign_keys.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/FORMULA_REGISTRY.md,repository/warehouse_qa/FORMULA_REGISTRY.md,REVIEW,possible orphan in runtime package,O8,0,MEDIUM,no,no,no,no,yes,partial,n/a,partial,MEDIUM
+repository/warehouse_qa/interfaces.py,repository/warehouse_qa/interfaces.py,KEEP,active or potentially active runtime asset,O8,0,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/models.py,repository/warehouse_qa/models.py,KEEP,active or potentially active runtime asset,O8,13,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/ontology.py,repository/warehouse_qa/ontology.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/reports.py,repository/warehouse_qa/reports.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/runtime.py,repository/warehouse_qa/runtime.py,KEEP,active or potentially active runtime asset,O8,1,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/units.py,repository/warehouse_qa/units.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+repository/warehouse_qa/validator.py,repository/warehouse_qa/validator.py,KEEP,active or potentially active runtime asset,O8,2,LOW,no,no,no,yes,yes,partial,n/a,partial,HIGH
+run_demo.ps1,run_demo.ps1,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+run_demo.sh,run_demo.sh,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+SCIENTIFIC_DISCOVERY_REPORT.md,SCIENTIFIC_DISCOVERY_REPORT.md,REVIEW,insufficient evidence,UNKNOWN,0,MEDIUM,no,no,no,no,yes,no,n/a,partial,MEDIUM
+scripts/validate_warehouse.py,scripts/validate_warehouse.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,yes,n/a,partial,HIGH
+tests/api/test_api_architecture_placeholder.py,tests/api/test_api_architecture_placeholder.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/benchmarks/test_benchmark_runner.py,tests/benchmarks/test_benchmark_runner.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/engine/test_engine_layer_boundaries.py,tests/engine/test_engine_layer_boundaries.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/formulas/test_formula_runtime.py,tests/formulas/test_formula_runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/border_collie.json,tests/golden/border_collie.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/chihuahua.json,tests/golden/chihuahua.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/dolly.json,tests/golden/dolly.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/french_bulldog.json,tests/golden/french_bulldog.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/german_shepherd.json,tests/golden/german_shepherd.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/great_pyrenees.json,tests/golden/great_pyrenees.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/mixed_chow.json,tests/golden/mixed_chow.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/overweight_labrador.json,tests/golden/overweight_labrador.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/puppy_golden.json,tests/golden/puppy_golden.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/README.md,tests/golden/README.md,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/senior_labrador.json,tests/golden/senior_labrador.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/golden/suite_summary.json,tests/golden/suite_summary.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/math_debugger/test_math_debugger_runtime.py,tests/math_debugger/test_math_debugger_runtime.py,KEEP,active or potentially active runtime asset,O9,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/math_debugger/test_mathematical_integrity.py,tests/math_debugger/test_mathematical_integrity.py,KEEP,active or potentially active runtime asset,O9,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/mathematics/test_mathematics_runtime.py,tests/mathematics/test_mathematics_runtime.py,KEEP,active or potentially active runtime asset,O9,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/mathematics/test_methodology_audit.py,tests/mathematics/test_methodology_audit.py,KEEP,active or potentially active runtime asset,O9,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/mechanisms/test_mechanism_runtime.py,tests/mechanisms/test_mechanism_runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/objectives/test_objective_runtime.py,tests/objectives/test_objective_runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/optimization/test_optimization_runtime.py,tests/optimization/test_optimization_runtime.py,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/border_collie/golden_response.json,tests/parity/border_collie/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/border_collie/parity_diff.json,tests/parity/border_collie/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/border_collie/py_response.json,tests/parity/border_collie/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/chihuahua/golden_response.json,tests/parity/chihuahua/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/chihuahua/parity_diff.json,tests/parity/chihuahua/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/chihuahua/py_response.json,tests/parity/chihuahua/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/dolly_golden_x_labrador/golden_response.json,tests/parity/dolly_golden_x_labrador/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/dolly_golden_x_labrador/parity_diff.json,tests/parity/dolly_golden_x_labrador/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/dolly_golden_x_labrador/py_response.json,tests/parity/dolly_golden_x_labrador/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/french_bulldog/golden_response.json,tests/parity/french_bulldog/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/french_bulldog/parity_diff.json,tests/parity/french_bulldog/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/french_bulldog/py_response.json,tests/parity/french_bulldog/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/german_shepherd_dog/golden_response.json,tests/parity/german_shepherd_dog/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/german_shepherd_dog/parity_diff.json,tests/parity/german_shepherd_dog/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/german_shepherd_dog/py_response.json,tests/parity/german_shepherd_dog/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/great_pyrenees_giant/golden_response.json,tests/parity/great_pyrenees_giant/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/great_pyrenees_giant/parity_diff.json,tests/parity/great_pyrenees_giant/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/great_pyrenees_giant/py_response.json,tests/parity/great_pyrenees_giant/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/mixed_chow_x_rural/golden_response.json,tests/parity/mixed_chow_x_rural/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/mixed_chow_x_rural/parity_diff.json,tests/parity/mixed_chow_x_rural/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/mixed_chow_x_rural/py_response.json,tests/parity/mixed_chow_x_rural/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/overweight_labrador/golden_response.json,tests/parity/overweight_labrador/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/overweight_labrador/parity_diff.json,tests/parity/overweight_labrador/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/overweight_labrador/py_response.json,tests/parity/overweight_labrador/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/puppy_golden/golden_response.json,tests/parity/puppy_golden/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/puppy_golden/parity_diff.json,tests/parity/puppy_golden/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/puppy_golden/py_response.json,tests/parity/puppy_golden/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/senior_labrador/golden_response.json,tests/parity/senior_labrador/golden_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/senior_labrador/parity_diff.json,tests/parity/senior_labrador/parity_diff.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/senior_labrador/py_response.json,tests/parity/senior_labrador/py_response.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/summary.json,tests/parity/summary.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/summary_run_1.json,tests/parity/summary_run_1.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/summary_run_2.json,tests/parity/summary_run_2.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/parity/summary_run_3.json,tests/parity/summary_run_3.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/pipeline/test_biological_runtime.py,tests/pipeline/test_biological_runtime.py,KEEP,active or potentially active runtime asset,O3,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/pipeline/test_pipeline_architecture.py,tests/pipeline/test_pipeline_architecture.py,KEEP,active or potentially active runtime asset,O3,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/reasoning/test_reasoning_runtime.py,tests/reasoning/test_reasoning_runtime.py,KEEP,active or potentially active runtime asset,O4,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/science_graph/test_science_graph_runtime.py,tests/science_graph/test_science_graph_runtime.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_agent_pipeline.py,tests/test_agent_pipeline.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_clinical_assessment.py,tests/test_clinical_assessment.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_clinical_report.py,tests/test_clinical_report.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_engine_trace.py,tests/test_engine_trace.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_formula_graph.py,tests/test_formula_graph.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_inference_layer.py,tests/test_inference_layer.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_inference_parity.py,tests/test_inference_parity.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_package_optimizer.py,tests/test_package_optimizer.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_phase6_authoring.py,tests/test_phase6_authoring.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_science_graph.py,tests/test_science_graph.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_standard_report.py,tests/test_standard_report.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_ui_templates.py,tests/test_ui_templates.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_validation_console.py,tests/test_validation_console.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_validation_console_live.py,tests/test_validation_console_live.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/test_warehouse_parity.py,tests/test_warehouse_parity.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/warehouse/test_warehouse_interface.py,tests/warehouse/test_warehouse_interface.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+tests/warehouse_qa/test_warehouse_qa_runtime.py,tests/warehouse_qa/test_warehouse_qa_runtime.py,KEEP,active or potentially active runtime asset,O8,0,LOW,no,no,no,yes,yes,no,n/a,yes,HIGH
+warehouse/benchmarks/golden_retriever.json,warehouse/benchmarks/golden_retriever.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/benchmarks/husky.json,warehouse/benchmarks/husky.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/benchmarks/mixed_lab_golden.json,warehouse/benchmarks/mixed_lab_golden.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/breed_traits.csv,warehouse/biology/breed_traits.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/breeds.csv,warehouse/biology/breeds.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/conditions.csv,warehouse/biology/conditions.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/environment_facts.csv,warehouse/biology/environment_facts.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/life_stage_health_NEEDS_VALIDATION.csv,warehouse/biology/life_stage_health_NEEDS_VALIDATION.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/mixed_breed_NEEDS_VALIDATION.csv,warehouse/biology/mixed_breed_NEEDS_VALIDATION.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/observed_breed_conditions.csv,warehouse/biology/observed_breed_conditions.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/size_risk_NEEDS_VALIDATION.csv,warehouse/biology/size_risk_NEEDS_VALIDATION.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/biology/trait_condition_associations.csv,warehouse/biology/trait_condition_associations.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/CANONICAL_MANIFEST.json,warehouse/CANONICAL_MANIFEST.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/commercial/product_declared_nutrition.csv,warehouse/commercial/product_declared_nutrition.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/commercial/product_feeding_guide.csv,warehouse/commercial/product_feeding_guide.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/commercial/product_master.csv,warehouse/commercial/product_master.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/commercial/product_pricing_NEEDS_VALIDATION.csv,warehouse/commercial/product_pricing_NEEDS_VALIDATION.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/commercial/product_recipe.csv,warehouse/commercial/product_recipe.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/commercial/product_recipe_NEEDS_VALIDATION.csv,warehouse/commercial/product_recipe_NEEDS_VALIDATION.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/current/README.md,warehouse/current/README.md,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/current/release.json,warehouse/current/release.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/DOMAIN_REGISTRY.json,warehouse/DOMAIN_REGISTRY.json,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/formulas/benchmarks.csv,warehouse/formulas/benchmarks.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/formulas/coefficients.csv,warehouse/formulas/coefficients.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/formulas/formula_versions.csv,warehouse/formulas/formula_versions.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/formulas/formulas.csv,warehouse/formulas/formulas.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/formulas/parameter_sets.csv,warehouse/formulas/parameter_sets.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/formulas/parameters.csv,warehouse/formulas/parameters.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/formulas/validation_sets.csv,warehouse/formulas/validation_sets.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/manifest.yaml,warehouse/manifest.yaml,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/absorption_factors.csv,warehouse/mechanisms/absorption_factors.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/condition_mechanisms.csv,warehouse/mechanisms/condition_mechanisms.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/dose_response.csv,warehouse/mechanisms/dose_response.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/food_mechanisms.csv,warehouse/mechanisms/food_mechanisms.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/ingredient_mechanisms.csv,warehouse/mechanisms/ingredient_mechanisms.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/mechanism_conflicts.csv,warehouse/mechanisms/mechanism_conflicts.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/mechanism_interactions.csv,warehouse/mechanisms/mechanism_interactions.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/mechanism_synergies.csv,warehouse/mechanisms/mechanism_synergies.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/mechanisms/mechanisms.csv,warehouse/mechanisms/mechanisms.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/MIGRATION_REPORT.csv,warehouse/MIGRATION_REPORT.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/MIGRATION_SUMMARY.csv,warehouse/MIGRATION_SUMMARY.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/nutrition/food_composition.csv,warehouse/nutrition/food_composition.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/nutrition/ingredient_composition.csv,warehouse/nutrition/ingredient_composition.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/nutrition/ingredient_composition_NEEDS_VALIDATION.csv,warehouse/nutrition/ingredient_composition_NEEDS_VALIDATION.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/nutrition/ingredients.csv,warehouse/nutrition/ingredients.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/nutrition/units.csv,warehouse/nutrition/units.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/objectives/condition_objectives.csv,warehouse/objectives/condition_objectives.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/objectives/objective_conflicts.csv,warehouse/objectives/objective_conflicts.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/objectives/objective_mechanisms.csv,warehouse/objectives/objective_mechanisms.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/objectives/objective_priorities.csv,warehouse/objectives/objective_priorities.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/objectives/objective_synergies.csv,warehouse/objectives/objective_synergies.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/objectives/objectives.csv,warehouse/objectives/objectives.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/optimization/calorie_density.csv,warehouse/optimization/calorie_density.csv,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/optimization/feeding_constraints.csv,warehouse/optimization/feeding_constraints.csv,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/optimization/ingredient_conflicts.csv,warehouse/optimization/ingredient_conflicts.csv,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/optimization/ingredient_interactions.csv,warehouse/optimization/ingredient_interactions.csv,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/optimization/ingredient_synergies.csv,warehouse/optimization/ingredient_synergies.csv,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/optimization/package_constraints.csv,warehouse/optimization/package_constraints.csv,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/optimization/product_compositions.csv,warehouse/optimization/product_compositions.csv,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/optimization/product_servings.csv,warehouse/optimization/product_servings.csv,KEEP,active or potentially active runtime asset,O6,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/prevention/condition_activities.csv,warehouse/prevention/condition_activities.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/prevention/condition_ingredients.csv,warehouse/prevention/condition_ingredients.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/README.md,warehouse/README.md,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/recipes/recipe_components.csv,warehouse/recipes/recipe_components.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/recipes/recipes.csv,warehouse/recipes/recipes.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/reference/body_systems.csv,warehouse/reference/body_systems.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/reference/condition_mechanisms.csv,warehouse/reference/condition_mechanisms.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/reference/condition_systems.csv,warehouse/reference/condition_systems.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/reference/mechanisms.csv,warehouse/reference/mechanisms.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/repository/__init__.py,warehouse/repository/__init__.py,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/repository/domains.py,warehouse/repository/domains.py,KEEP,active or potentially active runtime asset,UNKNOWN,1,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/repository/entities.py,warehouse/repository/entities.py,KEEP,active or potentially active runtime asset,UNKNOWN,2,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/repository/scientific.py,warehouse/repository/scientific.py,KEEP,active or potentially active runtime asset,UNKNOWN,3,LOW,no,no,no,yes,yes,no,yes,yes,HIGH
+warehouse/science_graph/ingredient_aliases.csv,warehouse/science_graph/ingredient_aliases.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/science_graph/recipe_products.csv,warehouse/science_graph/recipe_products.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/science_graph/source_recipes.csv,warehouse/science_graph/source_recipes.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/sources/ingredient_sources.csv,warehouse/sources/ingredient_sources.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/sources/source_bioavailability.csv,warehouse/sources/source_bioavailability.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/sources/source_composition.csv,warehouse/sources/source_composition.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/validation/actual_clinical_cases.csv,warehouse/validation/actual_clinical_cases.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/VALIDATION_SUMMARY.csv,warehouse/VALIDATION_SUMMARY.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH
+warehouse/WAREHOUSE_GUIDE.csv,warehouse/WAREHOUSE_GUIDE.csv,KEEP,active or potentially active runtime asset,UNKNOWN,0,LOW,no,no,no,yes,yes,no,yes,partial,HIGH

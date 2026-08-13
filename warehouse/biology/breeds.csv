@@ -1,0 +1,10 @@
+breed_id,breed_name,breed_group,external_standard,external_id,scientific_quote,paper_name,paper_link,publication_year,study_type,species,status
+BREED_23ECEA52,Beagle,,,,,,,,,Canis lupus familiaris,active
+BREED_08E4F037,French Bulldog,,,,,,,,,Canis lupus familiaris,active
+BREED_2E91411B,German Shepherd Dog,,,,,,,,,Canis lupus familiaris,active
+BREED_4C2466ED,Golden Retriever,,,,,,,,,Canis lupus familiaris,active
+BREED_B02F1BE9,Labrador Retriever,,,,,,,,,Canis lupus familiaris,active
+BREED_2641DA99,Miniature Pinscher,,,,,,,,,Canis lupus familiaris,active
+BREED_6CBDD78C,Pembroke Welsh Corgi,,,,,,,,,Canis lupus familiaris,active
+BREED_06F902AB,Pug,,,,,,,,,Canis lupus familiaris,active
+BREED_D7352671,Siberian Husky,,,,,,,,,Canis lupus familiaris,active

@@ -1,4 +1,0 @@
-tier_id,title,yearly_discount_factor,staple_product_id,sort_order
-essential,Essential Care,0.95,SF001,1
-balanced,Balanced Care,0.92,SF001,2
-optimal,Optimal Care,0.88,SF001,3

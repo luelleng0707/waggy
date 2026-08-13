@@ -1,0 +1,5 @@
+fact_id,size_category,average_lifespan,core_health_risks,scientific_quote,paper_name,paper_link,publication_year,study_type,species,status
+FACT_0719EF,Small / Toy (<20 lbs),14-16 years,Severe dental disease; Mitral valve heart disease; Tracheal collapse; Kneecap dislocation,,,,,,Canis lupus familiaris,needs_validation
+FACT_992841,Medium (20-50 lbs),11-13 years,Skin allergies & ear infections; Knee ligament tear; Hip dysplasia; Benign fatty tumors,,,,,,Canis lupus familiaris,needs_validation
+FACT_ADAD99,Large (50-90 lbs),9-11 years,Bloat/stomach torsion; Hip & elbow dysplasia; Early-onset arthritis; Cancer,,,,,,Canis lupus familiaris,needs_validation
+FACT_C3667F,Giant (>90 lbs),6-8 years,Bone cancer; Highest bloat risk of all sizes; Enlarged heart; Growth-plate disorders in puppyhood,,,,,,Canis lupus familiaris,needs_validation

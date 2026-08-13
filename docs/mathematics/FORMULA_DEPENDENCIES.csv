@@ -1,0 +1,28 @@
+formula_id,input_name,input_type,input_source,provenance_class,parameter_value,unit,transformation,downstream_variable
+MAT-1001,observed_value,observed_input,warehouse observed edge,A,,percent,canonical_percent then mean,observed_prevalence
+MAT-1001,canonical_threshold,normalization_constant,normalization.py,E,1.0,percent-ratio,if value<=1 multiply by 100,observed_value_normalized
+MAT-1002,value_number_non_observed,observed_input,warehouse trait/environment/interaction/life/activity/ingredient edges,A,,percent,canonical_percent then logit,weighted_logit_sum
+MAT-1002,evidence_type_weight,engineering_parameter,weights.py,C,observed=1.00 trait=0.90 env=0.70 interaction=0.80 life=0.75 activity=0.65 ingredient=0.55 default=0.50,ratio,weighted contribution,total_weight
+MAT-1002,min_strength|max_strength|strength_divisor,engineering_parameter,warehouse/formulas/coefficients.csv,C,0.20|0.90|10.0,ratio|ratio|count_divisor,bounded evidence strength,strength
+MAT-1002,probability_clamp,computational_tolerance,normalization.py,F,1e-6..1-1e-6,probability,stabilize logit/logistic,aggregated_probability
+MAT-1003,prior_percent,calculated_input,MAT-1001 output,B,,percent,percent_to_probability then logit,prior_logit
+MAT-1003,evidence_percent,calculated_input,MAT-1002 output,B,,percent,percent_to_probability then logit,evidence_logit
+MAT-1003,strength,engineering_parameter,MAT-1002 bounded strength,C,0.20..0.90,ratio,linear blend in logit space,posterior_logit
+MAT-1003,prior_fallback,engineering_parameter,aggregation.py,C,10.0,percent,used when observed prior is 0/falsy,prior_percent_effective
+MAT-1003,probability_clamp,computational_tolerance,normalization.py,F,1e-6..1-1e-6,probability,logit safety clamp,posterior
+MAT-1003,interaction_delta,observed_input,warehouse interaction edges,A,,percent,mean((factor-1)*baseline),estimated_prevalence
+MAT-1004,observed_prevalence,calculated_input,MAT-1001 output,B,,percent,absolute and relative error,agreement_percent
+MAT-1004,estimated_prevalence,calculated_input,MAT-1003 output,B,,percent,absolute and relative error,agreement_percent
+MAT-1004,epsilon,computational_tolerance,agreement.py,F,1e-6,percent,"max(observed, epsilon)",relative_error
+MAT-1005,edge_counts+study_count,observed_input,EvidenceGraph edges/citations,A,,count,component normalization and weighted sum,confidence_score
+MAT-1005,weights+multipliers+denominators,engineering_parameter,warehouse/formulas/coefficients.csv,C,"0.45,0.25,0.30,1.5,20,10",ratio/count_divisor,composite weighted score,confidence_score
+MAT-1005,denominator_floor,computational_tolerance,confidence.py,F,1e-6,count_divisor,avoid divide-by-zero,evidence_component/study_component
+MAT-1006,observed_prevalence,calculated_input,MAT-1001 output,B,,percent,"delta=max(0,est-obs)",novelty_score
+MAT-1006,estimated_prevalence,calculated_input,MAT-1003 output,B,,percent,"delta=max(0,est-obs)",novelty_score
+MAT-1006,confidence_score,calculated_input,MAT-1005 output,B,,percent,confidence scaling,novelty_score
+MAT-1006,emerging_thresholds,engineering_threshold,warehouse/formulas/coefficients.csv,C,"0.5,10.0,70.0",percent,boolean gate for emerging flag,emerging_biological_concern
+MAT-1007,estimated+confidence+novelty+agreement,calculated_input,MAT-1003/1005/1006/1004 outputs,B,,mixed,multiplicative composition,priority_score
+MAT-1007,min_agreement_scale,engineering_threshold,warehouse/formulas/coefficients.csv,C,0.10,ratio,"max(min_scale, agreement/100)",agreement_scale
+MAT-1008,non_observed_values,observed_input,warehouse non-observed edges,A,,percent,stddev across contributions,stddev
+MAT-1008,confidence_score,calculated_input,MAT-1005 output,B,,percent,uncertainty factor transform,uncertainty_factor
+MAT-1008,min_uncertainty_factor,engineering_threshold,warehouse/formulas/coefficients.csv,C,0.20,ratio,"max(min_factor,1-confidence/100)",uncertainty

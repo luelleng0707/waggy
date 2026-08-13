@@ -1,9 +1,0 @@
-product_id,supplement_type,serving_size_g,servings_per_pack,storage_method,shelf_life_days
-SP001,joint_mobility,4.5,60,cool_dry,365
-SP002,omega_derm,1.2,90,cool_dry,365
-SP003,probiotic,4.0,60,cool_dry,365
-SP004,cardiac,4.2,60,cool_dry,365
-SP005,dental_chew,5.0,30,cool_dry,270
-SP006,joint,3.8,60,cool_dry,365
-SP007,eye,2.5,60,cool_dry,365
-SP008,airway,4.0,60,cool_dry,365

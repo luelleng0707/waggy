@@ -1,0 +1,6 @@
+validation_type,owner_paths,scope,mutates_data,status
+DOG_PROFILE_VALIDATION,app/agent/state.py|app/agent/nodes/validation_node.py,API payload and graph completeness,no,ACTIVE
+WAREHOUSE_SCHEMA_VALIDATION,repository/warehouse/warehouse_interface.py|repository/warehouse_qa/runtime.py,schema/FK/unit/citation checks,no,ACTIVE
+FORMULA_VALIDATION,repository/formulas/validator.py|repository/math_debugger/formula_validator.py,formula registry and constants validation,no,ACTIVE
+RUNTIME_STATE_VALIDATION,repository/pipeline/interfaces.py|app/agent/nodes/validation_node.py,stage/runtime safety checks,no,ACTIVE
+OPTIMIZATION_CONSTRAINT_VALIDATION,repository/optimization/constraints.py|repository/optimization/runtime.py,constraint satisfaction and feasibility,no,ACTIVE

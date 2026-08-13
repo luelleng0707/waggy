@@ -1,0 +1,20 @@
+omega_phase,target_architecture_domain
+O1,foundation/runtime
+O1.1,refactor hygiene
+O2,warehouse canonicalization
+O3,pipeline biological runtime
+O4,reasoning baseline
+O5,objective/mechanism bridge
+O5.5,intermediate optimization prep
+O6,optimization layer
+O7,api/reporting integration
+O8,warehouse QA and validation
+O9,mathematics runtime
+O9.1,formula-as-data
+O9.2,math debugger/replay
+O9.3,provenance audit
+O9.4,formula specification and replay registry
+O9.5,methodology and scientific defensibility audit
+O9.6D,presentation adapter and desktop shell integration
+O9.6E,local multi-interface gateway orchestration
+O9.6F,customer presentation completion and remote deployment boundary

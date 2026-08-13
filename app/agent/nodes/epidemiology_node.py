@@ -4,7 +4,7 @@ from typing import Any
 
 from app.agent.execution_context import ExecutionContext
 from app.agent.formula_node import FormulaNode
-from app.agent.stages.epidemiology import run_epidemiology_stage
+from app.formulas.stages.epidemiology import run_epidemiology_stage
 
 
 class EpidemiologyNode(FormulaNode):

@@ -18,21 +18,28 @@ from app.agent.engine import PPIEWellnessAgent
 from app.agent.state import DogProfileInput
 from app.api.evidence import get_evidence_for_condition, get_products_for_condition
 from app.api.payload_adapter import map_legacy_response, profile_from_analyze_body
-from app.data.assessment_diff import compare_analyses
+from app.core.paths import clinical_root_str, resolve_clinical_root
 from app.data.clinical_assessment import MODULE_IDS, build_clinical_assessment, get_assessment_module
 from app.data.clinical_report_builder import build_clinical_report
-from app.data.debug_boot import (
-    debug_status_payload,
-    is_local_dev_boot,
-    maybe_open_validation_console,
-    print_developer_banner,
-)
-from app.data.debug_presets import DEFAULT_PRESET_ID, get_preset_body, list_presets
-from app.data.debug_repository_browser import list_repository_tables, preview_table
-from app.data.engine_trace import build_engine_trace, is_engine_debug
 from app.data.report_generator import build_standard_report
 from app.data.report_models import build_all_report_models
-from app.data.validation_console import build_validation_console, console_to_markdown
+from app.debug.clinical_execution_debug import (
+    DEFAULT_PRESET_ID,
+    build_engine_trace,
+    build_validation_console,
+    compare_analyses,
+    console_to_markdown,
+    debug_status_payload,
+    get_preset_body,
+    is_engine_debug,
+    is_local_dev_boot,
+    list_presets,
+    list_repository_tables,
+    maybe_open_validation_console,
+    preview_table,
+    print_developer_banner,
+)
+from app.presentation.adapter import build_three_surface_presentations
 
 logging.basicConfig(
     level=logging.INFO,
@@ -41,13 +48,8 @@ logging.basicConfig(
 logger = logging.getLogger("ppie.api")
 
 ROOT = Path(__file__).resolve().parents[2]
-_raw_data = os.getenv("PPIE_DATA_DIR", "data")
-_data_path = Path(_raw_data)
-# Resolve relative data dirs against repo root (not process cwd) so clean
-# clones / service managers still find CSVs.
-if not _data_path.is_absolute():
-    _data_path = ROOT / _data_path
-DATA_DIR = str(_data_path)
+# Clinical CSVs load exclusively from warehouse/current (see app.core.paths).
+DATA_DIR = clinical_root_str()
 VALID_KEYS = {
     k.strip()
     for k in os.getenv("API_KEYS", "wagtopia-demo-key,ppie-dev-key").split(",")
@@ -60,12 +62,34 @@ def _request_wants_debug(request: Request) -> bool:
     return str(debug_q or "").strip().lower() in ("1", "true", "yes", "on")
 
 
+def _provided_surface_key(request: Request) -> str:
+    return (
+        request.headers.get("x-wagtopia-access-key")
+        or request.query_params.get("access_key")
+        or request.cookies.get("wagtopia_access_key")
+        or ""
+    )
+
+
+def _require_surface_access(request: Request, *, env_var: str, surface: str) -> None:
+    expected = str(os.getenv(env_var, "")).strip()
+    if not expected:
+        return
+    provided = _provided_surface_key(request).strip()
+    if provided != expected:
+        raise HTTPException(
+            status_code=401,
+            detail=f"{surface} surface requires access key via x-wagtopia-access-key or ?access_key=",
+        )
+
+
 def _require_debug(request: Request) -> None:
     if not is_engine_debug(request_debug=_request_wants_debug(request)):
         raise HTTPException(
             status_code=403,
             detail="Developer tools disabled. Set PPIE_DEBUG=true or pass ?debug=1.",
         )
+    _require_surface_access(request, env_var="WAGTOPIA_DEVELOPER_ACCESS_KEY", surface="developer")
 
 
 @asynccontextmanager
@@ -82,6 +106,8 @@ app = FastAPI(
 )
 agent = PPIEWellnessAgent(data_dir=DATA_DIR)
 _groomer_sessions: dict[str, dict[str, Any]] = {}
+_last_validation_console_doc: dict[str, Any] | None = None
+_last_execution_index: dict[str, dict[str, Any]] = {}
 
 # Hot-reload CSVs under data/ without restarting the API process.
 try:
@@ -300,6 +326,30 @@ async def analyze_v1(
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
+@app.post("/api/v1/presentation/three-surfaces")
+async def presentation_three_surfaces(
+    request: Request,
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    """Single-analysis projection for customer/business/developer surfaces."""
+    _require_surface_access(request, env_var="WAGTOPIA_BUSINESS_ACCESS_KEY", surface="business")
+    body = await request.json()
+    try:
+        profile = profile_from_analyze_body(body)
+        analyze = await agent.generate_reproducible_report(profile)
+        assessment = build_clinical_assessment(agent.repo, analyze)
+        console = None
+        if _request_wants_debug(request):
+            _require_debug(request)
+            console = build_validation_console(agent.repo, analyze, assessment, raw_request=body)
+        return build_three_surface_presentations(analyze, assessment, console)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("three-surface presentation failure")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
 @app.post("/api/v1/clinical-report")
 async def clinical_report_v1(
     request: Request,
@@ -455,13 +505,21 @@ async def ppie_validation_console(
         t1 = datetime.now(timezone.utc).timestamp()
         assessment = build_clinical_assessment(agent.repo, analyze)
         assess_ms = round((datetime.now(timezone.utc).timestamp() - t1) * 1000, 2)
-        return build_validation_console(
+        doc = build_validation_console(
             agent.repo,
             analyze,
             assessment,
             timings={"analyze": analyze_ms, "assessment": assess_ms},
             raw_request=body,
         )
+        global _last_validation_console_doc, _last_execution_index
+        _last_validation_console_doc = doc
+        _last_execution_index = {
+            str(x.get("execution_id")): x
+            for x in (doc.get("execution_records") or doc.get("formula_executions") or [])
+            if isinstance(x, dict) and x.get("execution_id")
+        }
+        return doc
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
@@ -539,6 +597,22 @@ async def ppie_validation_console_compare(
     except Exception as exc:
         logger.exception("validation console compare failure")
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/v1/ppie/validation-console/execution/{execution_id:path}")
+async def ppie_validation_console_execution(
+    execution_id: str,
+    request: Request,
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    """Read-only execution provenance record from last validation-console run."""
+    _require_debug(request)
+    if not _last_execution_index:
+        raise HTTPException(status_code=404, detail="No execution cache available. Run validation-console first.")
+    hit = _last_execution_index.get(execution_id)
+    if not hit:
+        raise HTTPException(status_code=404, detail=f"Execution not found: {execution_id}")
+    return {"schema": "execution_record.v1", "execution": hit}
 
 
 @app.get("/api/v1/ppie/debug/status")
@@ -665,70 +739,126 @@ async def science_versions(_: str = Depends(require_api_key)) -> dict[str, Any]:
     return {"schema": "versioned_science.v1", **current_science_versions().to_dict()}
 
 
-# ── Phase Ω — platform self-inspection (ops / developers; no clinical math) ──
+# ── Scientific authoring & research portal (staging only; no clinical math) ──
 
 
-@app.get("/api/v1/platform/status")
-async def platform_status_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_status
+@app.get("/api/v1/authoring/drafts")
+async def authoring_list_drafts(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from authoring.models import list_drafts
 
-    return platform_status()
-
-
-@app.get("/api/v1/platform/runtime")
-async def platform_runtime_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_runtime
-
-    return platform_runtime()
+    return {"schema": "authoring_drafts.v1", "drafts": list_drafts()}
 
 
-@app.get("/api/v1/platform/dependencies")
-async def platform_dependencies_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_dependencies
+@app.post("/api/v1/authoring/evidence")
+async def authoring_create_evidence(
+    request: Request,
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    """Evidence Builder: New Paper → conditions → ingredients → submit (staging only)."""
+    body = await request.json()
+    from authoring.builder import create_evidence_interactive
 
-    return platform_dependencies()
-
-
-@app.get("/api/v1/platform/formulas")
-async def platform_formulas_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_formulas
-
-    return platform_formulas()
+    return {"schema": "authoring_evidence.v1", **create_evidence_interactive(body)}
 
 
-@app.get("/api/v1/platform/science")
-async def platform_science_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_science
+@app.post("/api/v1/authoring/evidence/{draft_id}/materialize")
+async def authoring_materialize(draft_id: str, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    from authoring.builder import materialize_draft
 
-    return platform_science()
-
-
-@app.get("/api/v1/platform/performance")
-async def platform_performance_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_performance
-
-    return platform_performance()
+    return {"schema": "authoring_materialize.v1", **materialize_draft(draft_id)}
 
 
-@app.get("/api/v1/platform/coverage")
-async def platform_coverage_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_coverage
+@app.get("/api/v1/authoring/ontology")
+async def authoring_ontology(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from ontology import CONDITION_ONTOLOGY, INGREDIENT_ONTOLOGY, ontology_summary
 
-    return platform_coverage()
-
-
-@app.get("/api/v1/platform/release")
-async def platform_release_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_release
-
-    return platform_release()
+    return {
+        "schema": "ontology.v1",
+        "summary": ontology_summary(),
+        "conditions": CONDITION_ONTOLOGY,
+        "ingredients": INGREDIENT_ONTOLOGY,
+    }
 
 
-@app.get("/api/v1/platform/audit")
-async def platform_audit_api(_: str = Depends(require_api_key)) -> dict[str, Any]:
-    from ppie_platform.status import platform_audit
+@app.get("/api/v1/authoring/conflicts")
+async def authoring_conflicts(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from curation.conflict_resolution import detect_conflicts
 
-    return platform_audit()
+    return {"schema": "evidence_conflicts.v1", "conflicts": detect_conflicts()}
+
+
+@app.get("/api/v1/authoring/duplicates")
+async def authoring_duplicates(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from curation.duplicate_detection import (
+        suggest_condition_duplicates,
+        suggest_ingredient_duplicates,
+    )
+
+    return {
+        "schema": "duplicate_suggestions.v1",
+        "conditions": suggest_condition_duplicates(),
+        "ingredients": suggest_ingredient_duplicates(),
+    }
+
+
+@app.get("/api/v1/research/condition/{condition}")
+async def research_condition(condition: str, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    from authoring.portal import ResearchPortal
+
+    return {"schema": "research_condition.v1", **ResearchPortal().evidence_for_condition(condition)}
+
+
+@app.get("/api/v1/research/omega3")
+async def research_omega3(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from authoring.portal import ResearchPortal
+
+    return {"schema": "research_omega3.v1", **ResearchPortal().omega3_studies()}
+
+
+@app.get("/api/v1/research/joint")
+async def research_joint(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from authoring.portal import ResearchPortal
+
+    return {"schema": "research_joint.v1", **ResearchPortal().joint_papers()}
+
+
+@app.get("/api/v1/research/compare")
+async def research_compare(
+    a: str = Query(...),
+    b: str = Query(...),
+    _: str = Depends(require_api_key),
+) -> dict[str, Any]:
+    from authoring.portal import ResearchPortal
+
+    return {"schema": "research_compare.v1", **ResearchPortal().compare_papers(a, b)}
+
+
+@app.get("/api/v1/research/ingredient/{ingredient}/products")
+async def research_ingredient_products(ingredient: str, _: str = Depends(require_api_key)) -> dict[str, Any]:
+    from authoring.portal import ResearchPortal
+
+    return {
+        "schema": "research_ingredient_products.v1",
+        "ingredient": ingredient,
+        "products": ResearchPortal().products_for_ingredient(ingredient),
+    }
+
+
+@app.get("/api/v1/research/gaps")
+async def research_gaps(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from authoring.portal import ResearchPortal
+
+    return {
+        "schema": "research_gaps.v1",
+        "conditions_missing_interventions": ResearchPortal().conditions_missing_interventions(),
+    }
+
+
+@app.get("/api/v1/research/curation")
+async def research_curation(_: str = Depends(require_api_key)) -> dict[str, Any]:
+    from authoring.portal import ResearchPortal
+
+    return {"schema": "research_curation.v1", **ResearchPortal().curation_dashboard()}
 
 
 @app.post("/api/recommendations")
@@ -867,132 +997,120 @@ async def list_breeds(
 
 
 # Static demo UI (formerly served by Node express.static)
-_static_root = ROOT
-if (_static_root / "index.html").exists():
+_legacy_static_root = ROOT / "legacy"
+_static_root = ROOT if (ROOT / "index.html").exists() else _legacy_static_root
 
-    @app.get("/")
-    async def index_page() -> FileResponse:
-        return FileResponse(_static_root / "index.html")
 
-    @app.get("/platform/dashboard")
-    async def platform_dashboard_page() -> FileResponse:
-        dash = ROOT / "ppie_platform" / "dashboard" / "index.html"
-        if not dash.exists():
-            raise HTTPException(status_code=404, detail="Run: py -3 -m platform.omega --quick")
-        return FileResponse(dash)
+def _static_file_response(relative_path: str, media_type: str) -> FileResponse:
+    target = _static_root / relative_path
+    if not target.exists():
+        raise HTTPException(status_code=404, detail=f"Static asset missing: {relative_path}")
+    return FileResponse(
+        target,
+        media_type=media_type,
+        headers={"Cache-Control": "no-cache"},
+    )
 
-    @app.get("/app.js")
-    async def serve_app_js() -> FileResponse:
-        return FileResponse(
-            _static_root / "app.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
 
-    @app.get("/report-renderer.js")
-    async def serve_report_renderer_js() -> FileResponse:
-        return FileResponse(
-            _static_root / "report-renderer.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
+@app.get("/")
+async def index_page() -> FileResponse:
+    return _static_file_response("index.html", "text/html")
 
-    @app.get("/catalog-service.js")
-    async def serve_catalog_service() -> FileResponse:
-        return FileResponse(
-            _static_root / "catalog-service.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
 
-    @app.get("/ppie-ui.js")
-    async def serve_ppie_ui() -> FileResponse:
-        return FileResponse(
-            _static_root / "ppie-ui.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
+@app.get("/business")
+async def business_page(request: Request) -> FileResponse:
+    _require_surface_access(request, env_var="WAGTOPIA_BUSINESS_ACCESS_KEY", surface="business")
+    return _static_file_response("business.html", "text/html")
 
-    @app.get("/ppie-trace.js")
-    async def serve_ppie_trace() -> FileResponse:
-        return FileResponse(
-            _static_root / "ppie-trace.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
 
-    @app.get("/ppie-validation-console.js")
-    async def serve_ppie_validation_console_js() -> FileResponse:
-        return FileResponse(
-            _static_root / "ppie-validation-console.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
+@app.get("/developer")
+async def developer_page(request: Request) -> FileResponse:
+    _require_surface_access(request, env_var="WAGTOPIA_DEVELOPER_ACCESS_KEY", surface="developer")
+    return _static_file_response("debug/calculation.html", "text/html")
 
-    @app.get("/ppie-validation-console.css")
-    async def serve_ppie_validation_console_css() -> FileResponse:
-        return FileResponse(
-            _static_root / "ppie-validation-console.css",
-            media_type="text/css",
-            headers={"Cache-Control": "no-cache"},
-        )
 
-    @app.get("/ppie-dev-menu.js")
-    async def serve_ppie_dev_menu() -> FileResponse:
-        return FileResponse(
-            _static_root / "ppie-dev-menu.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
+@app.get("/authoring/explorer")
+async def authoring_explorer_page() -> FileResponse:
+    page = ROOT / "authoring" / "studio" / "explorer.html"
+    if not page.exists():
+        raise HTTPException(status_code=404, detail="Run: py -3 -m authoring.pipeline")
+    return FileResponse(page)
 
-    @app.get("/debug/calculation")
-    async def debug_calculation_page(request: Request):
-        """Internal Validation Console HTML. Requires debug env or ?debug=1."""
-        wants = _request_wants_debug(request)
-        if not is_engine_debug(request_debug=wants):
-            # Local uvicorn --reload: soft-redirect into debug=1 once
-            if is_local_dev_boot() and not wants:
-                return RedirectResponse(url="/debug/calculation?debug=1", status_code=302)
-            raise HTTPException(
-                status_code=403,
-                detail="Validation Console disabled. Set PPIE_DEBUG=true or open with ?debug=1.",
-            )
-        page = _static_root / "debug" / "calculation.html"
-        if not page.exists():
-            raise HTTPException(status_code=404, detail="Validation console page missing")
-        return FileResponse(page, media_type="text/html", headers={"Cache-Control": "no-cache"})
 
-    @app.get("/ppie-shell.js")
-    async def serve_ppie_shell() -> FileResponse:
-        return FileResponse(
-            _static_root / "ppie-shell.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
+@app.get("/app.js")
+async def serve_app_js() -> FileResponse:
+    return _static_file_response("app.js", "application/javascript")
 
-    @app.get("/ppie-sheets.js")
-    async def serve_ppie_sheets() -> FileResponse:
-        return FileResponse(
-            _static_root / "ppie-sheets.js",
-            media_type="application/javascript",
-            headers={"Cache-Control": "no-cache"},
-        )
 
-    @app.get("/styles.css")
-    async def serve_styles() -> FileResponse:
-        return FileResponse(
-            _static_root / "styles.css",
-            media_type="text/css",
-            headers={"Cache-Control": "no-cache"},
-        )
+@app.get("/report-renderer.js")
+async def serve_report_renderer_js() -> FileResponse:
+    return _static_file_response("report-renderer.js", "application/javascript")
 
-    @app.get("/theme.css")
-    async def serve_theme() -> FileResponse:
-        return FileResponse(
-            _static_root / "theme.css",
-            media_type="text/css",
-            headers={"Cache-Control": "no-cache"},
-        )
+
+@app.get("/catalog-service.js")
+async def serve_catalog_service() -> FileResponse:
+    return _static_file_response("catalog-service.js", "application/javascript")
+
+
+@app.get("/ppie-ui.js")
+async def serve_ppie_ui() -> FileResponse:
+    return _static_file_response("ppie-ui.js", "application/javascript")
+
+
+@app.get("/ppie-trace.js")
+async def serve_ppie_trace() -> FileResponse:
+    return _static_file_response("ppie-trace.js", "application/javascript")
+
+
+@app.get("/ppie-validation-console.js")
+async def serve_ppie_validation_console_js() -> FileResponse:
+    return _static_file_response("ppie-validation-console.js", "application/javascript")
+
+
+@app.get("/ppie-validation-console.css")
+async def serve_ppie_validation_console_css() -> FileResponse:
+    return _static_file_response("ppie-validation-console.css", "text/css")
+
+
+@app.get("/business.js")
+async def serve_business_js() -> FileResponse:
+    return _static_file_response("business.js", "application/javascript")
+
+
+@app.get("/business.css")
+async def serve_business_css() -> FileResponse:
+    return _static_file_response("business.css", "text/css")
+
+
+@app.get("/ppie-dev-menu.js")
+async def serve_ppie_dev_menu() -> FileResponse:
+    return _static_file_response("ppie-dev-menu.js", "application/javascript")
+
+
+@app.get("/debug/calculation")
+async def debug_calculation_page(request: Request):
+    """Internal Validation Console HTML shell (developer route)."""
+    return _static_file_response("debug/calculation.html", "text/html")
+
+
+@app.get("/ppie-shell.js")
+async def serve_ppie_shell() -> FileResponse:
+    return _static_file_response("ppie-shell.js", "application/javascript")
+
+
+@app.get("/ppie-sheets.js")
+async def serve_ppie_sheets() -> FileResponse:
+    return _static_file_response("ppie-sheets.js", "application/javascript")
+
+
+@app.get("/styles.css")
+async def serve_styles() -> FileResponse:
+    return _static_file_response("styles.css", "text/css")
+
+
+@app.get("/theme.css")
+async def serve_theme() -> FileResponse:
+    return _static_file_response("theme.css", "text/css")
 
 
 if __name__ == "__main__":

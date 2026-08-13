@@ -1,0 +1,4 @@
+interaction_id,ingredient_A,ingredient_B,interaction_type,effect_factor,scientific_quote,paper_name,paper_link
+INT_0001,ING_F9E1B8CF,ING_C873A4B5,stability_support,1.08,Antioxidant carotenoids can support stability of polyunsaturated lipid systems.,Journal of Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC9149495/
+INT_0002,ING_723DBC80,ING_5030A666,microbiome_mineral_support,1.04,Microbiome stabilization can improve mineral assimilation context.,Veterinary Sciences,https://pmc.ncbi.nlm.nih.gov/articles/PMC12115967/
+INT_0003,ING_723DBC80,ING_8A38C944,competitive_absorption,0.97,Mineral-amino interactions may reduce net absorption efficiency in mixed dosing windows.,Nutrients,https://pmc.ncbi.nlm.nih.gov/articles/PMC7277698/

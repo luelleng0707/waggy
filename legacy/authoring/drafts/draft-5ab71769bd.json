@@ -1,0 +1,27 @@
+{
+  "paper_title": "Staging EPA study",
+  "paper_url": "",
+  "doi": "",
+  "year": 2023,
+  "study_type": "observational",
+  "conditions": [
+    "Hip Dysplasia"
+  ],
+  "ingredients": [
+    "EPA"
+  ],
+  "dose": "",
+  "dose_unit": "",
+  "mechanism": "",
+  "population": "",
+  "effect": "",
+  "effect_direction": "supports",
+  "effect_size": "",
+  "evidence_level": "medium",
+  "quote": "",
+  "author": "test",
+  "change_reason": "evidence builder submit",
+  "draft_id": "draft-5ab71769bd",
+  "created_at": "2026-07-20T23:36:24.834733+00:00",
+  "review_status": "validation"
+}

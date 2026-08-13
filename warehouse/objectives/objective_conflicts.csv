@@ -1,0 +1,3 @@
+objective_A,objective_B,relationship,effect,quote,paper,link
+OBJ_008,OBJ_004,potential_tradeoff,0.31,High-intensity conditioning loads may transiently worsen barrier hydration pressure without support.,Frontiers in Veterinary Science,https://pmc.ncbi.nlm.nih.gov/articles/PMC12221898/
+OBJ_006,OBJ_008,potential_tradeoff,0.27,Sustained training and environmental exposure may increase ocular surface stress in sensitive cohorts.,Veterinary Ophthalmology,https://pmc.ncbi.nlm.nih.gov/articles/PMC11234560/

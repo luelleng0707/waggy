@@ -1,3 +1,4 @@
+from app.core.paths import clinical_root_str, resolve_clinical_root
 """Smoke tests for UI template rendering layer."""
 
 from dataclasses import asdict
@@ -10,7 +11,7 @@ from app.agent.utils import DataRepository
 from app.ui.renderer.diary import DiaryRenderer
 from app.ui.renderer.home import HomeRenderer
 from app.ui.renderer.journey import JourneyRenderer
-from app.ui.renderer.view_models import vm_to_dict
+from app.ui.renderer.formatters import vm_to_dict
 from app.ui.renderer.navigation import NavigationRouter
 from app.ui.renderer.template_engine import load_css, render_template
 from app.ui.renderer.wellness import WellnessRenderer
@@ -34,7 +35,7 @@ def dolly_profile() -> DogProfileInput:
 def engine_report(dolly_profile: DogProfileInput):
     import asyncio
 
-    return asyncio.run(PPIEWellnessAgent(data_dir="data").generate_reproducible_report(dolly_profile))
+    return asyncio.run(PPIEWellnessAgent(data_dir=clinical_root_str()).generate_reproducible_report(dolly_profile))
 
 
 def test_css_assets_load():
@@ -47,7 +48,7 @@ def test_home_intro_content(engine_report, dolly_profile):
     assert "Dolly" in home.greeting
     assert "Personality" in home.detail_blocks[0].title
 
-    journey = JourneyRenderer(DataRepository("data"))
+    journey = JourneyRenderer(DataRepository(clinical_root_str()))
     vm = journey.build(engine_report, dolly_profile, "Balanced Care", None, "jul12")
     html = render_template("home/journey.html", **vm_to_dict(vm))
     assert "Hello" in html
@@ -55,7 +56,7 @@ def test_home_intro_content(engine_report, dolly_profile):
 
 
 def test_journey_template_renders(engine_report, dolly_profile):
-    journey = JourneyRenderer(DataRepository("data"))
+    journey = JourneyRenderer(DataRepository(clinical_root_str()))
     vm = journey.build(engine_report, dolly_profile, "Balanced Care", None, "jul12")
     html = render_template("home/journey.html", **vm_to_dict(vm))
     assert "Wagtopia" in html
@@ -72,7 +73,7 @@ def test_journey_template_renders(engine_report, dolly_profile):
 
 
 def test_wellness_component_templates_render(engine_report, dolly_profile):
-    repo = DataRepository("data")
+    repo = DataRepository(clinical_root_str())
     wellness = WellnessRenderer(repo)
     detail_vm = wellness.build_package_detail(engine_report, dolly_profile, "Balanced Care")
     html = render_template("wellness/package_detail.html", **vm_to_dict(detail_vm))
