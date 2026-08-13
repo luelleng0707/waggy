@@ -32,3 +32,11 @@
 - `tests/test_warehouse_parity.py` -> `repository/` -> unit/integration
 - `tests/warehouse/test_warehouse_interface.py` -> `repository/warehouse` -> unit/integration
 - `tests/warehouse_qa/test_warehouse_qa_runtime.py` -> `repository/warehouse_qa` -> unit/integration
+- `tests/architecture/test_end_to_end_architecture.py` -> `docs/architecture + dependency direction + boundary assertions` -> architecture contract
+- `tests/architecture/test_dependency_direction_guard.py` -> `import direction boundaries` -> architecture contract
+- `tests/architecture/test_dog_profile_contract.py` -> `DogProfile app/repository contract` -> architecture contract
+- `tests/architecture/test_evidence_graph_contract.py` -> `EvidenceGraph contract` -> architecture contract
+- `tests/architecture/test_formula_registry_contract.py` -> `formula registry contract` -> architecture contract
+- `tests/architecture/test_trace_contract.py` -> `trace/provenance contract` -> architecture contract
+- `tests/architecture/test_validation_boundaries.py` -> `validation non-mutation boundaries` -> architecture contract
+- `tests/architecture/test_warehouse_interface_contract.py` -> `warehouse canonical interface + blocker baseline` -> architecture contract

@@ -1,0 +1,12 @@
+domain,status,evidence,notes
+runtime ownership,YELLOW,"app runtime path documented and stable; repository runtime parallel","dual-path architecture not yet cut over"
+data contract,YELLOW,"new DATA_CONTRACT_GRAPH.csv plus existing contract tests","cross-path adapters still incomplete"
+scientific provenance,YELLOW,"debug provenance and evidence statuses exist","customer/business row-level provenance incomplete"
+mathematical traceability,YELLOW,"debug execution records and formula metadata visible","production-app vs repository MAT split remains"
+warehouse integrity,RED,"validate_warehouse baseline FAIL with 8 known blockers","blockers intentionally unresolved this phase"
+optimization traceability,YELLOW,"app package optimizer trace exists; repository optimization fully modeled","production and repository optimization models not unified"
+financial traceability,YELLOW,"bundle_engine emits monthly/yearly fields","margin/gap/business metrics partial and often NOT AVAILABLE"
+presentation completeness,YELLOW,"three surfaces implemented on one runtime","business/developer depth varies by debug and available fields"
+security,YELLOW,"no hardcoded frontend secrets; optional route gates present","query-key compatibility remains and CORS is broad"
+deployment readiness,YELLOW,"single-process command and routes are ready","public deploy gate depends on unresolved warehouse/security hardening decisions"
+test coverage,GREEN,"interface/architecture/mathematics/formulas/math_debugger/optimization/science_graph/warehouse_qa suites active","coverage is strong for contracts and regressions"

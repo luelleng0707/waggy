@@ -1,0 +1,18 @@
+source_type,destination_type,producer,consumer,serialization,required_fields,optional_fields,lossy_conversion,adapter_required,trace_preserved,evidence_preserved,status
+HttpAnalyzeRequest,DogProfileInput,app.api.payload_adapter,app.agent.assessment_agent,python dict->pydantic model,"name|pet_name|breeds|weight","activity_level|environment|observed_conditions",no,no,request timing only,no,IMPLEMENTED
+DogProfileInput,ExecutionContext,app.agent.assessment_agent,app.agent.formula_graph,in-memory python objects,"profile|repo|parameters|units","debug flags",no,no,yes,partial,IMPLEMENTED
+ExecutionContext,NodeOutputs,app.agent.formula_graph,app.agent.nodes.*,in-memory stage outputs,"node deps resolved","warnings|metrics",no,no,yes,partial,IMPLEMENTED
+NodeOutputs,AnalyzeLegacyPayload,app.agent.response_assembler,app.api.main JSON responses,JSON,"profile|healthInsights|productRecommendations|wellnessPackages","scientificEvidence|monthly_plan|yearly_plan|debug",partial,no,yes,partial,IMPLEMENTED
+AnalyzeLegacyPayload,ClinicalAssessment,app.data.clinical_assessment,app.api.main and presentation adapter,python dict,"meta|modules","module summaries",yes,yes,partial,partial,IMPLEMENTED
+AnalyzeLegacyPayload,CustomerPresentation,app.presentation.adapter,legacy/app.js JSON consumer,JSON,"dog|wellness","assessment_summary",yes,yes,analysis_signature only,partial,IMPLEMENTED
+AnalyzeLegacyPayload,BusinessPresentation,app.presentation.adapter,legacy/business.js JSON consumer,JSON,"overview|portfolio|health_opportunities|financial_model","assessment_summary",yes,yes,analysis_signature only,partial,IMPLEMENTED
+ValidationConsoleDocument,DeveloperPresentation,app.presentation.adapter,legacy/ppie-validation-console.js JSON consumer,JSON,"execution_records|runtime_stage_flow","summary",no,yes,execution ids and stage trace,yes,IMPLEMENTED
+AnalyzeLegacyPayload,ThreeSurfaceEnvelope,app.presentation.adapter,POST /api/v1/presentation/three-surfaces response,JSON,"schema|analysis_signature|presentation_correlation_id|customer|business|developer",none,no,no,analysis_signature + correlation id,partial,IMPLEMENTED
+WarehouseCsvRows,DataRepositoryTables,app.data.loader and app.data.repository,app.agent nodes,pandas DataFrame cache,"canonical dataset path|required columns","nullable fields",no,no,indirect,indirect,IMPLEMENTED
+WarehouseCanonicalDatasets,WarehouseInterfaceDataframes,repository.warehouse.warehouse_interface,repository pipeline/math/optimization,pandas DataFrame copy,"dataset key|schema","notes",no,no,yes,yes,PARALLEL_TEST_ONLY
+DogProfile,ResolvedDog,repository.pipeline.biological_runtime,repository.reasoning.runtime,dataclass,"breed|weight|age","environment facets",no,no,yes,partial,PARALLEL_TEST_ONLY
+EvidenceGraph,ReasoningAssessment,repository.reasoning.runtime,repository.mathematics.runtime,dataclass,"nodes|edges|citations","weights",no,no,yes,yes,PARALLEL_TEST_ONLY
+ConditionAssessmentList,MathematicsResult,repository.mathematics.runtime,repository.mechanisms.runtime,dataclass tuple,"condition_id|prevalence|agreement|confidence","uncertainty",no,no,yes,partial,PARALLEL_TEST_ONLY
+MathematicsResult,ObjectivePlan,repository.objectives.runtime,repository.sources.runtime,dataclass tuple,"objective_id|priority","tags",no,no,yes,partial,PARALLEL_TEST_ONLY
+IngredientSourcePlan,OptimizationInput,repository.sources.runtime,repository.optimization.runtime,dataclass tuple,"ingredient_id|source_id|dose",constraints,no,no,yes,partial,PARALLEL_TEST_ONLY
+OptimizationResult,PresentationModel,repository.optimization.runtime,test/debug/reporting layers,dataclass/JSON,"bundle candidates|harmony","diagnostics",no,yes,yes,partial,PARALLEL_TEST_ONLY

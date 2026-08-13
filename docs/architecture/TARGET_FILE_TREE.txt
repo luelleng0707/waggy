@@ -1,8 +1,11 @@
 app/
-  api/              # application transport/runtime entrypoint
+  main.py           # FastAPI shim to app.api.main
+  api/              # production HTTP runtime owner
+  agent/            # production analysis runtime owner
+  data/             # production warehouse reader owner
+  presentation/     # three-surface projection adapter
   ui/               # native presentation (CSTC shell + renderers)
-  agent/            # transitional until cutover approval
-legacy/             # browser presentation surfaces (customer + developer)
+legacy/             # browser presentation surfaces (customer/business/developer)
 scripts/
   run_wagtopia_local.py   # local multi-interface gateway
   run_wagtopia_remote.py  # customer-only remote gateway + tunnel
@@ -23,7 +26,28 @@ warehouse/
 docs/
   mathematics/
   architecture/
+    END_TO_END_RUNTIME_ARCHITECTURE.md
+    DATA_CONTRACT_GRAPH.csv
+    CANONICAL_LAYER_OWNERSHIP.csv
+    PRODUCTION_RUNTIME_BOUNDARY.md
+    SCIENTIFIC_DECISION_PIPELINE.md
+    EVIDENCE_PROVENANCE_ARCHITECTURE.md
+    FORMULA_EXECUTION_ARCHITECTURE.md
+    OPTIMIZATION_DECISION_ARCHITECTURE.md
+    FINANCIAL_MODEL_ARCHITECTURE.md
+    THREE_SURFACE_PRESENTATION_ARCHITECTURE.md
+    API_PRESENTATION_CONTRACT.md
+    FAILURE_AND_FALLBACK_ARCHITECTURE.md
+    MIXED_BREED_MODEL.md
+    ENVIRONMENT_MODEL.md
+    WAREHOUSE_DOMAIN_MAP.csv
+    TRACE_LINEAGE_ARCHITECTURE.md
+    PRESENTATION_SECURITY_BOUNDARY.md
+    OMEGA9.8_ARCHITECTURE_SCORECARD.csv
+    ARCHITECTURAL_DEBT_REGISTER.csv
+    OMEGA9.8_ARCHITECTURE_COMPLETION_REPORT.md
   interface/
 tests/
   interface/
   architecture/
+    test_end_to_end_architecture.py
