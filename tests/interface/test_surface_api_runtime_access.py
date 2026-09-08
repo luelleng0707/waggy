@@ -46,8 +46,15 @@ def test_surface_backing_apis_work_without_x_api_key_when_api_keys_enabled(monke
 def test_non_surface_api_still_respects_x_api_key_gate(monkeypatch: pytest.MonkeyPatch):
     monkeypatch.setattr(api_main, "VALID_KEYS", {"locked-key"})
     client = TestClient(app)
-    assert client.get("/api/v1/store").status_code == 401
-    assert client.get("/api/v1/store", headers={"x-api-key": "locked-key"}).status_code == 200
+    assert client.get("/api/v1/presentation/catalog").status_code == 200
+    assert client.get("/api/v1/store").status_code == 200
+    assert client.post("/api/v1/analyze", json=_dolly_payload()).status_code == 401
+    assert client.post("/api/v1/ppie/assess", json=_dolly_payload()).status_code == 401
+    assert client.post(
+        "/api/v1/analyze",
+        headers={"x-api-key": "locked-key"},
+        json=_dolly_payload(),
+    ).status_code == 200
 
 
 def test_frontend_contains_no_embedded_secrets_or_localhost_api_urls():
@@ -57,6 +64,7 @@ def test_frontend_contains_no_embedded_secrets_or_localhost_api_urls():
         root / "legacy" / "business.js",
         root / "legacy" / "catalog-service.js",
         root / "legacy" / "ppie-validation-console.js",
+        root / "legacy" / "workbench.js",
     ]
     for path in files:
         text = path.read_text(encoding="utf-8")

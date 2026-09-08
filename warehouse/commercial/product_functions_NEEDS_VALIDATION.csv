@@ -1,1 +1,11 @@
-fact_id,product_id,product_name,function_name,function_description,source_table,scientific_quote,paper_name,paper_link,publication_year,study_type,species,status
+product_id,function,confidence,status,source_legacy_file,source_legacy_row
+SF001,Activity Support,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,2
+SF004,Digestive Support,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,3
+TR003,Joint Support,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,4
+TR006,Joint Support,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,5
+TR007,Tear Stain & Weight Management,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,6
+TR008,Dietary Fiber & Digestion Support,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,7
+TR009,Cartilage & Dental Chew Care,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,8
+TR010,Calcium & Recreational Bone Chewing,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,9
+TR011,Joint & Anti-Inflammatory Omega Care,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,10
+TR012,Calcium & Recreational Bone Chewing,High,NEEDS_VALIDATION,data/product_portfolio/PRODUCT_FUNCTIONS.csv,11

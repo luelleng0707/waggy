@@ -1,15 +1,7 @@
-# Engine Layer
+# Engine layer (warehouse-backed helpers)
 
-The engine consumes immutable warehouse facts and performs reasoning.
+Skeletal reasoning services used by warehouse-backed mathematics tests. They are **not** `PACKAGE_OPTIMIZER_V2_1`.
 
-Subpackages are intentionally skeletal in Ω1:
-- `biology`
-- `epidemiology`
-- `estimation`
-- `prevention`
-- `nutrition`
-- `products`
-- `optimization`
-- `explainability`
+Customer package membership is composed only in `app/agent/package_search.py`.
 
-No production reasoning logic should be added here until warehouse validation is stable.
+See [docs/WAGGY_SYSTEM.md](../../docs/WAGGY_SYSTEM.md).

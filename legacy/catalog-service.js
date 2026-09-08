@@ -1,6 +1,6 @@
 /**
  * CatalogService — single frontend source of truth for CSV-backed products.
- * Loads GET /api/v1/store (joined catalog + pricing + components + feeding + extensions).
+ * Loads GET /api/v1/presentation/catalog (joined catalog + pricing + components + feeding).
  */
 (function (global) {
   'use strict';
@@ -27,7 +27,7 @@
     },
 
     async _fetchStore() {
-      const url = new URL(`${API_BASE}/api/v1/store`);
+      const url = new URL(`${API_BASE}/api/v1/presentation/catalog`);
       if (this.weightKg != null && !Number.isNaN(this.weightKg)) {
         url.searchParams.set('weight_kg', String(this.weightKg));
       }
@@ -37,7 +37,7 @@
         headers,
         cache: 'no-store'
       });
-      if (!res.ok) throw new Error(`store HTTP ${res.status}`);
+      if (!res.ok) throw new Error(`catalog HTTP ${res.status}`);
       const data = await res.json();
       this.products = Array.isArray(data.products) ? data.products : [];
       this.byId = Object.create(null);
@@ -52,7 +52,8 @@
         count: Number(data.count || this.products.length),
         csv_hash: String(data.csv_hash || ''),
         data_version: String(data.data_version || ''),
-        loaded_at: String(data.loaded_at || '')
+        loaded_at: String(data.loaded_at || ''),
+        demo_catalog: Boolean(data.demo_catalog)
       };
       this.ready = true;
       return this.products;

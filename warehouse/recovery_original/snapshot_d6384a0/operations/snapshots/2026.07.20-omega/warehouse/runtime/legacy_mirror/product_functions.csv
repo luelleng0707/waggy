@@ -1,0 +1,11 @@
+product_id,function,confidence,_csv_row,_csv_file
+SF001,Activity Support,High,2,PRODUCT_FUNCTIONS.csv
+SF004,Digestive Support,High,3,PRODUCT_FUNCTIONS.csv
+TR003,Joint Support,High,4,PRODUCT_FUNCTIONS.csv
+TR006,Joint Support,High,5,PRODUCT_FUNCTIONS.csv
+TR007,Tear Stain & Weight Management,High,6,PRODUCT_FUNCTIONS.csv
+TR008,Dietary Fiber & Digestion Support,High,7,PRODUCT_FUNCTIONS.csv
+TR009,Cartilage & Dental Chew Care,High,8,PRODUCT_FUNCTIONS.csv
+TR010,Calcium & Recreational Bone Chewing,High,9,PRODUCT_FUNCTIONS.csv
+TR011,Joint & Anti-Inflammatory Omega Care,High,10,PRODUCT_FUNCTIONS.csv
+TR012,Calcium & Recreational Bone Chewing,High,11,PRODUCT_FUNCTIONS.csv

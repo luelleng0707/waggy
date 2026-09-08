@@ -102,8 +102,30 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
-  border-bottom: 1px solid #2f3f72;
-  padding: 8px;
-  text-align: left;
+.package-block {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #2f3f72;
+}
+
+.package-block h3 {
+  margin: 0 0 6px;
+}
+
+.package-block ul {
+  margin: 8px 0 0;
+  padding-left: 1.2rem;
+}
+
+.demo-catalog-banner {
+  margin: 0;
+  padding: 10px 18px;
+  background: #1a2450;
+  border-bottom: 1px solid #2b355f;
+  color: #d7c4a3;
+  font-size: 13px;
+}
+
+.demo-catalog-banner[hidden] {
+  display: none !important;
 }

@@ -202,6 +202,7 @@ class LocalInterfaceSuite:
 
         env = os.environ.copy()
         env.setdefault("PYTHONUNBUFFERED", "1")
+        env["WAGTOPIA_DEMO_MODE"] = "true" if self.args.demo_mode else "false"
         if self.args.api_debug:
             env["PPIE_DEBUG"] = "true"
         cmd = [
@@ -306,21 +307,22 @@ class LocalInterfaceSuite:
         print("")
         print("WAGTOPIA LOCAL DEMO")
         print("")
-        print("Customer:")
+        print("CUSTOMER:")
         print(self.customer_url)
         print("")
-        print("Business:")
+        print("BUSINESS:")
         print(self.business_url)
         print("")
-        print("Developer:")
+        print("DEVELOPER:")
         print(self.developer_url)
         print("")
         print("API:")
         print(f"{self.api_base_url}/docs")
         print("")
-        print("Health:")
+        print("HEALTH:")
         print(f"{self.api_base_url}/health")
         print("")
+        print(f"DEMO CATALOG: {'ON (WAGTOPIA_DEMO_MODE=true)' if self.args.demo_mode else 'OFF'}")
         print(f"Demo profile: {demo_profile.name} (DEMO DATA)")
         print("")
 

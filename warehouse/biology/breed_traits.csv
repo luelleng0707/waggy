@@ -1,1 +1,433 @@
 fact_id,breed_id,breed_name,trait_name,trait_value,value_number,unit,population_description,scientific_quote,paper_name,paper_link,publication_year,study_type,species,status
+FACT_41C292,BREED_DAB74007,Alaskan Malamute,size,Giant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_923036,BREED_DAB74007,Alaskan Malamute,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_FAB788,BREED_DAB74007,Alaskan Malamute,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7ACB15,BREED_DAB74007,Alaskan Malamute,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B6CCA7,BREED_DAB74007,Alaskan Malamute,weakness_group,Joint Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_24D9D4,BREED_DAB74007,Alaskan Malamute,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_023442,BREED_DAB74007,Alaskan Malamute,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A84550,BREED_DAB74007,Alaskan Malamute,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BE2940,BREED_DAB74007,Alaskan Malamute,function_group,Working,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_564FF1,BREED_3E1561D4,Afghan Hound,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B8CFAC,BREED_3E1561D4,Afghan Hound,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B93B87,BREED_3E1561D4,Afghan Hound,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_58CB6D,BREED_3E1561D4,Afghan Hound,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6E3B02,BREED_3E1561D4,Afghan Hound,weakness_group,Eye Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AC5F4C,BREED_3E1561D4,Afghan Hound,skull_type,Dolichocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0F04FD,BREED_3E1561D4,Afghan Hound,climate,Heat Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_EA6FFA,BREED_3E1561D4,Afghan Hound,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_010A70,BREED_3E1561D4,Afghan Hound,function_group,Hound,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5383D9,BREED_BC63A662,Border Collie,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2AC2D8,BREED_BC63A662,Border Collie,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_058A7D,BREED_BC63A662,Border Collie,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A6ADD4,BREED_BC63A662,Border Collie,energy,Extreme,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2BD26D,BREED_BC63A662,Border Collie,weakness_group,Neurological Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_950389,BREED_BC63A662,Border Collie,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2302C7,BREED_BC63A662,Border Collie,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DB71A1,BREED_BC63A662,Border Collie,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_741769,BREED_BC63A662,Border Collie,function_group,Herding,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F5BEC3,BREED_82C42678,Bernese Mountain Dog,size,Giant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D545C4,BREED_82C42678,Bernese Mountain Dog,body_type,Heavy Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_174EB0,BREED_82C42678,Bernese Mountain Dog,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5664F5,BREED_82C42678,Bernese Mountain Dog,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9217F8,BREED_82C42678,Bernese Mountain Dog,weakness_group,Joint Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3C8CEA,BREED_82C42678,Bernese Mountain Dog,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_1AB82E,BREED_82C42678,Bernese Mountain Dog,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_058EF2,BREED_82C42678,Bernese Mountain Dog,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DFA19B,BREED_82C42678,Bernese Mountain Dog,function_group,Working,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D1A6C4,BREED_CB646D54,Pomeranian,size,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D5FA4A,BREED_CB646D54,Pomeranian,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8FF2D3,BREED_CB646D54,Pomeranian,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8DA623,BREED_CB646D54,Pomeranian,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E87D76,BREED_CB646D54,Pomeranian,weakness_group,Dental Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_20AC77,BREED_CB646D54,Pomeranian,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BDD056,BREED_CB646D54,Pomeranian,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AA657F,BREED_CB646D54,Pomeranian,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_931A20,BREED_CB646D54,Pomeranian,function_group,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_433A6A,BREED_A4B7D238,Pekingese,size,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D73C70,BREED_A4B7D238,Pekingese,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4D23D5,BREED_A4B7D238,Pekingese,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CD9DB4,BREED_A4B7D238,Pekingese,energy,Low,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4C5EFE,BREED_A4B7D238,Pekingese,weakness_group,Respiratory Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9F3465,BREED_A4B7D238,Pekingese,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A6D77C,BREED_A4B7D238,Pekingese,climate,Heat Sensitive,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C526EB,BREED_A4B7D238,Pekingese,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_453658,BREED_A4B7D238,Pekingese,function_group,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F936A9,BREED_06F902AB,Pug,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2A6076,BREED_06F902AB,Pug,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6C2141,BREED_06F902AB,Pug,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_280DB4,BREED_06F902AB,Pug,energy,Low,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_836784,BREED_06F902AB,Pug,weakness_group,Respiratory Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_77A90E,BREED_06F902AB,Pug,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5FCE6F,BREED_06F902AB,Pug,climate,Heat Sensitive,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_940308,BREED_06F902AB,Pug,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6C925F,BREED_06F902AB,Pug,function_group,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2716C0,BREED_6DB4AA40,Boston Terrier,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_94A6DA,BREED_6DB4AA40,Boston Terrier,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AFA875,BREED_6DB4AA40,Boston Terrier,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_089406,BREED_6DB4AA40,Boston Terrier,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_135853,BREED_6DB4AA40,Boston Terrier,weakness_group,Respiratory Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_20828C,BREED_6DB4AA40,Boston Terrier,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C76786,BREED_6DB4AA40,Boston Terrier,climate,Heat Sensitive,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6553FC,BREED_6DB4AA40,Boston Terrier,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_32F122,BREED_6DB4AA40,Boston Terrier,function_group,Companion,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_895930,BREED_C87E70CA,Basset Hound,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_29A327,BREED_C87E70CA,Basset Hound,body_type,Chondrodysplastic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AA2DC4,BREED_C87E70CA,Basset Hound,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_32DF97,BREED_C87E70CA,Basset Hound,energy,Low,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_79E5AE,BREED_C87E70CA,Basset Hound,weakness_group,Joint Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E831EF,BREED_C87E70CA,Basset Hound,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B531B1,BREED_C87E70CA,Basset Hound,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7BA409,BREED_C87E70CA,Basset Hound,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8136EE,BREED_C87E70CA,Basset Hound,function_group,Hound,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F46817,BREED_23ECEA52,Beagle,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_40E412,BREED_23ECEA52,Beagle,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_ECB693,BREED_23ECEA52,Beagle,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B5A73A,BREED_23ECEA52,Beagle,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_46FD38,BREED_23ECEA52,Beagle,weakness_group,Digestive Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_FF6223,BREED_23ECEA52,Beagle,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DEDAD8,BREED_23ECEA52,Beagle,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7977A8,BREED_23ECEA52,Beagle,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B818F5,BREED_23ECEA52,Beagle,function_group,Hound,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8CBE95,BREED_14624D63,Bichon Frise,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F20C2F,BREED_14624D63,Bichon Frise,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F670F7,BREED_14624D63,Bichon Frise,coat_type,Curly Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4BAF0F,BREED_14624D63,Bichon Frise,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_486D60,BREED_14624D63,Bichon Frise,weakness_group,Skin Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_262A62,BREED_14624D63,Bichon Frise,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_826182,BREED_14624D63,Bichon Frise,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_1E0D29,BREED_14624D63,Bichon Frise,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_591858,BREED_14624D63,Bichon Frise,function_group,Companion,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_242BF8,BREED_43DD399E,Bedlington Terrier,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5DCD2E,BREED_43DD399E,Bedlington Terrier,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8572B3,BREED_43DD399E,Bedlington Terrier,coat_type,Curly Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E73978,BREED_43DD399E,Bedlington Terrier,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3730F7,BREED_43DD399E,Bedlington Terrier,weakness_group,Urinary Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_651F1F,BREED_43DD399E,Bedlington Terrier,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_EAFB08,BREED_43DD399E,Bedlington Terrier,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DAFCC5,BREED_43DD399E,Bedlington Terrier,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_73D9F3,BREED_43DD399E,Bedlington Terrier,function_group,Terrier,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_478D3D,BREED_3A7AB996,Shiba Inu,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_395E23,BREED_3A7AB996,Shiba Inu,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3D3877,BREED_3A7AB996,Shiba Inu,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7CF7F8,BREED_3A7AB996,Shiba Inu,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E21D28,BREED_3A7AB996,Shiba Inu,weakness_group,Immune Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_53264B,BREED_3A7AB996,Shiba Inu,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E79FB8,BREED_3A7AB996,Shiba Inu,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0BF6D6,BREED_3A7AB996,Shiba Inu,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_48529E,BREED_3A7AB996,Shiba Inu,function_group,Spitz,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E3A492,BREED_10A53062,Cavalier King Charles Spaniel,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A6D5F3,BREED_10A53062,Cavalier King Charles Spaniel,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D8D67E,BREED_10A53062,Cavalier King Charles Spaniel,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C52EF6,BREED_10A53062,Cavalier King Charles Spaniel,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_985F85,BREED_10A53062,Cavalier King Charles Spaniel,weakness_group,Cardiac Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6EB885,BREED_10A53062,Cavalier King Charles Spaniel,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D5D571,BREED_10A53062,Cavalier King Charles Spaniel,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_37DF87,BREED_10A53062,Cavalier King Charles Spaniel,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C15187,BREED_10A53062,Cavalier King Charles Spaniel,function_group,Companion,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_31FA8A,BREED_2E91411B,German Shepherd Dog,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3129CD,BREED_2E91411B,German Shepherd Dog,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_25C6D0,BREED_2E91411B,German Shepherd Dog,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B5474C,BREED_2E91411B,German Shepherd Dog,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4F9619,BREED_2E91411B,German Shepherd Dog,weakness_group,Joint Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_70D6E6,BREED_2E91411B,German Shepherd Dog,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A7AA33,BREED_2E91411B,German Shepherd Dog,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3C3486,BREED_2E91411B,German Shepherd Dog,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C4F971,BREED_2E91411B,German Shepherd Dog,function_group,Working,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DB980B,BREED_58CB38F4,Great Pyrenees,size,Giant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B1E144,BREED_58CB38F4,Great Pyrenees,body_type,Heavy Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_75053C,BREED_58CB38F4,Great Pyrenees,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F18DD5,BREED_58CB38F4,Great Pyrenees,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B8C5BE,BREED_58CB38F4,Great Pyrenees,weakness_group,Joint Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3D6E57,BREED_58CB38F4,Great Pyrenees,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_607FEC,BREED_58CB38F4,Great Pyrenees,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6D31F7,BREED_58CB38F4,Great Pyrenees,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5E0218,BREED_58CB38F4,Great Pyrenees,function_group,Guardian,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3DA3EF,BREED_C687F403,Doberman Pinscher,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4B6405,BREED_C687F403,Doberman Pinscher,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A46550,BREED_C687F403,Doberman Pinscher,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6D762E,BREED_C687F403,Doberman Pinscher,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_66C8FF,BREED_C687F403,Doberman Pinscher,weakness_group,Cardiac Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DEDA53,BREED_C687F403,Doberman Pinscher,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7C577A,BREED_C687F403,Doberman Pinscher,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_1608D7,BREED_C687F403,Doberman Pinscher,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C40F34,BREED_C687F403,Doberman Pinscher,function_group,Working,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C2E1C6,BREED_F06D13A1,Dalmatian,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E55940,BREED_F06D13A1,Dalmatian,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2194B0,BREED_F06D13A1,Dalmatian,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_13EC10,BREED_F06D13A1,Dalmatian,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_29A4E1,BREED_F06D13A1,Dalmatian,weakness_group,Urinary Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6F2808,BREED_F06D13A1,Dalmatian,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3646E0,BREED_F06D13A1,Dalmatian,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9D6CE3,BREED_F06D13A1,Dalmatian,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C8608A,BREED_F06D13A1,Dalmatian,function_group,Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5E8E39,BREED_08E4F037,French Bulldog,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B55333,BREED_08E4F037,French Bulldog,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_838609,BREED_08E4F037,French Bulldog,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7DC462,BREED_08E4F037,French Bulldog,energy,Low,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C79ABE,BREED_08E4F037,French Bulldog,weakness_group,Respiratory Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_10DC6F,BREED_08E4F037,French Bulldog,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_EE10B7,BREED_08E4F037,French Bulldog,climate,Heat Sensitive,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E1243E,BREED_08E4F037,French Bulldog,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_52A480,BREED_08E4F037,French Bulldog,function_group,Companion,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D5073B,BREED_617BE9EB,Old English Sheepdog,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_44D8DD,BREED_617BE9EB,Old English Sheepdog,body_type,Heavy Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F00F1E,BREED_617BE9EB,Old English Sheepdog,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C05BCF,BREED_617BE9EB,Old English Sheepdog,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_885927,BREED_617BE9EB,Old English Sheepdog,weakness_group,Skin Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_41AC93,BREED_617BE9EB,Old English Sheepdog,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A6100C,BREED_617BE9EB,Old English Sheepdog,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4C5A11,BREED_617BE9EB,Old English Sheepdog,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E67FE1,BREED_617BE9EB,Old English Sheepdog,function_group,Herding,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7A8426,BREED_3905DBDB,Wirehaired Dachshund,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C2D260,BREED_3905DBDB,Wirehaired Dachshund,body_type,Chondrodysplastic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9B6307,BREED_3905DBDB,Wirehaired Dachshund,coat_type,Wire Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4DE7D3,BREED_3905DBDB,Wirehaired Dachshund,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_324448,BREED_3905DBDB,Wirehaired Dachshund,weakness_group,Neurological Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B8E25E,BREED_3905DBDB,Wirehaired Dachshund,skull_type,Dolichocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3ED14F,BREED_3905DBDB,Wirehaired Dachshund,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_37A5F3,BREED_3905DBDB,Wirehaired Dachshund,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F37FAA,BREED_3905DBDB,Wirehaired Dachshund,function_group,Hound,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_28F5C6,BREED_9FC60FFF,Poodle,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_44D3EC,BREED_9FC60FFF,Poodle,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B3BE9D,BREED_9FC60FFF,Poodle,coat_type,Curly Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5CC0AA,BREED_9FC60FFF,Poodle,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5A4779,BREED_9FC60FFF,Poodle,weakness_group,Eye Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_89FCC6,BREED_9FC60FFF,Poodle,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4B95A8,BREED_9FC60FFF,Poodle,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_305DD9,BREED_9FC60FFF,Poodle,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_24A5D4,BREED_9FC60FFF,Poodle,function_group,Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F3DABC,BREED_D7352671,Siberian Husky,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_818842,BREED_D7352671,Siberian Husky,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_650634,BREED_D7352671,Siberian Husky,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_EC1A00,BREED_D7352671,Siberian Husky,energy,Extreme,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_456293,BREED_D7352671,Siberian Husky,weakness_group,Immune Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C1CEE5,BREED_D7352671,Siberian Husky,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4E9A7C,BREED_D7352671,Siberian Husky,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8CC2CE,BREED_D7352671,Siberian Husky,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5BFA5C,BREED_D7352671,Siberian Husky,function_group,Working,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BC8FC0,BREED_4C2466ED,Golden Retriever,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9A11F4,BREED_4C2466ED,Golden Retriever,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5956C5,BREED_4C2466ED,Golden Retriever,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A3EA45,BREED_4C2466ED,Golden Retriever,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_208255,BREED_4C2466ED,Golden Retriever,weakness_group,Joint Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B13D9F,BREED_4C2466ED,Golden Retriever,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F88A42,BREED_4C2466ED,Golden Retriever,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_021C00,BREED_4C2466ED,Golden Retriever,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9544CD,BREED_4C2466ED,Golden Retriever,function_group,Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E52ED5,BREED_4D52D378,Chihuahua,size,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6B2EF2,BREED_4D52D378,Chihuahua,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BB3CF3,BREED_4D52D378,Chihuahua,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_ECD8E8,BREED_4D52D378,Chihuahua,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_04B015,BREED_4D52D378,Chihuahua,weakness_group,Cardiac Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BEE8DF,BREED_4D52D378,Chihuahua,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_97C888,BREED_4D52D378,Chihuahua,climate,Heat Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0B76FC,BREED_4D52D378,Chihuahua,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_157939,BREED_4D52D378,Chihuahua,function_group,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AB8CC9,BREED_1B953788,Jack Russell Terrier,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_EFDCCD,BREED_1B953788,Jack Russell Terrier,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E21830,BREED_1B953788,Jack Russell Terrier,coat_type,Wire Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C83F93,BREED_1B953788,Jack Russell Terrier,energy,Extreme,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A54466,BREED_1B953788,Jack Russell Terrier,weakness_group,Neurological Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_79D03A,BREED_1B953788,Jack Russell Terrier,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_55FD9B,BREED_1B953788,Jack Russell Terrier,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_530088,BREED_1B953788,Jack Russell Terrier,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8F0D19,BREED_1B953788,Jack Russell Terrier,function_group,Terrier,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_96DAA1,BREED_6CBDD78C,Pembroke Welsh Corgi,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_844CD7,BREED_6CBDD78C,Pembroke Welsh Corgi,body_type,Chondrodysplastic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C0B251,BREED_6CBDD78C,Pembroke Welsh Corgi,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CD47D1,BREED_6CBDD78C,Pembroke Welsh Corgi,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_FA818E,BREED_6CBDD78C,Pembroke Welsh Corgi,weakness_group,Joint Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_270B5B,BREED_6CBDD78C,Pembroke Welsh Corgi,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AD9BD1,BREED_6CBDD78C,Pembroke Welsh Corgi,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B3BE1D,BREED_6CBDD78C,Pembroke Welsh Corgi,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_23C330,BREED_6CBDD78C,Pembroke Welsh Corgi,function_group,Herding,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_25F66F,BREED_074A355B,Kerry Blue Terrier,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C6CC82,BREED_074A355B,Kerry Blue Terrier,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_562F51,BREED_074A355B,Kerry Blue Terrier,coat_type,Curly Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_371602,BREED_074A355B,Kerry Blue Terrier,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_36B377,BREED_074A355B,Kerry Blue Terrier,weakness_group,Skin Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C9F7A4,BREED_074A355B,Kerry Blue Terrier,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B4632C,BREED_074A355B,Kerry Blue Terrier,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C422A3,BREED_074A355B,Kerry Blue Terrier,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A7FEF5,BREED_074A355B,Kerry Blue Terrier,function_group,Terrier,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DB77D6,BREED_6C4486EF,Foxhound,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D666B8,BREED_6C4486EF,Foxhound,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B40E23,BREED_6C4486EF,Foxhound,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3D43DB,BREED_6C4486EF,Foxhound,energy,Extreme,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0DE641,BREED_6C4486EF,Foxhound,weakness_group,Digestive Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DFBBE4,BREED_6C4486EF,Foxhound,skull_type,Dolichocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9ECFC7,BREED_6C4486EF,Foxhound,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AFB4DF,BREED_6C4486EF,Foxhound,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_69EC05,BREED_6C4486EF,Foxhound,function_group,Hound,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3F6B2A,BREED_B02F1BE9,Labrador Retriever,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_1FCCC1,BREED_B02F1BE9,Labrador Retriever,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AA2538,BREED_B02F1BE9,Labrador Retriever,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_678322,BREED_B02F1BE9,Labrador Retriever,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_26FB9A,BREED_B02F1BE9,Labrador Retriever,weakness_group,Joint Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0ADFD6,BREED_B02F1BE9,Labrador Retriever,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DC1F9F,BREED_B02F1BE9,Labrador Retriever,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BEF90E,BREED_B02F1BE9,Labrador Retriever,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_377BD5,BREED_B02F1BE9,Labrador Retriever,function_group,Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DC4526,BREED_889A3EBF,Greyhound,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_324931,BREED_889A3EBF,Greyhound,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7E8853,BREED_889A3EBF,Greyhound,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6B228A,BREED_889A3EBF,Greyhound,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B6A7FA,BREED_889A3EBF,Greyhound,weakness_group,Cardiac Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4F27C6,BREED_889A3EBF,Greyhound,skull_type,Dolichocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_808E8E,BREED_889A3EBF,Greyhound,climate,Heat Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_FA260F,BREED_889A3EBF,Greyhound,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D08E06,BREED_889A3EBF,Greyhound,function_group,Hound,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5E8D40,BREED_1D54BB3A,Smooth Dachshund,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_257958,BREED_1D54BB3A,Smooth Dachshund,body_type,Chondrodysplastic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_138830,BREED_1D54BB3A,Smooth Dachshund,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_423EC3,BREED_1D54BB3A,Smooth Dachshund,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0F76BD,BREED_1D54BB3A,Smooth Dachshund,weakness_group,Neurological Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_46CBEA,BREED_1D54BB3A,Smooth Dachshund,skull_type,Dolichocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D9C674,BREED_1D54BB3A,Smooth Dachshund,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D688E5,BREED_1D54BB3A,Smooth Dachshund,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6F3B46,BREED_1D54BB3A,Smooth Dachshund,function_group,Hound,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_269918,BREED_A00AD6C7,American Cocker Spaniel,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2959AC,BREED_A00AD6C7,American Cocker Spaniel,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_332957,BREED_A00AD6C7,American Cocker Spaniel,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_773DB7,BREED_A00AD6C7,American Cocker Spaniel,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CFE9B3,BREED_A00AD6C7,American Cocker Spaniel,weakness_group,Eye Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_30DBEB,BREED_A00AD6C7,American Cocker Spaniel,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_870DF3,BREED_A00AD6C7,American Cocker Spaniel,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F201CE,BREED_A00AD6C7,American Cocker Spaniel,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_16FACF,BREED_A00AD6C7,American Cocker Spaniel,function_group,Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C1D5A0,BREED_40006713,Maltese,size,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_68504E,BREED_40006713,Maltese,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B69799,BREED_40006713,Maltese,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D6E7B0,BREED_40006713,Maltese,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8BAB59,BREED_40006713,Maltese,weakness_group,Dental Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BB17B9,BREED_40006713,Maltese,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3531D5,BREED_40006713,Maltese,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_81B1FA,BREED_40006713,Maltese,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A53032,BREED_40006713,Maltese,function_group,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_40027B,BREED_AB5D5A28,Bull Terrier,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F25CA7,BREED_AB5D5A28,Bull Terrier,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_10A7DA,BREED_AB5D5A28,Bull Terrier,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6F5F33,BREED_AB5D5A28,Bull Terrier,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_EFA0F4,BREED_AB5D5A28,Bull Terrier,weakness_group,Immune Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CB183E,BREED_AB5D5A28,Bull Terrier,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9224ED,BREED_AB5D5A28,Bull Terrier,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7FD98F,BREED_AB5D5A28,Bull Terrier,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_70E4CF,BREED_AB5D5A28,Bull Terrier,function_group,Terrier,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CBF903,BREED_4E0A4CB0,Akita Inu,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4BC3F5,BREED_4E0A4CB0,Akita Inu,body_type,Heavy Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BE8330,BREED_4E0A4CB0,Akita Inu,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_204865,BREED_4E0A4CB0,Akita Inu,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CFCB5B,BREED_4E0A4CB0,Akita Inu,weakness_group,Immune Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0BD371,BREED_4E0A4CB0,Akita Inu,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_07362E,BREED_4E0A4CB0,Akita Inu,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D11578,BREED_4E0A4CB0,Akita Inu,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BA520D,BREED_4E0A4CB0,Akita Inu,function_group,Working,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4E82AD,BREED_5B3AA685,Samoyed,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D6BD1F,BREED_5B3AA685,Samoyed,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_240A10,BREED_5B3AA685,Samoyed,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5E0D3E,BREED_5B3AA685,Samoyed,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_125A1A,BREED_5B3AA685,Samoyed,weakness_group,Skin Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F4288F,BREED_5B3AA685,Samoyed,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2EC93A,BREED_5B3AA685,Samoyed,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3F421F,BREED_5B3AA685,Samoyed,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_48ECF8,BREED_5B3AA685,Samoyed,function_group,Working,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8C275E,BREED_5A2BD646,Rough Collie,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_05CB79,BREED_5A2BD646,Rough Collie,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5EED32,BREED_5A2BD646,Rough Collie,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C20E6C,BREED_5A2BD646,Rough Collie,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E30388,BREED_5A2BD646,Rough Collie,weakness_group,Eye Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_266CF1,BREED_5A2BD646,Rough Collie,skull_type,Dolichocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_EBF187,BREED_5A2BD646,Rough Collie,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BC68F1,BREED_5A2BD646,Rough Collie,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_08C155,BREED_5A2BD646,Rough Collie,function_group,Herding,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AAFD71,BREED_0AFC0521,Chow Chow,size,Large,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_42ECEB,BREED_0AFC0521,Chow Chow,body_type,Heavy Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F65D60,BREED_0AFC0521,Chow Chow,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8B6409,BREED_0AFC0521,Chow Chow,energy,Low,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D33461,BREED_0AFC0521,Chow Chow,weakness_group,Immune Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_55AF21,BREED_0AFC0521,Chow Chow,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_693E38,BREED_0AFC0521,Chow Chow,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_61A9A5,BREED_0AFC0521,Chow Chow,lifespan,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D51A06,BREED_0AFC0521,Chow Chow,function_group,Spitz,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F00C1F,BREED_F0A0C6D9,English Springer Spaniel,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_B0ACA8,BREED_F0A0C6D9,English Springer Spaniel,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_044114,BREED_F0A0C6D9,English Springer Spaniel,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_9C6D73,BREED_F0A0C6D9,English Springer Spaniel,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CA72BD,BREED_F0A0C6D9,English Springer Spaniel,weakness_group,Eye Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_FA6A88,BREED_F0A0C6D9,English Springer Spaniel,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_12F251,BREED_F0A0C6D9,English Springer Spaniel,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_42C99E,BREED_F0A0C6D9,English Springer Spaniel,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_044238,BREED_F0A0C6D9,English Springer Spaniel,function_group,Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_44F3EE,BREED_EE6CB0D6,Chinese Rural Dog,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DFD76E,BREED_EE6CB0D6,Chinese Rural Dog,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_78DFD4,BREED_EE6CB0D6,Chinese Rural Dog,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_99C2EF,BREED_EE6CB0D6,Chinese Rural Dog,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_05E179,BREED_EE6CB0D6,Chinese Rural Dog,weakness_group,Digestive Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3A845C,BREED_EE6CB0D6,Chinese Rural Dog,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3A84D9,BREED_EE6CB0D6,Chinese Rural Dog,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7F8589,BREED_EE6CB0D6,Chinese Rural Dog,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_52D4F9,BREED_EE6CB0D6,Chinese Rural Dog,function_group,Landrace,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_67727B,BREED_46D833A4,West Highland White Terrier,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F8C1AE,BREED_46D833A4,West Highland White Terrier,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_1EB8A9,BREED_46D833A4,West Highland White Terrier,coat_type,Wire Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4EAC18,BREED_46D833A4,West Highland White Terrier,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C019A4,BREED_46D833A4,West Highland White Terrier,weakness_group,Skin Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8835EB,BREED_46D833A4,West Highland White Terrier,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_746136,BREED_46D833A4,West Highland White Terrier,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_21C493,BREED_46D833A4,West Highland White Terrier,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D6F92F,BREED_46D833A4,West Highland White Terrier,function_group,Terrier,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_71549E,BREED_571535AE,Shetland Sheepdog,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E96717,BREED_571535AE,Shetland Sheepdog,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E0CA87,BREED_571535AE,Shetland Sheepdog,coat_type,Double Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_1D0416,BREED_571535AE,Shetland Sheepdog,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_80CD84,BREED_571535AE,Shetland Sheepdog,weakness_group,Eye Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CD5C20,BREED_571535AE,Shetland Sheepdog,skull_type,Dolichocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2C063E,BREED_571535AE,Shetland Sheepdog,climate,Cold Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E8B6FB,BREED_571535AE,Shetland Sheepdog,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_08B06F,BREED_571535AE,Shetland Sheepdog,function_group,Herding,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_1EA945,BREED_2641DA99,Miniature Pinscher,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_D7A88F,BREED_2641DA99,Miniature Pinscher,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3A146F,BREED_2641DA99,Miniature Pinscher,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_5AFCF2,BREED_2641DA99,Miniature Pinscher,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F7EE60,BREED_2641DA99,Miniature Pinscher,weakness_group,Cardiac Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_089961,BREED_2641DA99,Miniature Pinscher,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_DA38CF,BREED_2641DA99,Miniature Pinscher,climate,Heat Tolerant,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8B1E16,BREED_2641DA99,Miniature Pinscher,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_F09361,BREED_2641DA99,Miniature Pinscher,function_group,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4263D7,BREED_50042913,Shih Tzu,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_A9FC83,BREED_50042913,Shih Tzu,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7921A7,BREED_50042913,Shih Tzu,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_770B48,BREED_50042913,Shih Tzu,energy,Low,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E90792,BREED_50042913,Shih Tzu,weakness_group,Eye Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_29C138,BREED_50042913,Shih Tzu,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0D5924,BREED_50042913,Shih Tzu,climate,Heat Sensitive,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E26E4C,BREED_50042913,Shih Tzu,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E16B0B,BREED_50042913,Shih Tzu,function_group,Companion,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4F1B1C,BREED_5D7A8061,English Cocker Spaniel,size,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8ACA48,BREED_5D7A8061,English Cocker Spaniel,body_type,Athletic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_511F73,BREED_5D7A8061,English Cocker Spaniel,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_CEA602,BREED_5D7A8061,English Cocker Spaniel,energy,High,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0CE7B9,BREED_5D7A8061,English Cocker Spaniel,weakness_group,Eye Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_BD5290,BREED_5D7A8061,English Cocker Spaniel,skull_type,Mesocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_470345,BREED_5D7A8061,English Cocker Spaniel,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_7A7FE8,BREED_5D7A8061,English Cocker Spaniel,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_2D6E4A,BREED_5D7A8061,English Cocker Spaniel,function_group,Sporting,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_369A11,BREED_D8797FDC,Yorkshire Terrier,size,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4EEA50,BREED_D8797FDC,Yorkshire Terrier,body_type,Compact,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_4AAA98,BREED_D8797FDC,Yorkshire Terrier,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_AF82CD,BREED_D8797FDC,Yorkshire Terrier,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_04907B,BREED_D8797FDC,Yorkshire Terrier,weakness_group,Dental Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3D82B6,BREED_D8797FDC,Yorkshire Terrier,skull_type,Brachycephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0F297D,BREED_D8797FDC,Yorkshire Terrier,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_6E7502,BREED_D8797FDC,Yorkshire Terrier,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_275955,BREED_D8797FDC,Yorkshire Terrier,function_group,Toy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_3D8ACE,BREED_0EFE6C40,Longhaired Dachshund,size,Small,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_C677F8,BREED_0EFE6C40,Longhaired Dachshund,body_type,Chondrodysplastic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_E3BDD8,BREED_0EFE6C40,Longhaired Dachshund,coat_type,Single Coat,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_86A5ED,BREED_0EFE6C40,Longhaired Dachshund,energy,Medium,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_8009B9,BREED_0EFE6C40,Longhaired Dachshund,weakness_group,Neurological Heavy,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_63D3DB,BREED_0EFE6C40,Longhaired Dachshund,skull_type,Dolichocephalic,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_908157,BREED_0EFE6C40,Longhaired Dachshund,climate,Temperate,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_68149A,BREED_0EFE6C40,Longhaired Dachshund,lifespan,Long,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE
+FACT_0B54FD,BREED_0EFE6C40,Longhaired Dachshund,function_group,Hound,,,Intern BREEDS.csv phenotype column; no study citation in source row,,,,,,Canis lupus familiaris,MISSING_PROVENANCE

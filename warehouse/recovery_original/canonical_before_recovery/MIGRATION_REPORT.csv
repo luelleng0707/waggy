@@ -1,0 +1,41 @@
+old_csv,new_csv,migration_reason
+science/breed/activities.csv,prevention/condition_activities.csv,Activity identities are embedded as one activity exposure per observed condition outcome; remove standalone lookup vocabulary.
+science/breed/activity_science.csv,prevention/condition_activities.csv,Split mixed evidence and prescription rows into one observed activity outcome per fact; discard schedules and recommendations.
+science/breed/breeds.csv,biology/breeds.csv,Retain only sourced breed identity facts; move each trait assertion to breed_traits.csv.
+science/breed/breed_activity.csv,prevention/condition_activities.csv,Convert each condition-activity study claim into one observed effect row; omit frequency and duration prescriptions.
+science/breed/breed_conditions.csv,biology/observed_breed_conditions.csv,Retain only directly observed population measures with study context; no synthesized risk.
+science/breed/breed_environment.csv,biology/environment_facts.csv,Split environment measurements from trait-condition conclusions; retain measured context facts only.
+science/breed/mixed_breed_interactions.csv,biology/trait_condition_associations.csv,Retain a study-reported trait-pair association only; discard engine multiplier semantics.
+science/breed/mixed_breed_matrix.csv,biology/observed_breed_conditions.csv,Retain direct crossbreed study observations when value and population are reported; never store adjustment factors.
+science/breed/trait_conditions.csv,biology/trait_condition_associations.csv,Store one cited trait-condition association per row and preserve reported measure as an observation.
+science/condition/clinical_timelines.csv,,No direct migration: surveillance and prevention schedules are recommendations rather than immutable facts.
+science/condition/conditions.csv,biology/conditions.csv,Retain sourced canonical condition identities and classifications only.
+science/condition/condition_protocols.csv,prevention/condition_ingredients.csv,Retain source-supported observed ingredient effects; discard protocol dose and priority fields.
+science/condition/grooming_observations.csv,,No direct migration: care thresholds and recommendation templates are decision rules not immutable research facts.
+science/evidence/clinical_evidence.csv,biology/trait_condition_associations.csv;prevention/condition_activities.csv;prevention/condition_ingredients.csv,Split each claim into its specific fact dataset and embed its quote source and link.
+science/evidence/papers.csv,,No direct migration: evidence is embedded beside every scientific fact and no paper lookup table is retained.
+science/ingredient/condition_ingredients.csv,prevention/condition_ingredients.csv,Retain source-supported ingredient-condition effect facts; discard recommended daily dose priority and lane.
+science/ingredient/ingredients.csv,nutrition/ingredients.csv,Retain one sourced reusable ingredient identity per row.
+science/ingredient/ingredient_aliases.csv,,No direct migration: aliases are input-normalization data not scientific facts.
+science/ingredient/ingredient_evidence.csv,prevention/condition_ingredients.csv,Split ingredient effect claims by condition/outcome and keep evidence beside the claim; remove lane and support flags.
+science/ingredient/ingredient_mechanisms.csv,nutrition/ingredient_composition.csv;commercial/product_declared_nutrition.csv,Move measured material composition to ingredient composition and manufacturer label declarations to commercial nutrition; remove product-derived estimates.
+science/nutrition/foods.csv,nutrition/food_composition.csv,Represent each measured food-compound fact once; food identity is held in each independently readable fact row.
+science/nutrition/food_nutrients.csv,nutrition/food_composition.csv,Import only analytical measurements with source and basis; reject estimates and confidence values.
+science/nutrition/food_sources.csv,nutrition/food_composition.csv,Merge duplicate food source facts into the one food composition library.
+science/nutrition/life_stages.csv,,No direct migration: life-stage lookup labels without a sourced fact are not a scientific fact dataset.
+science/nutrition/nutrient_priorities.csv,prevention/condition_ingredients.csv,Retain only source-supported observed ingredient outcomes; delete targets priority and recommendation semantics.
+science/physiology/traits.csv,biology/breed_traits.csv,Retain trait assertions only when sourced and attached to a breed/subject fact; remove standalone runtime vocabulary.
+science/physiology/trait_benefits.csv,biology/trait_condition_associations.csv,Retain cited protective associations as facts; discard reduction-factor engine semantics.
+science/physiology/trait_science.csv,biology/breed_traits.csv;biology/trait_condition_associations.csv,Split multiplexed trait narrative and condition-effect facts into one claim per row.
+science/product/PRODUCT_CATALOG.csv,commercial/product_master.csv,Retain manufacturer-declared product identity category version status and URL; remove marketing and reviews.
+science/product/PRODUCT_COMPONENTS.csv,commercial/product_recipe.csv;commercial/product_declared_nutrition.csv,Split declared ingredient list from declared nutrient guarantee; no inferred active amount.
+science/product/product_defaults.csv,,No direct migration: defaults are runtime policy not immutable commercial declarations.
+science/product/PRODUCT_FEEDING_RULES.csv,commercial/product_feeding_guide.csv,Retain only manufacturer-declared feeding ranges and servings.
+science/product/PRODUCT_FUNCTIONS.csv,,No direct migration: product functions/confidence are marketing or inference policy not immutable declarations.
+science/product/PRODUCT_PRICING.csv,,No direct migration: prices are volatile commercial data and excluded from this fact library.
+science/product/TREAT_BAKERY.csv,commercial/product_master.csv;commercial/product_recipe.csv,Retain only declared package/storage or ingredient/recipe attributes with manufacturer provenance.
+science/runtime/aliases.csv,,No direct migration: alias resolution is not scientific fact data.
+science/runtime/parameters.csv,,No direct migration: parameters weights and clamps are calculation policy.
+science/runtime/units.csv,nutrition/units.csv,Retain canonical unit definitions with a standards source; discard conversion outputs if not sourced as a definition.
+draft/authoring_staging/ingredient_evidence.csv,prevention/condition_ingredients.csv,Import only reviewed rows with a real quote paper name and permanent link; remove draft workflow metadata and incomplete claims.
+draft/authoring_staging/papers.csv,,No direct migration: paper metadata alone is not a scientific fact and evidence is embedded in each claim row.

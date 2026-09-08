@@ -1,0 +1,4 @@
+alias,canonical_id,canonical_name,mapping_source
+HD,COND_653473C1,Hip Dysplasia,explicit_mapping
+canine hip dysplasia,COND_653473C1,Hip Dysplasia,explicit_mapping
+hip dysplasia,COND_653473C1,Hip Dysplasia,canonical_name_duplicate

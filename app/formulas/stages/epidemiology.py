@@ -42,7 +42,19 @@ def compute_epidemiology_risk(
     if matched.empty:
         return pd.DataFrame(columns=["condition", "prevalence", "sample_size", "confidence"])
 
-    confidence_col = "confidence_level" if "confidence_level" in matched.columns else "confidence"
+    matched["prevalence"] = pd.to_numeric(matched.get("prevalence"), errors="coerce").fillna(0.0)
+    if "sample_size" in matched.columns:
+        matched["sample_size"] = pd.to_numeric(matched["sample_size"], errors="coerce").fillna(0.0)
+    else:
+        matched["sample_size"] = 0.0
+
+    if "confidence_level" in matched.columns:
+        confidence_col = "confidence_level"
+    elif "confidence" in matched.columns:
+        confidence_col = "confidence"
+    else:
+        matched["confidence"] = ""
+        confidence_col = "confidence"
     grouped = matched.groupby("condition", as_index=False).agg({
         "prevalence": "sum",
         "sample_size": "sum",

@@ -1,1 +1,17 @@
 product_id,product_name,brand,product_category,recipe_version,product_status,product_url,manufacturer_declaration_source,manufacturer_declaration_url,effective_date,scientific_quote,paper_name,paper_link,publication_year,study_type,species,status
+SF001,Farmina Small Breed Adult Dog Food (Chicken Flavor),Farmina,STAPLE_FOOD,tropical_selection,active,,,,,,,,,,,NEEDS_VALIDATION
+SF002,Farmina Small Breed Adult Dog Food (Lamb Flavor),Farmina,STAPLE_FOOD,tropical_selection,sold_out,,,,,,,,,,,NEEDS_VALIDATION
+SF003,Farmina Tropical Fruit Series Small Breed Adult Dog Food,Farmina,STAPLE_FOOD,tropical_selection,active,,,,,,,,,,,NEEDS_VALIDATION
+SF004,Royal Canin Digestive Care 2kg,Royal Canin,STAPLE_FOOD,digestive_care,active,,,,,,,,,,,NEEDS_VALIDATION
+TR001,Goat Milk Scones,Wagtopia,TREAT,bakery,active,,,,,,,,,,,NEEDS_VALIDATION
+TR002,Colorful Vegetable Bear Cookies,Wagtopia,TREAT,cookies,active,,,,,,,,,,,NEEDS_VALIDATION
+TR003,Turmeric Chicken Crisps,Wagtopia,TREAT,crisps,active,,,,,,,,,,,NEEDS_VALIDATION
+TR004,Cheesy Duck Jerky Sticks,Wagtopia,TREAT,jerky,active,,,,,,,,,,,NEEDS_VALIDATION
+TR005,Pork Seed Crisps,Wagtopia,TREAT,crisps,active,,,,,,,,,,,NEEDS_VALIDATION
+TR006,Parsley Cheese Rabbit Jerky Sticks,Wagtopia,TREAT,jerky,sold_out,,,,,,,,,,,NEEDS_VALIDATION
+TR007,DW Meat & Vegetables 45g,D&W,TREAT,food_topper,active,,,,,,,,,,,NEEDS_VALIDATION
+TR008,DW Freeze-dried Fruits & Vegetables 160g,D&W,TREAT,food_topper,active,,,,,,,,,,,NEEDS_VALIDATION
+TR009,Air-Dried Deer Ears 125g,Zeal,TREAT,chews,sold_out,,,,,,,,,,,NEEDS_VALIDATION
+TR010,Zeal Dried Beef Wags 125g,Zeal,TREAT,jerky,sold_out,,,,,,,,,,,NEEDS_VALIDATION
+TR011,Zeal Green Lipped Mussels 50g,Zeal,TREAT,freeze_dried,active,,,,,,,,,,,NEEDS_VALIDATION
+TR012,Zeal Dried Beef Wags 500g,Zeal,TREAT,jerky,active,,,,,,,,,,,NEEDS_VALIDATION

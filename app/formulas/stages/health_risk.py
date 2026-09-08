@@ -638,9 +638,16 @@ def _breed_observed(repo: DataRepository, breed_names: list[str]) -> list[dict[s
             "source_name": r.get("source_name"),
             "source_quote": r.get("source_quote"),
             "source_url": r.get("source_url"),
-            "_csv_file": r.get("_csv_file") or "BREED_CONDITIONS.csv",
+            "publication_year": r.get("year") or r.get("publication_year"),
+            "study_type": r.get("study_type"),
+            "species": r.get("species"),
+            "status": r.get("status"),
+            "fact_id": r.get("fact_id"),
+            "condition_id": r.get("condition_id"),
+            "breed_id": r.get("breed_id"),
+            "_csv_file": r.get("_csv_file") or "biology/observed_breed_conditions.csv",
             "_csv_row": r.get("_csv_row"),
-            "_primary_key": {"breed": r.get("breed"), "condition": r.get("condition")},
+            "_primary_key": {"breed": r.get("breed"), "condition": r.get("condition"), "fact_id": r.get("fact_id")},
         })
     return out
 

@@ -727,31 +727,50 @@ def build_optimized_packages(
     ingredients: list[dict[str, Any]],
     product_recs: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
-    """
-    Compute essential / balanced / optimal packages from CSV inventory.
-    Output shape stays compatible with enrich_package_for_detail + frontend.
+    """Enumerate, constrain, and rank bundles. Compatibility: one package per tier.
+
+    PACKAGE_OPTIMIZER_V2_1 remains the sole composer. Greedy single-pick loops
+    are no longer the source of membership.
     """
     del product_recs
+    from app.agent.package_search import run_package_search
+
     weight_kg = float(getattr(profile, "weight_kg", None) or 10)
     pet_name = getattr(profile, "name", None) or "Pet"
     candidates = load_candidate_products(repo, weight_kg)
-    targets = _targets_from_ingredients(ingredients)
+    by_id = {str(c.get("product_id")): c for c in candidates}
+    monthly_budget = getattr(profile, "monthly_budget", None)
+    if monthly_budget is not None:
+        try:
+            monthly_budget = float(monthly_budget)
+        except (TypeError, ValueError):
+            monthly_budget = None
+    search = run_package_search(
+        candidates=candidates,
+        profile=profile,
+        monthly_budget=monthly_budget,
+        repo=repo,
+    )
+    options = search["package_options"]
+    provenance = search["provenance"]
+    requirements = search["requirement_profile"]
     goals = [{"goal_id": h.get("goal_id"), "title": h.get("title")} for h in (health_insights or [])]
     alias_groups = repo.ingredient_alias_groups()
     if candidates:
         alias_groups = candidates[0].get("alias_groups") or alias_groups
+    targets = _targets_from_ingredients(ingredients)
 
     tier_objectives = {
         "essential": {
-            "objective": "Minimize yearly cost subject to required coverage.",
+            "objective": "Least-cost valid bundle meeting modeled minimum nutrient constraints.",
             "recommended": False,
         },
         "balanced": {
-            "objective": "Maximize nutrient coverage, minimize surplus, reasonable cost.",
+            "objective": "Valid bundles covering care priorities within budget when provided.",
             "recommended": True,
         },
         "optimal": {
-            "objective": "Maximize clinical, functional, and evidence coverage; ignore cost.",
+            "objective": "Most nutritionally balanced and care-comprehensive valid bundle.",
             "recommended": False,
         },
     }
@@ -762,38 +781,30 @@ def build_optimized_packages(
         tier_row = repo.package_tier_map().get(tier) or {}
         title = str(tier_row.get("title") or f"{tier.title()} Care")
         discount = float(tier_row.get("yearly_discount_factor") or 0.92)
-        staple = _pick_staple(candidates, repo, tier)
         meta = tier_objectives[tier]
-
-        if tier == "essential":
-            selected = _optimize_essential(candidates, targets, goals, staple, alias_groups)
-        elif tier == "balanced":
-            selected = _optimize_balanced(candidates, targets, goals, staple, alias_groups)
-        else:
-            selected = _optimize_optimal(candidates, targets, goals, staple, alias_groups)
-
-        matrix = coverage_matrix(selected, targets, alias_groups)
-        cov = _coverage_score(matrix)
-        clinical = _clinical_function_score(selected, goals)
+        tier_options = options.get(tier) or []
+        chosen = tier_options[0] if tier_options else None
+        selected_ids = list((chosen or {}).get("product_ids") or [])
+        selected = [by_id[pid] for pid in selected_ids if pid in by_id]
+        matrix = coverage_matrix(selected, targets, alias_groups) if selected else []
+        cov = _coverage_score(matrix) if matrix else float((chosen or {}).get("nutrition_balance_score") or 0)
+        clinical = _clinical_function_score(selected, goals) if selected else float((chosen or {}).get("care_coverage_score") or 0)
         evidence = sum(p.get("evidence_score", 0) for p in selected) / max(len(selected), 1)
         yearly_raw = sum(float(p.get("yearly_cost") or 0) for p in selected)
-        yearly_cost = js_round(yearly_raw * discount)
-        monthly_cost = js_round(yearly_cost / 12.0)
-        diversity = min(1.0, len({p.get("role") for p in selected}) / 3.0)
-        overall = _overall_score(
-            coverage=cov,
-            clinical=clinical,
-            evidence=evidence,
-            yearly_cost=yearly_raw,
-            diversity=diversity,
-            surplus_penalty=_surplus_penalty(matrix),
-            ignore_cost=(tier == "optimal"),
-        )
+        yearly_cost = js_round((chosen or {}).get("annual_cost") or (yearly_raw * discount))
+        monthly_cost = js_round((chosen or {}).get("monthly_cost") or (yearly_cost / 12.0 if yearly_cost else 0))
+        diversity = min(1.0, len({p.get("role") for p in selected}) / 3.0) if selected else 0
+        overall = float((chosen or {}).get("overall_score") or 0)
 
-        clinical_rows = _clinical_coverage_by_goal(selected, goals)
         products_included = []
         for p in selected:
-            reasons = _why_product_selected(p, matrix, goals)
+            reasons = list((chosen or {}).get("why_selected") or [])
+            product_reason = next(
+                (row for row in (chosen or {}).get("product_provenance") or [] if row.get("product_id") == p.get("product_id")),
+                {},
+            )
+            if product_reason.get("selection_reason"):
+                reasons = [product_reason["selection_reason"], *reasons[:2]]
             products_included.append(
                 {
                     "type": p.get("product_type"),
@@ -808,185 +819,87 @@ def build_optimized_packages(
                     "serving_size": p.get("serving_size"),
                     "daily_amount": p.get("serving_size"),
                     "monthly_quantity": f"{(p.get('yearly') or {}).get('packages_needed', 1)} packs/year",
-                    "why_selected": " ".join(reasons),
+                    "why_selected": " ".join(reasons[:4]),
                     "selection_reasons": reasons,
                     "active_ingredients": p.get("active_ingredients") or [],
                     "functions": p.get("functions") or [],
                     "yearly_plan": p.get("yearly"),
-                    "coverage_percent": js_round(cov * 100),
+                    "coverage_percent": js_round(cov * 100) if cov <= 1 else js_round(cov),
                     "route": f"#/products/{p.get('product_id')}",
                 }
             )
 
-        selected_ids = {p["product_id"] for p in selected}
-        rejected = []
-        decisions = []
-        for p in selected:
-            decisions.append(
-                decision(
-                    "Accepted",
-                    subject=str(p.get("product_name") or p.get("product_id")),
-                    reasons=_why_product_selected(p, matrix, goals),
-                    score=p.get("evidence_score"),
-                )
-            )
-        for c in candidates:
-            if c["product_id"] in selected_ids:
-                continue
-            if c.get("role") == "staple":
-                reasons = [
-                    "Alternate staple not chosen for this tier (PACKAGE_TIERS staple wins).",
-                ]
-                rejected.append(
-                    {
-                        "product_id": c["product_id"],
-                        "product_name": c["product_name"],
-                        "reason": reasons[0],
-                        "reasons": reasons,
-                        "decision": "Rejected",
-                    }
-                )
-                decisions.append(
-                    decision("Rejected", subject=str(c.get("product_name")), reasons=reasons)
-                )
-            elif c.get("functions") or c.get("active_ingredients"):
-                reasons = [
-                    "Did not improve tier objective enough versus cost/surplus/evidence trade-off.",
-                ]
-                # Enrich when matrix coverage for this candidate alone is knowable without re-optimizing
-                if targets and cov < 1.0:
-                    reasons.append(f"Tier coverage score currently {js_round(cov * 100)}%")
-                rejected.append(
-                    {
-                        "product_id": c["product_id"],
-                        "product_name": c["product_name"],
-                        "reason": reasons[0],
-                        "reasons": reasons,
-                        "decision": "Rejected",
-                    }
-                )
-                decisions.append(
-                    decision("Rejected", subject=str(c.get("product_name")), reasons=reasons)
-                )
-
-        coverage_score = js_round(cov * 100)
-        if coverage_score == 0 and clinical > 0:
-            coverage_score = js_round(clinical * 100)
-
-        nutrition_coverage = [
-            {"goal_id": r["goal_id"], "title": r["title"], "coverage_percent": r["coverage_percent"]}
-            for r in clinical_rows
-        ] or [
-            {
-                "goal_id": r["ingredient_key"],
-                "title": r["nutrient"],
-                "coverage_percent": r["coverage_percent"],
-            }
-            for r in matrix
-        ]
-
-        score_breakdown = {
-            "coverage": js_round(cov * 100),
-            "clinical_function": js_round(clinical * 100),
-            "evidence": js_round(evidence * 100),
-            "diversity": js_round(diversity * 100),
-            "weights": score_weights(),
-            "overall_score": js_round(overall * 100),
-        }
-
+        coverage_score = js_round((chosen or {}).get("nutrition_balance_score", 0) * 100)
         fx = empty_execution("PACKAGE_OPTIMIZER_V2_1", subject=tier)
         fx["inputs"] = {
             "tier": tier,
-            "candidate_count": len(candidates),
-            "target_count": len(targets),
-            "goals": [g.get("title") for g in goals],
+            "candidate_count": provenance.get("candidate_count"),
+            "search_method": provenance.get("search_method"),
             "objective": meta["objective"],
+            "requirement_profile": {
+                "dog_size": requirements.get("dog_size"),
+                "life_stage": requirements.get("life_stage"),
+                "basis": requirements.get("basis"),
+            },
         }
         fx["steps"] = [
-            step(
-                1,
-                "load_candidates",
-                expression="ACTIVE PRODUCT_CATALOG + joins",
-                inputs={"candidates": len(candidates)},
-                result=len(candidates),
-            ),
-            step(
-                2,
-                "pick_staple",
-                expression="PACKAGE_TIERS staple for tier",
-                result=(staple or {}).get("product_name") if staple else None,
-            ),
-            step(
-                3,
-                "optimize_selection",
-                expression=f"_optimize_{tier}(...)",
-                inputs={"selected": len(selected)},
-                result=[p.get("product_id") for p in selected],
-                note="Per-candidate trial scores inside greedy loops still NOT CURRENTLY TRACEABLE",
-            ),
-            step(
-                4,
-                "coverage_matrix",
-                expression="provided / recommended per nutrient",
-                result=coverage_score,
-                unit="%",
-            ),
-            step(
-                5,
-                "overall_score",
-                expression="weighted(coverage, clinical, evidence, diversity, cost, surplus)",
-                inputs=score_breakdown,
-                result=js_round(overall * 100),
-            ),
+            step(1, "enumerate", expression=str(provenance.get("search_method")), result=provenance.get("evaluated_count")),
+            step(2, "hard_constraints", expression="minima AND maxima", result=provenance.get("valid_count")),
+            step(3, "rank_and_diversity", expression=f"tier={tier}", result=len(tier_options)),
+            step(4, "select_compatibility_row", expression="package_options[tier][0]", result=selected_ids),
         ]
-        fx["decisions"] = decisions
         fx["outputs"] = {
             "tier": tier,
-            "overall_score": js_round(overall * 100),
-            "coverage_score": coverage_score,
+            "bundle_id": (chosen or {}).get("bundle_id"),
             "monthly_cost": monthly_cost,
             "yearly_cost": yearly_cost,
-            "selected_count": len(selected),
-            "rejected_count": len(rejected),
-            "score_breakdown": score_breakdown,
+            "option_count": len(tier_options),
+            "constraint_status": (chosen or {}).get("constraint_status"),
         }
         seal_execution(fx, started=t0)
-
         packages.append(
             {
                 "tier": tier,
-                "package_id": tier,
+                "package_id": (chosen or {}).get("bundle_id") or tier,
                 "title": title,
                 "recommended": bool(meta["recommended"]),
                 "best_for": meta["objective"],
                 "tagline": meta["objective"],
                 "description": (
                     f"{title} for {pet_name}: {meta['objective']} "
-                    f"Overall score {js_round(overall * 100)}/100."
+                    f"{requirements.get('claim_wording') or ''}."
                 ),
                 "coverage_score": coverage_score,
-                "overall_score": js_round(overall * 100),
+                "overall_score": js_round(overall * 100) if overall <= 1 else js_round(overall),
                 "monthly_cost": monthly_cost,
                 "yearly_cost": yearly_cost,
                 "yearly_discount_factor": discount,
                 "includes_summary": [f"{p.get('product_name')} · {p.get('serving_size')}" for p in selected],
                 "products_included": products_included,
-                "nutrition_coverage": nutrition_coverage,
+                "nutrition_coverage": [
+                    {
+                        "goal_id": r.get("nutrient"),
+                        "title": r.get("nutrient"),
+                        "coverage_percent": 100 if r.get("status") == "PASS" else 0,
+                    }
+                    for r in (chosen or {}).get("nutrient_rows") or []
+                ],
                 "coverage_matrix": matrix,
-                "clinical_coverage": clinical_rows,
-                "products_rejected": rejected,
-                "products_rejected_count": len(rejected),
-                "candidates_evaluated_count": len(candidates),
-                "score_breakdown": score_breakdown,
+                "clinical_coverage": _clinical_coverage_by_goal(selected, goals) if selected else [],
+                "products_rejected": [],
+                "products_rejected_count": provenance.get("rejected_count") or 0,
+                "candidates_evaluated_count": provenance.get("evaluated_count") or 0,
+                "score_breakdown": (chosen or {}).get("score_components") or {},
                 "formula_execution": fx,
                 "observatory": {
                     "formula_id": "PACKAGE_OPTIMIZER_V2_1",
                     "code_file": "app/agent/package_optimizer.py",
                     "function": "build_optimized_packages",
-                    "selected_ids": sorted(selected_ids),
-                    "rejected": rejected,
+                    "search_method": provenance.get("search_method"),
+                    "selected_ids": selected_ids,
+                    "bundle_id": (chosen or {}).get("bundle_id"),
                     "formula_execution": fx,
-                    "note": "Accept/reject decisions emitted; per-candidate greedy trial scores still NOT CURRENTLY TRACEABLE.",
+                    "note": "Compatibility row is package_options[tier][0] from exhaustive/bounded constraint search.",
                 },
                 "plan_365": {
                     "products": [
@@ -1002,14 +915,28 @@ def build_optimized_packages(
                     "monthly_cost_derived": monthly_cost,
                 },
                 "overview": (
-                    f"Computed from ACTIVE PRODUCT_CATALOG + components/functions/pricing/feeding. "
-                    f"Objective: {meta['objective']}"
+                    f"Computed by PACKAGE_OPTIMIZER_V2_1 {provenance.get('search_method')}. "
+                    f"{requirements.get('claim_wording') or meta['objective']}"
                 ),
                 "activities_included": [],
-                "why_fits": meta["objective"],
+                "why_fits": " ".join((chosen or {}).get("why_selected") or [meta["objective"]]),
                 "subscribe_cta": f"Start {title}",
                 "optimization_objective": meta["objective"],
+                "package_options": tier_options,
+                "optimizer_provenance": provenance,
+                "requirement_profile": requirements,
             }
         )
-
+    if packages:
+        packages[0]["_search_envelope"] = {
+            "package_options": options,
+            "optimizer_provenance": provenance,
+            "requirement_profile": requirements,
+            "care_priorities": search.get("care_priorities"),
+            "care_model": search.get("care_model"),
+            "scoring_weights": search.get("scoring_weights"),
+            "tier_budget": search.get("tier_budget"),
+            "nutrient_mode": search.get("nutrient_mode"),
+        }
     return packages
+

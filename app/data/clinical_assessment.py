@@ -380,15 +380,26 @@ def _packages_module(analyze: dict[str, Any]) -> dict[str, Any]:
             continue
         tier = p.get("tier") or p.get("package_id") or p.get("id")
         products = []
-        for prod in p.get("products_included") or []:
+        for prod in p.get("products_included") or p.get("product_cards") or []:
             if not isinstance(prod, dict):
                 continue
+            yearly_plan = prod.get("yearly_plan") if isinstance(prod.get("yearly_plan"), dict) else {}
             products.append(
                 {
                     "product_id": prod.get("product_id"),
                     "name": prod.get("name") or prod.get("product_name"),
-                    "serving": prod.get("serving_size") or prod.get("daily_amount") or prod.get("serving"),
+                    "brand": prod.get("brand"),
+                    "serving": (
+                        yearly_plan.get("daily_serving")
+                        or prod.get("serving_size")
+                        or prod.get("daily_amount")
+                        or prod.get("serving")
+                    ),
+                    "monthly_quantity": prod.get("monthly_quantity"),
+                    "packages_needed": yearly_plan.get("packages_needed"),
+                    "price": prod.get("price") or prod.get("list_price_rmb"),
                     "monthly_cost": prod.get("monthly_cost"),
+                    "yearly_cost": prod.get("yearly_cost"),
                     "why_selected": prod.get("why_selected") or prod.get("reason") or "",
                     "category": prod.get("type") or prod.get("category"),
                 }
@@ -401,9 +412,11 @@ def _packages_module(analyze: dict[str, Any]) -> dict[str, Any]:
                 "recommended": bool(p.get("recommended")),
                 "monthly_cost": p.get("monthly_cost"),
                 "yearly_cost": p.get("yearly_cost"),
+                "yearly_discount_factor": p.get("yearly_discount_factor"),
                 "coverage_score": p.get("coverage_score"),
                 "overall_score": p.get("overall_score"),
                 "summary": p.get("package_summary") or p.get("tagline") or p.get("overview") or "",
+                "composition_status": "AVAILABLE" if products else "NOT AVAILABLE FROM RUNTIME",
                 "products": products,
                 "product_ids": [x["product_id"] for x in products if x.get("product_id")],
                 "detail": {
@@ -428,7 +441,8 @@ def _packages_module(analyze: dict[str, Any]) -> dict[str, Any]:
 def _products_module(analyze: dict[str, Any]) -> dict[str, Any]:
     recs = analyze.get("productRecommendations") or analyze.get("products") or []
     analyses = analyze.get("productAnalyses") or {}
-    items = []
+    direct_items: list[dict[str, Any]] = []
+    package_items: list[dict[str, Any]] = []
     by_id: dict[str, Any] = {}
     for p in recs:
         if not isinstance(p, dict):
@@ -437,22 +451,73 @@ def _products_module(analyze: dict[str, Any]) -> dict[str, Any]:
         entry = {
             "product_id": pid,
             "name": p.get("product_name") or p.get("name") or pid,
-            "category": p.get("category") or p.get("type"),
+            "brand": p.get("brand"),
+            "category": p.get("category") or p.get("product_type") or p.get("type"),
             "summary": p.get("short_description") or p.get("description") or p.get("why") or "",
-            "monthly_cost": p.get("monthly_cost") or p.get("unit_cost"),
-            "serving": p.get("serving") or p.get("daily_amount"),
+            "why_selected": p.get("why_selected") or p.get("reason") or "",
+            "price": p.get("price") or p.get("list_price_rmb"),
+            "monthly_cost": p.get("monthly_cost") or p.get("monthly_cost_estimate") or p.get("unit_cost"),
+            "serving": p.get("serving_size") or p.get("serving") or p.get("daily_amount"),
         }
-        items.append(entry)
+        direct_items.append(entry)
         if pid:
             by_id[pid] = {**entry, "analysis": analyses.get(pid) or {}}
+    seen: set[str] = set()
+    for pkg in analyze.get("wellnessPackages") or []:
+        if not isinstance(pkg, dict):
+            continue
+        for prod in pkg.get("products_included") or pkg.get("product_cards") or []:
+            if not isinstance(prod, dict):
+                continue
+            pid = str(prod.get("product_id") or "")
+            if pid and pid in seen:
+                continue
+            if pid:
+                seen.add(pid)
+            entry = {
+                "product_id": pid,
+                "name": prod.get("name") or prod.get("product_name") or pid,
+                "brand": prod.get("brand"),
+                "category": prod.get("category") or prod.get("type"),
+                "summary": prod.get("why_selected") or "",
+                "why_selected": prod.get("why_selected") or prod.get("reason") or "",
+                "price": prod.get("price") or prod.get("list_price_rmb"),
+                "monthly_cost": prod.get("monthly_cost"),
+                "serving": prod.get("serving_size") or prod.get("daily_amount") or prod.get("serving"),
+            }
+            package_items.append(entry)
+            if pid and pid not in by_id:
+                by_id[pid] = {**entry, "analysis": analyses.get(pid) or {}}
     for pid, analysis in (analyses.items() if isinstance(analyses, dict) else []):
         if pid not in by_id:
             by_id[str(pid)] = {"product_id": str(pid), "analysis": analysis}
+    source = (
+        "productRecommendations"
+        if direct_items
+        else ("package_composition" if package_items else "none")
+    )
+    items = direct_items or package_items
+    summary = (
+        f"{len(direct_items)} matcher recommendations"
+        if direct_items
+        else (
+            f"{len(package_items)} package products"
+            if package_items
+            else "Product matches"
+        )
+    )
     return _module(
         "products",
         "Products",
-        f"{len(items)} matched products" if items else "Product matches",
-        {"items": items, "by_id": by_id},
+        summary,
+        {
+            "items": items,
+            "direct_items": direct_items,
+            "package_items": package_items,
+            "source": source,
+            "matcher_available": bool(direct_items),
+            "by_id": by_id,
+        },
         priority=32,
     )
 
@@ -576,7 +641,14 @@ def build_clinical_assessment(repo: DataRepository, analyze: dict[str, Any]) -> 
         "generated_at": _now_iso(),
         "assessment_schema": ASSESSMENT_SCHEMA,
         "engine": "PPIE",
+        "demo_catalog": False,
     }
+    try:
+        from app.data.demo_catalog import demo_mode_enabled
+
+        meta["demo_catalog"] = demo_mode_enabled()
+    except Exception:  # noqa: BLE001
+        pass
     # Flat contract aliases (data payload) + modules envelope for independent cache keys
     assessment: dict[str, Any] = {
         "meta": meta,

@@ -16,6 +16,7 @@ def test_no_frontend_default_demo_key_fallbacks():
         "legacy/business.js",
         "legacy/catalog-service.js",
         "legacy/ppie-validation-console.js",
+        "legacy/workbench.js",
     ]
     for rel in frontend_files:
         text = _read(rel)

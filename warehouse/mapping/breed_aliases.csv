@@ -1,0 +1,6 @@
+alias,canonical_id,canonical_name,mapping_source
+Lab,BREED_B02F1BE9,Labrador Retriever,existing_runtime_display_alias
+Labrador,BREED_B02F1BE9,Labrador Retriever,existing_runtime_display_alias
+Golden,BREED_4C2466ED,Golden Retriever,existing_runtime_display_alias
+German Shepherd,BREED_2E91411B,German Shepherd Dog,existing_runtime_display_alias
+GSD,BREED_2E91411B,German Shepherd Dog,existing_runtime_display_alias

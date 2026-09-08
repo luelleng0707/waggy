@@ -1,0 +1,16 @@
+product_id,list_price_usd,package_units,unit_label
+SF001,85,12,kg
+SF002,82,12,kg
+SF003,88,12,kg
+SF004,72,10,kg
+SF005,74,10,kg
+SP001,38,60,chews
+SP002,32,90,softgels
+SP003,35,60,chews
+SP004,34,60,chews
+SP005,24,30,chews
+SP006,31,60,tablets
+SP007,29,60,tablets
+SP008,33,60,chews
+TR001,15,40,pieces
+TR002,16,40,pieces

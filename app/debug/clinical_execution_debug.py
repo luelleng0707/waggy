@@ -2572,12 +2572,29 @@ def _packages_section(analyze: dict[str, Any]) -> dict[str, Any]:
                 "inputs": {
                     "product_count": len(products) if isinstance(products, list) else 0,
                 },
+                "products": [
+                    {
+                        "product_id": prod.get("product_id"),
+                        "name": prod.get("name") or prod.get("product_name"),
+                        "brand": prod.get("brand"),
+                        "category": prod.get("category") or prod.get("type"),
+                        "monthly_cost": prod.get("monthly_cost"),
+                        "yearly_cost": prod.get("yearly_cost"),
+                    }
+                    for prod in (products if isinstance(products, list) else [])
+                    if isinstance(prod, dict)
+                ],
                 "outputs": {
                     "coverage_score": p.get("coverage_score"),
                     "overall_score": p.get("overall_score"),
                     "monthly_cost": p.get("monthly_cost"),
                     "yearly_cost": p.get("yearly_cost"),
                     "summary": p.get("package_summary") or p.get("tagline"),
+                    "product_ids": [
+                        prod.get("product_id")
+                        for prod in (products if isinstance(products, list) else [])
+                        if isinstance(prod, dict) and prod.get("product_id")
+                    ],
                 },
             }
         )
@@ -2876,6 +2893,7 @@ NAV = [
     {"id": "top_summary", "label": "Top Summary"},
     {"id": "clinical_output", "label": "Clinical Output"},
     {"id": "input", "label": "Input"},
+    {"id": "pipeline", "label": "Pipeline"},
     {"id": "validation", "label": "Validation"},
     {"id": "runtime_flow", "label": "Data Flow"},
     {"id": "repository", "label": "Repository Retrieval"},
@@ -3065,6 +3083,13 @@ def build_validation_console(
     products = product_match_inspector(analyze)
     packages = package_optimizer_inspector(analyze)
     evidence = evidence_inspector(analyze)
+    demo_catalog = False
+    try:
+        from app.data.demo_catalog import demo_mode_enabled
+
+        demo_catalog = demo_mode_enabled()
+    except Exception:  # noqa: BLE001
+        demo_catalog = False
     confidence = confidence_inspector(analyze)
     coverage = coverage_inspector(analyze)
     csv_lookups = csv_dependency_viewer(analyze)
@@ -3186,6 +3211,8 @@ def build_validation_console(
             "timings": timings or {},
             "stage_timings_ms": debug.get("stage_timings_ms") or {},
             "observability_coverage": obs_cov,
+            "demo_catalog": demo_catalog,
+            "catalog_source": "demo" if demo_catalog else "warehouse",
         },
         "observability_coverage": obs_cov,
         "profile_inspector": {
@@ -3386,7 +3413,32 @@ def should_open_browser() -> bool:
     return raw in ("1", "true", "yes", "on")
 
 
-def developer_banner(*, host: str = "127.0.0.1", port: int = 8000) -> str:
+def _runtime_bind_host(default: str = "127.0.0.1") -> str:
+    raw = str(os.getenv("WAGTOPIA_BIND_HOST", "")).strip()
+    if raw:
+        return raw
+    if "--host" in sys.argv:
+        i = sys.argv.index("--host")
+        if i + 1 < len(sys.argv) and str(sys.argv[i + 1]).strip():
+            return str(sys.argv[i + 1]).strip()
+    return default
+
+
+def _runtime_bind_port(default: int = 8000) -> int:
+    for key in ("WAGTOPIA_BIND_PORT", "UVICORN_PORT"):
+        raw = str(os.getenv(key, "")).strip()
+        if raw.isdigit():
+            return int(raw)
+    if "--port" in sys.argv:
+        i = sys.argv.index("--port")
+        if i + 1 < len(sys.argv) and str(sys.argv[i + 1]).isdigit():
+            return int(sys.argv[i + 1])
+    return default
+
+
+def developer_banner(*, host: str | None = None, port: int | None = None) -> str:
+    host = host or _runtime_bind_host()
+    port = port if port is not None else _runtime_bind_port()
     base = f"http://{host}:{port}"
     return (
         "\n"
@@ -3407,19 +3459,21 @@ def developer_banner(*, host: str = "127.0.0.1", port: int = 8000) -> str:
     )
 
 
-def print_developer_banner(*, host: str = "127.0.0.1", port: int = 8000) -> None:
+def print_developer_banner(*, host: str | None = None, port: int | None = None) -> None:
     if not is_local_dev_boot():
         return
     print(developer_banner(host=host, port=port), flush=True)
 
 
-def maybe_open_validation_console(*, host: str = "127.0.0.1", port: int = 8000) -> None:
+def maybe_open_validation_console(*, host: str | None = None, port: int | None = None) -> None:
     """Open Validation Console once in a background thread (local/dev only)."""
     if not is_local_dev_boot() or not should_open_browser():
         return
     if str(os.getenv("PPIE_BROWSER_OPENED", "")).strip() == "1":
         return
     os.environ["PPIE_BROWSER_OPENED"] = "1"
+    host = host or _runtime_bind_host()
+    port = port if port is not None else _runtime_bind_port()
     url = f"http://{host}:{port}/debug/calculation?debug=1"
 
     def _open() -> None:

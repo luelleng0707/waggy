@@ -1,0 +1,10 @@
+ingredient_id,ingredient_name,ingredient_class,external_standard,external_id,scientific_quote,paper_name,paper_link,publication_year,study_type,species,status
+ING_41BF6A84,Glucosamine,,,,,,,,,Canis lupus familiaris,active
+ING_CF0FF41C,L-Carnitine,,,,,,,,,Canis lupus familiaris,active
+ING_C873A4B5,Lutein,,,,,,,,,Canis lupus familiaris,active
+ING_996AE66D,MSM,,,,,,,,,Canis lupus familiaris,active
+ING_F9E1B8CF,Omega-3,,,,,,,,,Canis lupus familiaris,active
+ING_5030A666,Probiotics,,,,,,,,,Canis lupus familiaris,active
+ING_D8D8DB18,Seaweed Blend,,,,,,,,,Canis lupus familiaris,active
+ING_8A38C944,Taurine,,,,,,,,,Canis lupus familiaris,active
+ING_723DBC80,Zinc,,,,,,,,,Canis lupus familiaris,active

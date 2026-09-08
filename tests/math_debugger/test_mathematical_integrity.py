@@ -90,10 +90,11 @@ def test_independent_replay_matches_production_result():
 
 def test_formula_specs_exist_for_active_runtime_formulas():
     trace = MathDebuggerRuntime().trace(_graph())
-    docs_root = Path(__file__).resolve().parents[2] / "docs" / "mathematics"
-    docs_text = "\n".join(path.read_text(encoding="utf-8") for path in docs_root.glob("*.md"))
+    root = Path(__file__).resolve().parents[2]
+    docs_text = (root / "docs" / "WAGGY_SYSTEM.md").read_text(encoding="utf-8")
     ids = {item.formula_id for item in trace.formula_traces}
-    assert all(formula_id in docs_text for formula_id in ids)
+    missing = [formula_id for formula_id in ids if formula_id not in docs_text]
+    assert not missing, missing
 
 
 def test_formula_trace_contains_equation_and_substitution():

@@ -22,6 +22,7 @@ class DogProfileInput(BaseModel):
     height_cm: Optional[float] = None
     bcs: Optional[float] = None
     observed_conditions: List[str] = Field(default_factory=list)
+    monthly_budget: Optional[float] = Field(default=None, description="Optional hard monthly budget in catalog currency")
 
 
 class ProductFulfillment(BaseModel):

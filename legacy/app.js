@@ -1,4 +1,4 @@
-/* Wagtopia — pure API renderer (products from /api/v1/store + /api/v1/analyze) */
+/* Wagtopia — pure API renderer (products from /api/v1/presentation/catalog + /api/v1/clinical-report) */
 
 (function () {
   'use strict';
@@ -150,7 +150,7 @@
 
   function productCardHTML(product, reason) {
     if (!product) return '';
-    const name = product.product_name || product.name || product.product_id;
+    const name = product.product_name || product.name || "Unnamed product";
     const category = [product.category, product.subcategory].filter(Boolean).join(' · ');
     const desc =
       reason ||
@@ -365,7 +365,7 @@
     body.innerHTML = `
       <div class="product-modal-hero">${Catalog.imageHtml(product)}</div>
       <h2 id="product-modal-title">${esc(product.product_name || product.name)}</h2>
-      <p class="muted">${esc(product.brand)} · ${esc(product.product_id)} · ${esc(product.category)}${
+      <p class="muted">${esc(product.brand)} · ${esc(product.category)}${
         product.subcategory ? ` / ${esc(product.subcategory)}` : ''
       }</p>
       <p class="price">${esc(Catalog.formatPrice(product))} <span class="muted">/ ${esc(product.unit_label || 'unit')}</span></p>
@@ -502,8 +502,26 @@
       headers,
       body: JSON.stringify(requestBody)
     });
-    if (!res.ok) throw new Error(`clinical-report HTTP ${res.status}`);
+    if (!res.ok) {
+      let bodyText = '';
+      try {
+        bodyText = (await res.text()).slice(0, 400);
+      } catch (_err) {
+        bodyText = '';
+      }
+      throw Object.assign(new Error(`clinical-report HTTP ${res.status}`), {
+        status: res.status,
+        endpoint: '/api/v1/clinical-report',
+        body: bodyText
+      });
+    }
     const payload = await res.json();
+    if (!payload || typeof payload !== 'object') {
+      throw Object.assign(new Error('clinical-report returned a non-JSON body'), {
+        status: res.status,
+        endpoint: '/api/v1/clinical-report'
+      });
+    }
     analysis = payload.analyze;
     window.__PPIE_LAST__ = analysis;
     window.__STANDARD_REPORT__ = payload.report || null;
@@ -513,13 +531,20 @@
     window.__ENGINE_TRACE__ = payload.trace || payload.assessment?.trace || null;
 
     if (window.PpieShell) {
-      window.PpieShell.mount({
-        assessment: payload.assessment || null,
-        report: payload.report || null,
-        analyze: analysis,
-        models: payload.reportModels || null,
-        trace: window.__ENGINE_TRACE__
-      });
+      try {
+        window.PpieShell.mount({
+          assessment: payload.assessment || null,
+          report: payload.report || null,
+          analyze: analysis,
+          models: payload.reportModels || null,
+          trace: window.__ENGINE_TRACE__
+        });
+      } catch (mountErr) {
+        throw Object.assign(
+          new Error(`UI render failed: ${mountErr && mountErr.message ? mountErr.message : mountErr}`),
+          { endpoint: '/api/v1/clinical-report', status: res.status }
+        );
+      }
     } else if (payload.report && window.StandardReportRenderer) {
       window.StandardReportRenderer.mount(payload.report, 'page-dashboard');
     }
@@ -528,26 +553,67 @@
 
   function showAnalyzeError(err) {
     console.error('[Wagtopia] analyze failed', err);
-    const msg = 'Analysis unavailable — ensure the API is running and refresh.';
+    const msg = formatAnalysisError(err);
     if (window.PpieShell?.showError) {
       window.PpieShell.showError(msg);
     } else {
-      const dash = document.getElementById('page-dashboard');
-      if (dash) dash.innerHTML = emptyState(msg);
+      const root = document.getElementById('page-module') || document.getElementById('page-dashboard');
+      if (root) root.innerHTML = emptyState(msg);
     }
   }
 
   function classifyError(err) {
+    const status = Number(err && err.status);
     const text = String(err && (err.message || err) || '').toLowerCase();
-    if (text.includes('401') || text.includes('403')) return 'authentication/configuration failure';
-    if (text.includes('failed to fetch') || text.includes('networkerror') || text.includes('network')) return 'network failure';
-    if (text.includes('http 5')) return 'service unavailable';
+    if (status === 401 || status === 403 || text.includes('401') || text.includes('403')) {
+      return 'authentication/configuration failure';
+    }
+    if (status === 404 || text.includes('404')) return 'endpoint not found';
+    if (status === 422 || text.includes('422')) return 'request validation failed';
+    if (status >= 500 || text.includes('http 5')) return 'service unavailable';
+    if (text.includes('failed to fetch') || text.includes('networkerror') || text.includes('network')) {
+      return 'network failure';
+    }
+    if (text.includes('ui render failed')) return 'ui render failure';
     return 'unavailable';
+  }
+
+  function formatAnalysisError(err) {
+    const kind = classifyError(err);
+    const status = err && err.status ? String(err.status) : '';
+    const endpoint = (err && err.endpoint) || '/api/v1/clinical-report';
+    const origin = (window.WagtopiaAPI && window.WagtopiaAPI.API_BASE) || window.location.origin;
+    const detail = String(err && (err.message || err) || '').trim();
+    const lines = [
+      'ANALYSIS UNAVAILABLE',
+      kind.toUpperCase(),
+      status ? `API returned HTTP ${status}` : detail,
+      `Endpoint: ${endpoint}`,
+      `Origin: ${origin}`
+    ];
+    if (status === '401' || status === '403') {
+      lines.push('This browser origin reached a protected or stale API. Open the CUSTOMER URL printed by py -3 scripts/run_dev.py');
+    } else if (status === '404') {
+      lines.push('The analysis route is missing on this process. The page is likely talking to a stale server.');
+    } else if (!status && /failed to fetch|network/i.test(detail)) {
+      lines.push('The analysis service is not reachable from this page origin.');
+    }
+    return lines.filter(Boolean).join('\n');
+  }
+
+  function showDemoCatalogBanner(enabled) {
+    const banner = document.getElementById('demo-catalog-banner');
+    if (!banner) return;
+    banner.hidden = !enabled;
   }
 
   function showBootState(kind, detail) {
     const root = document.getElementById('page-module');
     if (!root) return;
+    if (kind === 'loading') {
+      root.innerHTML = `<div class="empty-state" role="status"><p>Loading personalized analysis…</p></div>`;
+      return;
+    }
     const message = detail ? `${kind}: ${detail}` : kind;
     root.innerHTML = `<div class="empty-state" role="status">
       <p><strong>${esc(message)}</strong></p>
@@ -567,14 +633,13 @@
       showBootState('loading');
       try {
         await Catalog.load(weight);
+        showDemoCatalogBanner(Boolean(Catalog.meta && Catalog.meta.demo_catalog));
       } catch (err) {
-        showBootState(classifyError(err), String(err && err.message || err));
-        throw err;
+        console.warn('[Wagtopia] catalog enrichment unavailable', err);
       }
       try {
         await loadClinicalReport(activeProfile);
       } catch (err) {
-        showBootState(classifyError(err), String(err && err.message || err));
         showAnalyzeError(err);
       }
     })();

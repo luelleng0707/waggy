@@ -46,9 +46,16 @@ def load_all_tables(data_root: str | Path) -> tuple[Manifest, dict[str, pd.DataF
 
     # Repository-native: in-memory formula views (no disk projections)
     from app.data.native_loader import is_native_warehouse, load_native_warehouse
+    from app.data.warehouse_biology import is_biology_warehouse, load_biology_warehouse, merge_biology_into
 
     if is_native_warehouse(root):
-        return load_native_warehouse(root)
+        manifest, tables, paths = load_native_warehouse(root)
+        if is_biology_warehouse(root):
+            return merge_biology_into(root, manifest, tables, paths)
+        return manifest, tables, paths
+
+    if is_biology_warehouse(root):
+        return load_biology_warehouse(root)
 
     if (root / "breed_analysis").exists():
         base = root

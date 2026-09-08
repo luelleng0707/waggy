@@ -1,0 +1,35 @@
+condition_id,condition_name,system_id,body_system,status
+COND_653473C1,Hip Dysplasia,SYS_001,Joint,active
+COND_E1F6DDA1,Osteoarthritis,SYS_001,Joint,active
+COND_CA469F7C,Cruciate Ligament Rupture,SYS_001,Joint,active
+COND_FC3E8CF9,Luxating Patella,SYS_001,Joint,active
+COND_89E108D0,IVDD,SYS_007,Neurological,active
+COND_2D00FDEA,Atopic Dermatitis,SYS_002,Skin,active
+COND_C68251C6,Hot Spots,SYS_002,Skin,active
+COND_019683D7,Dry Skin,SYS_002,Skin,active
+COND_7423EC0D,Interdigital Dermatitis,SYS_002,Skin,active
+COND_70DF255A,Sun Dermatitis,SYS_002,Skin,active
+COND_75509D3A,Folliculitis,SYS_002,Skin,active
+COND_57895A7D,Otitis Externa,SYS_002,Skin,active
+COND_61757286,Cataracts,SYS_003,Eye,active
+COND_8FA11C7E,Corneal Ulceration,SYS_003,Eye,active
+COND_B29665CF,Retinal Degeneration,SYS_003,Eye,active
+COND_F368F785,Tear Staining,SYS_003,Eye,active
+COND_FEC01BF6,Degenerative Valve Disease,SYS_004,Cardiac,active
+COND_3AD02C00,Dilated Cardiomyopathy,SYS_004,Cardiac,active
+COND_B8FD748C,BOAS,SYS_005,Respiratory,active
+COND_38A10892,Tracheal Collapse,SYS_005,Respiratory,active
+COND_B3D23301,GDV,SYS_006,Digestive,active
+COND_BAE0364B,Chronic Enteropathy,SYS_006,Digestive,active
+COND_1AB37637,GI Upset,SYS_006,Digestive,active
+COND_948362BB,GI Parasite Burden,SYS_006,Digestive,active
+COND_72E08501,Immune-Mediated Dermatosis,SYS_009,Immune,active
+COND_CC459E28,Periodontal Disease,SYS_010,Dental,active
+COND_693FEDB9,Dental Disease,SYS_010,Dental,active
+COND_4F31B412,Obesity,SYS_011,Metabolic,active
+COND_9E547E27,Heat Stress Syndrome,SYS_005,Respiratory,active
+COND_CA191581,Exercise Induced Collapse,SYS_007,Neurological,active
+COND_C63E0FD0,Epilepsy,SYS_007,Neurological,active
+COND_DFB273E2,Chronic Kidney Disease,SYS_008,Urinary,active
+COND_394892E6,Degenerative Myelopathy,SYS_007,Neurological,active
+COND_62E742E7,Leishmaniasis Exposure Syndrome,SYS_009,Immune,active

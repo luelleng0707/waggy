@@ -498,6 +498,35 @@
     const timelineById = {};
     for (const t of timeline) timelineById[t.id] = t;
 
+    const PIPELINE_STAGES = [
+      'INPUT',
+      'PROFILE_NORMALIZE_V2_1',
+      'BREED_RESOLVE_V2_1',
+      'TRAIT_BLEND_V2_1',
+      'RISK_V2_1',
+      'NUTRIENT_TARGET_V2_1',
+      'ACTIVITY_V2_1',
+      'PRODUCT_MATCH_V2_1',
+      'PACKAGE_OPTIMIZER_V2_1',
+      'EVIDENCE_RANK_V2_1',
+      'VALIDATION_V2_1',
+      'OUTPUT'
+    ];
+    const catalogSource = (consoleDoc.overview && consoleDoc.overview.catalog_source) || 'warehouse';
+    const demoCatalog = Boolean(consoleDoc.overview && consoleDoc.overview.demo_catalog);
+    const selectedProducts = products.selected || (products.outputs && products.outputs.selected) || [];
+    const pipelineHtml = section(
+      'pipeline',
+      'Runtime pipeline',
+      `<p class="vc-muted">${esc(demoCatalog ? 'DEMO CATALOG · demonstration data, not scientific evidence' : 'Warehouse catalog input')}</p>
+       <ol class="vc-pipeline">${PIPELINE_STAGES.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>
+       ${kv([
+         ['Catalog source', esc(catalogSource)],
+         ['Product match selected', esc(String(selectedProducts.length))],
+         ['Package tiers', esc(String((packages.tiers || []).length))]
+       ])}`
+    );
+
     const inputHtml = section(
       'input',
       'Input',
@@ -822,8 +851,8 @@
            ${nutFx[0] ? renderFxCard(nutFx[0], false) : ''}`)
     );
 
-    const selected = products.selected || [];
-    const rejected = products.rejected || [];
+    const selected = products.selected || (products.outputs && products.outputs.selected) || [];
+    const rejected = products.rejected || (products.outputs && products.outputs.rejected) || [];
     const productsHtml = section(
       'products',
       'Product Optimization',
@@ -859,7 +888,7 @@
        }`
     );
 
-    const tiers = packages.tiers || [];
+    const tiers = packages.tiers || (packages.outputs && packages.outputs.tiers) || [];
     const packagesHtml = section(
       'packages',
       'Package Optimization',
@@ -867,15 +896,22 @@
         ? tiers
             .map((t) => {
               const title = t.title || t.tier || t.name || 'Package';
+              const pkgProducts = t.products_selected || t.products || [];
+              const productIds = t.outputs && t.outputs.product_ids ? t.outputs.product_ids : [];
               return `<div class="vc-call">
                 <h3>${esc(title)}</h3>
                 ${kv([
-                  ['Bundle score', esc(t.score != null ? t.score : t.bundle_score != null ? t.bundle_score : NT)],
-                  ['Coverage', esc(t.coverage != null ? t.coverage : NT)],
-                  ['Redundancy', esc(t.redundancy != null ? t.redundancy : NT)],
-                  ['Price', esc(t.monthly_cost != null ? t.monthly_cost : t.price != null ? t.price : '—')],
-                  ['Why won', esc(t.why || t.reason || t.selection_reason || '—')]
+                  ['Bundle score', esc(t.score != null ? t.score : t.bundle_score != null ? t.bundle_score : t.outputs?.overall_score != null ? t.outputs.overall_score : NT)],
+                  ['Coverage', esc(t.coverage != null ? t.coverage : t.outputs?.coverage_score != null ? t.outputs.coverage_score : t.coverage_score != null ? t.coverage_score : NT)],
+                  ['Monthly', esc(t.monthly_cost != null ? t.monthly_cost : t.outputs?.monthly_cost != null ? t.outputs.monthly_cost : t.price != null ? t.price : '—')],
+                  ['Yearly', esc(t.yearly_cost != null ? t.yearly_cost : t.outputs?.yearly_cost != null ? t.outputs.yearly_cost : '—')],
+                  ['Why won', esc(t.why || t.reason || t.selection_reason || t.outputs?.summary || '—')]
                 ])}
+                ${(pkgProducts.length || productIds.length)
+                  ? `<ul class="vc-bullets">${(pkgProducts.length
+                    ? pkgProducts.map((p) => `<li>${esc(p.name || p.product_name || p.product_id || NT)}</li>`)
+                    : productIds.map((id) => `<li>${esc(id)}</li>`)).join('')}</ul>`
+                  : `<p class="vc-muted">Package products ${esc(NT)}</p>`}
                 ${t.optimization_formula || t.formula ? `<div class="vc-formula-box">${esc(t.optimization_formula || t.formula)}</div>` : ''}
                 ${clickVal(title, 'Inspect package', t)}
                 ${(t.removed_products || []).length ? `<details class="vc-collapse"><summary>Removed products</summary>${pre(t.removed_products)}</details>` : ''}
@@ -983,6 +1019,7 @@
       ${clinicalOutputHtml}
       ${runtimeFlowHtml}
       ${inputHtml}
+      ${pipelineHtml}
       ${validationHtml}
       ${repoHtml}
       ${timelineHtml}
@@ -1183,6 +1220,15 @@
     if (gate) gate.hidden = true;
     if (app) app.hidden = false;
     bindExports();
+    try {
+      const health = await api('/health').then((r) => r.json());
+      const banner = document.getElementById('vc-demo-banner');
+      if (banner) banner.hidden = !health.demo_catalog;
+      const meta = document.getElementById('vc-meta');
+      if (meta && health.demo_catalog) meta.textContent = 'DEMO CATALOG · demonstration data';
+    } catch (_err) {
+      /* health is optional for explorer boot */
+    }
     await loadPresets();
     await loadConsole();
     setInterval(pollStatus, 4000);

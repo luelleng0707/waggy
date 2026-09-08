@@ -17,6 +17,8 @@ def client(monkeypatch: pytest.MonkeyPatch) -> TestClient:
 
 def test_canonical_presentation_routes_are_available(client: TestClient):
     assert client.get("/").status_code == 200
+    assert client.get("/demo").status_code == 200
+    assert client.get("/classic").status_code == 200
     assert client.get("/business").status_code == 200
     assert client.get("/developer").status_code == 200
 
@@ -32,6 +34,9 @@ def test_openapi_includes_canonical_and_compatibility_routes(client: TestClient)
     assert response.status_code == 200
     paths = response.json().get("paths", {})
     assert "/" in paths
+    assert "/demo" in paths
+    assert "/classic" in paths
     assert "/business" in paths
     assert "/developer" in paths
     assert "/debug/calculation" in paths
+    assert "/api/v1/presentation/workbench" in paths

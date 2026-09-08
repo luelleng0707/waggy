@@ -4670,3 +4670,19 @@ a.px-link {
 .tr-note { font-size: 12px; color: var(--text-caption); font-style: italic; }
 .tr-csv { font-size: 12px; }
 .tr-empty { padding: 24px 8px; }
+
+.demo-catalog-banner {
+  display: none;
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface-muted, #f3eee6);
+  border: 1px solid rgba(139, 90, 43, 0.18);
+  color: var(--text-caption, #6b5c4d);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.demo-catalog-banner[hidden] {
+  display: none !important;
+}

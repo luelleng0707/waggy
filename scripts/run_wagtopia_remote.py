@@ -30,6 +30,7 @@ from app.ui.cstc.suite_utils import default_demo_profile, find_open_port, health
 
 CUSTOMER_ALLOWED_API_PREFIXES = (
     "/api/v1/clinical-report",
+    "/api/v1/presentation/catalog",
     "/api/v1/store",
     "/api/v1/catalog",
     "/api/v1/analyze",

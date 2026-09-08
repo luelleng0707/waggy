@@ -66,11 +66,25 @@ class FormulaConstantValidator:
     def cross_validate_layers(self) -> tuple[str, ...]:
         runtime = get_formula_runtime()
         issues: list[str] = []
-        docs_root = Path(__file__).resolve().parents[2] / "docs" / "mathematics"
-        tests_root = Path(__file__).resolve().parents[2] / "tests"
+        repo_root = Path(__file__).resolve().parents[2]
+        tests_root = repo_root / "tests"
+        docs_root = repo_root / "docs"
+        math_root = docs_root / "mathematics"
 
         docs_text = ""
-        for path in docs_root.glob("*.md"):
+        spec = docs_root / "WAGGY_SYSTEM.md"
+        alias = docs_root / "WAGTOPIA_SYSTEM_ARCHITECTURE.md"
+        spec_alias = docs_root / "WAGTOPIA_SYSTEM_SPEC.md"
+        if spec.exists():
+            docs_text += spec.read_text(encoding="utf-8") + "\n"
+        if alias.exists():
+            docs_text += alias.read_text(encoding="utf-8") + "\n"
+        elif spec_alias.exists():
+            docs_text += spec_alias.read_text(encoding="utf-8") + "\n"
+        if math_root.exists():
+            for path in sorted(list(math_root.glob("*.md")) + list(math_root.glob("*.csv"))):
+                docs_text += path.read_text(encoding="utf-8") + "\n"
+        for path in sorted((repo_root / "repository").rglob("FORMULA_REGISTRY.md")):
             docs_text += path.read_text(encoding="utf-8") + "\n"
 
         tests_text = ""

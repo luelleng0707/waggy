@@ -1,28 +1,22 @@
-# CONTRIBUTING.md
+# Contributing
 
-## Clinical safety
+## Clinical / scientific safety
 
-1. Do not change formula math without an algorithm version bump + golden/parity tests.  
-2. Warehouse edits go through validation (`science_pipeline`) when possible.  
-3. Prefer Repository accessors over ad-hoc CSV reads.
+1. Do not change formula math or nutrient minima/maxima without tests and an explicit provenance note.
+2. Warehouse edits are facts. Do not invent paper quotes, AAFCO tables, or breed-disease diagnoses.
+3. Demo overlay data (`WAGTOPIA_DEMO_MODE`) is synthetic. Do not relabel it as warehouse evidence.
+4. `PACKAGE_OPTIMIZER_V2_1` is the only package composer. Do not add a frontend or LLM composer.
 
 ## Day-to-day
 
 ```bash
 py -3 -m pip install -r requirements.txt
-py -3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+py -3 scripts/run_dev.py
 py -3 -m pytest -q
 ```
 
-## Docs to read
+API module: `app.api.main:app` (shim: `app.main:app`).
 
-`SYSTEM_ARCHITECTURE.md` → `RUNTIME_PIPELINE.md` → `DATA_PIPELINE.md` → `SCIENCE_MODEL.md` → `API_REFERENCE.md`
+## Docs
 
-## Scientific authoring
-
-```bash
-py -3 -m authoring.pipeline
-py -3 -m science_pipeline.release --skip-parity
-```
-
-Staging only — never auto-write live clinical tables.
+Read [docs/WAGGY_SYSTEM.md](WAGGY_SYSTEM.md). It is the only architecture specification.

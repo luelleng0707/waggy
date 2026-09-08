@@ -1,0 +1,16 @@
+evidence_id,paper_id,condition,ingredient_name,dose,dose_unit,mechanism,population,effect,effect_direction,effect_size,evidence_level,source_name,source_quote,source_url,year,study_type,created_by,created_date,modified_by,modified_date,review_status,approval_date,change_reason
+EVD-2FF88A-HIP-DYSP,PAPER-2A2FF88A,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-09-02,test,2026-09-02,draft,,evidence builder submit
+EVD-669195-HIP-DYSP,PAPER-AE669195,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-21,test,2026-07-21,draft,,evidence builder submit
+EVD-ED62B8-HIP-DYSP,PAPER-28ED62B8,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-21,test,2026-07-21,draft,,evidence builder submit
+EVD-C581A2-HIP-DYSP,PAPER-25C581A2,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-21,test,2026-07-21,draft,,evidence builder submit
+EVD-BDC5C9-HIP-DYSP,PAPER-7CBDC5C9,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-20,test,2026-07-20,draft,,evidence builder submit
+EVD-35093A-HIP-DYSP,PAPER-2735093A,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-20,test,2026-07-20,draft,,evidence builder submit
+EVD-37765E-HIP-DYSP,PAPER-F737765E,Hip Dysplasia,EPA,100,mg/kg,Eicosanoid modulation reduces inflammation,Adult large-breed dogs,Lower inflammatory cytokines,supports,,high,Phase6 Example: EPA and canine joint inflammation,EPA reduced inflammatory markers in OA dogs.,https://example.org/epa-joint,2024,rct,phase6-pipeline,2026-07-20,phase6-pipeline,2026-07-20,draft,,evidence builder submit
+EVD-1769BD-HIP-DYSP,PAPER-B71769BD,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-20,test,2026-07-20,draft,,evidence builder submit
+EVD-FEA851-HIP-DYSP,PAPER-F1FEA851,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-21,test,2026-07-21,draft,,evidence builder submit
+EVD-66EF7F-HIP-DYSP,PAPER-3E66EF7F,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-20,test,2026-07-20,draft,,evidence builder submit
+EVD-919D10-HIP-DYSP,PAPER-40919D10,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-20,test,2026-07-20,draft,,evidence builder submit
+EVD-049221-HIP-DYSP,PAPER-B5049221,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-21,test,2026-07-21,draft,,evidence builder submit
+EVD-816C1E-HIP-DYSP,PAPER-59816C1E,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-20,test,2026-07-20,draft,,evidence builder submit
+EVD-6260DA-HIP-DYSP,PAPER-6F6260DA,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-20,test,2026-07-20,draft,,evidence builder submit
+EVD-717002-HIP-DYSP,PAPER-5C717002,Hip Dysplasia,EPA,,,,,,supports,,medium,Staging EPA study,,,2023,observational,test,2026-07-20,test,2026-07-20,draft,,evidence builder submit

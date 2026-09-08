@@ -75,13 +75,14 @@ def test_customer_claim_coverage():
 
 def test_remote_launcher_configuration():
     assert "/api/v1/clinical-report" in CUSTOMER_ALLOWED_API_PREFIXES
+    assert "/api/v1/presentation/catalog" in CUSTOMER_ALLOWED_API_PREFIXES
     assert "/api/v1/store" in CUSTOMER_ALLOWED_API_PREFIXES
     assert "/debug/" in CUSTOMER_BLOCKED_PREFIXES
     assert "/api/v1/ppie/" in CUSTOMER_BLOCKED_PREFIXES
 
 
 def test_presentation_contract():
-    contract = (_repo_root() / "docs" / "architecture" / "PRESENTATION_CONTRACT.md").read_text(
+    contract = (_repo_root() / "docs" / "WAGGY_SYSTEM.md").read_text(
         encoding="utf-8"
     )
     for idx in range(1, 13):

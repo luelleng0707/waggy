@@ -47,6 +47,14 @@ def test_three_surfaces_share_single_correlation_and_signature(client: TestClien
     assert body.get("developer", {}).get("surface") == "developer"
     assert body.get("customer", {}).get("dog", {}).get("name") == "Dolly"
 
+    customer_packages = body.get("customer", {}).get("wellness", {}).get("package_composition") or []
+    business_packages = body.get("business", {}).get("portfolio", {}).get("package_composition") or []
+    developer_packages = body.get("developer", {}).get("package_optimization", {}).get("packages") or []
+    assert customer_packages
+    assert business_packages
+    assert developer_packages
+    assert [p.get("tier") for p in customer_packages] == [p.get("tier") for p in business_packages]
+
     execution_records = body.get("developer", {}).get("execution_records") or []
     assert execution_records, "debug-mode developer projection should include execution records"
 

@@ -1,0 +1,7 @@
+alias,canonical_id,canonical_name,mapping_source
+male,male,male,explicit_mapping
+m,male,male,explicit_mapping
+boy,male,male,explicit_mapping
+female,female,female,explicit_mapping
+f,female,female,explicit_mapping
+girl,female,female,explicit_mapping

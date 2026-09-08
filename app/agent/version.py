@@ -1,7 +1,7 @@
 """Canonical PPIE algorithm version.
 
 Bump when behavior changes intentionally. After a bump:
-1. Update docs/CHANGELOG.md (and docs/FORMULAS.md if formula behavior changed)
+1. Update docs/WAGGY_SYSTEM.md if behavior or formulas changed
 2. Run `py -3 tools/parity_suite.py --freeze`
 3. Commit new tests/golden/*.json fixtures
 """

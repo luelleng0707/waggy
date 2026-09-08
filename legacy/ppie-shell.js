@@ -94,6 +94,8 @@
     const health = data('health');
     const nutrition = data('nutrition');
     const activity = data('activity');
+    const grooming = data('grooming');
+    const products = data('products');
     const pkg = recommendedPackage();
     const priorities = (health.priorities || []).slice(0, 3);
     const score = health.summary_score;
@@ -102,6 +104,13 @@
     const meal = staple[0] || (pkg?.products || [])[0];
     const breedLines = breedOneLiners();
     const evidence = data('evidence').items || [];
+    const directItems = products.direct_items || [];
+    const matcherAvailable = products.matcher_available === true || (directItems.length > 0);
+    const recommendedCards = matcherAvailable ? directItems : [];
+    const packageProductCount = (data('packages').tiers || []).reduce(
+      (n, t) => n + ((t.products || []).length),
+      0
+    );
 
     return `
       <div class="px-home">
@@ -110,7 +119,7 @@
           <div class="px-snapshot__identity">
             <div class="px-avatar" aria-hidden="true">${esc((name || 'D').charAt(0))}</div>
             <div>
-              <p class="px-kicker">Clinical dashboard</p>
+              <p class="px-kicker">${A().meta && A().meta.demo_catalog || (global.CatalogService && global.CatalogService.meta && global.CatalogService.meta.demo_catalog) ? 'DEMO CATALOG · demonstration data' : 'Clinical dashboard'}</p>
               <h1 class="px-snapshot__name">${esc(name)}</h1>
               <p class="px-snapshot__breed">${esc(profile.breed_label || '—')}</p>
             </div>
@@ -118,6 +127,7 @@
           <div class="px-snapshot__chips">
             <span>${esc(profile.age_years != null ? profile.age_years + ' yrs' : '—')}</span>
             <span>${esc(profile.weight_kg != null ? profile.weight_kg + ' kg' : '—')}</span>
+            <span>${esc(profile.activity_level || '—')}</span>
             <span>${esc(profile.environment || '—')}</span>
           </div>
           <div class="px-snapshot__stats">
@@ -136,6 +146,17 @@
             ${U.planRow('Walk', activity.daily_exercise || (activity.morning_min != null ? `${activity.morning_min}+${activity.evening_min || '—'} min` : '—'), `<button type="button" class="px-link" data-sheet="activity">Schedule</button>`)}
             ${U.planRow('Treats', treats.length ? scrub(treats.map(t => t.name).join(' · ')) + (treats[0]?.serving ? ` · ${treats[0].serving}` : '') : 'As listed in care package', treats[0]?.product_id ? `<button type="button" class="px-link" data-product-page="${esc(treats[0].product_id)}">Details</button>` : '')}
             ${U.planRow('Supplements', supplements.length ? scrub(supplements.map(s => s.name).join(' · ')) : meal || treats.length ? 'Included in pathway products' : '—', '')}
+          </div>
+        </section>
+
+        <!-- 3 Personalized wellness analysis -->
+        <section class="px-section" data-level="1">
+          ${U.sectionHeader('Personalized wellness analysis', 'Health · Nutrition · Activity · Grooming')}
+          <div class="px-snapshot__stats">
+            ${U.statCard('Health', priorities[0]?.title || (health.headline || 'From this analysis'), `${(health.priorities || []).length} priorities`)}
+            ${U.statCard('Nutrition', `${(nutrition.targets || []).length} targets`, nutrition.summary || '')}
+            ${U.statCard('Activity', activity.daily_exercise || (activity.daily_km != null ? activity.daily_km + ' km' : 'Plan'), data('behavior').activity_level || '')}
+            ${U.statCard('Grooming', grooming.interval || grooming.interval_label || 'Guidance', '')}
           </div>
         </section>
 
@@ -178,11 +199,29 @@
           </div>
         </section>
 
-        <!-- 5 Recommended Care Package -->
+        <!-- 5 Recommended products -->
         <section class="px-section" data-level="1">
-          ${U.sectionHeader('Recommended care package', 'Your pathway')}
-          ${pkg ? U.packageCard(pkg) : `<p class="px-muted">Care pathway pending.</p>`}
-          ${(data('packages').tiers || []).length > 1 ? `<button type="button" class="px-link px-link--block" data-sheet="pathways">Compare other pathways</button>` : ''}
+          ${U.sectionHeader('Recommended products', matcherAvailable ? 'Direct PRODUCT_MATCH_V2_1 output' : 'Direct matcher recommendations')}
+          <div class="px-stack px-stack--products">
+            ${
+              recommendedCards.length
+                ? recommendedCards.map(p => U.productCard(p, { showImage: true })).join('')
+                : `<p class="px-muted">No direct matcher recommendations available from current scientific target data.</p>
+                   <p class="px-muted">${packageProductCount ? `${packageProductCount} products selected by PACKAGE_OPTIMIZER_V2_1 are listed in Care packages below.` : 'Package products NOT AVAILABLE FROM RUNTIME'}</p>`
+            }
+          </div>
+        </section>
+
+        <!-- 6 Care Packages -->
+        <section class="px-section" data-level="1">
+          ${U.sectionHeader('Care packages', 'Essential · Balanced · Optimal')}
+          <div class="px-stack">
+            ${
+              (data('packages').tiers || []).length
+                ? (data('packages').tiers || []).map(t => U.packageCard(t)).join('')
+                : `<p class="px-muted">NOT AVAILABLE FROM RUNTIME</p>`
+            }
+          </div>
         </section>
 
         <!-- 6 Breed & Biology (short) -->
@@ -261,9 +300,9 @@
           <h1>${esc(scrub(pkg.title))}</h1>
           <p class="px-detail__lede">${esc(scrub(pkg.summary || ''))}</p>
           <div class="px-snapshot__stats">
-            ${U.statCard('Coverage', pkg.coverage_score != null ? pkg.coverage_score + '%' : '—', 'Pathway score')}
-            ${U.statCard('Monthly', pkg.monthly_cost != null ? '¥' + Number(pkg.monthly_cost).toLocaleString() : '—', '')}
-            ${U.statCard('Yearly', pkg.yearly_cost != null ? '¥' + Number(pkg.yearly_cost).toLocaleString() : '—', compareNote || '365-day')}
+            ${U.statCard('Coverage', pkg.coverage_score != null ? pkg.coverage_score + '%' : 'NOT AVAILABLE FROM RUNTIME', 'Pathway score')}
+            ${U.statCard('Monthly', U.formatMoney ? U.formatMoney(pkg.monthly_cost) : (pkg.monthly_cost != null ? '¥' + Number(pkg.monthly_cost).toLocaleString() : 'NOT AVAILABLE FROM RUNTIME'), '')}
+            ${U.statCard('Yearly', U.formatMoney ? U.formatMoney(pkg.yearly_cost) : (pkg.yearly_cost != null ? '¥' + Number(pkg.yearly_cost).toLocaleString() : 'NOT AVAILABLE FROM RUNTIME'), '')}
           </div>
         </header>
 
@@ -282,7 +321,7 @@
         <section class="px-section">
           ${U.sectionHeader('Products included', `${products.length} items`)}
           <div class="px-stack px-stack--products">
-            ${products.map(p => U.productCard(p, { showImage: true })).join('') || `<p class="px-muted">No products listed.</p>`}
+            ${products.map(p => U.productCard(p, { showImage: true })).join('') || `<p class="px-muted">${esc(pkg.composition_status || 'NOT AVAILABLE FROM RUNTIME')}</p>`}
           </div>
         </section>
 
@@ -299,8 +338,18 @@
         <section class="px-section">
           ${U.sectionHeader('Annual plan')}
           <div class="px-panel">
-            <p>Monthly · <strong>¥${Number(pkg.monthly_cost || 0).toLocaleString()}</strong></p>
-            <p>Yearly (365-day) · <strong>¥${Number(pkg.yearly_cost || 0).toLocaleString()}</strong></p>
+            <p>Monthly · <strong>${esc(U.formatMoney ? U.formatMoney(pkg.monthly_cost) : (pkg.monthly_cost != null ? '¥' + Number(pkg.monthly_cost).toLocaleString() : 'NOT AVAILABLE FROM RUNTIME'))}</strong></p>
+            <p>Yearly (365-day) · <strong>${esc(U.formatMoney ? U.formatMoney(pkg.yearly_cost) : (pkg.yearly_cost != null ? '¥' + Number(pkg.yearly_cost).toLocaleString() : 'NOT AVAILABLE FROM RUNTIME'))}</strong></p>
+            ${
+              pkg.monthly_cost != null && pkg.yearly_cost != null
+                ? `<p>Savings vs monthly billing · <strong>¥${esc(Number((Number(pkg.monthly_cost) * 12) - Number(pkg.yearly_cost)).toLocaleString())}</strong></p>`
+                : `<p class="px-muted">Savings NOT AVAILABLE FROM RUNTIME</p>`
+            }
+            ${
+              pkg.yearly_discount_factor != null
+                ? `<p>Yearly discount · <strong>${esc(Math.round((1 - Number(pkg.yearly_discount_factor)) * 100))}%</strong></p>`
+                : `<p class="px-muted">Discount NOT AVAILABLE FROM RUNTIME</p>`
+            }
             ${compareNote ? `<p class="px-muted">${esc(compareNote)}</p>` : ''}
             ${
               planProducts.length
@@ -875,7 +924,17 @@
 
   function showError(msg) {
     const root = document.getElementById('page-module');
-    if (root) root.innerHTML = `<div class="empty-state" role="alert">${esc(msg)}</div>`;
+    if (!root) return;
+    const lines = String(msg || 'Analysis unavailable').split('\n').filter(Boolean);
+    root.innerHTML = `<div class="empty-state" role="alert">
+      ${lines.map(line => `<p>${esc(line)}</p>`).join('')}
+      <button type="button" class="module-ghost" id="wagtopia-retry-boot">Retry</button>
+    </div>`;
+    document.getElementById('wagtopia-retry-boot')?.addEventListener('click', () => {
+      if (global.WagtopiaApp && typeof global.WagtopiaApp.boot === 'function') {
+        global.WagtopiaApp.boot(true).catch(err => console.error('[Wagtopia] retry failed', err));
+      }
+    });
   }
 
   global.PpieShell = { mount, showError, showView };

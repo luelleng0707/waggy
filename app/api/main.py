@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 import os
+import sys
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -21,6 +22,7 @@ from app.api.payload_adapter import map_legacy_response, profile_from_analyze_bo
 from app.core.paths import clinical_root_str, resolve_clinical_root
 from app.data.clinical_assessment import MODULE_IDS, build_clinical_assessment, get_assessment_module
 from app.data.clinical_report_builder import build_clinical_report
+from app.data.demo_catalog import demo_mode_enabled
 from app.data.report_generator import build_standard_report
 from app.data.report_models import build_all_report_models
 from app.debug.clinical_execution_debug import (
@@ -39,7 +41,10 @@ from app.debug.clinical_execution_debug import (
     preview_table,
     print_developer_banner,
 )
-from app.presentation.adapter import build_three_surface_presentations
+from app.presentation.adapter import (
+    build_three_surface_presentations,
+    build_workbench_presentations,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -48,6 +53,10 @@ logging.basicConfig(
 logger = logging.getLogger("ppie.api")
 
 ROOT = Path(__file__).resolve().parents[2]
+_legacy_python_root = ROOT / "legacy"
+if _legacy_python_root.is_dir() and str(_legacy_python_root) not in sys.path:
+    # Compatibility packages (authoring, ontology, curation) live under legacy/.
+    sys.path.insert(0, str(_legacy_python_root))
 # Clinical CSVs load exclusively from warehouse/current (see app.core.paths).
 DATA_DIR = clinical_root_str()
 VALID_KEYS = {
@@ -225,17 +234,19 @@ async def health() -> dict[str, Any]:
         "csv_hash": meta["csv_hash"],
         "loaded_files": meta["loaded_files"],
         "loaded_at": meta["loaded_at"],
+        "demo_catalog": demo_mode_enabled(),
+        "demo_mode": demo_mode_enabled(),
+        "catalog_source": "demo" if demo_mode_enabled() else "warehouse",
+        "catalog_count": int(len(agent.repo.active_products())),
     }
 
 
-@app.get("/api/v1/catalog")
-async def product_catalog(
-    _: str = Depends(require_api_key),
-    category: str | None = Query(default=None),
-    q: str | None = Query(default=None),
-) -> dict[str, Any]:
-    """Full product catalog from PRODUCT_* CSVs — no hardcoded products."""
-    rows = agent.repo.catalog_api_rows()
+def _filter_product_rows(
+    rows: list[dict[str, Any]],
+    *,
+    category: str | None = None,
+    q: str | None = None,
+) -> list[dict[str, Any]]:
     if category:
         cat = category.lower()
         rows = [
@@ -253,43 +264,20 @@ async def product_catalog(
             or query in str(r.get("category", "")).lower()
             or query in str(r.get("subcategory", "")).lower()
         ]
-    return {
-        "products": rows,
-        "count": len(rows),
-        "data_version": agent.repo.version,
-        "csv_hash": agent.repo.csv_hash,
-    }
+    return rows
 
 
-@app.get("/api/v1/store")
-async def product_store(
-    _: str = Depends(require_api_key),
-    category: str | None = Query(default=None),
-    q: str | None = Query(default=None),
-    weight_kg: float | None = Query(default=None),
+def _joined_catalog_payload(
+    *,
+    category: str | None = None,
+    q: str | None = None,
+    weight_kg: float | None = None,
 ) -> dict[str, Any]:
-    """
-    Joined storefront payload — catalog + pricing + components + feeding
-    + supplement/bakery extensions. Frontend should render this, not join CSVs.
-    """
-    rows = agent.repo.store_api_rows(weight_kg=weight_kg)
-    if category:
-        cat = category.lower()
-        rows = [
-            r for r in rows
-            if cat in str(r.get("category", "")).lower()
-            or cat in str(r.get("subcategory", "")).lower()
-        ]
-    if q:
-        query = q.lower()
-        rows = [
-            r for r in rows
-            if query in str(r.get("product_name") or r.get("name") or "").lower()
-            or query in str(r.get("product_id", "")).lower()
-            or query in str(r.get("brand", "")).lower()
-            or query in str(r.get("category", "")).lower()
-            or query in str(r.get("subcategory", "")).lower()
-        ]
+    rows = _filter_product_rows(
+        agent.repo.store_api_rows(weight_kg=weight_kg),
+        category=category,
+        q=q,
+    )
     return {
         "products": rows,
         "count": len(rows),
@@ -297,13 +285,55 @@ async def product_store(
         "data_version": agent.repo.version,
         "csv_hash": agent.repo.csv_hash,
         "loaded_at": agent.repo.loaded_at,
+        "demo_catalog": demo_mode_enabled(),
+        "catalog_source": "demo" if demo_mode_enabled() else "warehouse",
     }
+
+
+@app.get("/api/v1/catalog")
+async def product_catalog(
+    category: str | None = Query(default=None),
+    q: str | None = Query(default=None),
+) -> dict[str, Any]:
+    """Read-only product catalog from PRODUCT_* CSVs — no hardcoded products."""
+    rows = _filter_product_rows(agent.repo.catalog_api_rows(), category=category, q=q)
+    return {
+        "products": rows,
+        "count": len(rows),
+        "data_version": agent.repo.version,
+        "csv_hash": agent.repo.csv_hash,
+        "demo_catalog": demo_mode_enabled(),
+        "catalog_source": "demo" if demo_mode_enabled() else "warehouse",
+    }
+
+
+@app.get("/api/v1/presentation/catalog")
+async def presentation_catalog(
+    category: str | None = Query(default=None),
+    q: str | None = Query(default=None),
+    weight_kg: float | None = Query(default=None),
+) -> dict[str, Any]:
+    """Browser-safe read-only catalog for customer/business presentation surfaces."""
+    return _joined_catalog_payload(category=category, q=q, weight_kg=weight_kg)
+
+
+@app.get("/api/v1/store")
+async def product_store(
+    category: str | None = Query(default=None),
+    q: str | None = Query(default=None),
+    weight_kg: float | None = Query(default=None),
+) -> dict[str, Any]:
+    """
+    Read-only joined storefront payload — catalog + pricing + components + feeding
+    + supplement/bakery extensions. Frontend should render this, not join CSVs.
+    Mutations remain on separate authenticated endpoints.
+    """
+    return _joined_catalog_payload(category=category, q=q, weight_kg=weight_kg)
 
 
 @app.get("/api/v1/store/{product_id}")
 async def product_store_detail(
     product_id: str,
-    _: str = Depends(require_api_key),
     weight_kg: float | None = Query(default=None),
 ) -> dict[str, Any]:
     rows = agent.repo.store_api_rows(weight_kg=weight_kg)
@@ -377,6 +407,67 @@ async def presentation_three_surfaces(
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
         logger.exception("three-surface presentation failure")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+def _split_workbench_body(body: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any], str | None]:
+    """Base analyze fields + role context. Role context is stored, not a second engine."""
+    role_context = body.get("role_context") if isinstance(body.get("role_context"), dict) else {}
+    correlation_id = body.get("correlation_id")
+    analyze_body = {
+        key: value
+        for key, value in body.items()
+        if key not in {"role_context", "correlation_id"}
+    }
+    groomer = role_context.get("groomer") if isinstance(role_context.get("groomer"), dict) else {}
+    extra = groomer.get("observed_conditions")
+    if isinstance(extra, list) and extra:
+        existing = [str(item) for item in (analyze_body.get("observed_conditions") or [])]
+        merged = list(dict.fromkeys([*existing, *[str(item) for item in extra if item]]))
+        analyze_body["observed_conditions"] = merged
+    return analyze_body, role_context, str(correlation_id) if correlation_id else None
+
+
+@app.post("/api/v1/presentation/workbench")
+async def presentation_workbench(request: Request) -> dict[str, Any]:
+    """ONE analysis → customer / groomer / business / developer projections.
+
+    Browser-safe like /api/v1/clinical-report. Does not invent a second optimizer.
+    """
+    body = await request.json()
+    analyze_body, role_context, body_corr = _split_workbench_body(body)
+    pet_key = str(analyze_body.get("pet_name") or analyze_body.get("petName") or "").lower()
+    session = _groomer_sessions.get(pet_key) if pet_key else None
+    observed = list(analyze_body.get("observed_conditions") or [])
+    if session:
+        observed = list({*observed, *(session.get("observed_conditions") or [])})
+    analyze_body = {**analyze_body, "observed_conditions": observed}
+    try:
+        profile = profile_from_analyze_body(analyze_body)
+        analyze = await agent.generate_reproducible_report(profile)
+        assessment = build_clinical_assessment(agent.repo, analyze)
+        console = None
+        if _request_wants_debug(request):
+            _require_debug(request)
+            console = build_validation_console(
+                agent.repo, analyze, assessment, raw_request=analyze_body
+            )
+        corr = (
+            request.headers.get("x-wagtopia-correlation-id")
+            or body_corr
+            or f"omega97-demo-{int(datetime.now(timezone.utc).timestamp() * 1000)}"
+        )
+        return build_workbench_presentations(
+            analyze,
+            assessment,
+            console,
+            correlation_id=corr,
+            role_context=role_context,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("workbench presentation failure")
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
@@ -1037,6 +1128,16 @@ def _static_file_response(relative_path: str, media_type: str) -> FileResponse:
 
 @app.get("/")
 async def index_page() -> FileResponse:
+    return _static_file_response("workbench.html", "text/html")
+
+
+@app.get("/demo")
+async def demo_page() -> FileResponse:
+    return _static_file_response("workbench.html", "text/html")
+
+
+@app.get("/classic")
+async def classic_customer_page() -> FileResponse:
     return _static_file_response("index.html", "text/html")
 
 
@@ -1118,6 +1219,16 @@ async def serve_business_js() -> FileResponse:
 @app.get("/business.css")
 async def serve_business_css() -> FileResponse:
     return _static_file_response("business.css", "text/css")
+
+
+@app.get("/workbench.js")
+async def serve_workbench_js() -> FileResponse:
+    return _static_file_response("workbench.js", "application/javascript")
+
+
+@app.get("/workbench.css")
+async def serve_workbench_css() -> FileResponse:
+    return _static_file_response("workbench.css", "text/css")
 
 
 @app.get("/ppie-dev-menu.js")

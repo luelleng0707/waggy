@@ -79,6 +79,11 @@ def profile_from_analyze_body(body: dict[str, Any]) -> DogProfileInput:
         height_cm=body.get("height_cm") if body.get("height_cm") is not None else body.get("height"),
         bcs=body.get("bcs"),
         observed_conditions=list(body.get("observed_conditions") or []),
+        monthly_budget=(
+            float(body["monthly_budget"])
+            if body.get("monthly_budget") not in (None, "")
+            else None
+        ),
     )
 
 

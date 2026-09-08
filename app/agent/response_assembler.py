@@ -1202,6 +1202,9 @@ def assemble_frontend_response(
         repo,
         ingredients=raw_ingredients,
     )
+    search_envelope: dict[str, Any] = {}
+    if wellness_packages and isinstance(wellness_packages[0], dict):
+        search_envelope = wellness_packages[0].pop("_search_envelope", {}) or {}
     wellness_packages = [
         enrich_package_for_detail(
             pkg,
@@ -1418,6 +1421,12 @@ def assemble_frontend_response(
         "ingredientRequirements": nutritional_targets,
         "productRecommendations": product_recommendations,
         "wellnessPackages": wellness_packages,
+        "packageOptions": search_envelope.get("package_options") or {},
+        "optimizerProvenance": search_envelope.get("optimizer_provenance") or {},
+        "requirementProfile": search_envelope.get("requirement_profile") or {},
+        "careModel": search_envelope.get("care_model") or {},
+        "scoringWeights": search_envelope.get("scoring_weights") or {},
+        "tierBudget": search_envelope.get("tier_budget") or {},
         "packageDetails": package_details,
         "productAnalyses": product_analyses,
         "activityRecommendations": activity_recommendations,

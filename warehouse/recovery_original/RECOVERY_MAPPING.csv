@@ -1,0 +1,720 @@
+source_legacy_file,source_legacy_row,canonical_file,canonical_fact_id,recovery_status,note
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breeds.csv,BREED_DAB74007,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_41C292,MISSING_PROVENANCE,trait size=Giant
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_923036,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_FAB788,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_7ACB15,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_B6CCA7,MISSING_PROVENANCE,trait weakness_group=Joint Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_24D9D4,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_023442,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_A84550,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,2,warehouse/biology/breed_traits.csv,FACT_BE2940,MISSING_PROVENANCE,trait function_group=Working
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breeds.csv,BREED_3E1561D4,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_564FF1,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_B8CFAC,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_B93B87,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_58CB6D,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_6E3B02,MISSING_PROVENANCE,trait weakness_group=Eye Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_AC5F4C,MISSING_PROVENANCE,trait skull_type=Dolichocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_0F04FD,MISSING_PROVENANCE,trait climate=Heat Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_EA6FFA,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,3,warehouse/biology/breed_traits.csv,FACT_010A70,MISSING_PROVENANCE,trait function_group=Hound
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breeds.csv,BREED_BC63A662,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_5383D9,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_2AC2D8,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_058A7D,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_A6ADD4,MISSING_PROVENANCE,trait energy=Extreme
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_2BD26D,MISSING_PROVENANCE,trait weakness_group=Neurological Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_950389,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_2302C7,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_DB71A1,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,4,warehouse/biology/breed_traits.csv,FACT_741769,MISSING_PROVENANCE,trait function_group=Herding
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breeds.csv,BREED_82C42678,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_F5BEC3,MISSING_PROVENANCE,trait size=Giant
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_D545C4,MISSING_PROVENANCE,trait body_type=Heavy Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_174EB0,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_5664F5,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_9217F8,MISSING_PROVENANCE,trait weakness_group=Joint Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_3C8CEA,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_1AB82E,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_058EF2,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,5,warehouse/biology/breed_traits.csv,FACT_DFA19B,MISSING_PROVENANCE,trait function_group=Working
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breeds.csv,BREED_CB646D54,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_D1A6C4,MISSING_PROVENANCE,trait size=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_D5FA4A,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_8FF2D3,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_8DA623,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_E87D76,MISSING_PROVENANCE,trait weakness_group=Dental Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_20AC77,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_BDD056,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_AA657F,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,6,warehouse/biology/breed_traits.csv,FACT_931A20,MISSING_PROVENANCE,trait function_group=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breeds.csv,BREED_A4B7D238,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_433A6A,MISSING_PROVENANCE,trait size=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_D73C70,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_4D23D5,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_CD9DB4,MISSING_PROVENANCE,trait energy=Low
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_4C5EFE,MISSING_PROVENANCE,trait weakness_group=Respiratory Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_9F3465,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_A6D77C,MISSING_PROVENANCE,trait climate=Heat Sensitive
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_C526EB,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,7,warehouse/biology/breed_traits.csv,FACT_453658,MISSING_PROVENANCE,trait function_group=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_F936A9,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_2A6076,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_6C2141,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_280DB4,MISSING_PROVENANCE,trait energy=Low
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_836784,MISSING_PROVENANCE,trait weakness_group=Respiratory Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_77A90E,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_5FCE6F,MISSING_PROVENANCE,trait climate=Heat Sensitive
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_940308,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,8,warehouse/biology/breed_traits.csv,FACT_6C925F,MISSING_PROVENANCE,trait function_group=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breeds.csv,BREED_6DB4AA40,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_2716C0,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_94A6DA,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_AFA875,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_089406,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_135853,MISSING_PROVENANCE,trait weakness_group=Respiratory Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_20828C,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_C76786,MISSING_PROVENANCE,trait climate=Heat Sensitive
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_6553FC,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,9,warehouse/biology/breed_traits.csv,FACT_32F122,MISSING_PROVENANCE,trait function_group=Companion
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breeds.csv,BREED_C87E70CA,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_895930,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_29A327,MISSING_PROVENANCE,trait body_type=Chondrodysplastic
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_AA2DC4,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_32DF97,MISSING_PROVENANCE,trait energy=Low
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_79E5AE,MISSING_PROVENANCE,trait weakness_group=Joint Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_E831EF,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_B531B1,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_7BA409,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,10,warehouse/biology/breed_traits.csv,FACT_8136EE,MISSING_PROVENANCE,trait function_group=Hound
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_F46817,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_40E412,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_ECB693,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_B5A73A,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_46FD38,MISSING_PROVENANCE,trait weakness_group=Digestive Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_FF6223,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_DEDAD8,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_7977A8,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,11,warehouse/biology/breed_traits.csv,FACT_B818F5,MISSING_PROVENANCE,trait function_group=Hound
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breeds.csv,BREED_14624D63,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_8CBE95,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_F20C2F,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_F670F7,MISSING_PROVENANCE,trait coat_type=Curly Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_4BAF0F,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_486D60,MISSING_PROVENANCE,trait weakness_group=Skin Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_262A62,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_826182,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_1E0D29,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,12,warehouse/biology/breed_traits.csv,FACT_591858,MISSING_PROVENANCE,trait function_group=Companion
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breeds.csv,BREED_43DD399E,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_242BF8,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_5DCD2E,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_8572B3,MISSING_PROVENANCE,trait coat_type=Curly Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_E73978,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_3730F7,MISSING_PROVENANCE,trait weakness_group=Urinary Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_651F1F,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_EAFB08,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_DAFCC5,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,13,warehouse/biology/breed_traits.csv,FACT_73D9F3,MISSING_PROVENANCE,trait function_group=Terrier
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breeds.csv,BREED_3A7AB996,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_478D3D,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_395E23,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_3D3877,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_7CF7F8,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_E21D28,MISSING_PROVENANCE,trait weakness_group=Immune Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_53264B,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_E79FB8,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_0BF6D6,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,14,warehouse/biology/breed_traits.csv,FACT_48529E,MISSING_PROVENANCE,trait function_group=Spitz
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breeds.csv,BREED_10A53062,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_E3A492,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_A6D5F3,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_D8D67E,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_C52EF6,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_985F85,MISSING_PROVENANCE,trait weakness_group=Cardiac Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_6EB885,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_D5D571,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_37DF87,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,15,warehouse/biology/breed_traits.csv,FACT_C15187,MISSING_PROVENANCE,trait function_group=Companion
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_31FA8A,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_3129CD,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_25C6D0,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_B5474C,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_4F9619,MISSING_PROVENANCE,trait weakness_group=Joint Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_70D6E6,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_A7AA33,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_3C3486,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,16,warehouse/biology/breed_traits.csv,FACT_C4F971,MISSING_PROVENANCE,trait function_group=Working
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breeds.csv,BREED_58CB38F4,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_DB980B,MISSING_PROVENANCE,trait size=Giant
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_B1E144,MISSING_PROVENANCE,trait body_type=Heavy Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_75053C,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_F18DD5,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_B8C5BE,MISSING_PROVENANCE,trait weakness_group=Joint Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_3D6E57,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_607FEC,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_6D31F7,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,17,warehouse/biology/breed_traits.csv,FACT_5E0218,MISSING_PROVENANCE,trait function_group=Guardian
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breeds.csv,BREED_C687F403,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_3DA3EF,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_4B6405,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_A46550,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_6D762E,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_66C8FF,MISSING_PROVENANCE,trait weakness_group=Cardiac Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_DEDA53,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_7C577A,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_1608D7,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,18,warehouse/biology/breed_traits.csv,FACT_C40F34,MISSING_PROVENANCE,trait function_group=Working
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breeds.csv,BREED_F06D13A1,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_C2E1C6,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_E55940,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_2194B0,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_13EC10,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_29A4E1,MISSING_PROVENANCE,trait weakness_group=Urinary Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_6F2808,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_3646E0,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_9D6CE3,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,19,warehouse/biology/breed_traits.csv,FACT_C8608A,MISSING_PROVENANCE,trait function_group=Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_5E8E39,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_B55333,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_838609,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_7DC462,MISSING_PROVENANCE,trait energy=Low
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_C79ABE,MISSING_PROVENANCE,trait weakness_group=Respiratory Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_10DC6F,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_EE10B7,MISSING_PROVENANCE,trait climate=Heat Sensitive
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_E1243E,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,20,warehouse/biology/breed_traits.csv,FACT_52A480,MISSING_PROVENANCE,trait function_group=Companion
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breeds.csv,BREED_617BE9EB,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_D5073B,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_44D8DD,MISSING_PROVENANCE,trait body_type=Heavy Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_F00F1E,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_C05BCF,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_885927,MISSING_PROVENANCE,trait weakness_group=Skin Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_41AC93,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_A6100C,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_4C5A11,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,21,warehouse/biology/breed_traits.csv,FACT_E67FE1,MISSING_PROVENANCE,trait function_group=Herding
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breeds.csv,BREED_3905DBDB,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_7A8426,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_C2D260,MISSING_PROVENANCE,trait body_type=Chondrodysplastic
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_9B6307,MISSING_PROVENANCE,trait coat_type=Wire Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_4DE7D3,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_324448,MISSING_PROVENANCE,trait weakness_group=Neurological Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_B8E25E,MISSING_PROVENANCE,trait skull_type=Dolichocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_3ED14F,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_37A5F3,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,22,warehouse/biology/breed_traits.csv,FACT_F37FAA,MISSING_PROVENANCE,trait function_group=Hound
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breeds.csv,BREED_9FC60FFF,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_28F5C6,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_44D3EC,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_B3BE9D,MISSING_PROVENANCE,trait coat_type=Curly Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_5CC0AA,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_5A4779,MISSING_PROVENANCE,trait weakness_group=Eye Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_89FCC6,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_4B95A8,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_305DD9,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,23,warehouse/biology/breed_traits.csv,FACT_24A5D4,MISSING_PROVENANCE,trait function_group=Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_F3DABC,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_818842,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_650634,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_EC1A00,MISSING_PROVENANCE,trait energy=Extreme
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_456293,MISSING_PROVENANCE,trait weakness_group=Immune Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_C1CEE5,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_4E9A7C,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_8CC2CE,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,24,warehouse/biology/breed_traits.csv,FACT_5BFA5C,MISSING_PROVENANCE,trait function_group=Working
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_BC8FC0,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_9A11F4,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_5956C5,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_A3EA45,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_208255,MISSING_PROVENANCE,trait weakness_group=Joint Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_B13D9F,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_F88A42,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_021C00,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,25,warehouse/biology/breed_traits.csv,FACT_9544CD,MISSING_PROVENANCE,trait function_group=Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breeds.csv,BREED_4D52D378,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_E52ED5,MISSING_PROVENANCE,trait size=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_6B2EF2,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_BB3CF3,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_ECD8E8,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_04B015,MISSING_PROVENANCE,trait weakness_group=Cardiac Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_BEE8DF,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_97C888,MISSING_PROVENANCE,trait climate=Heat Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_0B76FC,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,26,warehouse/biology/breed_traits.csv,FACT_157939,MISSING_PROVENANCE,trait function_group=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breeds.csv,BREED_1B953788,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_AB8CC9,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_EFDCCD,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_E21830,MISSING_PROVENANCE,trait coat_type=Wire Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_C83F93,MISSING_PROVENANCE,trait energy=Extreme
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_A54466,MISSING_PROVENANCE,trait weakness_group=Neurological Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_79D03A,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_55FD9B,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_530088,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,27,warehouse/biology/breed_traits.csv,FACT_8F0D19,MISSING_PROVENANCE,trait function_group=Terrier
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_96DAA1,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_844CD7,MISSING_PROVENANCE,trait body_type=Chondrodysplastic
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_C0B251,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_CD47D1,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_FA818E,MISSING_PROVENANCE,trait weakness_group=Joint Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_270B5B,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_AD9BD1,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_B3BE1D,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,28,warehouse/biology/breed_traits.csv,FACT_23C330,MISSING_PROVENANCE,trait function_group=Herding
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breeds.csv,BREED_074A355B,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_25F66F,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_C6CC82,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_562F51,MISSING_PROVENANCE,trait coat_type=Curly Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_371602,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_36B377,MISSING_PROVENANCE,trait weakness_group=Skin Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_C9F7A4,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_B4632C,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_C422A3,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,29,warehouse/biology/breed_traits.csv,FACT_A7FEF5,MISSING_PROVENANCE,trait function_group=Terrier
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breeds.csv,BREED_6C4486EF,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_DB77D6,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_D666B8,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_B40E23,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_3D43DB,MISSING_PROVENANCE,trait energy=Extreme
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_0DE641,MISSING_PROVENANCE,trait weakness_group=Digestive Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_DFBBE4,MISSING_PROVENANCE,trait skull_type=Dolichocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_9ECFC7,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_AFB4DF,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,30,warehouse/biology/breed_traits.csv,FACT_69EC05,MISSING_PROVENANCE,trait function_group=Hound
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_3F6B2A,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_1FCCC1,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_AA2538,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_678322,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_26FB9A,MISSING_PROVENANCE,trait weakness_group=Joint Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_0ADFD6,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_DC1F9F,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_BEF90E,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,31,warehouse/biology/breed_traits.csv,FACT_377BD5,MISSING_PROVENANCE,trait function_group=Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breeds.csv,BREED_889A3EBF,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_DC4526,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_324931,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_7E8853,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_6B228A,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_B6A7FA,MISSING_PROVENANCE,trait weakness_group=Cardiac Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_4F27C6,MISSING_PROVENANCE,trait skull_type=Dolichocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_808E8E,MISSING_PROVENANCE,trait climate=Heat Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_FA260F,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,32,warehouse/biology/breed_traits.csv,FACT_D08E06,MISSING_PROVENANCE,trait function_group=Hound
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breeds.csv,BREED_1D54BB3A,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_5E8D40,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_257958,MISSING_PROVENANCE,trait body_type=Chondrodysplastic
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_138830,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_423EC3,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_0F76BD,MISSING_PROVENANCE,trait weakness_group=Neurological Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_46CBEA,MISSING_PROVENANCE,trait skull_type=Dolichocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_D9C674,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_D688E5,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,33,warehouse/biology/breed_traits.csv,FACT_6F3B46,MISSING_PROVENANCE,trait function_group=Hound
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breeds.csv,BREED_A00AD6C7,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_269918,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_2959AC,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_332957,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_773DB7,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_CFE9B3,MISSING_PROVENANCE,trait weakness_group=Eye Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_30DBEB,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_870DF3,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_F201CE,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,34,warehouse/biology/breed_traits.csv,FACT_16FACF,MISSING_PROVENANCE,trait function_group=Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breeds.csv,BREED_40006713,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_C1D5A0,MISSING_PROVENANCE,trait size=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_68504E,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_B69799,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_D6E7B0,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_8BAB59,MISSING_PROVENANCE,trait weakness_group=Dental Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_BB17B9,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_3531D5,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_81B1FA,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,35,warehouse/biology/breed_traits.csv,FACT_A53032,MISSING_PROVENANCE,trait function_group=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breeds.csv,BREED_AB5D5A28,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_40027B,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_F25CA7,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_10A7DA,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_6F5F33,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_EFA0F4,MISSING_PROVENANCE,trait weakness_group=Immune Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_CB183E,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_9224ED,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_7FD98F,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,36,warehouse/biology/breed_traits.csv,FACT_70E4CF,MISSING_PROVENANCE,trait function_group=Terrier
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breeds.csv,BREED_4E0A4CB0,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_CBF903,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_4BC3F5,MISSING_PROVENANCE,trait body_type=Heavy Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_BE8330,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_204865,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_CFCB5B,MISSING_PROVENANCE,trait weakness_group=Immune Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_0BD371,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_07362E,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_D11578,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,37,warehouse/biology/breed_traits.csv,FACT_BA520D,MISSING_PROVENANCE,trait function_group=Working
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breeds.csv,BREED_5B3AA685,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_4E82AD,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_D6BD1F,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_240A10,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_5E0D3E,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_125A1A,MISSING_PROVENANCE,trait weakness_group=Skin Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_F4288F,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_2EC93A,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_3F421F,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,38,warehouse/biology/breed_traits.csv,FACT_48ECF8,MISSING_PROVENANCE,trait function_group=Working
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breeds.csv,BREED_5A2BD646,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_8C275E,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_05CB79,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_5EED32,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_C20E6C,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_E30388,MISSING_PROVENANCE,trait weakness_group=Eye Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_266CF1,MISSING_PROVENANCE,trait skull_type=Dolichocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_EBF187,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_BC68F1,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,39,warehouse/biology/breed_traits.csv,FACT_08C155,MISSING_PROVENANCE,trait function_group=Herding
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breeds.csv,BREED_0AFC0521,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_AAFD71,MISSING_PROVENANCE,trait size=Large
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_42ECEB,MISSING_PROVENANCE,trait body_type=Heavy Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_F65D60,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_8B6409,MISSING_PROVENANCE,trait energy=Low
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_D33461,MISSING_PROVENANCE,trait weakness_group=Immune Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_55AF21,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_693E38,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_61A9A5,MISSING_PROVENANCE,trait lifespan=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,40,warehouse/biology/breed_traits.csv,FACT_D51A06,MISSING_PROVENANCE,trait function_group=Spitz
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breeds.csv,BREED_F0A0C6D9,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_F00C1F,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_B0ACA8,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_044114,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_9C6D73,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_CA72BD,MISSING_PROVENANCE,trait weakness_group=Eye Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_FA6A88,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_12F251,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_42C99E,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,41,warehouse/biology/breed_traits.csv,FACT_044238,MISSING_PROVENANCE,trait function_group=Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breeds.csv,BREED_EE6CB0D6,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_44F3EE,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_DFD76E,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_78DFD4,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_99C2EF,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_05E179,MISSING_PROVENANCE,trait weakness_group=Digestive Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_3A845C,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_3A84D9,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_7F8589,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,42,warehouse/biology/breed_traits.csv,FACT_52D4F9,MISSING_PROVENANCE,trait function_group=Landrace
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breeds.csv,BREED_46D833A4,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_67727B,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_F8C1AE,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_1EB8A9,MISSING_PROVENANCE,trait coat_type=Wire Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_4EAC18,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_C019A4,MISSING_PROVENANCE,trait weakness_group=Skin Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_8835EB,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_746136,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_21C493,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,43,warehouse/biology/breed_traits.csv,FACT_D6F92F,MISSING_PROVENANCE,trait function_group=Terrier
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breeds.csv,BREED_571535AE,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_71549E,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_E96717,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_E0CA87,MISSING_PROVENANCE,trait coat_type=Double Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_1D0416,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_80CD84,MISSING_PROVENANCE,trait weakness_group=Eye Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_CD5C20,MISSING_PROVENANCE,trait skull_type=Dolichocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_2C063E,MISSING_PROVENANCE,trait climate=Cold Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_E8B6FB,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,44,warehouse/biology/breed_traits.csv,FACT_08B06F,MISSING_PROVENANCE,trait function_group=Herding
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_1EA945,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_D7A88F,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_3A146F,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_5AFCF2,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_F7EE60,MISSING_PROVENANCE,trait weakness_group=Cardiac Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_089961,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_DA38CF,MISSING_PROVENANCE,trait climate=Heat Tolerant
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_8B1E16,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,45,warehouse/biology/breed_traits.csv,FACT_F09361,MISSING_PROVENANCE,trait function_group=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breeds.csv,BREED_50042913,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_4263D7,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_A9FC83,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_7921A7,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_770B48,MISSING_PROVENANCE,trait energy=Low
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_E90792,MISSING_PROVENANCE,trait weakness_group=Eye Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_29C138,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_0D5924,MISSING_PROVENANCE,trait climate=Heat Sensitive
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_E26E4C,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,46,warehouse/biology/breed_traits.csv,FACT_E16B0B,MISSING_PROVENANCE,trait function_group=Companion
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breeds.csv,BREED_5D7A8061,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_4F1B1C,MISSING_PROVENANCE,trait size=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_8ACA48,MISSING_PROVENANCE,trait body_type=Athletic
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_511F73,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_CEA602,MISSING_PROVENANCE,trait energy=High
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_0CE7B9,MISSING_PROVENANCE,trait weakness_group=Eye Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_BD5290,MISSING_PROVENANCE,trait skull_type=Mesocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_470345,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_7A7FE8,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,47,warehouse/biology/breed_traits.csv,FACT_2D6E4A,MISSING_PROVENANCE,trait function_group=Sporting
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breeds.csv,BREED_D8797FDC,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_369A11,MISSING_PROVENANCE,trait size=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_4EEA50,MISSING_PROVENANCE,trait body_type=Compact
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_4AAA98,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_AF82CD,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_04907B,MISSING_PROVENANCE,trait weakness_group=Dental Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_3D82B6,MISSING_PROVENANCE,trait skull_type=Brachycephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_0F297D,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_6E7502,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,48,warehouse/biology/breed_traits.csv,FACT_275955,MISSING_PROVENANCE,trait function_group=Toy
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breeds.csv,BREED_0EFE6C40,MISSING_PROVENANCE,identity only; intern phenotype moved to breed_traits.csv
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_3D8ACE,MISSING_PROVENANCE,trait size=Small
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_C677F8,MISSING_PROVENANCE,trait body_type=Chondrodysplastic
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_E3BDD8,MISSING_PROVENANCE,trait coat_type=Single Coat
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_86A5ED,MISSING_PROVENANCE,trait energy=Medium
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_8009B9,MISSING_PROVENANCE,trait weakness_group=Neurological Heavy
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_63D3DB,MISSING_PROVENANCE,trait skull_type=Dolichocephalic
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_908157,MISSING_PROVENANCE,trait climate=Temperate
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_68149A,MISSING_PROVENANCE,trait lifespan=Long
+data/breed_analysis/1_biological_traits/BREEDS.csv,49,warehouse/biology/breed_traits.csv,FACT_0B54FD,MISSING_PROVENANCE,trait function_group=Hound
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,2,warehouse/reference/papers.csv,PAPER_7f7ee9475b80,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,3,warehouse/reference/papers.csv,PAPER_504bd0412947,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,4,warehouse/reference/papers.csv,PAPER_d6bdf86e6e7b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,5,warehouse/reference/papers.csv,PAPER_c9cd288aab99,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,6,warehouse/reference/papers.csv,PAPER_5e4eefc835a0,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,7,warehouse/reference/papers.csv,PAPER_c7370c0702ac,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,8,warehouse/reference/papers.csv,PAPER_1a4b58190448,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,9,warehouse/reference/papers.csv,PAPER_bf5eb478ea32,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,10,warehouse/reference/papers.csv,PAPER_0b140a595513,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,11,warehouse/reference/papers.csv,PAPER_900c4f10362b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,12,warehouse/reference/papers.csv,PAPER_d55cb2335481,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,13,warehouse/reference/papers.csv,PAPER_17c821195992,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,14,warehouse/reference/papers.csv,PAPER_c3161dc96581,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,15,warehouse/reference/papers.csv,PAPER_655433bd1477,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,16,warehouse/reference/papers.csv,PAPER_d710c0f1d017,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,17,warehouse/reference/papers.csv,PAPER_05e710ba16b7,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,18,warehouse/reference/papers.csv,PAPER_98b13e412cd8,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,19,warehouse/reference/papers.csv,PAPER_31431092edf9,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,20,warehouse/reference/papers.csv,PAPER_a12d666b5a5b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,21,warehouse/reference/papers.csv,PAPER_7c3243e1c549,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,22,warehouse/reference/papers.csv,PAPER_75fe82d55562,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,23,warehouse/reference/papers.csv,PAPER_f384a4985a78,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,24,warehouse/reference/papers.csv,PAPER_2c3f596faa93,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,25,warehouse/reference/papers.csv,PAPER_f6e3f3c278e7,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,26,warehouse/reference/papers.csv,PAPER_8aed077a560e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,27,warehouse/reference/papers.csv,PAPER_ac2f74bd278b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,28,warehouse/reference/papers.csv,PAPER_944c56b11282,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,29,warehouse/reference/papers.csv,PAPER_b03f4672f5a1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,30,warehouse/reference/papers.csv,PAPER_b05709857ad1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,31,warehouse/reference/papers.csv,PAPER_ba17106af094,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,32,warehouse/reference/papers.csv,PAPER_a5ffd20f00dd,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,33,warehouse/reference/papers.csv,PAPER_1bf046f32ff4,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,34,warehouse/reference/papers.csv,PAPER_41fc493e35f8,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,35,warehouse/reference/papers.csv,PAPER_f6d492210f18,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,36,warehouse/reference/papers.csv,PAPER_5b570da50a7d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,37,warehouse/reference/papers.csv,PAPER_7aac8352d2ba,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,38,warehouse/reference/papers.csv,PAPER_21f0a9b74772,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,39,warehouse/reference/papers.csv,PAPER_8623bfe933f8,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,40,warehouse/reference/papers.csv,PAPER_4e0c1e369486,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,41,warehouse/reference/papers.csv,PAPER_80107f0c98ac,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,42,warehouse/reference/papers.csv,PAPER_12b18c39ef91,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,43,warehouse/reference/papers.csv,PAPER_7e6d7cff6935,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,44,warehouse/reference/papers.csv,PAPER_12c0b65040b1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,45,warehouse/reference/papers.csv,PAPER_c45bc580c096,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,46,warehouse/reference/papers.csv,PAPER_28fb5b0b0dab,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,47,warehouse/reference/papers.csv,PAPER_3caa04cd1d48,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,48,warehouse/reference/papers.csv,PAPER_794d65957ab1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,49,warehouse/reference/papers.csv,PAPER_58ac1425a79c,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,50,warehouse/reference/papers.csv,PAPER_42d9801739da,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,51,warehouse/reference/papers.csv,PAPER_508afe5aa7bf,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,52,warehouse/reference/papers.csv,PAPER_994e73e12fa1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,53,warehouse/reference/papers.csv,PAPER_82bcb4beacf2,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,54,warehouse/reference/papers.csv,PAPER_16c714a83ea1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,55,warehouse/reference/papers.csv,PAPER_6ed04734bc3c,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,56,warehouse/reference/papers.csv,PAPER_758aec0886db,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,57,warehouse/reference/papers.csv,PAPER_da9e1a4fb73e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,58,warehouse/reference/papers.csv,PAPER_2f1783c383f9,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,59,warehouse/reference/papers.csv,PAPER_30485aeef26a,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,60,warehouse/reference/papers.csv,PAPER_b50331933f22,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,61,warehouse/reference/papers.csv,PAPER_4603bd8b5515,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,62,warehouse/reference/papers.csv,PAPER_ac81c6777b29,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,63,warehouse/reference/papers.csv,PAPER_a7f8c5658c0f,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,64,warehouse/reference/papers.csv,PAPER_a3a9bcf00662,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,65,warehouse/reference/papers.csv,PAPER_577d87648ad6,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,66,warehouse/reference/papers.csv,PAPER_89d4a363bd60,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,67,warehouse/reference/papers.csv,PAPER_7eb7ddad815e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,68,warehouse/reference/papers.csv,PAPER_2b17cace8614,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,69,warehouse/reference/papers.csv,PAPER_2dee6358b1db,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,70,warehouse/reference/papers.csv,PAPER_30f085380d41,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,71,warehouse/reference/papers.csv,PAPER_9ba248ed1ec4,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,72,warehouse/reference/papers.csv,PAPER_bf0450305ef9,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,73,warehouse/reference/papers.csv,PAPER_21b8c22b83af,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,74,warehouse/reference/papers.csv,PAPER_15d0d6a95b10,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,75,warehouse/reference/papers.csv,PAPER_61aa70d67b37,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,76,warehouse/reference/papers.csv,PAPER_4e316178b677,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,77,warehouse/reference/papers.csv,PAPER_abaaf9f8685d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,78,warehouse/reference/papers.csv,PAPER_d29196f7b29c,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,79,warehouse/reference/papers.csv,PAPER_290acf072567,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,80,warehouse/reference/papers.csv,PAPER_2538409f811f,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,81,warehouse/reference/papers.csv,PAPER_fbf80a7b2765,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,82,warehouse/reference/papers.csv,PAPER_5eec51edf98c,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,83,warehouse/reference/papers.csv,PAPER_9a35a582dc44,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,84,warehouse/reference/papers.csv,PAPER_5a9cc8be0fa1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,85,warehouse/reference/papers.csv,PAPER_0ad0698f27a6,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,86,warehouse/reference/papers.csv,PAPER_b8f6e3d01524,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,87,warehouse/reference/papers.csv,PAPER_04b1160df604,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,88,warehouse/reference/papers.csv,PAPER_274dbbe6286a,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,89,warehouse/reference/papers.csv,PAPER_4cc47ac62a3e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,90,warehouse/reference/papers.csv,PAPER_8e08dcb57b67,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,91,warehouse/reference/papers.csv,PAPER_4642e8daed67,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,92,warehouse/reference/papers.csv,PAPER_6ed9cdb989d3,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,93,warehouse/reference/papers.csv,PAPER_84edfd97a183,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,94,warehouse/reference/papers.csv,PAPER_e6723857750c,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,95,warehouse/reference/papers.csv,PAPER_1b43d5dc7b02,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,96,warehouse/reference/papers.csv,PAPER_fcebf6a55a41,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,97,warehouse/reference/papers.csv,PAPER_2c0234ddbce8,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,98,warehouse/reference/papers.csv,PAPER_bddf1ae2cb92,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,99,warehouse/reference/papers.csv,PAPER_aa86b96d8c53,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,100,warehouse/reference/papers.csv,PAPER_85cba32a215b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,101,warehouse/reference/papers.csv,PAPER_c9f307f1044a,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,102,warehouse/reference/papers.csv,PAPER_5a42d2820379,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,103,warehouse/reference/papers.csv,PAPER_50d610486a45,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,104,warehouse/reference/papers.csv,PAPER_ef44cbb696b3,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,105,warehouse/reference/papers.csv,PAPER_54b5c37fc4d1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,106,warehouse/reference/papers.csv,PAPER_1b4f1f60f4f3,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,107,warehouse/reference/papers.csv,PAPER_eb38b4c4fd49,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,108,warehouse/reference/papers.csv,PAPER_7eb001aea630,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,109,warehouse/reference/papers.csv,PAPER_7bb70b7365bc,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,110,warehouse/reference/papers.csv,PAPER_22dc72d34dad,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,111,warehouse/reference/papers.csv,PAPER_975d02d8b0cb,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,112,warehouse/reference/papers.csv,PAPER_747ac35328af,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,113,warehouse/reference/papers.csv,PAPER_a39b99d16c9b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,114,warehouse/reference/papers.csv,PAPER_86f6d6ea4e4d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,115,warehouse/reference/papers.csv,PAPER_c1594ca66ad3,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,116,warehouse/reference/papers.csv,PAPER_1814ed6b9919,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,117,warehouse/reference/papers.csv,PAPER_f5294c0e3a79,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,118,warehouse/reference/papers.csv,PAPER_6c0e5e0cc4dd,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,119,warehouse/reference/papers.csv,PAPER_4abfc49820db,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,120,warehouse/reference/papers.csv,PAPER_03a8799592c1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,121,warehouse/reference/papers.csv,PAPER_8cfa90c0cb58,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,122,warehouse/reference/papers.csv,PAPER_8fe95655d09e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,123,warehouse/reference/papers.csv,PAPER_94a260bc4ef8,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,124,warehouse/reference/papers.csv,PAPER_52828b9d5475,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,125,warehouse/reference/papers.csv,PAPER_f9f81549c4ee,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,126,warehouse/reference/papers.csv,PAPER_4646f553a250,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,127,warehouse/reference/papers.csv,PAPER_f94578b7daa8,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,128,warehouse/reference/papers.csv,PAPER_b46941d1007d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,129,warehouse/reference/papers.csv,PAPER_0287ce53636d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,130,warehouse/reference/papers.csv,PAPER_9de58671b48e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,131,warehouse/reference/papers.csv,PAPER_51842202f8b5,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,132,warehouse/reference/papers.csv,PAPER_46bbfc394199,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,133,warehouse/reference/papers.csv,PAPER_6002905e4d6d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,134,warehouse/reference/papers.csv,PAPER_cd73155cae06,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,135,warehouse/reference/papers.csv,PAPER_68fce4afb2fa,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,136,warehouse/reference/papers.csv,PAPER_eb26476ad0bc,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,137,warehouse/reference/papers.csv,PAPER_17af389704af,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,138,warehouse/reference/papers.csv,PAPER_47cba7dd6ec4,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,139,warehouse/reference/papers.csv,PAPER_ca33614d3357,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,140,warehouse/reference/papers.csv,PAPER_475568c21a52,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,141,warehouse/reference/papers.csv,PAPER_00254ef27c92,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,142,warehouse/reference/papers.csv,PAPER_7fb398ac3464,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,143,warehouse/reference/papers.csv,PAPER_f9e0fda2a277,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,144,warehouse/reference/papers.csv,PAPER_c04aa49c1d9b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,145,warehouse/reference/papers.csv,PAPER_56566e7afde3,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,146,warehouse/reference/papers.csv,PAPER_74c9dbdda3f0,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,147,warehouse/reference/papers.csv,PAPER_58d5f6d445f6,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,148,warehouse/reference/papers.csv,PAPER_4dfb1f0bdf41,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,149,warehouse/reference/papers.csv,PAPER_d30b893f3aa4,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,150,warehouse/reference/papers.csv,PAPER_c60f85ae0f31,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,151,warehouse/reference/papers.csv,PAPER_79acc6406b4d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,152,warehouse/reference/papers.csv,PAPER_0b15b195c0be,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,153,warehouse/reference/papers.csv,PAPER_36d9e327ef7d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,154,warehouse/reference/papers.csv,PAPER_b2d8ae116293,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,155,warehouse/reference/papers.csv,PAPER_63380fba8545,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,156,warehouse/reference/papers.csv,PAPER_fab14a256bed,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,157,warehouse/reference/papers.csv,PAPER_218eb6df8958,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,158,warehouse/reference/papers.csv,PAPER_e39e1dc20c74,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,159,warehouse/reference/papers.csv,PAPER_6e0c1d27fbf7,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,160,warehouse/reference/papers.csv,PAPER_abdf8e534b08,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,161,warehouse/reference/papers.csv,PAPER_a5d41ccd500d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,162,warehouse/reference/papers.csv,PAPER_575532175380,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,163,warehouse/reference/papers.csv,PAPER_782b50a6e7c5,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,164,warehouse/reference/papers.csv,PAPER_47006eaadbc4,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,165,warehouse/reference/papers.csv,PAPER_dada7176d0b6,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,166,warehouse/reference/papers.csv,PAPER_5c7198a892cd,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,167,warehouse/reference/papers.csv,PAPER_f5d8146c521e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,168,warehouse/reference/papers.csv,PAPER_54a4d4ac6cff,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,169,warehouse/reference/papers.csv,PAPER_21b030689e70,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,170,warehouse/reference/papers.csv,PAPER_87ec7e1e07da,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,171,warehouse/reference/papers.csv,PAPER_0000b02612c1,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,172,warehouse/reference/papers.csv,PAPER_9ae4937956c5,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,173,warehouse/reference/papers.csv,PAPER_611bf526ecaf,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,174,warehouse/reference/papers.csv,PAPER_2add3c1b2d9e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,175,warehouse/reference/papers.csv,PAPER_86708901edb6,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,176,warehouse/reference/papers.csv,PAPER_b8d2ae27f0bd,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,177,warehouse/reference/papers.csv,PAPER_3cc305a3c733,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,178,warehouse/reference/papers.csv,PAPER_07f67f3b63cd,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,179,warehouse/reference/papers.csv,PAPER_6dd5c01a7058,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,180,warehouse/reference/papers.csv,PAPER_b8922b973028,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,181,warehouse/reference/papers.csv,PAPER_553938e06616,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,182,warehouse/reference/papers.csv,PAPER_f40cc2e32bc9,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,183,warehouse/reference/papers.csv,PAPER_e666d6324faf,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,184,warehouse/reference/papers.csv,PAPER_b5e758848f1f,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,185,warehouse/reference/papers.csv,PAPER_1f1037c6157b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,186,warehouse/reference/papers.csv,PAPER_e67dac7ffea2,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,187,warehouse/reference/papers.csv,PAPER_38f3f34aad1c,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,188,warehouse/reference/papers.csv,PAPER_05d23f19d44a,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,189,warehouse/reference/papers.csv,PAPER_1d808a5cf66e,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,190,warehouse/reference/papers.csv,PAPER_98792111a81c,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,191,warehouse/reference/papers.csv,PAPER_78691c111e6f,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,192,warehouse/reference/papers.csv,PAPER_647f68f1c901,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,193,warehouse/reference/papers.csv,PAPER_e53315864f1b,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,194,warehouse/reference/papers.csv,PAPER_646f256a701d,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,195,warehouse/reference/papers.csv,PAPER_fcbf404f0186,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,196,warehouse/reference/papers.csv,PAPER_3b6b68b19251,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,197,warehouse/reference/papers.csv,PAPER_2ed0d62749ad,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,198,warehouse/reference/papers.csv,PAPER_05bb002d824f,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,199,warehouse/reference/papers.csv,PAPER_b0f255b555c0,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+operations/snapshots/2026.07.20-omega/warehouse/reference/papers.csv,200,warehouse/reference/papers.csv,PAPER_b137fd68b275,NEEDS_VALIDATION,"paper identity catalog; quotes stay on papers.csv, not conditions.csv"
+data/product_portfolio/PRODUCT_CATALOG.csv,2,warehouse/commercial/product_master.csv,SF001,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,3,warehouse/commercial/product_master.csv,SF002,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,4,warehouse/commercial/product_master.csv,SF003,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,5,warehouse/commercial/product_master.csv,SF004,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,6,warehouse/commercial/product_master.csv,TR001,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,7,warehouse/commercial/product_master.csv,TR002,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,8,warehouse/commercial/product_master.csv,TR003,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,9,warehouse/commercial/product_master.csv,TR004,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,10,warehouse/commercial/product_master.csv,TR005,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,11,warehouse/commercial/product_master.csv,TR006,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,12,warehouse/commercial/product_master.csv,TR007,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,13,warehouse/commercial/product_master.csv,TR008,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,14,warehouse/commercial/product_master.csv,TR009,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,15,warehouse/commercial/product_master.csv,TR010,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,16,warehouse/commercial/product_master.csv,TR011,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_CATALOG.csv,17,warehouse/commercial/product_master.csv,TR012,NEEDS_VALIDATION,commercial identity only; intern catalog had no scientific quotes
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,2,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,SF001,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,3,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,SF004,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,4,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,TR003,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,5,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,TR006,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,6,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,TR007,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,7,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,TR008,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,8,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,TR009,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,9,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,TR010,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,10,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,TR011,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FUNCTIONS.csv,11,warehouse/commercial/product_functions_NEEDS_VALIDATION.csv,TR012,NEEDS_VALIDATION,intern product function row; marketing/inference not treated as science
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,2,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,3,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,4,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,5,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,6,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,7,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,8,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,9,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,10,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,11,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,12,warehouse/commercial/product_feeding_guide.csv,SF001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,13,warehouse/commercial/product_feeding_guide.csv,TR001,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,14,warehouse/commercial/product_feeding_guide.csv,TR002,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,15,warehouse/commercial/product_feeding_guide.csv,TR003,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,16,warehouse/commercial/product_feeding_guide.csv,TR004,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,17,warehouse/commercial/product_feeding_guide.csv,TR005,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,18,warehouse/commercial/product_feeding_guide.csv,TR006,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,19,warehouse/commercial/product_feeding_guide.csv,TR007,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,20,warehouse/commercial/product_feeding_guide.csv,TR008,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,21,warehouse/commercial/product_feeding_guide.csv,TR009,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,22,warehouse/commercial/product_feeding_guide.csv,TR010,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,23,warehouse/commercial/product_feeding_guide.csv,TR011,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration
+data/product_portfolio/PRODUCT_FEEDING_RULES.csv,24,warehouse/commercial/product_feeding_guide.csv,TR012,NEEDS_VALIDATION,manufacturer feeding rule recovered as commercial declaration

@@ -1,5 +1,11 @@
-# Legacy Zone
+# Legacy
 
-This folder marks the transition boundary for pre-v2 implementation assets.
+Compatibility UI and archived pre-cutover trees.
 
-Until full migration is complete, existing top-level legacy modules (for example `app/`, standalone JS files, and old authoring pipelines) should be considered legacy and migrated into `repository/` layers before feature expansion.
+**Current production demo UI:** `workbench.html` / `workbench.js` / `workbench.css` at `GET /`.
+
+Classic customer (`app.js`), business, and developer pages remain routed for compatibility. They render backend payloads; they must not compose packages.
+
+`archive/` holds historical `repository/api` and `repository/frontend` snapshots. Those are not the running path.
+
+See [docs/WAGGY_SYSTEM.md](../docs/WAGGY_SYSTEM.md).

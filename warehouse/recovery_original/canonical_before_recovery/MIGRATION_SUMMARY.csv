@@ -1,0 +1,15 @@
+old_file,rows_found,rows_migrated,rows_validation,rows_duplicated,rows_discarded,reason
+warehouse/science/breed_condition_risk.csv,16,16,0,0,0,Mapped to biology/observed_breed_conditions.csv
+warehouse/science/trait_condition_risk.csv,90,100,0,0,0,Mapped to biology/trait_condition_associations.csv plus biology/environment_facts.csv (climate rows)
+LEGACY/CONDITION_ACTIVITIES.csv (pasted),10,10,0,0,0,Merged into prevention/condition_activities.csv
+LEGACY/ACTIVITY_EVIDENCE.csv (pasted),10,10,10,0,0,Merged into prevention/condition_activities.csv with status=needs_validation for condition mapping
+LEGACY/CONDITION_INGREDIENTS.csv (pasted),12,12,12,0,0,Mapped to prevention/condition_ingredients.csv and nutrition/ingredient_composition_NEEDS_VALIDATION.csv
+LEGACY/MIXED_BREED_INTERACTIONS.csv (pasted),10,0,10,0,0,Moved to biology/mixed_breed_NEEDS_VALIDATION.csv per policy
+LEGACY/LIFE_STAGE_TABLES (pasted),14,0,14,0,0,Moved to biology/*_NEEDS_VALIDATION.csv due non-canonical schema
+warehouse/science/product_composition.csv,0,0,0,0,0,Source empty; canonical commercial files retained with headers
+warehouse/science/nutrient_targets.csv,0,0,0,0,0,Source empty; no rows to migrate
+warehouse/science/ingredient_evidence.csv,0,0,0,0,0,Source empty; no rows to migrate
+warehouse/science/ingredient_food_sources.csv,0,0,0,0,0,Source empty; no rows to migrate
+warehouse/science/prevention_effectiveness.csv,0,0,0,0,0,Source empty; no rows to migrate
+warehouse/science/food_nutrients.csv,0,0,0,0,0,Source empty; no rows to migrate
+warehouse/science/mixed_trait_interactions.csv,0,0,0,0,0,Source empty; no rows to migrate

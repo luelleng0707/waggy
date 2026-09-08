@@ -53,7 +53,9 @@ def test_known_noncanonical_csv_readers_are_explicitly_tracked():
         "app/data/repository.py",
         "app/data/warehouse/parameters.py",
         "app/data/warehouse/units.py",
+        "app/data/warehouse_biology.py",
         "repository/validation/runtime.py",
+        "scripts/recover_intern_warehouse.py",
     }
     found = set()
     for path in root.rglob("*.py"):

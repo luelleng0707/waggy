@@ -9,6 +9,7 @@ from typing import Any, Iterable, Optional
 import pandas as pd
 
 from app.data.cache import PlatformMeta, build_meta
+from app.data.demo_catalog import overlay_frame
 from app.data.loader import load_all_tables, resolve_csv_path
 from app.data.schemas import Manifest
 from app.data.validators import DataValidationError, validate_tables
@@ -83,7 +84,8 @@ class DataPlatform:
         return self._tables[name].copy()
 
     def _frame(self, name: str) -> pd.DataFrame:
-        return self._tables.get(name, pd.DataFrame()).copy()
+        base = self._tables.get(name, pd.DataFrame()).copy()
+        return overlay_frame(name, base)
 
     def _build_indexes(self) -> None:
         aliases = self._frame("breed_aliases")

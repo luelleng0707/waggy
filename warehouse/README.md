@@ -1,26 +1,22 @@
-# Warehouse — science-only scientific database
+# Warehouse
+
+Canonical scientific and commercial facts for the running system. See [docs/WAGGY_SYSTEM.md](../docs/WAGGY_SYSTEM.md).
 
 ```
-warehouse/science/{domain}/*.csv
+warehouse/biology/*.csv
+warehouse/prevention/*.csv
+warehouse/reference/papers.csv
+warehouse/commercial/*.csv
         ↓
-Repository (in-memory formula views + domain repositories)
+DataRepository + scientific_care.resolve_care_model
         ↓
-FormulaGraph → AssessmentResult → API
+PACKAGE_OPTIMIZER_V2_1 → API → workbench
 ```
 
-All scientific CSVs live under `science/`. FormulaGraph never opens files.
+Do not invent prevalence, citations, or breed–condition links. Do not convert `NEEDS_VALIDATION` or `MISSING_PROVENANCE` into validated science. Do not write runtime inference back into these CSVs.
 
-## Domains
+`warehouse/recovery_original/` is **read-only** intern recovery material.
 
-| Domain | Role |
-|--------|------|
-| `breed/` | Breeds, breed↔condition, traits↔condition, environment, activity, mixed-breed |
-| `condition/` | Conditions, protocols, timelines, grooming |
-| `ingredient/` | Ingredients, condition↔ingredient, mechanisms, evidence, aliases |
-| `nutrition/` | Foods, nutrients, sources, priorities, life stages |
-| `product/` | `PRODUCT_CATALOG`, `PRODUCT_COMPONENTS`, `PRODUCT_FUNCTIONS`, `PRODUCT_FEEDING_RULES`, `PRODUCT_PRICING`, `TREAT_BAKERY` |
-| `physiology/` | Traits, trait science, benefits |
-| `evidence/` | Papers, clinical evidence |
-| `runtime/` | aliases, parameters, units |
+`warehouse/science/` is **not** the current Health Analysis path. Historical MAT / mechanism CSVs used by warehouse-backed mathematics tests may still load through `repository/warehouse`.
 
 Package tier discounts and product defaults are Repository policy constants (not CSVs).

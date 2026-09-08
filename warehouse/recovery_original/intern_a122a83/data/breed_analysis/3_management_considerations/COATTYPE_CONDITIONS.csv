@@ -1,0 +1,11 @@
+coat_type,condition,prevalence,sample_population,sample_size,source_name,source_quote,source_url,year,confidence_level
+Double Coat,Atopic Dermatitis,0.14,Double coat registry,3140,European Veterinary Dermatology Consortium,"Dense undercoat cohorts showed higher recurrent dermatitis prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123421,2021,medium
+Double Coat,Hot Spots,0.12,Primary care dermatology,2500,Companion Skin Network,"Double-coated breeds had increased pyotraumatic dermatitis episodes.",https://pubmed.ncbi.nlm.nih.gov/30123422,2022,medium
+Single Coat,Dry Skin,0.11,Single coat companion pool,2890,Canine Barrier Function Audit,"Single-coated dogs showed more frequent barrier dysfunction signs.",https://pubmed.ncbi.nlm.nih.gov/30123423,2020,medium
+Single Coat,Otitis Externa,0.13,General practice records,4620,RVC Ear and Skin Review,"Single-coat dogs still maintained notable otitis burden.",https://pubmed.ncbi.nlm.nih.gov/30123424,2021,medium
+Curly Coat,Otitis Externa,0.18,Curly coat subset,970,Vet Ear Canal Morphology Study,"Curly-coated dogs had significantly higher otitis externa prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123425,2023,high
+Curly Coat,Atopic Dermatitis,0.16,Curly coat subset,970,Dermatology Referral Database,"Curly coat phenotypes presented atopic disease above baseline.",https://pubmed.ncbi.nlm.nih.gov/30123426,2022,high
+Wire Coat,Interdigital Dermatitis,0.10,Wire-coated terrier cohort,860,Terrier Health Registry,"Wire coats were associated with moderate interdigital inflammation burden.",https://pubmed.ncbi.nlm.nih.gov/30123427,2020,low
+Wire Coat,Dry Skin,0.09,Wire-coated terrier cohort,860,Small Breed Skin Registry,"Wire-coated dogs showed mild but persistent xerosis prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123428,2022,low
+Hairless,Sun Dermatitis,0.24,Hairless breeds,310,Canine Photodermatosis Study,"Hairless dogs had elevated chronic photo-dermatitis incidence.",https://pubmed.ncbi.nlm.nih.gov/30123429,2021,medium
+Hairless,Folliculitis,0.15,Hairless breeds,310,Canine Photodermatosis Study,"Hairless cohorts showed recurrent superficial folliculitis prevalence.",https://pubmed.ncbi.nlm.nih.gov/30123430,2021,medium

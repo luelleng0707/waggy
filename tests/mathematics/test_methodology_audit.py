@@ -13,6 +13,7 @@ from repository.warehouse import WarehouseInterface
 
 ROOT = Path(__file__).resolve().parents[2]
 DOCS = ROOT / "docs" / "mathematics"
+SPEC = ROOT / "docs" / "WAGGY_SYSTEM.md"
 EXPECTED_BENCHMARK_HASH = "b2b200753bc955b6568cbc52c83e88151db65370c58159e9d718a7e0a75b9303"
 
 
@@ -90,23 +91,23 @@ def test_all_formulas_have_dependencies_and_no_false_scientific_label():
 
 
 def test_mixed_breed_first_path_behavior_is_detected():
-    text = _read_text(DOCS / "OMEGA9_CURRENT_MODEL.md")
+    text = _read_text(SPEC)
     assert "profile.breeds[0]" in text
 
 
 def test_bayesian_methodology_flag_present_when_likelihood_not_explicit():
-    text = _read_text(DOCS / "PROPOSED_FORMULA_REGISTRY.md")
+    text = _read_text(SPEC)
     assert "METHODOLOGICAL_REDESIGN_REQUIRED" in text
 
 
 def test_uncertainty_and_agreement_semantics_are_checked():
-    text = _read_text(DOCS / "OMEGA9_CURRENT_MODEL.md")
+    text = _read_text(SPEC)
     assert "not a formal statistical confidence interval" in text
     assert "agreement is not confidence" in text
 
 
 def test_warehouse_blockers_are_detected():
-    text = _read_text(DOCS / "WAREHOUSE_BLOCKERS.md")
+    text = _read_text(SPEC)
     blocker_rows = [line for line in text.splitlines() if line.startswith("| mechanisms.")]
     assert len(blocker_rows) == 8
 

@@ -1,0 +1,5 @@
+alias,canonical_id,canonical_name,mapping_source
+dense coat,dense_coat,dense_coat,explicit_observation_vocabulary
+very dense coat,dense_coat,dense_coat,explicit_observation_vocabulary
+extremely dense coat,dense_coat,dense_coat,explicit_observation_vocabulary
+coat is extremely dense,dense_coat,dense_coat,explicit_observation_vocabulary

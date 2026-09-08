@@ -1,12 +1,11 @@
-# Waggy v2 Repository Foundation
+# repository/
 
-This directory is the new Waggy v2 architecture foundation.
+Warehouse loaders, MAT formula runtime, and optimization **helpers**.
 
-Layering direction:
+This tree does **not**:
 
-1. `repository/warehouse/` (facts only)
-2. `repository/engine/` (reasoning services, no persistence)
-3. `repository/api/` (transport + orchestration)
-4. `repository/frontend/` (presentation)
+- compose customer care packages (`PACKAGE_OPTIMIZER_V2_1` lives in `app/agent/package_search.py`)
+- serve the production UI (that is FastAPI + `legacy/workbench.html`)
+- contain `repository/api/` or `repository/frontend/` (those were archived)
 
-Legacy code outside this tree is transitional and should be migrated into these layers incrementally.
+Authoritative architecture: [docs/WAGGY_SYSTEM.md](../docs/WAGGY_SYSTEM.md).

@@ -1,0 +1,5 @@
+energy,size,body_type,age_stage,daily_km,walk_morning_min,walk_evening_min,weekly_km,mental_enrichment,swimming,fetch,training,recovery_note,source_name,source_url
+High,Large,Athletic,Adult,8.5,35,40,59.5,daily,weekly,3x weekly,daily,48h low-impact after intense sessions,Working Dog Performance Review,https://pubmed.ncbi.nlm.nih.gov/30123641
+High,Medium,Athletic,Adult,7.0,30,35,49.0,daily,biweekly,3x weekly,daily,24h recovery after high-intensity play,Canine Lifestyle Outcomes Study,https://pubmed.ncbi.nlm.nih.gov/30123647
+Medium,Large,Athletic,Senior,5.5,25,30,38.5,daily,weekly,2x weekly,daily,Extended recovery; monitor joint comfort,Canine Rehabilitation Outcomes Review,https://pubmed.ncbi.nlm.nih.gov/30123641
+High,Large,Athletic,Puppy,4.0,20,25,28.0,daily,avoid,2x weekly,short sessions,Avoid repetitive jumping until growth plates close,Working Dog Performance Review,https://pubmed.ncbi.nlm.nih.gov/30123641

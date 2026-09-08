@@ -73,25 +73,46 @@
     </button>`;
   }
 
+  function na(value) {
+    return value == null || value === '' ? 'NOT AVAILABLE FROM RUNTIME' : value;
+  }
+
+  function formatMoney(value) {
+    if (value == null || value === '') return 'NOT AVAILABLE FROM RUNTIME';
+    const n = Number(value);
+    if (Number.isNaN(n)) return 'NOT AVAILABLE FROM RUNTIME';
+    return '¥' + n.toLocaleString();
+  }
+
   function packageCard(pkg, opts) {
-    const products = (pkg.products || []).slice(0, opts?.productLimit || 4);
+    const products = pkg.products || [];
     const rawSum = String(pkg.summary || '');
     const sum = scrub(rawSum.slice(0, 180)) + (rawSum.length > 180 ? '…' : '');
+    const compositionStatus = pkg.composition_status || (products.length ? 'AVAILABLE' : 'NOT AVAILABLE FROM RUNTIME');
     return `<article class="px-pkg">
       <p class="px-kicker">${pkg.recommended ? 'Recommended for you' : 'Care pathway'}</p>
       <h3 class="px-pkg__title">${esc(scrub(pkg.title))}</h3>
-      <p class="px-pkg__sum">${esc(sum)}</p>
+      <p class="px-pkg__sum">${esc(sum || 'NOT AVAILABLE FROM RUNTIME')}</p>
       <div class="px-pkg__metrics">
-        ${statCard('Coverage', pkg.coverage_score != null ? pkg.coverage_score + '%' : '—', 'Pathway')}
-        ${statCard('Monthly', pkg.monthly_cost != null ? '¥' + Number(pkg.monthly_cost).toLocaleString() : '—', '')}
-        ${statCard('Products', String((pkg.products || []).length), 'Included')}
+        ${statCard('Coverage', pkg.coverage_score != null ? pkg.coverage_score + '%' : 'NOT AVAILABLE FROM RUNTIME', 'Pathway')}
+        ${statCard('Monthly', formatMoney(pkg.monthly_cost), '')}
+        ${statCard('Yearly', formatMoney(pkg.yearly_cost), '')}
+        ${statCard('Products', products.length ? String(products.length) : compositionStatus, 'Included')}
       </div>
       ${
         products.length
           ? `<ul class="px-pkg__products">${products
-              .map(p => `<li>${esc(scrub(p.name))}${p.serving ? ` · ${esc(p.serving)}` : ''}</li>`)
+              .map(p => {
+                const bits = [
+                  scrub(p.name || p.product_name),
+                  p.brand ? `Brand ${scrub(p.brand)}` : null,
+                  p.serving || p.monthly_quantity || p.quantity ? `Qty ${scrub(p.serving || p.monthly_quantity || p.quantity)}` : null,
+                  p.monthly_cost != null ? `${formatMoney(p.monthly_cost)}/mo` : (p.price != null ? formatMoney(p.price) : null)
+                ].filter(Boolean);
+                return `<li>${esc(bits.join(' · ') || 'NOT AVAILABLE FROM RUNTIME')}</li>`;
+              })
               .join('')}</ul>`
-          : ''
+          : `<p class="px-muted">Package products: ${esc(compositionStatus)}</p>`
       }
       <button type="button" class="px-btn px-btn--primary" data-package-page="${esc(pkg.tier)}">Open package</button>
     </article>`;
@@ -100,19 +121,22 @@
   function productCard(p, opts) {
     const id = p.product_id || '';
     const catalog = id && global.CatalogService?.get?.(id);
-    const name = scrub(p.name || catalog?.product_name || id);
+    const name = scrub(p.name || catalog?.product_name || id || 'NOT AVAILABLE FROM RUNTIME');
     const rawWhy = scrub(p.why_selected || p.summary || p.serving || '');
     const why = rawWhy.slice(0, 120) + (rawWhy.length > 120 ? '…' : '');
     const img = opts?.showImage && catalog ? global.CatalogService.imageHtml?.(catalog, name) || '' : '';
+    const brand = p.brand || catalog?.brand;
+    const price = p.price != null ? p.price : (p.monthly_cost != null ? p.monthly_cost : catalog && (catalog.list_price_rmb ?? catalog.price_rmb));
     return `<button type="button" class="px-product" data-product-page="${esc(id)}">
       ${img ? `<div class="px-product__media">${img}</div>` : ''}
       <div class="px-product__body">
         <strong>${esc(name)}</strong>
+        ${brand ? `<span class="px-kicker">${esc(scrub(brand))}</span>` : ''}
         ${p.category ? `<span class="px-kicker">${esc(scrub(String(p.category).replace(/_/g, ' ')))}</span>` : ''}
         ${why ? `<p>${esc(why)}</p>` : ''}
         <div class="px-product__meta">
-          ${p.serving ? `<span>${esc(p.serving)}</span>` : ''}
-          ${p.monthly_cost != null ? `<span>¥${Number(p.monthly_cost).toLocaleString()}/mo</span>` : ''}
+          ${p.serving || p.monthly_quantity ? `<span>${esc(p.serving || p.monthly_quantity)}</span>` : `<span>Qty NOT AVAILABLE FROM RUNTIME</span>`}
+          ${price != null ? `<span>${esc(formatMoney(price))}</span>` : `<span>Price NOT AVAILABLE FROM RUNTIME</span>`}
         </div>
       </div>
       <span class="px-product__go" aria-hidden="true">›</span>
@@ -202,6 +226,8 @@
     evidenceForTopic,
     planRow,
     exploreTile,
-    inlineExpand
+    inlineExpand,
+    na,
+    formatMoney
   };
 })(window);
