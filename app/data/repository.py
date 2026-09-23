@@ -175,6 +175,12 @@ class DataPlatform:
     def breeds_df(self) -> pd.DataFrame:
         return self._frame("breeds")
 
+    def breed_catalog(self):
+        """Typed snapshot of the existing breeds projection. Does not re-read CSVs."""
+        from app.data.breed_catalog import BiologyCsvBreedCatalog
+
+        return BiologyCsvBreedCatalog.from_platform(self)
+
     def breed_conditions(self) -> pd.DataFrame:
         df = self._frame("breed_conditions")
         if not df.empty and "prevalence" in df.columns:
@@ -548,6 +554,9 @@ class DataRepository:
 
     def breeds(self) -> pd.DataFrame:
         return self.platform.breeds_df()
+
+    def breed_catalog(self):
+        return self.platform.breed_catalog()
 
     def breed_conditions(self) -> pd.DataFrame:
         return self.platform.breed_conditions()

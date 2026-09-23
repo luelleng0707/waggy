@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from pathlib import Path
 
 from fastapi.testclient import TestClient
@@ -247,7 +248,7 @@ def test_surfaces_share_package_options(demo_env):
 
 
 def test_frontend_does_not_hardcode_combo_outputs():
-    js = (ROOT / "legacy" / "workbench.js").read_text(encoding="utf-8")
+    js = (WORKBENCH_JS).read_text(encoding="utf-8")
     assert "SF001" not in js
     assert "4095" not in js
     assert "package_options" in js

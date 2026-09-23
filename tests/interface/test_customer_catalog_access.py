@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from pathlib import Path
 
 from fastapi.testclient import TestClient
@@ -31,7 +32,8 @@ def test_customer_page_loads():
     assert "workbench.js" in response.text
     classic = client.get("/classic")
     assert classic.status_code == 200
-    assert "catalog-service.js" in classic.text
+    assert "workbench.js" in classic.text
+    assert "role-selector" in classic.text
 
 
 def test_customer_catalog_boot_succeeds_without_frontend_api_key(monkeypatch: pytest.MonkeyPatch):
@@ -49,14 +51,14 @@ def test_customer_catalog_boot_succeeds_without_frontend_api_key(monkeypatch: py
 def test_no_secret_appears_in_frontend_assets():
     root = Path(__file__).resolve().parents[2]
     files = [
-        root / "legacy" / "app.js",
-        root / "legacy" / "catalog-service.js",
-        root / "legacy" / "business.js",
-        root / "legacy" / "ppie-shell.js",
-        root / "legacy" / "ppie-ui.js",
-        root / "legacy" / "index.html",
-        root / "legacy" / "workbench.js",
-        root / "legacy" / "workbench.html",
+        root / "legacy" / "archive" / "frontend" / "app.js",
+        root / "legacy" / "archive" / "frontend" / "catalog-service.js",
+        root / "legacy" / "archive" / "frontend" / "business.js",
+        root / "legacy" / "archive" / "frontend" / "ppie-shell.js",
+        root / "legacy" / "archive" / "frontend" / "ppie-ui.js",
+        root / "legacy" / "archive" / "frontend" / "index.html",
+        WORKBENCH_JS,
+        WORKBENCH_HTML,
     ]
     for path in files:
         text = path.read_text(encoding="utf-8")
@@ -82,7 +84,7 @@ def test_protected_mutation_endpoint_remains_protected(monkeypatch: pytest.Monke
 
 def test_catalog_service_uses_presentation_catalog_endpoint():
     root = Path(__file__).resolve().parents[2]
-    text = (root / "legacy" / "catalog-service.js").read_text(encoding="utf-8")
+    text = (root / "legacy" / "archive" / "frontend" / "catalog-service.js").read_text(encoding="utf-8")
     assert "/api/v1/presentation/catalog" in text
     assert "x-api-key" not in text or "if (API_KEY)" in text
     assert "wagtopia-demo-key" not in text

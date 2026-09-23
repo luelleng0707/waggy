@@ -27,6 +27,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.ui.cstc.suite_utils import default_demo_profile, find_open_port, health_check, wait_for_health  # noqa: E402
+from scripts.run_wagtopia_local import resolve_workbench_static_path  # noqa: E402
 
 CUSTOMER_ALLOWED_API_PREFIXES = (
     "/api/v1/clinical-report",
@@ -62,14 +63,16 @@ class _ProcessLogPump(threading.Thread):
 class _CustomerGatewayHandler(SimpleHTTPRequestHandler):
     api_base_url = ""
     static_root = ROOT / "legacy"
+    frontend_root = ROOT / "waggy-frontend"
 
     def translate_path(self, path: str) -> str:
-        parsed = urllib.parse.urlparse(path)
-        clean = parsed.path.lstrip("/")
-        target = self.static_root / clean
-        if parsed.path == "/":
-            target = self.static_root / "index.html"
-        return str(target)
+        return str(
+            resolve_workbench_static_path(
+                path,
+                frontend_root=self.frontend_root,
+                legacy_root=self.static_root,
+            )
+        )
 
     def _proxy(self):
         target = f"{self.api_base_url}{self.path}"
@@ -253,7 +256,11 @@ class RemoteInterfaceSuite:
         handler_cls = type(
             "CustomerGatewayHandler",
             (_CustomerGatewayHandler,),
-            {"api_base_url": self.api_base_url, "static_root": ROOT / "legacy"},
+            {
+                "api_base_url": self.api_base_url,
+                "static_root": ROOT / "legacy",
+                "frontend_root": ROOT / "waggy-frontend",
+            },
         )
         self.gateway_server = ThreadingHTTPServer(("127.0.0.1", self.ui_port), handler_cls)
         self.gateway_thread = threading.Thread(

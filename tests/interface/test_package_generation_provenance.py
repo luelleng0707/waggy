@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 import ast
 from pathlib import Path
 import re
@@ -34,19 +35,19 @@ _AI_DEPENDENCY_TOKENS = (
 )
 
 _FRONTEND_ASSETS = (
-    ROOT / "legacy" / "index.html",
-    ROOT / "legacy" / "app.js",
-    ROOT / "legacy" / "business.html",
-    ROOT / "legacy" / "business.js",
-    ROOT / "legacy" / "business.css",
+    ROOT / "legacy" / "archive" / "frontend" / "index.html",
+    ROOT / "legacy" / "archive" / "frontend" / "app.js",
+    ROOT / "legacy" / "archive" / "frontend" / "business.html",
+    ROOT / "legacy" / "archive" / "frontend" / "business.js",
+    ROOT / "legacy" / "archive" / "frontend" / "business.css",
     ROOT / "legacy" / "debug" / "calculation.html",
     ROOT / "legacy" / "ppie-validation-console.js",
-    ROOT / "legacy" / "ppie-shell.js",
-    ROOT / "legacy" / "ppie-ui.js",
-    ROOT / "legacy" / "catalog-service.js",
-    ROOT / "legacy" / "workbench.html",
-    ROOT / "legacy" / "workbench.js",
-    ROOT / "legacy" / "workbench.css",
+    ROOT / "legacy" / "archive" / "frontend" / "ppie-shell.js",
+    ROOT / "legacy" / "archive" / "frontend" / "ppie-ui.js",
+    ROOT / "legacy" / "archive" / "frontend" / "catalog-service.js",
+    WORKBENCH_HTML,
+    WORKBENCH_JS,
+    WORKBENCH_CSS,
 )
 
 

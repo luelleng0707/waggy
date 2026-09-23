@@ -251,6 +251,6 @@ def test_dependency_direction_no_reverse_imports():
             assert not mod.startswith("repository.frontend")
 
     # Historical repository/api and repository/frontend were archived to legacy/.
-    # They are not part of the production path (app.api.main + legacy/workbench).
+    # They are not part of the production path (app.api.main + waggy-frontend).
     assert not api_dir.exists()
     assert not frontend_dir.exists()

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from pathlib import Path
 
 import pytest
@@ -18,9 +19,6 @@ from app.data.demo_scientific_dataset import build_demo_requirement_profile
 
 
 ROOT = Path(__file__).resolve().parents[2]
-WORKBENCH_JS = ROOT / "legacy" / "workbench.js"
-WORKBENCH_HTML = ROOT / "legacy" / "workbench.html"
-WORKBENCH_CSS = ROOT / "legacy" / "workbench.css"
 FORBIDDEN_SKUS = ("SF001", "SF002", "TR003", "TR007", "TR011", "JB001")
 DIAGNOSIS_PHRASES = (
     "your dog has",
@@ -343,4 +341,7 @@ def test_customer_projection_exposes_names_briefing_and_reasoning(demo_client: T
     assert customer["health_analysis"]["anchor"] == "health-analysis"
     facts = opt["nutrition_facts"]
     assert any(row.get("status_label") for row in facts)
-    assert "omega10" in WORKBENCH_HTML.read_text(encoding="utf-8")
+    html = WORKBENCH_HTML.read_text(encoding="utf-8")
+    assert 'id="nutrition-modal"' in html
+    assert "workbench.css?v=" in html
+    assert "workbench.js?v=" in html

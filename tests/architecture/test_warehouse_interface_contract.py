@@ -54,6 +54,8 @@ def test_known_noncanonical_csv_readers_are_explicitly_tracked():
         "app/data/warehouse/parameters.py",
         "app/data/warehouse/units.py",
         "app/data/warehouse_biology.py",
+        # Ω12 mapping catalog reader (pre-existing tracker omission; not on the engine path).
+        "app/normalization/catalog.py",
         "repository/validation/runtime.py",
         "scripts/recover_intern_warehouse.py",
     }

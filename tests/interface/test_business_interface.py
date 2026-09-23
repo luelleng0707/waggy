@@ -17,7 +17,9 @@ def client(monkeypatch: pytest.MonkeyPatch) -> TestClient:
 def test_business_route_serves_dashboard(client: TestClient):
     response = client.get("/business")
     assert response.status_code == 200
-    assert "Wagtopia Business Dashboard" in response.text
+    assert "workbench.js" in response.text
+    assert 'data-role="business"' in response.text
+    assert "Wagtopia Business Dashboard" not in response.text
     assert "formula_execution.v2" not in response.text
     assert "execution_id" not in response.text
 
@@ -51,7 +53,7 @@ def test_business_surface_contract_runtime_backed(client: TestClient):
 
 def test_business_ui_contains_no_scientific_runtime_logic():
     root = Path(__file__).resolve().parents[2]
-    text = (root / "legacy" / "business.js").read_text(encoding="utf-8")
+    text = (root / "legacy" / "archive" / "frontend" / "business.js").read_text(encoding="utf-8")
     forbidden = ("compute_risks(", "repository.mathematics", "warehouse/", "scientific_quote =")
     for token in forbidden:
         assert token not in text

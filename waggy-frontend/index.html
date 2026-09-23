@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Waggy Workbench — Personalized Wellness Analysis</title>
+  <link rel="stylesheet" href="/src/styles/theme.css">
+  <link rel="stylesheet" href="/src/styles/workbench.css?v=phase-u">
+</head>
+<body>
+  <main class="page-module" id="page-module">
+    <header>
+      <h1>Personalized Wellness Analysis</h1>
+      <p>Wagtopia Waggy Workbench. one workbench. Health → Nutrition → Products → Packages.</p>
+      <p class="wb-help">DEMO CATALOG. Load Demo does not save. Saved observations are not diagnoses and are not scientific facts.</p>
+    </header>
+
+    <nav id="role-selector" aria-label="Role">
+      <button type="button" data-role="customer">Customer</button>
+      <button type="button" data-role="groomer">Groomer</button>
+      <button type="button" data-role="business">Business</button>
+      <button type="button" data-role="developer">Developer</button>
+    </nav>
+
+    <section id="dog-profile-fields" data-view="customer">
+      <h2>Dog</h2>
+      <label>Dog id <input id="dog-id" name="dog_id" autocomplete="off"></label>
+      <label>Name <input name="name" autocomplete="off"></label>
+      <label>Primary breed <input name="primary_breed" autocomplete="off"></label>
+      <label>Secondary breed <input name="secondary_breed" autocomplete="off"></label>
+      <label>Birthday <input name="birthday" autocomplete="off"></label>
+      <label>As of date <input name="as_of_date" autocomplete="off"></label>
+      <label>Weight <input name="weight" inputmode="decimal" autocomplete="off"></label>
+      <label>Sex <input name="sex" autocomplete="off"></label>
+      <label>Activity level <input name="activity_level" autocomplete="off"></label>
+      <label>Current environment <input name="current_environment" autocomplete="off"></label>
+      <label>Observed conditions <input name="observed_conditions" autocomplete="off"></label>
+      <label>Monthly budget <input name="monthly_budget" inputmode="decimal" autocomplete="off"></label>
+      <button type="button" id="save-dog">Save dog</button>
+      <button type="button" id="load-dog">Load dog</button>
+    </section>
+
+    <section id="care-history-panel" data-view="customer">
+      <h2>Care history</h2>
+      <p class="wb-help">Events returned for the current persisted dog. This list is not a diagnosis.</p>
+      <ul id="care-history-list" class="wb-history"></ul>
+    </section>
+
+    <section id="groomer-fields" data-view="groomer" hidden>
+      <h2>Observations</h2>
+      <p>Not a diagnosis</p>
+      <textarea id="groomer-observations" name="groomer_observations"></textarea>
+    </section>
+
+    <section id="business-fields" data-view="business" hidden>
+      <h2>Commercial context</h2>
+      <p>Does not change scientific findings</p>
+      <label>Segment <input id="business-segment" name="business_segment" autocomplete="off"></label>
+    </section>
+
+    <section data-view="developer" hidden>
+      <h2>Developer</h2>
+      <p>POST /api/v1/presentation/workbench is the canonical analysis call. /api/v1/analyze is a separate raw engine route.</p>
+      <p>Compare stored analyses at /analyses/compare. Ask Waggy explains a result and does not run the engine.</p>
+      <pre id="workbench-example-json"></pre>
+      <button type="button" id="copy-workbench-example">Copy example</button>
+      <pre id="developer-live"></pre>
+    </section>
+
+    <p id="workbench-error" class="workbench-error" role="alert"></p>
+    <button type="button" id="module-load-demo">Load Demo Dog</button>
+    <button type="button" id="module-analyze">Run analysis</button>
+    <button type="button" id="recompute-preferences">Recompute preferences</button>
+    <section id="recalculation-facts"></section>
+    <section id="health-analysis"></section>
+    <section id="package-view"></section>
+
+    <aside id="ai-explain-panel" hidden>
+      <h2>Ask Waggy</h2>
+      <label>Follow-up <input id="ai-explain-input" autocomplete="off"></label>
+      <button type="button" id="ai-explain-send">Send</button>
+      <pre id="ai-explain-log"></pre>
+    </aside>
+  </main>
+
+  <div id="nutrition-modal">
+    <div class="wb-modal-backdrop" data-close-nutrition></div>
+    <div class="wb-modal-panel" role="dialog" aria-modal="true" aria-labelledby="nutrition-modal-title">
+      <button type="button" class="wb-modal-close" data-close-nutrition aria-label="Close nutrition facts">×</button>
+      <h2 id="nutrition-modal-title">Nutrition Facts</h2>
+      <div id="nutrition-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="/src/api/runtime-config.js"></script>
+  <script type="module" src="/src/workbench.js?v=phase-u"></script>
+</body>
+</html>

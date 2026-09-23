@@ -12,11 +12,11 @@ def _read(path: str) -> str:
 
 def test_no_frontend_default_demo_key_fallbacks():
     frontend_files = [
-        "legacy/app.js",
-        "legacy/business.js",
-        "legacy/catalog-service.js",
+        "legacy/archive/frontend/app.js",
+        "legacy/archive/frontend/business.js",
+        "legacy/archive/frontend/catalog-service.js",
         "legacy/ppie-validation-console.js",
-        "legacy/workbench.js",
+        "waggy-frontend/src/workbench.js",
     ]
     for rel in frontend_files:
         text = _read(rel)

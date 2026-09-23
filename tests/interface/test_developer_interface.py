@@ -16,13 +16,16 @@ def client(monkeypatch: pytest.MonkeyPatch) -> TestClient:
 def test_developer_route_serves_developer_ui(client: TestClient):
     response = client.get("/developer")
     assert response.status_code == 200
-    assert "Clinical Execution Explorer" in response.text
+    assert "workbench.js" in response.text
+    assert 'data-role="developer"' in response.text
+    assert "Clinical Execution Explorer" not in response.text
 
 
 def test_developer_surface_read_only_contract(client: TestClient):
-    response = client.get("/developer")
+    response = client.get("/debug/calculation")
     assert response.status_code == 200
     text = response.text
+    assert "Clinical Execution Explorer" in text
     assert "Run assessment" in text
     assert "<form" not in text
 

@@ -315,12 +315,12 @@ No live sales/revenue pipeline is implemented. Do not treat purchases as health 
 
 | Actor | Input today | Can modify today | Receives |
 |---|---|---|---|
-| Customer | Dog profile, optional budget | Request body only (no customer account DB) | Customer projection |
-| Groomer | Observations on the request; optional in-memory session | `POST /api/v1/groomer/update` **in-process memory** (not durable) | Groomer projection |
+| Customer | Dog profile, optional budget; optional saved dog | Request body; `POST /api/v1/dogs` (prototype, no production auth) | Customer projection |
+| Groomer | Observations on the request; durable `GROOMER_OBSERVATION` when a dog is identified | `POST /api/v1/groomer/update` writes canonical dog events when `dog_id` or a unique name matches; unnamed pets stay a transient cache | Groomer projection |
 | Business | Optional `WAGTOPIA_BUSINESS_ACCESS_KEY` | Commercial pages/API when key set | Business projection; **no** real analytics warehouse |
 | Science team | Authoring drafts | Staging `POST /api/v1/authoring/evidence` + materialize (**off** the agent tool surface) | Authoring/research routes |
 | Developer | Optional `WAGTOPIA_DEVELOPER_ACCESS_KEY`, `PPIE_DEBUG` | Code / debug console | Developer projection, traces, versions |
-| AI chatbot | — | — | **NOT IMPLEMENTED** |
+| AI explanation | Optional `POST /api/v1/ai/explain` after analysis; optional `POST /api/v1/ai/tools/invoke` | Structured preference **candidates** via `propose_preference` only; cannot persist preferences, write warehouse facts, or edit packages. Recalculation provenance is copied from the system contract when supplied | Explanation / Q&A; `recalculation` is system-owned |
 
 Full RBAC, customer accounts, and permissioned tool calls are **PLANNED** (Ω11 `ActorRole` / `AgentContext` are contracts only).
 
@@ -338,24 +338,24 @@ Engine input today: `DogProfileInput.observed_conditions: list[str]`.
 
 Ω11 typed `Observation` exists in `app/contracts/agent/observations.py` and is **not** wired to HTTP.
 
-Hidden groomer session merge (by pet name) on analyze/workbench is an **application** behavior. It is a determinism limitation. Canonical tool contracts must not depend on it.
+Hidden groomer merge on **analyze / clinical-report** is an **application** behavior (`observations_for_legacy_analyze`). The canonical workbench contract does **not** merge groomer cache or saved-dog observations unless they are on the request. It is a determinism limitation on those legacy paths. Canonical tool contracts must not depend on it.
 
 ---
 
 # 15. AI Chatbot Architecture
 
-**NOT IMPLEMENTED.** Intended (PLANNED):
+Chat UI / live Gemini orchestration is **NOT IMPLEMENTED**. The internal tool path is **CURRENT** (Ω17.4):
 
 ```
 AI Chatbot / Gemini
         ↓ intent
-Authorized tool selection
+Authorized tool selection (allowlisted names only)
         ↓
-Permission / input validation
+Permission / input validation (WaggyToolGateway)
         ↓
-Deterministic Waggy capability
+Deterministic Waggy capability (stored digest / catalog / validator)
         ↓
-Canonical result
+Canonical bounded result (waggy_tool_result.v1)
         ↓
 AI explanation only
 ```
@@ -366,11 +366,11 @@ The LLM **must not**: invent facts or prevalence; invent product claims; choose 
 
 # 16. Evidence-Bounded Chat
 
-**PLANNED** (Ω11+ tool architecture). Not present in the UI or API.
+**PARTIAL.** Internal tools exist (`POST /api/v1/ai/tools/invoke`). There is still no chat dock that selects tools. MCP / external tool server is **NOT IMPLEMENTED**.
 
-Desired pattern: question → authorized tool → canonical data → traceable result → “I don’t have approved Waggy evidence for that” when empty.
+Pattern: question → authorized tool → bounded structured data → “I don’t have approved Waggy evidence for that” when `NOT_AVAILABLE`.
 
-Do not claim this exists.
+Do not claim a chatbot UI exists.
 
 ---
 
@@ -400,9 +400,9 @@ Live end-to-end provenance objects for a future agent envelope: Ω11 `Provenance
 
 # 19. Backend Mutation Through AI
 
-**NOT IMPLEMENTED.** No `update_customer_preferences` or `record_observation` tools.
+**NOT IMPLEMENTED.** No `set_preferences`, `update_customer_preferences`, or `record_observation` tools.
 
-Intended: LLM extracts structure → authorized tool → engine reruns. LLM never writes prevalence or nutrient tables.
+`propose_preference` returns a validated candidate only. Preference mutation remains an explicit application-authorized operation (`POST /api/v1/dogs/{id}/preferences` or `/recompute`).
 
 Authoring WRITE routes are science-team staging, not chatbot tools.
 
@@ -412,18 +412,24 @@ Authoring WRITE routes are science-team staging, not chatbot tools.
 
 | Name | Status |
 |---|---|
-| `resolve_dog` | Internal (`profile_from_analyze_body` / `DogProfileInput`) |
-| `analyze_health` | **PLANNED** tool name; capability = `careModel` slice |
-| `calculate_nutrition` | **PLANNED** tool name; capability = `requirementProfile` slice |
-| `optimize_bundles` | **PLANNED** tool name; capability = `run_package_search` |
-| `generate_report` | **PLANNED** projection; `POST /api/v1/clinical-report` exists as an **application** report |
+| `get_dog_profile` | **CURRENT** internal tool — stored dog fields; no engine |
+| `analyze_health` | **CURRENT** internal tool — stored analysis digest slice |
+| `calculate_nutrition` | **CURRENT** internal tool — stored nutrition snapshot slice |
+| `get_products` | **CURRENT** internal tool — narrow catalog filters; no SQL |
+| `get_package_options` | **CURRENT** internal tool — stored package digest; not a second optimizer |
+| `get_recalculation_explanation` | **CURRENT** internal tool — `waggy_recalculation_explanation.v1` |
+| `compare_analyses` | **CURRENT** internal tool — stored digest diff; `engine_ran: false` |
+| `propose_preference` | **CURRENT** candidate only; does not persist |
+| `optimize_bundles` / `generate_report` | Ω11 **PLANNED** registry names; not executable Ω17.4 tools |
 | `evaluate_product` / `match_products` | **NOT** a public tool |
 | Tool server / `POST /tools/call` / MCP | **NOT IMPLEMENTED** |
-| FastAPI | Application HTTP — **not** a tool host |
+| `POST /api/v1/ai/tools/invoke` | **CURRENT** application adapter — not MCP |
 
-Ω11 defines `app/contracts/agent/` and `FUTURE_TOOL_REGISTRY` (**no `execute`**).
+Ω11 defines `app/contracts/agent/` and `FUTURE_TOOL_REGISTRY` (**no `execute`**). Ω17.4 executable tools are `app/tools/` (`WaggyToolGateway`).
 
-An external agent **cannot** currently call named tools. Closest typed HTTP: `POST /api/v2/wellness/evaluate` (`DogProfileInput` → full analyze dict). That is still an application endpoint.
+An external MCP agent **cannot** call a tool server. Application HTTP may invoke the allowlisted gateway. Closest full-analysis HTTP is still `POST /api/v2/wellness/evaluate` (`DogProfileInput` → full analyze dict). That is not a tool.
+
+See [docs/omega17.4-completion-report.md](docs/omega17.4-completion-report.md).
 
 ---
 
@@ -435,7 +441,7 @@ Intended dog input: name, breed(s), age, weight, sex, activity, environment, obs
 
 `role_context` is **not** a scientific input. It is workbench presentation / extra observations on the HTTP body. Scientific math must stay role-neutral.
 
-Ω11 `CanonicalDogInput` does **not** silent-default age=5 / weight=20. The **application** adapter `profile_from_analyze_body` **still does** (and birthday age uses `datetime.now()`). Documented gap.
+Ω11 `CanonicalDogInput` does **not** silent-default age=5 / weight=20. The **legacy** adapter `profile_from_analyze_body` **still does** (and birthday age uses `datetime.now()` unless workbench `as_of_date` is set). `profile_from_workbench_body` is fail-closed. Documented gap on the raw analyze path.
 
 ---
 
@@ -448,8 +454,8 @@ RAW WORLD
  → scientific review                 (PARTIAL: flags, not an automated promotion pipeline)
  → canonical warehouse CSVs
  → DataRepository + engine
- → HTTP / workbench
- → future tools / agents             (PLANNED)
+ → HTTP / workbench / internal tool gateway
+ → MCP / external agents             (PLANNED)
 ```
 
 The warehouse is **not** an ingestion dump. New papers must not blindly overwrite facts. Publication date alone does not authorize a row.
@@ -474,7 +480,7 @@ Warehouse QA still reports **8 foreign-key blockers** on mechanism tables (legac
 
 Customer-level analysis must not become business “health outcomes.” Aggregate business analytics are **PLANNED** and **not implemented**.
 
-Optional keys: `API_KEYS` (`x-api-key` on some routes), `WAGTOPIA_BUSINESS_ACCESS_KEY`, `WAGTOPIA_DEVELOPER_ACCESS_KEY`. If unset, those gates do not apply. CORS is `*`. Groomer sessions are in-memory.
+Optional keys: `API_KEYS` (`x-api-key` on some routes), `WAGTOPIA_BUSINESS_ACCESS_KEY`, `WAGTOPIA_DEVELOPER_ACCESS_KEY`. If unset, those gates do not apply. CORS is `*`. `POST /api/v1/groomer/update` writes `GROOMER_OBSERVATION` events when a dog can be identified; otherwise it uses a process cache for unnamed pets. Durable dog events use SQLite (`WAGGY_STATE_PATH`).
 
 Privacy architecture is a design requirement and is not yet a production security guarantee.
 
@@ -494,15 +500,18 @@ Verified routes (`tests/interface/test_canonical_routes.py`):
 
 | Path | What |
 |---|---|
-| `GET /` | Unified workbench (`legacy/workbench.html`) |
+| `GET /` | Canonical workbench (`waggy-frontend/index.html`) |
 | `GET /demo` | Same workbench |
-| `GET /classic` | Legacy customer (`legacy/index.html`) |
-| `GET /business` | Legacy business page |
-| `GET /developer` | Debug calculation page |
-| `GET /debug/calculation` | Clinical Execution Explorer (compatibility) |
+| `GET /classic` | Same workbench (customer role) |
+| `GET /business` | Same workbench (business role) |
+| `GET /developer` | Same workbench (developer role) |
+| `GET /debug/calculation` | Clinical Execution Explorer (internal debug) |
+| `GET /archive/frontend/` | Archived classic/business UIs (reference only) |
 | `GET /health` | Process health JSON (not a “health report”) |
 
-Workbench: role selector, Health Analysis, package cards (product **names**), Nutrition Facts **modal**, compare. No chat panel.
+Workbench: one page, role selector, Health → Nutrition → Products → Packages, Nutrition Facts **modal**, compare, optional Ask Waggy, optional saved-dog / care history. No competing classic/business/developer apps.
+
+Portable copy: [`waggy-frontend/`](waggy-frontend/). It talks to Waggy only over HTTP. Isolation report: [docs/omega17.4-fe-completion-report.md](docs/omega17.4-fe-completion-report.md).
 
 ---
 
@@ -510,19 +519,21 @@ Workbench: role selector, Health Analysis, package cards (product **names**), Nu
 
 FastAPI app: `app.api.main:app` (shim `app.main:app`). OpenAPI: `GET /openapi.json` (verified). Swagger UI: FastAPI default `GET /docs` (generated; not a custom product page).
 
-Engine version on analyze payload: `engine` / `version` (`2.1.0`). Headers: `X-PPIE-Algorithm-Version`, `X-PPIE-Data-Version`, `X-PPIE-Csv-Hash`.
+Engine version on analyze payload: `engine` / `version` (`2.1.0`). OpenAPI `info.version` is HTTP **v1**, not the engine. Headers: `X-PPIE-Algorithm-Version`, `X-PPIE-Data-Version`, `X-PPIE-Csv-Hash`.
 
 ### Analysis (application endpoints, not tools)
 
 | Method | Path | Purpose | Input | Output | Status |
 |---|---|---|---|---|---|
-| POST | `/api/v1/analyze` | Full pipeline | Loose JSON (Node/Python aliases). Merges in-memory groomer session. API key if `API_KEYS` set | Analyze `dict` | CURRENT application endpoint |
+| POST | `/api/v1/analyze` | Raw engine JSON | Loose JSON (Node/Python aliases). Merges in-memory groomer session. API key if `API_KEYS` set | Analyze `dict` | CURRENT compatibility endpoint |
 | POST | `/api/v2/wellness/evaluate` | Same engine, typed | `DogProfileInput` | Same analyze dict | CURRENT; no tool envelope |
-| POST | `/api/v1/presentation/workbench` | One analysis + four projections | Analyze body + optional `role_context` | Workbench JSON | CURRENT; browser-safe |
+| POST | `/api/v1/presentation/workbench` | One analysis + four projections | Fail-closed `WorkbenchRequest` + optional `role_context` + optional `dog_id` | `workbench_presentation.v1` | CURRENT application contract |
+| POST | `/api/v1/dogs` | Persistent dog identity | Profile fields; no engine run | `waggy_dog_state.v1` | CURRENT prototype (SQLite; no production auth) |
+| POST | `/api/v1/dogs/{dog_id}/analyze` | Project stored dog → existing engine | Fail-closed projection | Same workbench envelope | CURRENT |
 | POST | `/api/v1/presentation/three-surfaces` | Customer/business/developer | Analyze body; optional business key | Three projections | CURRENT |
 | POST | `/api/v1/clinical-report` | Report projection | Analyze body | `{analyze, assessment, report, ...}` JSON | CURRENT projection |
 
-Silent defaults on analyze/workbench adapter: missing age → `5.0`, missing weight → `20.0`, default environment/activity strings.
+Silent defaults (**analyze / evaluate-adjacent adapters only**): missing age → `5.0`, missing weight → `20.0`, default environment/activity/name. **Workbench does not inherit those defaults.** Birthday-derived age is reproducible when the workbench request includes `as_of_date` (copyable Dolly example uses `2026-09-09`). See [docs/omega16-api-contract-design.md](docs/omega16-api-contract-design.md).
 
 ### Catalog
 
@@ -540,7 +551,9 @@ Demo catalog when `WAGTOPIA_DEMO_MODE` is true (`/health` reports `demo_catalog`
 - PPIE debug / validation-console (`PPIE_DEBUG` or `?debug=1` for some)
 - Science graph: `/api/v1/graph/*`, `/api/v1/science/{audit,coverage,versions}` (API key when configured)
 - Authoring + research helpers (science staging; **not** agent read/calculate)
-- Groomer session: `/api/v1/groomer/update`, `/api/v1/groomer/session/{pet_id}` (memory)
+- Groomer session: `/api/v1/groomer/update`, `/api/v1/groomer/session/{pet_id}` (canonical dog events when identified; transient cache otherwise)
+- Dog state: `/api/v1/dogs`, `/api/v1/dogs/{id}/events`, `/api/v1/dogs/{id}/preferences`, `/api/v1/dogs/{id}/recompute`, `/api/v1/dogs/{id}/analyses`, `/api/v1/dogs/{id}/analyses/compare` (SQLite; not warehouse)
+- AI: `POST /api/v1/ai/explain` (does not run the engine); `POST /api/v1/ai/tools/invoke` (allowlisted gateway; not MCP)
 - `GET /api/breeds`, evidence/products-by-condition helpers
 - `GET /authoring/explorer` looks for `authoring/studio/explorer.html` at **repo root**; the file currently lives under `legacy/authoring/studio/explorer.html` — this page may **404**
 
@@ -572,6 +585,7 @@ py -3 -m pytest tests/normalization tests/architecture/test_omega12_boundaries.p
 py -3 -m pytest tests/optimization -q
 py -3 -m pytest tests/interface -q
 py -3 -m pytest tests/mathematics tests/formulas tests/science_graph tests/warehouse_qa -q
+py -3 -m pytest tests/tools tests/architecture/test_omega17_4_tool_isolation.py tests/api/test_omega17_4_tools.py -q
 ```
 
 `tests/interface` includes exhaustive `2^N−1` searches and workbench POSTs; those can take **tens of minutes**.
@@ -592,14 +606,15 @@ Do not copy stale Ω-phase pass counts. Latest numbers: [docs/omega11-agent-data
 
 **Current limitations:**
 
-- `profile_from_analyze_body` defaults age/weight/activity/environment
-- Birthday → age uses `datetime.now()`
-- In-memory groomer session merge
+- `profile_from_analyze_body` defaults age/weight/activity/environment (legacy analyze path only) (legacy analyze path)
+- `profile_from_workbench_body` is fail-closed (no 5-year / 20 kg defaults)
+- Birthday → age uses `datetime.now()` unless workbench `as_of_date` is supplied
+- In-memory groomer session merge on analyze / clinical-report (not workbench)
 - Process-global `WAGTOPIA_DEMO_MODE`
 - `N > 14` bounded enumeration (not full `2^N−1`)
 - Without demo densities, nutrient validation is incomplete
 
-Ω11 contracts exclude `demo_mode` as a scientific field and refuse silent numeric defaults. HTTP has not been switched over.
+Ω11 contracts exclude `demo_mode` as a scientific field and refuse silent numeric defaults. Canonical workbench HTTP is fail-closed; raw `/api/v1/analyze` is not.
 
 ---
 
@@ -617,8 +632,9 @@ Health Analysis still reads the **warehouse**, not demo breed-care invention.
 
 # 32. Known Limitations
 
-- No tool server, MCP, Gemini, or chat UI
-- External agents cannot call named tools
+- No MCP, live Gemini chat UI, or public tool marketplace
+- Internal allowlisted tools exist; they do not run the engine and do not mutate preferences
+- External MCP agents cannot call named tools
 - Ω11 contracts not wired to HTTP
 - Ω12 mapping not wired to HTTP / engine
 - Product matcher often empty
@@ -627,7 +643,7 @@ Health Analysis still reads the **warehouse**, not demo breed-care invention.
 - Many warehouse rows `NEEDS_VALIDATION` / `MISSING_PROVENANCE` / `migrated`
 - Mixed-breed validated prevalence not available
 - Demo catalog required for a populated nutrient search
-- Silent HTTP defaults and session merge
+- Silent HTTP defaults and session merge on **legacy analyze** (not workbench)
 - No production auth/privacy guarantee
 - No business analytics / sales data
 - Authoring explorer path likely 404 at documented root
@@ -647,7 +663,8 @@ Separated from current implementation.
 | Ω11 canonical agent data contracts | CURRENT (types/registry only) |
 | Ω11.5 this README | CURRENT |
 | Ω12 normalization + entity mapping | CURRENT (off engine/HTTP path) |
-| Tool adapter / tool server (`analyze_health`, …) | PLANNED |
+| Ω16 canonical API + role-aware workbench | CURRENT |
+| Tool adapter / tool server (`analyze_health`, …) | CURRENT internal gateway (`app/tools/`); MCP / tool server PLANNED |
 | External-agent integration test | PLANNED |
 | Bounded Gemini/chat UI | PLANNED — must not reason |
 | Warehouse flag research (do not invent values to clear flags) | PLANNED scientific work |

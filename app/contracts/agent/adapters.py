@@ -96,6 +96,8 @@ def engine_profile_from_canonical(dog: CanonicalDogInput) -> DogProfileInput:
     Refuses age=5 / weight=20 / name=Pet / activity=High / environment defaults.
     The application payload_adapter still applies those defaults for HTTP.
     """
+    if dog.primary_breed.state == InputState.UNKNOWN:
+        raise ValueError("UNKNOWN breed cannot enter breed-dependent analysis")
     error = dog.validate_for_tools()
     if error:
         raise ValueError(error.message)

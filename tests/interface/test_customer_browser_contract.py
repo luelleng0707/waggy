@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from tests.interface.frontend_paths import CONFIG_JS, WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from pathlib import Path
 
 from fastapi.testclient import TestClient
@@ -38,12 +39,12 @@ def test_canonical_customer_route_serves_shell():
 
 def test_frontend_uses_same_origin_api_not_hardcoded_ports():
     files = [
-        ROOT / "legacy" / "app.js",
-        ROOT / "legacy" / "catalog-service.js",
-        ROOT / "legacy" / "business.js",
+        ROOT / "legacy" / "archive" / "frontend" / "app.js",
+        ROOT / "legacy" / "archive" / "frontend" / "catalog-service.js",
+        ROOT / "legacy" / "archive" / "frontend" / "business.js",
         ROOT / "legacy" / "ppie-validation-console.js",
-        ROOT / "legacy" / "ppie-shell.js",
-        ROOT / "legacy" / "workbench.js",
+        ROOT / "legacy" / "archive" / "frontend" / "ppie-shell.js",
+        WORKBENCH_JS,
     ]
     for path in files:
         text = path.read_text(encoding="utf-8")
@@ -54,19 +55,20 @@ def test_frontend_uses_same_origin_api_not_hardcoded_ports():
         assert "localhost:8010" not in text
         assert "localhost:8080" not in text
         assert "railway.app" not in text.lower()
-    catalog = (ROOT / "legacy" / "catalog-service.js").read_text(encoding="utf-8")
-    app_js = (ROOT / "legacy" / "app.js").read_text(encoding="utf-8")
+    catalog = (ROOT / "legacy" / "archive" / "frontend" / "catalog-service.js").read_text(encoding="utf-8")
+    app_js = (ROOT / "legacy" / "archive" / "frontend" / "app.js").read_text(encoding="utf-8")
     assert "location.origin" in catalog
     assert "location.origin" in app_js
     assert "/api/v1/presentation/catalog" in catalog
     assert "/api/v1/clinical-report" in app_js
-    workbench = (ROOT / "legacy" / "workbench.js").read_text(encoding="utf-8")
-    assert "location.origin" in workbench
+    workbench = WORKBENCH_JS.read_text(encoding="utf-8")
+    config = CONFIG_JS.read_text(encoding="utf-8")
+    assert "location.origin" in config
     assert "/api/v1/presentation/workbench" in workbench
 
 
 def test_demo_profile_and_analysis_request_contract():
-    app_js = (ROOT / "legacy" / "app.js").read_text(encoding="utf-8")
+    app_js = (ROOT / "legacy" / "archive" / "frontend" / "app.js").read_text(encoding="utf-8")
     assert "CANONICAL_DEMO_PROFILE" in app_js
     assert "name: 'Dolly'" in app_js
     assert "pet_name:" in app_js
@@ -99,8 +101,8 @@ def test_clinical_report_response_contract(monkeypatch: pytest.MonkeyPatch):
 
 
 def test_explicit_error_state_does_not_hide_http_status():
-    app_js = (ROOT / "legacy" / "app.js").read_text(encoding="utf-8")
-    shell = (ROOT / "legacy" / "ppie-shell.js").read_text(encoding="utf-8")
+    app_js = (ROOT / "legacy" / "archive" / "frontend" / "app.js").read_text(encoding="utf-8")
+    shell = (ROOT / "legacy" / "archive" / "frontend" / "ppie-shell.js").read_text(encoding="utf-8")
     assert "ANALYSIS UNAVAILABLE" in app_js
     assert "API returned HTTP" in app_js
     assert "formatAnalysisError" in app_js

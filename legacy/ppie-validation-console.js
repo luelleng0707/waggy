@@ -77,7 +77,7 @@
   function debugEnabled() {
     return (
       /(?:\?|&)(?:debug|dev)=(?:1|true)\b/i.test(location.search) ||
-      location.pathname === '/developer'
+      location.pathname === '/debug/calculation'
     );
   }
 

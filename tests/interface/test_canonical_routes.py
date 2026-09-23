@@ -16,11 +16,11 @@ def client(monkeypatch: pytest.MonkeyPatch) -> TestClient:
 
 
 def test_canonical_presentation_routes_are_available(client: TestClient):
-    assert client.get("/").status_code == 200
-    assert client.get("/demo").status_code == 200
-    assert client.get("/classic").status_code == 200
-    assert client.get("/business").status_code == 200
-    assert client.get("/developer").status_code == 200
+    for route in ("/", "/demo", "/classic", "/business", "/developer"):
+        response = client.get(route)
+        assert response.status_code == 200, route
+        assert "workbench.js" in response.text
+        assert "role-selector" in response.text
 
 
 def test_debug_calculation_route_remains_compatibility_endpoint(client: TestClient):

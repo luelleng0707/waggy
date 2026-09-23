@@ -19,3 +19,19 @@ Historical Ω-phase markdown, recovery reports, and superseded architecture note
 Ω10 audit snapshot: [AUDIT_REPORT.md](AUDIT_REPORT.md).
 
 Ω11 agent data contracts: [omega11-agent-data-contract-design.md](omega11-agent-data-contract-design.md), [omega11-agent-contract-inventory.md](omega11-agent-contract-inventory.md), [omega11-agent-data-contract-report.md](omega11-agent-data-contract-report.md).
+
+Ω17 conversational explanation: [omega17-ai-architecture.md](omega17-ai-architecture.md).
+
+Ω17.1 persistent dog state: [omega17.1-dog-state.md](omega17.1-dog-state.md).
+
+Ω17.1a stabilization gate: [omega17.1a-stabilization-report.md](omega17.1a-stabilization-report.md). Current-behavior report. Do not treat it as a historical Ω16.1/Ω17 completion record.
+
+Ω17.2 preference-aware recomputation: [omega17.2-completion-report.md](omega17.2-completion-report.md).
+
+Ω17.3 recalculation provenance: [omega17.3-completion-report.md](omega17.3-completion-report.md).
+
+Ω17.4 bounded tool gateway: [omega17.4-completion-report.md](omega17.4-completion-report.md). Internal `WaggyToolGateway` only; not MCP.
+
+Ω17.4-FE portable frontend: [omega17.4-fe-completion-report.md](omega17.4-fe-completion-report.md). Copy [`waggy-frontend/`](../waggy-frontend/). Distinct from the tool-gateway phase.
+
+Linked but **missing on disk** at last audit (code/tests win): [omega17.1a-stabilization-report.md](omega17.1a-stabilization-report.md), [omega17-ai-architecture.md](omega17-ai-architecture.md).

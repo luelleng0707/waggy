@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import re
 
 from fastapi.testclient import TestClient
@@ -11,10 +10,14 @@ import pytest
 from app.api.main import app
 
 
-ROOT = Path(__file__).resolve().parents[2]
-WORKBENCH_JS = ROOT / "legacy" / "workbench.js"
-WORKBENCH_HTML = ROOT / "legacy" / "workbench.html"
-WORKBENCH_CSS = ROOT / "legacy" / "workbench.css"
+from tests.interface.frontend_paths import (
+    CLIENT_JS,
+    CONFIG_JS,
+    WORKBENCH_CSS,
+    WORKBENCH_HTML,
+    WORKBENCH_JS,
+)
+
 WORKBENCH_PATH_TOKEN = "/api/v1/presentation/workbench"
 
 
@@ -149,15 +152,33 @@ def test_workbench_one_analysis_shared_across_roles(demo_client: TestClient):
     assert body["demo_catalog"] is True
 
 
+def _json_contains_token(obj: object, token: str, *, _depth: int = 0) -> bool:
+    """Walk keys and string values. Do not str() the whole customer blob."""
+    if _depth > 48:
+        return False
+    if isinstance(obj, dict):
+        for key, value in obj.items():
+            if token in str(key):
+                return True
+            if _json_contains_token(value, token, _depth=_depth + 1):
+                return True
+        return False
+    if isinstance(obj, list):
+        return any(_json_contains_token(item, token, _depth=_depth + 1) for item in obj)
+    if isinstance(obj, str):
+        return token in obj
+    return False
+
+
 def test_customer_does_not_expose_developer_internals(demo_client: TestClient):
     html = demo_client.get("/").text
     assert "formula_execution.v2" not in html
     assert "warehouse_row_status" not in html
     body = demo_client.post("/api/v1/presentation/workbench", json=_dolly_payload()).json()
-    customer_blob = str(body["roles"]["customer"])
-    assert "formula_execution" not in customer_blob
-    assert "independent_of_product_match" not in customer_blob
-    assert "build_optimized_packages" not in customer_blob
+    customer = body["roles"]["customer"]
+    assert not _json_contains_token(customer, "formula_execution")
+    assert not _json_contains_token(customer, "independent_of_product_match")
+    assert not _json_contains_token(customer, "build_optimized_packages")
     developer = body["roles"]["developer"]
     assert developer["package_optimization"]["formula_id"] == "PACKAGE_OPTIMIZER_V2_1"
     assert developer["package_optimization"]["independent_of_product_match"] is True
@@ -190,11 +211,15 @@ def test_frontend_does_not_calculate_or_hardcode_packages():
         assert "Demo Fresh Beef Bowl" not in text
         assert "monthly_cost *" not in text
         assert "products_included = [" not in text
-    assert "JSON.stringify(body)" in js
+    client = CLIENT_JS.read_text(encoding="utf-8")
+    config = CONFIG_JS.read_text(encoding="utf-8")
+    assert "JSON.stringify(json)" in client
     assert WORKBENCH_PATH_TOKEN in js
-    assert "location.origin" in js
+    assert "location.origin" in config
     assert "127.0.0.1:8000" not in js
     assert "localhost:8000" not in js
+    assert "127.0.0.1:8000" not in client
+    assert "localhost:8000" not in client
 
 
 def test_api_failure_has_explicit_ui_state():
@@ -235,8 +260,9 @@ def test_workbench_is_browser_safe_when_api_keys_set(monkeypatch: pytest.MonkeyP
 def test_classic_customer_route_preserved(demo_client: TestClient):
     classic = demo_client.get("/classic")
     assert classic.status_code == 200
-    assert "catalog-service.js" in classic.text
-    assert "ppie-shell.js" in classic.text
+    assert "workbench.js" in classic.text
+    assert "role-selector" in classic.text
+    assert "catalog-service.js" not in classic.text
 
 
 def test_switch_role_function_present_without_sku_literals():

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from pathlib import Path
 
 import pytest
@@ -115,7 +116,7 @@ def test_surfaces_share_displayed_bundle_ids(demo_env):
 
 
 def test_frontend_does_not_generate_packages():
-    js = (ROOT / "legacy" / "workbench.js").read_text(encoding="utf-8")
+    js = (WORKBENCH_JS).read_text(encoding="utf-8")
     assert "SF001" not in js
     assert "SF002" not in js
     assert "TR007" not in js

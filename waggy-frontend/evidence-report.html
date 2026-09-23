@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidence report</title>
+  <link rel="stylesheet" href="/src/styles/evidence-report.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Evidence report</h1>
+    <p class="intro">This page shows the evidence report returned by the API. Canonical rows are the observations selected by the evidence policy.</p>
+    <form id="evidence-query" class="query">
+      <label>
+        Dog id
+        <input name="dog_id" autocomplete="off" required>
+      </label>
+      <label>
+        Observation type
+        <input name="observation_type" autocomplete="off">
+      </label>
+      <p class="hint">Sent as observation_type. Limits the report on the server.</p>
+      <label>
+        Replay cutoff (as_of)
+        <input name="as_of" autocomplete="off">
+      </label>
+      <p class="hint">Sent as as_of. This is the server replay cutoff, not a display filter.</p>
+      <label>
+        Report generation stamp (generated_at)
+        <input name="generated_at" autocomplete="off">
+      </label>
+      <p class="hint">Sent as generated_at. This stamps report generation. It is not an observation time.</p>
+      <button type="submit">Load evidence report</button>
+    </form>
+    <div id="evidence-output"></div>
+  </main>
+  <script type="module" src="/src/evidence/page.js"></script>
+</body>
+</html>

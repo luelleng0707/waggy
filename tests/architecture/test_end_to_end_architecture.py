@@ -61,7 +61,10 @@ def test_presentation_routes_and_api_contract_documented():
         "GET /developer",
         "GET /health",
         "POST /api/v1/analyze",
+        "POST /api/v1/presentation/workbench",
         "POST /api/v1/presentation/three-surfaces",
+        "POST /api/v1/ai/explain",
+        "POST /api/v1/dogs",
     ):
         assert endpoint in contract
 

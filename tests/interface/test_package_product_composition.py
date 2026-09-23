@@ -123,8 +123,8 @@ def test_adapter_does_not_discard_package_products():
 
 def test_customer_package_presentation_renders_package_products():
     root = Path(__file__).resolve().parents[2]
-    shell = (root / "legacy" / "ppie-shell.js").read_text(encoding="utf-8")
-    ui = (root / "legacy" / "ppie-ui.js").read_text(encoding="utf-8")
+    shell = (root / "legacy" / "archive" / "frontend" / "ppie-shell.js").read_text(encoding="utf-8")
+    ui = (root / "legacy" / "archive" / "frontend" / "ppie-ui.js").read_text(encoding="utf-8")
     assert "Recommended products" in shell
     assert "Care packages" in shell
     assert "pkg.products" in ui
@@ -134,8 +134,8 @@ def test_customer_package_presentation_renders_package_products():
 
 def test_business_package_presentation_renders_package_products():
     root = Path(__file__).resolve().parents[2]
-    html = (root / "legacy" / "business.html").read_text(encoding="utf-8")
-    js = (root / "legacy" / "business.js").read_text(encoding="utf-8")
+    html = (root / "legacy" / "archive" / "frontend" / "business.html").read_text(encoding="utf-8")
+    js = (root / "legacy" / "archive" / "frontend" / "business.js").read_text(encoding="utf-8")
     assert "CARE PACKAGE OPPORTUNITIES" in html
     assert "package_composition" in js
     assert "NOT AVAILABLE FROM RUNTIME" in js

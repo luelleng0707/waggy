@@ -19,13 +19,16 @@ def test_core_static_surfaces_and_assets_load(client: TestClient):
         "/",
         "/business",
         "/developer",
-        "/app.js",
-        "/styles.css",
-        "/business.js",
-        "/business.css",
+        "/workbench.js",
+        "/workbench.css",
+        "/theme.css",
+        "/src/workbench.js",
+        "/src/styles/workbench.css",
+        "/src/api/client.js",
         "/ppie-validation-console.js",
         "/ppie-validation-console.css",
         "/favicon.ico",
+        "/archive/frontend/index.html",
     ]
     for route in routes:
         response = client.get(route)

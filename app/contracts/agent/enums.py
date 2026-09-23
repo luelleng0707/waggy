@@ -52,6 +52,7 @@ class DomainKind(StrEnum):
 class ObserverRole(StrEnum):
     CUSTOMER = "customer"
     GROOMER = "groomer"
+    VETERINARIAN = "veterinarian"
     SYSTEM = "system"
 
 

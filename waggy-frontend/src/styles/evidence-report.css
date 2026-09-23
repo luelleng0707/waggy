@@ -1,0 +1,120 @@
+:root {
+  color-scheme: light;
+  --ink: #1c2430;
+  --muted: #5c6b7a;
+  --line: #d5dde6;
+  --paper: #f6f8fb;
+  --card: #ffffff;
+  --observed: #0b6e4f;
+  --recorded: #1d4e89;
+  --generated: #6b3fa0;
+  --cutoff: #8a4b08;
+  --absent: #6b4f1d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 16px/1.45 "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+h1 { font-size: 1.6rem; margin: 0 0 8px; }
+h2 { font-size: 1.05rem; margin: 0 0 8px; }
+h3 { font-size: 0.95rem; margin: 16px 0 8px; }
+h4 { font-size: 0.85rem; margin: 12px 0 6px; }
+
+.intro, .canonical-policy, .empty-series, .delta-absent, .evidence-loading {
+  color: var(--muted);
+}
+
+.query {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.query label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.query input {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.query button {
+  justify-self: start;
+  font: inherit;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #1d4e89;
+  color: white;
+  cursor: pointer;
+}
+
+.hint { margin: 0; color: var(--muted); font-size: 0.8rem; }
+
+.series, .evidence-error, .evidence-report {
+  margin-top: 20px;
+}
+
+.series {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.report-stamps, .provenance, .delta-fields {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.report-stamps div, .prov-field, .delta-fields div {
+  display: grid;
+  grid-template-columns: minmax(12rem, 18rem) 1fr;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+dt { color: var(--muted); }
+dd { margin: 0; font-family: Consolas, monospace; }
+
+.time-observed dd, .time-observed dt { color: var(--observed); }
+.time-recorded dd, .time-recorded dt { color: var(--recorded); }
+.time-generated dd, .time-generated dt { color: var(--generated); }
+.time-cutoff dd, .time-cutoff dt { color: var(--cutoff); }
+
+.delta-absent {
+  color: var(--absent);
+  font-weight: 600;
+}
+
+.evidence-error {
+  padding: 16px;
+  border: 1px solid #e3b4b4;
+  background: #fff6f6;
+  border-radius: 10px;
+}
+
+.history, .timeline { padding-left: 1.2rem; }
+.timeline-point, .history-row { margin-bottom: 12px; }

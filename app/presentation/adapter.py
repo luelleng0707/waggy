@@ -25,17 +25,47 @@ CANONICAL_PIPELINE_STAGES = (
 
 NA = "NOT AVAILABLE FROM RUNTIME"
 
+_TIMING_KEYS = frozenset(
+    {
+        "elapsed_ms",
+        "timing_ms",
+        "timing",
+        "assembly_ms",
+        "stage_timings_ms",
+        "total_ms",
+        "total_pipeline",
+    }
+)
+
+
+def _without_runtime_timing(value: Any) -> Any:
+    """Drop wall-clock timing so analysis_signature is scientific, not request-duration."""
+    if isinstance(value, dict):
+        return {
+            key: _without_runtime_timing(item)
+            for key, item in value.items()
+            if key not in _TIMING_KEYS
+        }
+    if isinstance(value, list):
+        return [_without_runtime_timing(item) for item in value]
+    return value
+
 
 def analysis_signature(analyze: dict[str, Any]) -> str:
-    """Stable signature proving all surfaces came from one analysis payload."""
-    payload = {
-        "profile": analyze.get("profile"),
-        "healthInsights": analyze.get("healthInsights"),
-        "nutritionalTargets": analyze.get("nutritionalTargets"),
-        "productRecommendations": analyze.get("productRecommendations"),
-        "wellnessPackages": analyze.get("wellnessPackages"),
-        "scientificEvidence": analyze.get("scientificEvidence"),
-    }
+    """Stable signature proving all surfaces came from one analysis payload.
+
+    Timing / elapsed_ms fields are metadata and must not change scientific identity.
+    """
+    payload = _without_runtime_timing(
+        {
+            "profile": analyze.get("profile"),
+            "healthInsights": analyze.get("healthInsights"),
+            "nutritionalTargets": analyze.get("nutritionalTargets"),
+            "productRecommendations": analyze.get("productRecommendations"),
+            "wellnessPackages": analyze.get("wellnessPackages"),
+            "scientificEvidence": analyze.get("scientificEvidence"),
+        }
+    )
     raw = json.dumps(payload, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
@@ -157,6 +187,32 @@ _CUSTOMER_BUSINESS_PACKAGE_DROP = {
     "package_options",
     "_search_envelope",
 }
+
+_CUSTOMER_INTERNAL_KEYS = {
+    "formula_execution",
+    "independent_of_product_match",
+    "build_optimized_packages",
+}
+
+_HTTP_ANALYZE_DROP = {
+    "debug",
+    "packageDetails",
+    "wellnessPackages",
+}
+
+
+def _strip_internal_keys(obj: Any, keys: set[str] = _CUSTOMER_INTERNAL_KEYS) -> Any:
+    """Drop developer-only keys from a customer/business copy. Does not mutate analyze."""
+    if isinstance(obj, dict):
+        return {key: _strip_internal_keys(value, keys) for key, value in obj.items() if key not in keys}
+    if isinstance(obj, list):
+        return [_strip_internal_keys(item, keys) for item in obj]
+    return obj
+
+
+def _http_analyze_view(analyze: dict[str, Any]) -> dict[str, Any]:
+    """Workbench HTTP envelope. Keeps version/profile/raw extraction fields; drops huge internals."""
+    return {key: value for key, value in analyze.items() if key not in _HTTP_ANALYZE_DROP}
 
 
 def _surface_safe_packages(packages: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -491,7 +547,7 @@ def build_customer_presentation(analyze: dict[str, Any], assessment: dict[str, A
     nutrition = analyze.get("nutritionalTargets") or []
     activity = analyze.get("activityRecommendations") or {}
     grooming = analyze.get("groomer") or {}
-    return {
+    payload = {
         "surface": "customer",
         "demo_catalog": demo_mode_enabled(),
         "dog": {
@@ -539,6 +595,7 @@ def build_customer_presentation(analyze: dict[str, Any], assessment: dict[str, A
             ),
         },
     }
+    return _strip_internal_keys(payload)
 
 
 def build_business_presentation(analyze: dict[str, Any], assessment: dict[str, Any] | None) -> dict[str, Any]:
@@ -920,10 +977,10 @@ def build_canonical_result(
             "ai": {
                 "package_membership": "deterministic PACKAGE_OPTIMIZER_V2_1",
                 "llm_used": False,
-                "explanation_layer": "not implemented — structured facts only",
+                "explanation_layer": "optional POST /api/v1/ai/explain — not on the analysis path",
             },
         },
-        "analyze": analyze,
+        "analyze": _http_analyze_view(analyze),
         "assessment_summary": (assessment or {}).get("summary") or {},
     }
 

@@ -22,6 +22,8 @@ import urllib.request
 import webbrowser
 
 ROOT = Path(__file__).resolve().parents[1]
+FRONTEND_ROOT = ROOT / "waggy-frontend"
+LEGACY_ROOT = ROOT / "legacy"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
@@ -31,6 +33,41 @@ from app.ui.cstc.suite_utils import (  # noqa: E402
     health_check,
     wait_for_health,
 )
+
+
+def resolve_workbench_static_path(
+    pathname: str,
+    *,
+    frontend_root: Path | None = None,
+    legacy_root: Path | None = None,
+) -> Path:
+    """Map a UI request onto waggy-frontend, with legacy debug/archive fallback."""
+    frontend = (frontend_root or FRONTEND_ROOT).resolve()
+    legacy = (legacy_root or LEGACY_ROOT).resolve()
+    path = urllib.parse.urlparse(pathname).path or "/"
+    if path in {"/", "/demo", "/classic", "/business", "/developer", "/index.html"}:
+        return frontend / "index.html"
+    aliases = {
+        "/workbench.js": frontend / "src" / "workbench.js",
+        "/workbench.css": frontend / "src" / "styles" / "workbench.css",
+        "/theme.css": frontend / "src" / "styles" / "theme.css",
+    }
+    if path in aliases:
+        return aliases[path]
+    if path.startswith("/src/"):
+        target = (frontend / path[1:]).resolve()
+        try:
+            target.relative_to(frontend)
+        except ValueError:
+            return frontend / "index.html"
+        return target
+    if path == "/debug/calculation":
+        return legacy / "debug" / "calculation.html"
+    rel = path.lstrip("/")
+    candidate = frontend / rel
+    if candidate.is_file():
+        return candidate
+    return legacy / rel
 
 
 class _ProcessLogPump(threading.Thread):
@@ -50,21 +87,17 @@ class _ProcessLogPump(threading.Thread):
 
 class _LegacyGatewayHandler(SimpleHTTPRequestHandler):
     api_base_url = ""
-    static_root = ROOT / "legacy"
+    static_root = LEGACY_ROOT
+    frontend_root = FRONTEND_ROOT
 
     def translate_path(self, path: str) -> str:
-        parsed = urllib.parse.urlparse(path)
-        clean = parsed.path.lstrip("/")
-        target = self.static_root / clean
-        if parsed.path == "/":
-            target = self.static_root / "index.html"
-        if parsed.path == "/business":
-            target = self.static_root / "business.html"
-        if parsed.path == "/developer":
-            target = self.static_root / "debug" / "calculation.html"
-        if parsed.path == "/debug/calculation":
-            target = self.static_root / "debug" / "calculation.html"
-        return str(target)
+        return str(
+            resolve_workbench_static_path(
+                path,
+                frontend_root=self.frontend_root,
+                legacy_root=self.static_root,
+            )
+        )
 
     def _proxy(self):
         target = f"{self.api_base_url}{self.path}"
@@ -239,7 +272,11 @@ class LocalInterfaceSuite:
         handler_cls = type(
             "LegacyGatewayHandler",
             (_LegacyGatewayHandler,),
-            {"api_base_url": self.api_base_url, "static_root": ROOT / "legacy"},
+            {
+                "api_base_url": self.api_base_url,
+                "static_root": LEGACY_ROOT,
+                "frontend_root": FRONTEND_ROOT,
+            },
         )
         self.gateway_server = ThreadingHTTPServer(("127.0.0.1", self.ui_port), handler_cls)
         self.gateway_thread = threading.Thread(
@@ -273,8 +310,6 @@ class LocalInterfaceSuite:
         if self.args.no_browser:
             return
         _safe_browser_open(self.customer_url)
-        _safe_browser_open(self.business_url)
-        _safe_browser_open(self.developer_url)
 
     def _launch_desktop(self):
         if self.args.no_desktop:

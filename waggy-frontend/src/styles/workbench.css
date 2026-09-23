@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font: 16px/1.45 "Segoe UI", sans-serif;
+  color: var(--ink, #1c2430);
+  background: var(--paper, #f4f7fb);
+}
+
+.page-module { max-width: 1080px; margin: 0 auto; padding: 24px 16px 48px; }
+.wb-card { background: var(--card, #fff); border: 1px solid var(--line, #d5dde6); border-radius: 10px; padding: 16px; margin: 12px 0; }
+.wb-help { color: var(--muted, #5c6b7a); }
+#role-selector { display: flex; gap: 8px; flex-wrap: wrap; }
+#role-selector button, .wb-ghost { font: inherit; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--line, #d5dde6); background: #fff; cursor: pointer; }
+button[aria-pressed="true"] { background: var(--accent, #1d4e89); color: #fff; }
+label { display: grid; gap: 4px; margin: 8px 0; }
+input, textarea, select { font: inherit; padding: 8px; border: 1px solid var(--line, #d5dde6); border-radius: 6px; }
+.wb-history { padding-left: 1.2rem; }
+.workbench-error, #workbench-error { color: #8a1f1f; }
+body.wb-modal-open { overflow: hidden; }
+#nutrition-modal { position: fixed; inset: 0; display: none; }
+#nutrition-modal[open], #nutrition-modal.is-open { display: block; }
+.wb-modal-backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); }
+.wb-modal-panel { position: relative; margin: 10vh auto; max-width: 640px; background: #fff; padding: 16px; border-radius: 10px; display: flex; flex-direction: column; max-height: 80vh; }
+.wb-modal-close { align-self: flex-end; }
+#nutrition-modal-body { flex: 1 1 auto; overflow: auto; }
+.wb-funnel { font-family: Consolas, monospace; white-space: pre-wrap; }

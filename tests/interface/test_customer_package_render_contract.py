@@ -69,8 +69,8 @@ def test_package_products_render_even_when_matcher_recommendations_are_empty():
 
 
 def test_customer_shell_does_not_suppress_package_products():
-    shell = (ROOT / "legacy" / "ppie-shell.js").read_text(encoding="utf-8")
-    ui = (ROOT / "legacy" / "ppie-ui.js").read_text(encoding="utf-8")
+    shell = (ROOT / "legacy" / "archive" / "frontend" / "ppie-shell.js").read_text(encoding="utf-8")
+    ui = (ROOT / "legacy" / "archive" / "frontend" / "ppie-ui.js").read_text(encoding="utf-8")
     assert "No direct matcher recommendations available from current scientific target data." in shell
     assert "Care packages" in shell
     assert "pkg.products" in ui

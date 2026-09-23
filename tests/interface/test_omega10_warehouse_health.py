@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from pathlib import Path
 
 import pytest
@@ -38,7 +39,7 @@ def test_demo_breed_care_module_is_retired():
 
 
 def test_developer_funnel_is_visible():
-    js = (ROOT / "legacy" / "workbench.js").read_text(encoding="utf-8")
+    js = (WORKBENCH_JS).read_text(encoding="utf-8")
     assert "wb-funnel" in js
     assert "structurally eligible" in js
     assert "minimum failures" in js
@@ -79,6 +80,8 @@ def test_workbench_health_analysis_is_warehouse_backed(demo_env):
             "breeds": ["Labrador Retriever", "Golden Retriever"],
             "birthday": "2021-04-15",
             "weight": 30,
+            "activity_level": "Moderate",
+            "current_environment": "Temperate Outdoor",
             "observed_conditions": ["joint_stiffness", "itching"],
         },
     ).json()
@@ -103,8 +106,8 @@ def test_workbench_health_analysis_is_warehouse_backed(demo_env):
 
 
 def test_nutrition_modal_is_not_inline_in_package_card():
-    js = (ROOT / "legacy" / "workbench.js").read_text(encoding="utf-8")
-    html = (ROOT / "legacy" / "workbench.html").read_text(encoding="utf-8")
+    js = (WORKBENCH_JS).read_text(encoding="utf-8")
+    html = (WORKBENCH_HTML).read_text(encoding="utf-8")
     assert "data-open-nutrition" in js
     assert "nutrition-modal" in html
     assert "wb-modal-backdrop" in html

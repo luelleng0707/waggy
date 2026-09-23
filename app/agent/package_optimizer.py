@@ -23,6 +23,7 @@ from app.agent.formula_trace import (
     step,
 )
 from app.agent.utils import DataRepository, feeding_rule_for_product, ingredient_key, js_round
+from app.agent.catalog_eligibility import apply_active_constraints
 from app.inference.config import (
     DEFAULT_ESSENTIAL_COVERAGE_FLOOR,
     DEFAULT_SCORE_WEIGHTS,
@@ -738,6 +739,7 @@ def build_optimized_packages(
     weight_kg = float(getattr(profile, "weight_kg", None) or 10)
     pet_name = getattr(profile, "name", None) or "Pet"
     candidates = load_candidate_products(repo, weight_kg)
+    candidates, eligibility = apply_active_constraints(candidates)
     by_id = {str(c.get("product_id")): c for c in candidates}
     monthly_budget = getattr(profile, "monthly_budget", None)
     if monthly_budget is not None:
@@ -752,7 +754,9 @@ def build_optimized_packages(
         repo=repo,
     )
     options = search["package_options"]
-    provenance = search["provenance"]
+    provenance = dict(search.get("provenance") or {})
+    provenance["preference_eligibility"] = eligibility
+    search["provenance"] = provenance
     requirements = search["requirement_profile"]
     goals = [{"goal_id": h.get("goal_id"), "title": h.get("title")} for h in (health_insights or [])]
     alias_groups = repo.ingredient_alias_groups()

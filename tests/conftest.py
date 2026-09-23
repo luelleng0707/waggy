@@ -83,3 +83,18 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
 def _demo_catalog_off_by_default(monkeypatch: pytest.MonkeyPatch) -> None:
     """Production tests must not inherit an interview DEMO_MODE from the shell."""
     monkeypatch.delenv("WAGTOPIA_DEMO_MODE", raising=False)
+
+
+@pytest.fixture(autouse=True)
+def _isolated_waggy_state(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Dog-state SQLite must not leak across tests or into var/."""
+    monkeypatch.setenv("WAGGY_STATE_PATH", str(tmp_path / "waggy_state.sqlite"))
+    from app.state.groomer import reset_groomer_sessions
+    from app.state.store import reset_connection, reset_store
+
+    reset_connection()
+    reset_store()
+    reset_groomer_sessions()
+    yield
+    reset_groomer_sessions()
+    reset_connection()

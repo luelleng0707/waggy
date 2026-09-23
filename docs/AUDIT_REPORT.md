@@ -14,14 +14,16 @@ warehouse CSVs (+ optional WAGTOPIA_DEMO_MODE catalog overlay)
   → PACKAGE_OPTIMIZER_V2_1 (app/agent/package_search.py; exhaustive 2^N−1)
   → presentation adapter (app/presentation/adapter.py)
   → FastAPI (app/api/main.py)
-  → legacy/workbench.html|js|css at GET /
+  → waggy-frontend at GET /
 ```
+
+Ω17.4-FE moved the active workbench from `legacy/workbench.*` into copyable `waggy-frontend/`. This audit snapshot is otherwise unchanged.
 
 There is one analysis execution path. Role switching calls `POST /api/v1/presentation/workbench` once and projects Customer / Groomer / Business / Developer from the same canonical result.
 
 `PACKAGE_OPTIMIZER_V2_1` is the only package composer. The frontend does not enumerate combinations, calculate nutrients, or choose SKUs.
 
-Historical Electron / PPie / workbench-classic files in `legacy/` remain routed for compatibility (`GET /classic`, `/business`, `/developer`). They are not a second optimizer.
+Historical Electron / PPie / workbench-classic files are archived in `legacy/archive/frontend/`. `GET /classic`, `/business`, and `/developer` now load the same workbench. They are not a second optimizer.
 
 ## Warehouse architecture
 
@@ -113,9 +115,11 @@ No scientific CSVs or recovery blobs were deleted. No second pass over intern ev
 | `app/data/demo_scientific_dataset.py` | Active demo densities only |
 | `app/data/demo_catalog.py` | Active demo overlay |
 | `app/data/demo_breed_care.py` | Dead; raises if called |
-| `legacy/workbench.*` | Active unified UI |
-| `legacy/app.js`, `ppie-*.js`, `business.js` | Compatibility routes only |
-| `legacy/archive/` | Isolated historical snapshot |
+| `waggy-frontend/` | Active unified UI (Ω17.4-FE) |
+| `legacy/workbench.*` | Removed; replaced by `waggy-frontend/` |
+| `legacy/archive/frontend/` | Archived classic/business/phone-shell UIs (reference) |
+| `legacy/debug/calculation.html` | Internal Clinical Execution Explorer |
+| `legacy/archive/omega9.6b/` | Isolated historical snapshot |
 | `repository/optimization/` | MAT helpers, not customer SKU composer |
 
 No production import points back into `legacy/archive/` or `demo_breed_care` care-model data.

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 import csv
 from pathlib import Path
 
@@ -89,10 +90,11 @@ def test_presentation_contract():
         assert f"{idx}." in contract
 
     customer_sources = [
-        _repo_root() / "legacy" / "app.js",
-        _repo_root() / "legacy" / "ppie-shell.js",
-        _repo_root() / "legacy" / "ppie-ui.js",
-        _repo_root() / "legacy" / "ppie-sheets.js",
+        _repo_root() / "legacy" / "archive" / "frontend" / "app.js",
+        _repo_root() / "legacy" / "archive" / "frontend" / "ppie-shell.js",
+        _repo_root() / "legacy" / "archive" / "frontend" / "ppie-ui.js",
+        _repo_root() / "legacy" / "archive" / "frontend" / "ppie-sheets.js",
+        WORKBENCH_JS,
     ]
     forbidden_runtime = (
         "repository.mathematics",
@@ -108,7 +110,7 @@ def test_presentation_contract():
         "fetch(\"/data/",
         "read_csv(",
     )
-    app_js = (_repo_root() / "legacy" / "app.js").read_text(encoding="utf-8")
+    app_js = (_repo_root() / "legacy" / "archive" / "frontend" / "app.js").read_text(encoding="utf-8")
     assert "/api/v1/clinical-report" in app_js
     for src in customer_sources:
         text = src.read_text(encoding="utf-8")

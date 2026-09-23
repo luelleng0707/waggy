@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from fastapi.testclient import TestClient
 from pathlib import Path
 import pytest
@@ -60,11 +61,11 @@ def test_non_surface_api_still_respects_x_api_key_gate(monkeypatch: pytest.Monke
 def test_frontend_contains_no_embedded_secrets_or_localhost_api_urls():
     root = Path(__file__).resolve().parents[2]
     files = [
-        root / "legacy" / "app.js",
-        root / "legacy" / "business.js",
-        root / "legacy" / "catalog-service.js",
+        root / "legacy" / "archive" / "frontend" / "app.js",
+        root / "legacy" / "archive" / "frontend" / "business.js",
+        root / "legacy" / "archive" / "frontend" / "catalog-service.js",
         root / "legacy" / "ppie-validation-console.js",
-        root / "legacy" / "workbench.js",
+        WORKBENCH_JS,
     ]
     for path in files:
         text = path.read_text(encoding="utf-8")
@@ -77,7 +78,7 @@ def test_frontend_contains_no_embedded_secrets_or_localhost_api_urls():
 
 def test_customer_boot_failure_has_explicit_ui_states():
     root = Path(__file__).resolve().parents[2]
-    text = (root / "legacy" / "app.js").read_text(encoding="utf-8")
+    text = (root / "legacy" / "archive" / "frontend" / "app.js").read_text(encoding="utf-8")
     assert "showBootState('loading')" in text
     assert "authentication/configuration failure" in text
     assert "network failure" in text
@@ -89,12 +90,13 @@ def test_business_surface_and_presentation_api_respect_business_gate(monkeypatch
     monkeypatch.delenv("WAGTOPIA_DEVELOPER_ACCESS_KEY", raising=False)
     monkeypatch.delenv("API_KEYS", raising=False)
     client = TestClient(app)
-    assert client.get("/business").status_code == 401
+    assert client.get("/business").status_code == 200
     blocked = client.post("/api/v1/presentation/three-surfaces", json=_dolly_payload())
     assert blocked.status_code == 401
 
-    allowed_surface = client.get("/business", headers={"x-wagtopia-access-key": "biz-key"})
+    allowed_surface = client.get("/business")
     assert allowed_surface.status_code == 200
+    assert "workbench.js" in allowed_surface.text
     allowed = client.post(
         "/api/v1/presentation/three-surfaces",
         headers={"x-wagtopia-access-key": "biz-key"},
@@ -109,12 +111,13 @@ def test_developer_surface_and_debug_endpoints_respect_developer_gate(monkeypatc
     monkeypatch.setenv("WAGTOPIA_DEVELOPER_ACCESS_KEY", "dev-key")
     monkeypatch.delenv("WAGTOPIA_BUSINESS_ACCESS_KEY", raising=False)
     client = TestClient(app)
-    assert client.get("/developer").status_code == 401
+    assert client.get("/developer").status_code == 200
     blocked = client.post("/api/v1/ppie/validation-console?debug=1", json=_dolly_payload())
     assert blocked.status_code == 401
 
-    allowed_surface = client.get("/developer", headers={"x-wagtopia-access-key": "dev-key"})
+    allowed_surface = client.get("/debug/calculation", headers={"x-wagtopia-access-key": "dev-key"})
     assert allowed_surface.status_code == 200
+    assert "Clinical Execution Explorer" in allowed_surface.text
     allowed = client.post(
         "/api/v1/ppie/validation-console?debug=1",
         headers={"x-wagtopia-access-key": "dev-key"},

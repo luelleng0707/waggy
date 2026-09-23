@@ -33,11 +33,11 @@ def test_typo_route_reference_absent_in_active_interface_sources():
         root / "app" / "ui" / "cstc" / "desktop.py",
         root / "app" / "ui" / "cstc" / "adapter.py",
         root / "app" / "ui" / "cstc" / "api_client.py",
-        root / "legacy" / "index.html",
-        root / "legacy" / "app.js",
-        root / "legacy" / "ppie-shell.js",
-        root / "legacy" / "ppie-dev-menu.js",
-        root / "legacy" / "ppie-trace.js",
+        root / "legacy" / "archive" / "frontend" / "index.html",
+        root / "legacy" / "archive" / "frontend" / "app.js",
+        root / "legacy" / "archive" / "frontend" / "ppie-shell.js",
+        root / "legacy" / "archive" / "frontend" / "ppie-dev-menu.js",
+        root / "legacy" / "archive" / "frontend" / "ppie-trace.js",
         root / "legacy" / "debug" / "calculation.html",
     ]
     for path in active_paths:

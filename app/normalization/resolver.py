@@ -104,6 +104,16 @@ def resolve_raw(
     )
 
 
+def resolve_breed(
+    raw_value: str | None,
+    *,
+    source: str | None = None,
+    catalog: MappingCatalog | None = None,
+) -> NormalizationResult:
+    """Breed-only facade. Delegates to resolve_raw; does not reimplement matching."""
+    return resolve_raw(raw_value, EntityKind.BREED, source=source, catalog=catalog)
+
+
 def _resolve_quantity(inp: NormalizationInput) -> NormalizationResult:
     if is_blank(inp.raw_value):
         return _blank_result(inp)

@@ -23,3 +23,8 @@ warehouse/production/
 warehouse/generated/
 operations/snapshots/
 meta/
+var/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm

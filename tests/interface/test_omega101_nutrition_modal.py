@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from pathlib import Path
 
 import pytest
@@ -11,9 +12,9 @@ from app.api.main import app
 
 
 ROOT = Path(__file__).resolve().parents[2]
-HTML = (ROOT / "legacy" / "workbench.html").read_text(encoding="utf-8")
-JS = (ROOT / "legacy" / "workbench.js").read_text(encoding="utf-8")
-CSS = (ROOT / "legacy" / "workbench.css").read_text(encoding="utf-8")
+HTML = (WORKBENCH_HTML).read_text(encoding="utf-8")
+JS = (WORKBENCH_JS).read_text(encoding="utf-8")
+CSS = (WORKBENCH_CSS).read_text(encoding="utf-8")
 
 
 def test_one_modal_markup_and_close_button():
@@ -82,6 +83,8 @@ def test_roles_still_share_bundle_ids(demo_env):
             "breeds": ["Labrador Retriever", "Golden Retriever"],
             "birthday": "2021-04-15",
             "weight": 30,
+            "activity_level": "Moderate",
+            "current_environment": "Temperate Outdoor",
             "observed_conditions": ["joint_stiffness", "itching"],
         },
     ).json()

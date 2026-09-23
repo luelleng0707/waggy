@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from tests.interface.frontend_paths import WORKBENCH_CSS, WORKBENCH_HTML, WORKBENCH_JS
 from pathlib import Path
 
 from fastapi.testclient import TestClient
@@ -110,14 +111,14 @@ def test_three_surfaces_share_one_demo_analysis(demo_client: TestClient):
 
 def test_no_frontend_hardcoded_package_contents():
     frontend = [
-        ROOT / "legacy" / "app.js",
-        ROOT / "legacy" / "ppie-shell.js",
-        ROOT / "legacy" / "ppie-ui.js",
-        ROOT / "legacy" / "business.js",
-        ROOT / "legacy" / "index.html",
-        ROOT / "legacy" / "business.html",
-        ROOT / "legacy" / "workbench.html",
-        ROOT / "legacy" / "workbench.js",
+        ROOT / "legacy" / "archive" / "frontend" / "app.js",
+        ROOT / "legacy" / "archive" / "frontend" / "ppie-shell.js",
+        ROOT / "legacy" / "archive" / "frontend" / "ppie-ui.js",
+        ROOT / "legacy" / "archive" / "frontend" / "business.js",
+        ROOT / "legacy" / "archive" / "frontend" / "index.html",
+        ROOT / "legacy" / "archive" / "frontend" / "business.html",
+        WORKBENCH_HTML,
+        WORKBENCH_JS,
     ]
     for path in frontend:
         text = path.read_text(encoding="utf-8")

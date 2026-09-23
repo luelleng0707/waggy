@@ -28,16 +28,16 @@ def test_customer_route_stays_public_when_surface_keys_set(monkeypatch: pytest.M
     assert client.get("/").status_code == 200
 
 
-def test_business_and_developer_routes_require_access_key_when_configured(monkeypatch: pytest.MonkeyPatch):
+def test_business_and_developer_debug_console_requires_access_key_when_configured(monkeypatch: pytest.MonkeyPatch):
     monkeypatch.setenv("PPIE_DEBUG", "true")
     monkeypatch.setenv("WAGTOPIA_BUSINESS_ACCESS_KEY", "biz-key")
     monkeypatch.setenv("WAGTOPIA_DEVELOPER_ACCESS_KEY", "dev-key")
     client = TestClient(app)
 
-    assert client.get("/business").status_code == 401
-    assert client.get("/developer").status_code == 401
-    assert client.get("/business", headers={"x-wagtopia-access-key": "biz-key"}).status_code == 200
-    assert client.get("/developer", headers={"x-wagtopia-access-key": "dev-key"}).status_code == 200
+    assert client.get("/business").status_code == 200
+    assert client.get("/developer").status_code == 200
+    assert client.get("/debug/calculation").status_code == 401
+    assert client.get("/debug/calculation", headers={"x-wagtopia-access-key": "dev-key"}).status_code == 200
 
 
 def test_three_surface_api_requires_business_key_when_configured(monkeypatch: pytest.MonkeyPatch):

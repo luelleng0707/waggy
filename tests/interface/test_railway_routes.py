@@ -37,8 +37,9 @@ def test_surface_access_keys_when_configured(monkeypatch: pytest.MonkeyPatch):
     monkeypatch.setenv("WAGTOPIA_DEVELOPER_ACCESS_KEY", "dev-key")
     client = TestClient(app)
 
-    assert client.get("/business").status_code == 401
+    assert client.get("/business").status_code == 200
     assert client.get("/business?access_key=biz-key").status_code == 200
 
-    assert client.get("/developer").status_code == 401
-    assert client.get("/developer?access_key=dev-key").status_code == 200
+    assert client.get("/developer").status_code == 200
+    assert client.get("/debug/calculation").status_code == 401
+    assert client.get("/debug/calculation?access_key=dev-key").status_code == 200
